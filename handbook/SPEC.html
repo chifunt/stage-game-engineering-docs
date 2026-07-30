@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-SPEC" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">STAGE Core Specification | STAGE Game Engineering</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" name="twitter:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" property="og:url" content="https://stage.zoshachi.com/handbook/SPEC"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="STAGE Core Specification | STAGE Game Engineering"><meta data-rh="true" name="description" content="Version: 0.6"><meta data-rh="true" property="og:description" content="Version: 0.6"><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://stage.zoshachi.com/handbook/SPEC"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/SPEC" hreflang="en"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/SPEC" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"STAGE Core Specification","item":"https://stage.zoshachi.com/handbook/SPEC"}]}</script><link rel="stylesheet" href="/assets/css/styles.5be3741e.css">
+<script src="/assets/js/runtime~main.c0cf7df1.js" defer="defer"></script>
+<script src="/assets/js/main.740a8be3.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">STAGE</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/handbook/docs/using-stage-with-codex">Use With Codex</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/handbook/docs/using-stage-with-codex">Handbook</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/handbook/docs/using-stage-with-codex"><span class="categoryLinkLabel_W154">Start Here</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/using-stage-with-codex"><span class="linkLabel_WmDU">Using STAGE With Codex</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook"><span class="linkLabel_WmDU">STAGE Game Engineering</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/STAGE"><span class="linkLabel_WmDU">STAGE Project Map</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/handbook/SPEC"><span class="linkLabel_WmDU">STAGE Core Specification</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs"><span class="linkLabel_WmDU">STAGE Documentation Map</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/method"><span class="categoryLinkLabel_W154">Deliver Work</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/gameplay-design-dialogue"><span class="categoryLinkLabel_W154">Design And Presentation</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/adoption"><span class="categoryLinkLabel_W154">Adopt And Operate</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/maintaining-stage"><span class="categoryLinkLabel_W154">Maintain STAGE</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/evaluation"><span class="categoryLinkLabel_W154">Evidence And Lessons</span></a></div></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_kv0_"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Start Here</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">STAGE Core Specification</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>STAGE Core Specification</h1></header>
+<p>Version: 0.6
+Status: Evidence-bounded practitioner proposal</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-purpose">1. Purpose<a href="#1-purpose" class="hash-link" aria-label="Direct link to 1. Purpose" title="Direct link to 1. Purpose" translate="no">​</a></h2>
+<p>STAGE is a human-directed method for agent-assisted game engineering. It aims
+to make changes safer to delegate, easier to inspect in the real project, and
+more honestly verified without prescribing a game architecture or requiring a
+STAGE artifact.</p>
+<p>The method is organized into three layers:</p>
+<ol>
+<li class="">a small universal <strong>Safety Kernel</strong>;</li>
+<li class="">a recommended project-native delivery loop; and</li>
+<li class="">optional interoperability contracts for projects that deliberately adopt
+maps, named operations, structured ownership, or durable evidence records.</li>
+</ol>
+<p>STAGE is not an engine, runtime framework, maturity model, autonomous developer,
+or guarantee of product quality. Its exact workflow has not been independently
+or longitudinally validated. See <a class="" href="/handbook/docs/research-foundations">Research Foundations</a>
+and <a class="" href="/handbook/docs/evaluation">Evaluation</a> for the evidence boundary.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-requirement-language">2. Requirement Language<a href="#2-requirement-language" class="hash-link" aria-label="Direct link to 2. Requirement Language" title="Direct link to 2. Requirement Language" translate="no">​</a></h2>
+<p>The terms <strong>MUST</strong>, <strong>MUST NOT</strong>, <strong>SHOULD</strong>, <strong>SHOULD NOT</strong>, and <strong>MAY</strong> are
+interpreted as described by <a href="https://www.rfc-editor.org/rfc/rfc2119.html" target="_blank" rel="noopener noreferrer" class="">RFC 2119</a>.
+They are used only for the universal Safety Kernel or an explicitly adopted
+interoperability contract.</p>
+<p>Text outside those sections is guidance. A project may choose another safe
+architecture or work sequence without violating STAGE. Requirement language in
+an optional contract applies only when a project declares that contract.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-universal-safety-kernel">3. Universal Safety Kernel<a href="#3-universal-safety-kernel" class="hash-link" aria-label="Direct link to 3. Universal Safety Kernel" title="Direct link to 3. Universal Safety Kernel" translate="no">​</a></h2>
+<p>These rules apply whenever a change is described as STAGE-directed. They
+protect human authority, project state, and the truthfulness of engineering
+claims; they do not require a specific file, tool, engine, or architecture.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="s1-direction-and-authority">S1. Direction And Authority<a href="#s1-direction-and-authority" class="hash-link" aria-label="Direct link to S1. Direction And Authority" title="Direct link to S1. Direction And Authority" translate="no">​</a></h3>
+<p>The newest authorized human outcome <strong>MUST</strong> govern the active work. A
+diagnosis-only request or explicit rejection of a route <strong>MUST NOT</strong> be turned
+into unauthorized implementation of that route or a nearby substitute. Final
+authority over product intent, taste, destructive actions, publishing, and
+acceptance <strong>MUST</strong> remain with the accountable human.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="s2-protected-state">S2. Protected State<a href="#s2-protected-state" class="hash-link" aria-label="Direct link to S2. Protected State" title="Direct link to S2. Protected State" translate="no">​</a></h3>
+<p>Pre-existing, unrelated, and human-authored work <strong>MUST</strong> be preserved unless
+its modification is explicitly authorized. An agent <strong>MUST NOT</strong> reset,
+regenerate, normalize, delete, or replace uncertain work merely to simplify the
+task.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="s3-fail-closed-on-material-uncertainty">S3. Fail Closed On Material Uncertainty<a href="#s3-fail-closed-on-material-uncertainty" class="hash-link" aria-label="Direct link to S3. Fail Closed On Material Uncertainty" title="Direct link to S3. Fail Closed On Material Uncertainty" translate="no">​</a></h3>
+<p>When authority for a proposed mutation, its destructive scope, credentials,
+publication rights, or another material authority boundary is unresolved, that
+mutation <strong>MUST NOT</strong> proceed. Authority for one named operation <strong>MUST NOT</strong>
+be widened to adjacent state, replacement, or regeneration. Unresolved
+provenance elsewhere in an artifact does not by itself prohibit a separately
+authorized operation that preserves that state. The agent may inspect safely
+or request the smallest missing decision; it <strong>MUST NOT</strong> infer permission from
+convenience, similarity, or generic continuation language.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="s4-canonical-source-and-real-consumer">S4. Canonical Source And Real Consumer<a href="#s4-canonical-source-and-real-consumer" class="hash-link" aria-label="Direct link to S4. Canonical Source And Real Consumer" title="Direct link to S4. Canonical Source And Real Consumer" translate="no">​</a></h3>
+<p>Material changes <strong>MUST</strong> use the project&#x27;s canonical source or authoring path.
+A claim about integrated behavior <strong>MUST</strong> be checked through a route that
+includes the real production consumer and every boundary material to that
+claim. A substitute preview or harness <strong>MUST NOT</strong> be presented as proof of a
+production context it omits.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="s5-claim-matched-evidence">S5. Claim-Matched Evidence<a href="#s5-claim-matched-evidence" class="hash-link" aria-label="Direct link to S5. Claim-Matched Evidence" title="Direct link to S5. Claim-Matched Evidence" translate="no">​</a></h3>
+<p>Evidence <strong>MUST</strong> be reported only for the scope it actually exercises.
+Compilation and static checks <strong>MUST NOT</strong> be presented as proof of runtime
+composition, visual quality, audio quality, game feel, balance, performance,
+or player usability. Automated tests and agent judgment <strong>MUST NOT</strong> replace
+human acceptance of subjective product qualities.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="s6-truthful-outcomes">S6. Truthful Outcomes<a href="#s6-truthful-outcomes" class="hash-link" aria-label="Direct link to S6. Truthful Outcomes" title="Direct link to S6. Truthful Outcomes" translate="no">​</a></h3>
+<p>Failed, unavailable, skipped, stale, or inconclusive verification <strong>MUST</strong> be
+reported as such. A command or tool result <strong>MUST NOT</strong> be called passed when
+its real exit status is unknown or when the current invocation did not produce
+the claimed completion signal.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="s7-reversibility">S7. Reversibility<a href="#s7-reversibility" class="hash-link" aria-label="Direct link to S7. Reversibility" title="Direct link to S7. Reversibility" translate="no">​</a></h3>
+<p>Broad, destructive, or high-risk experiments <strong>MUST</strong> begin from a recoverable
+checkpoint or an equivalently safe boundary. Rejection and rollback <strong>MUST</strong>
+remain valid outcomes; sunk cost <strong>MUST NOT</strong> be used to continue a rejected
+route.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="s8-read-only-claims">S8. Read-Only Claims<a href="#s8-read-only-claims" class="hash-link" aria-label="Direct link to S8. Read-Only Claims" title="Direct link to S8. Read-Only Claims" translate="no">​</a></h3>
+<p>An external inspection described as read-only <strong>MUST</strong> compare the protected
+source state before and after inspection. Any observed delta <strong>MUST</strong> be
+disclosed. Tools likely to import, compile, or generate state <strong>SHOULD</strong> run in
+a disposable copy when source immutability is material to the claim.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-recommended-practice">4. Recommended Practice<a href="#4-recommended-practice" class="hash-link" aria-label="Direct link to 4. Recommended Practice" title="Direct link to 4. Recommended Practice" translate="no">​</a></h2>
+<p>This section is deliberately non-normative. It describes the STAGE default,
+not a conformance checklist.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="41-the-five-qualities">4.1 The Five Qualities<a href="#41-the-five-qualities" class="hash-link" aria-label="Direct link to 4.1 The Five Qualities" title="Direct link to 4.1 The Five Qualities" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Systems-oriented</strong>: important behavior has discoverable ownership, state,
+rules, and lifecycle.</li>
+<li class=""><strong>Tool-mediated</strong>: work uses the authoritative project, engine, middleware,
+and source-control paths; custom tools are added only for a real recurring
+job.</li>
+<li class=""><strong>Agent-operable</strong>: a delegated change path is legible and safely actionable;
+this does not mean every domain needs an API.</li>
+<li class=""><strong>Governed</strong>: humans direct the product and retain meaningful correction,
+rejection, and rollback authority.</li>
+<li class=""><strong>Evidence-backed</strong>: the evidence type and scope match the claim being made.</li>
+</ul>
+<p>These are design questions, not required module boundaries. MonoBehaviours,
+ECS, data-oriented systems, plain objects, scripts, scenes, nodes, resources,
+and custom engines can all support them.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="42-delivery-loop">4.2 Delivery Loop<a href="#42-delivery-loop" class="hash-link" aria-label="Direct link to 4.2 Delivery Loop" title="Direct link to 4.2 Delivery Loop" translate="no">​</a></h3>
+<p>The default loop for one material change is:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">Frame -&gt; Inspect -&gt; Plan -&gt; Build -&gt; Rehearse -&gt; Judge -&gt; Checkpoint</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  ^                                               |</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  +---------------- tune or revert ---------------+</span><br></div></code></pre></div></div>
+<ul>
+<li class=""><strong>Frame</strong> the player, author, or maintainer outcome, non-goals, authority,
+and acceptance boundary.</li>
+<li class=""><strong>Inspect</strong> the smallest real path through source, authored content,
+composition, runtime, and presentation that can change the next decision.</li>
+<li class=""><strong>Plan</strong> the smallest complete result and the evidence needed for its claims.</li>
+<li class=""><strong>Build</strong> through canonical project sources while preserving unrelated state.</li>
+<li class=""><strong>Rehearse</strong> through the smallest route that contains each production
+consumer and material integration boundary.</li>
+<li class=""><strong>Judge</strong> mechanical evidence separately from human product judgment.</li>
+<li class=""><strong>Checkpoint</strong> accepted work, or tune, diagnose, defer, or revert.</li>
+</ul>
+<p>The loop is a useful default, not mandatory ceremony. Small changes may combine
+steps. Diagnosis may end after inspection. A large change may repeat the loop
+many times.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="43-inspection-lens">4.3 Inspection Lens<a href="#43-inspection-lens" class="hash-link" aria-label="Direct link to 4.3 Inspection Lens" title="Direct link to 4.3 Inspection Lens" translate="no">​</a></h3>
+<p>For a material domain, it is often useful to ask:</p>
+<table><thead><tr><th>Lens</th><th>Question</th></tr></thead><tbody><tr><td>Intent</td><td>What can a human author or tune?</td></tr><tr><td>Runtime</td><td>What mutable state exists, and who owns its lifecycle?</td></tr><tr><td>Behavior</td><td>Which rules change that state?</td></tr><tr><td>Integration</td><td>Which engine or middleware boundary performs side effects?</td></tr><tr><td>Operation</td><td>How can the relevant state be exercised or inspected?</td></tr><tr><td>Evidence</td><td>What route can truthfully support the current claim?</td></tr><tr><td>Ownership</td><td>Which artifacts are human-authored, generated, external, or ephemeral?</td></tr></tbody></table>
+<p>Use project vocabulary and existing architecture first. Missing reference
+roles are not defects by default. Add an abstraction only when it solves
+observed complexity, duplication, ownership risk, or a real repeated operation.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="44-decision-sufficient-inspection">4.4 Decision-Sufficient Inspection<a href="#44-decision-sufficient-inspection" class="hash-link" aria-label="Direct link to 4.4 Decision-Sufficient Inspection" title="Direct link to 4.4 Decision-Sufficient Inspection" translate="no">​</a></h3>
+<p>Begin from the concrete change or diagnosis and follow the strongest source
+cues. Continue inspecting while another observation can plausibly change
+ownership, implementation, evidence, authority, diagnosis, or material risk.
+Stop when the next engineering decision is supported. Conflicting evidence,
+failed verification, unclear blast radius, or an explicitly broad audit can
+justify expansion.</p>
+<p>There is no universal file, command, token, or time quota. More context is not
+automatically better context.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="45-earned-infrastructure">4.5 Earned Infrastructure<a href="#45-earned-infrastructure" class="hash-link" aria-label="Direct link to 4.5 Earned Infrastructure" title="Direct link to 4.5 Earned Infrastructure" translate="no">​</a></h3>
+<p>Start with the direct project-native route. Persist a map, helper, abstraction,
+custom operation, diagnostic, export, or product surface when an observed
+recurring cost, material ownership risk, or named consumer gives it a durable
+job. Retire it when it no longer shortens or safeguards the real change loop.</p>
+<p>A codex, gallery, bestiary, model viewer, world previewer, or inspect mode is an
+ordinary game or authoring feature. Build one when players, authors, or
+developers need that feature; do not manufacture it merely as STAGE evidence.
+Screenshots and video are useful when a remote reviewer, comparison, CI check,
+audit, release, or retention decision needs portable output.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="46-visual-and-experiential-work">4.6 Visual And Experiential Work<a href="#46-visual-and-experiential-work" class="hash-link" aria-label="Direct link to 4.6 Visual And Experiential Work" title="Direct link to 4.6 Visual And Experiential Work" translate="no">​</a></h3>
+<p>Rendered appearance, animation, VFX, UI, lighting, audio, feel, pacing, and
+procedural readability should be judged in the real engine or game with the
+production content and relevant context. Fixed seeds and repeatable states can
+improve comparison. Human judgment remains the acceptance authority.</p>
+<p>See <a class="" href="/handbook/docs/visual-work">Visual Work</a> and the
+<a class="" href="/handbook/docs/task-evidence-matrix">Task-Evidence Matrix</a> for claim-specific
+guidance.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="47-player-facing-expansion-gate">4.7 Player-Facing Expansion Gate<a href="#47-player-facing-expansion-gate" class="hash-link" aria-label="Direct link to 4.7 Player-Facing Expansion Gate" title="Direct link to 4.7 Player-Facing Expansion Gate" translate="no">​</a></h3>
+<p>When work originates or materially expands a player-facing loop, first frame a
+small experience hypothesis and build one complete playable slice. Human play
+of the real player surface should separately judge comprehension, usability,
+engagement, and desire to continue. A blocked or untested loop should remain a
+bounded iteration rather than becoming the basis for broad architecture,
+content, modes, polish, or transferability claims.</p>
+<p>This is a high-leverage product checkpoint, not a requirement for every bug
+fix, refactor, or content change. Human acceptance is project-local direction,
+not proof of objective fun or market fit.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-optional-interoperability-contracts">5. Optional Interoperability Contracts<a href="#5-optional-interoperability-contracts" class="hash-link" aria-label="Direct link to 5. Optional Interoperability Contracts" title="Direct link to 5. Optional Interoperability Contracts" translate="no">​</a></h2>
+<p>The contracts below are independent. A project adopts only those it uses.
+Their requirements standardize artifacts exchanged between people or tools;
+they do not impose a runtime architecture.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="51-project-map-contract">5.1 Project Map Contract<a href="#51-project-map-contract" class="hash-link" aria-label="Direct link to 5.1 Project Map Contract" title="Direct link to 5.1 Project Map Contract" translate="no">​</a></h3>
+<p>A project declaring the STAGE project-map contract <strong>MUST</strong> maintain a
+human-readable map and a machine-readable manifest in the locations declared
+by the manifest. The manifest <strong>MUST</strong> declare a supported schema version and
+map profile, and <strong>MUST</strong> validate against that version&#x27;s schema.</p>
+<p>The map and manifest <strong>MUST</strong> identify, proportionally to the selected profile:</p>
+<ul>
+<li class="">project direction and current phase;</li>
+<li class="">canonical terminology and important ownership boundaries;</li>
+<li class="">composition, lifecycle, authoring, and runtime entry points;</li>
+<li class="">available operations and their readiness boundaries;</li>
+<li class="">verification routes and experiential decision owners; and</li>
+<li class="">unresolved authority, prohibited actions, and known high-risk workflows.</li>
+</ul>
+<p>The map <strong>MUST NOT</strong> duplicate volatile test counts, timestamps, hashes, or run
+outcomes as if they were durable architecture. It may link to a canonical
+revision-bound record. Compact projects <strong>MUST NOT</strong> manufacture domains or
+operations merely to fill a template.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="52-named-operation-contract">5.2 Named Operation Contract<a href="#52-named-operation-contract" class="hash-link" aria-label="Direct link to 5.2 Named Operation Contract" title="Direct link to 5.2 Named Operation Contract" translate="no">​</a></h3>
+<p>A project declaring a named operation <strong>MUST</strong> identify its purpose,
+capabilities, preconditions, expected effects, safety class, completion signal,
+and supported evidence claim.</p>
+<p>Operation state uses these meanings:</p>
+<ul>
+<li class=""><code>documented</code>: instructions exist; availability was not established;</li>
+<li class=""><code>available</code>: required capabilities and readiness were observed;</li>
+<li class=""><code>passed</code> or <code>failed</code>: the current invocation produced a conclusive result;</li>
+<li class=""><code>inconclusive</code>: execution did not answer the intended claim;</li>
+<li class=""><code>unavailable</code>: a required capability or state was absent; and</li>
+<li class=""><code>not attempted</code>: execution was intentionally omitted.</li>
+</ul>
+<p>An operation definition <strong>MUST NOT</strong> be presented as execution evidence. A
+wrapper <strong>MUST</strong> preserve the real failing status. <code>passed</code> <strong>MUST</strong> require the
+declared completion signal from the current invocation; stale output or process
+exit alone <strong>MUST NOT</strong> be reused as current proof.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="53-ownership-record-contract">5.3 Ownership Record Contract<a href="#53-ownership-record-contract" class="hash-link" aria-label="Direct link to 5.3 Ownership Record Contract" title="Direct link to 5.3 Ownership Record Contract" translate="no">​</a></h3>
+<p>A structured ownership record <strong>MUST</strong> use its declared schema vocabulary or a
+documented project refinement. Generated authority <strong>MUST</strong> identify its source
+and regeneration operation. Unresolved authority <strong>MUST</strong> identify a decision
+owner and prohibited mutations. Automation <strong>MUST NOT</strong> regenerate, delete, or
+normalize unresolved artifacts.</p>
+<p>The current STAGE vocabulary is:</p>
+<table><thead><tr><th>Authority</th><th>Meaning</th></tr></thead><tbody><tr><td><code>human</code></td><td>Project-owned source, tuning, data, or assets.</td></tr><tr><td><code>project-generated</code></td><td>Reproducible output from project-owned tooling.</td></tr><tr><td><code>external-generated</code></td><td>Output from middleware or another authoring tool.</td></tr><tr><td><code>external-vendored</code></td><td>Tracked third-party material with an upstream owner.</td></tr><tr><td><code>runtime</code></td><td>Ephemeral state, not authored project intent.</td></tr><tr><td><code>legacy</code></td><td>Retained material with a known non-current role.</td></tr><tr><td><code>unresolved</code></td><td>Authority is insufficient for broad automation.</td></tr></tbody></table>
+<p>Human-facing labels in this specification use spaces or hyphens. Project-map
+<code>0.3</code> wire values encode the same concepts with exact <code>snake_case</code> schema
+enums, including <code>not_attempted</code>, <code>project_generated</code>, <code>external_generated</code>,
+and <code>external_vendored</code>; those spellings are not project refinements.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="54-evidence-record-contract">5.4 Evidence Record Contract<a href="#54-evidence-record-contract" class="hash-link" aria-label="Direct link to 5.4 Evidence Record Contract" title="Direct link to 5.4 Evidence Record Contract" translate="no">​</a></h3>
+<p>A structured evidence record <strong>MUST</strong> identify the claim, evidence class,
+outcome, and material scope. It <strong>SHOULD</strong> include provenance, source revision,
+effective toolchain, limitations, and unresolved uncertainty when those affect
+reproducibility or interpretation.</p>
+<p>When a versioned artifact represents those coordinates across linked records,
+one claim linkage <strong>MUST</strong> carry the outcome and nonblank material scope and
+resolve to its evidence class. Coordinates borrowed from different claims do
+not form one evidence record.</p>
+<p>An outcome-free supported claim or verification route is a definition, not an
+execution evidence record, and <strong>MUST NOT</strong> be reported as proof that the route
+ran or answered its claim.</p>
+<p>Supported evidence classes include static, deterministic, composed runtime,
+observed runtime, visual, interactive, and experiential evidence. One class or
+scope <strong>MUST NOT</strong> be reported as another.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="55-external-study-contract">5.5 External Study Contract<a href="#55-external-study-contract" class="hash-link" aria-label="Direct link to 5.5 External Study Contract" title="Direct link to 5.5 External Study Contract" translate="no">​</a></h3>
+<p>A STAGE external study <strong>MUST</strong> identify its target, immutable source revision,
+inspection basis, researcher disposition, and target-maintainer review status
+separately. Observations, inferences, proposals, and normative claims <strong>MUST</strong>
+remain distinguishable. A researcher <strong>MUST NOT</strong> grant target-maintainer
+acceptance or imply adoption that did not occur.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="56-artifact-compatibility-contract">5.6 Artifact Compatibility Contract<a href="#56-artifact-compatibility-contract" class="hash-link" aria-label="Direct link to 5.6 Artifact Compatibility Contract" title="Direct link to 5.6 Artifact Compatibility Contract" translate="no">​</a></h3>
+<p>Versioned STAGE artifacts <strong>MUST</strong> declare their schema version. Tooling
+<strong>MUST</strong> select that declared version, <strong>MUST NOT</strong> silently rewrite a supported
+older artifact, and <strong>MUST</strong> make migration explicit and reviewable. Migration
+<strong>MUST</strong> preserve human decisions; unsafe legacy ownership mappings <strong>MUST</strong>
+remain unresolved.</p>
+<p>Project-map schemas <code>0.1</code> and <code>0.3</code> and case-study schemas <code>0.1</code>, <code>0.3</code>, and
+<code>0.4</code> remain supported by STAGE 0.6. The method release and artifact schema
+version are independent.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-reporting-stage-use">6. Reporting STAGE Use<a href="#6-reporting-stage-use" class="hash-link" aria-label="Direct link to 6. Reporting STAGE Use" title="Direct link to 6. Reporting STAGE Use" translate="no">​</a></h2>
+<p>Do not report an aggregate STAGE conformance score or maturity level. Instead,
+state the bounded facts:</p>
+<ul>
+<li class="">the change or revision to which STAGE 0.6 was applied;</li>
+<li class="">which Safety Kernel rules were material;</li>
+<li class="">which optional contracts, if any, the project declared;</li>
+<li class="">which evidence was actually collected; and</li>
+<li class="">which checks or human judgments remain unavailable, rejected, or pending.</li>
+</ul>
+<p>Applying more optional contracts does not imply better architecture, product
+quality, autonomy, or agent readiness.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-scope-and-non-goals">7. Scope And Non-Goals<a href="#7-scope-and-non-goals" class="hash-link" aria-label="Direct link to 7. Scope And Non-Goals" title="Direct link to 7. Scope And Non-Goals" translate="no">​</a></h2>
+<p>STAGE does not prescribe:</p>
+<ul>
+<li class="">a game engine, programming paradigm, dependency-injection framework, or data
+format;</li>
+<li class="">one domain decomposition or file layout;</li>
+<li class="">custom agent APIs, project maps, evidence packages, galleries, or automation;</li>
+<li class="">fully autonomous development; or</li>
+<li class="">a replacement for design judgment, playtesting, profiling, accessibility
+evaluation, security review, or platform certification.</li>
+</ul>
+<p>The project&#x27;s own language, architecture, engine conventions, and accountable
+humans remain primary. Reference profiles are question sets and worked
+examples, not target shapes a project is expected to imitate.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2026-07-24T21:24:10.000Z" itemprop="dateModified">Jul 24, 2026</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/handbook/STAGE"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">STAGE Project Map</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/handbook/docs"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">STAGE Documentation Map</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1-purpose" class="table-of-contents__link toc-highlight">1. Purpose</a></li><li><a href="#2-requirement-language" class="table-of-contents__link toc-highlight">2. Requirement Language</a></li><li><a href="#3-universal-safety-kernel" class="table-of-contents__link toc-highlight">3. Universal Safety Kernel</a><ul><li><a href="#s1-direction-and-authority" class="table-of-contents__link toc-highlight">S1. Direction And Authority</a></li><li><a href="#s2-protected-state" class="table-of-contents__link toc-highlight">S2. Protected State</a></li><li><a href="#s3-fail-closed-on-material-uncertainty" class="table-of-contents__link toc-highlight">S3. Fail Closed On Material Uncertainty</a></li><li><a href="#s4-canonical-source-and-real-consumer" class="table-of-contents__link toc-highlight">S4. Canonical Source And Real Consumer</a></li><li><a href="#s5-claim-matched-evidence" class="table-of-contents__link toc-highlight">S5. Claim-Matched Evidence</a></li><li><a href="#s6-truthful-outcomes" class="table-of-contents__link toc-highlight">S6. Truthful Outcomes</a></li><li><a href="#s7-reversibility" class="table-of-contents__link toc-highlight">S7. Reversibility</a></li><li><a href="#s8-read-only-claims" class="table-of-contents__link toc-highlight">S8. Read-Only Claims</a></li></ul></li><li><a href="#4-recommended-practice" class="table-of-contents__link toc-highlight">4. Recommended Practice</a><ul><li><a href="#41-the-five-qualities" class="table-of-contents__link toc-highlight">4.1 The Five Qualities</a></li><li><a href="#42-delivery-loop" class="table-of-contents__link toc-highlight">4.2 Delivery Loop</a></li><li><a href="#43-inspection-lens" class="table-of-contents__link toc-highlight">4.3 Inspection Lens</a></li><li><a href="#44-decision-sufficient-inspection" class="table-of-contents__link toc-highlight">4.4 Decision-Sufficient Inspection</a></li><li><a href="#45-earned-infrastructure" class="table-of-contents__link toc-highlight">4.5 Earned Infrastructure</a></li><li><a href="#46-visual-and-experiential-work" class="table-of-contents__link toc-highlight">4.6 Visual And Experiential Work</a></li><li><a href="#47-player-facing-expansion-gate" class="table-of-contents__link toc-highlight">4.7 Player-Facing Expansion Gate</a></li></ul></li><li><a href="#5-optional-interoperability-contracts" class="table-of-contents__link toc-highlight">5. Optional Interoperability Contracts</a><ul><li><a href="#51-project-map-contract" class="table-of-contents__link toc-highlight">5.1 Project Map Contract</a></li><li><a href="#52-named-operation-contract" class="table-of-contents__link toc-highlight">5.2 Named Operation Contract</a></li><li><a href="#53-ownership-record-contract" class="table-of-contents__link toc-highlight">5.3 Ownership Record Contract</a></li><li><a href="#54-evidence-record-contract" class="table-of-contents__link toc-highlight">5.4 Evidence Record Contract</a></li><li><a href="#55-external-study-contract" class="table-of-contents__link toc-highlight">5.5 External Study Contract</a></li><li><a href="#56-artifact-compatibility-contract" class="table-of-contents__link toc-highlight">5.6 Artifact Compatibility Contract</a></li></ul></li><li><a href="#6-reporting-stage-use" class="table-of-contents__link toc-highlight">6. Reporting STAGE Use</a></li><li><a href="#7-scope-and-non-goals" class="table-of-contents__link toc-highlight">7. Scope And Non-Goals</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Start</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/using-stage-with-codex">Choose a Codex workflow</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/STAGE">Read the project map</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Method</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/method">Delivery method</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/SPEC">Safety Kernel</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">History</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/releases">Release records</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/adr">Architecture decisions</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">STAGE Game Engineering. Human product authority remains non-delegable.</div></div></div></footer></div>
+</body>
+</html>

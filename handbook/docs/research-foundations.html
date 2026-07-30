@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-docs/research-foundations" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">Research Foundations | STAGE Game Engineering</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" name="twitter:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" property="og:url" content="https://stage.zoshachi.com/handbook/docs/research-foundations"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Research Foundations | STAGE Game Engineering"><meta data-rh="true" name="description" content="STAGE is a synthesis of established practices and emerging agentic-development evidence. It should not be presented as a scientifically proven whole until it has been independently evaluated."><meta data-rh="true" property="og:description" content="STAGE is a synthesis of established practices and emerging agentic-development evidence. It should not be presented as a scientifically proven whole until it has been independently evaluated."><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://stage.zoshachi.com/handbook/docs/research-foundations"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/research-foundations" hreflang="en"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/research-foundations" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Research Foundations","item":"https://stage.zoshachi.com/handbook/docs/research-foundations"}]}</script><link rel="stylesheet" href="/assets/css/styles.5be3741e.css">
+<script src="/assets/js/runtime~main.c0cf7df1.js" defer="defer"></script>
+<script src="/assets/js/main.740a8be3.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">STAGE</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/handbook/docs/using-stage-with-codex">Use With Codex</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/handbook/docs/using-stage-with-codex">Handbook</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/handbook/docs/using-stage-with-codex"><span class="categoryLinkLabel_W154">Start Here</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/using-stage-with-codex"><span class="linkLabel_WmDU">Using STAGE With Codex</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook"><span class="linkLabel_WmDU">STAGE Game Engineering</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/STAGE"><span class="linkLabel_WmDU">STAGE Project Map</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/SPEC"><span class="linkLabel_WmDU">STAGE Core Specification</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs"><span class="linkLabel_WmDU">STAGE Documentation Map</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/method"><span class="categoryLinkLabel_W154">Deliver Work</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/gameplay-design-dialogue"><span class="categoryLinkLabel_W154">Design And Presentation</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/adoption"><span class="categoryLinkLabel_W154">Adopt And Operate</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/maintaining-stage"><span class="categoryLinkLabel_W154">Maintain STAGE</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/handbook/docs/evaluation"><span class="categoryLinkLabel_W154">Evidence And Lessons</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/evaluation"><span class="linkLabel_WmDU">Evaluation, Readiness, And Transferability</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/handbook/docs/research-foundations"><span class="linkLabel_WmDU">Research Foundations</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/failure-atlas"><span class="linkLabel_WmDU">Failure Atlas</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/case-study-synthesis"><span class="linkLabel_WmDU">Cross-Project Case-Study Synthesis</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/case-studies/the-circussy-one"><span class="linkLabel_WmDU">Case Study: The Circussy One</span></a></li></ul></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_kv0_"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Evidence And Lessons</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Research Foundations</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Research Foundations</h1></header>
+<p>STAGE is a synthesis of established practices and emerging agentic-development evidence. It should not be presented as a scientifically proven whole until it has been independently evaluated.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="established-lineage">Established Lineage<a href="#established-lineage" class="hash-link" aria-label="Direct link to Established Lineage" title="Direct link to Established Lineage" translate="no">​</a></h2>
+<ul>
+<li class="">Data-driven and model-driven design inform the separation of authored intent from runtime realization.</li>
+<li class="">Dependency inversion and ports-and-adapters inform explicit integration boundaries.</li>
+<li class="">Functional-core and imperative-shell thinking informs deterministic rules surrounded by engine effects.</li>
+<li class="">Domain-driven design informs shared vocabulary and explicit model ownership.</li>
+<li class="">Observability and continuous verification inform diagnostics and evidence selection.</li>
+<li class="">Mixed-initiative co-creativity informs collaboration in which humans and computational systems can both take initiative.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="relevant-work">Relevant Work<a href="#relevant-work" class="hash-link" aria-label="Direct link to Relevant Work" title="Direct link to Relevant Work" translate="no">​</a></h2>
+<ul>
+<li class="">Yannakakis, Liapis, and Alexopoulos, <a href="https://www.um.edu.mt/library/oar/handle/123456789/29459" target="_blank" rel="noopener noreferrer" class="">Mixed-Initiative Co-Creativity</a>, 2014.</li>
+<li class="">Smith, Whitehead, and Mateas, <a href="https://doi.org/10.1145/1822348.1822376" target="_blank" rel="noopener noreferrer" class="">Tanagra: A Mixed-Initiative Level Design Tool</a>, 2010.</li>
+<li class="">Dhanorkar, Passi, and Vorvoreanu, <a href="https://arxiv.org/abs/2606.05391" target="_blank" rel="noopener noreferrer" class="">Human Oversight of Agentic Systems in Practice</a>, 2026 preprint.</li>
+<li class="">Agarwal, He, and Vasilescu, <a href="https://arxiv.org/abs/2601.13597" target="_blank" rel="noopener noreferrer" class="">AI IDEs or Autonomous Agents?</a>, 2026 preprint.</li>
+<li class="">Luo et al., <a href="https://arxiv.org/abs/2606.17861" target="_blank" rel="noopener noreferrer" class="">GameCraft-Bench</a>, 2026 preprint.</li>
+<li class="">Sun et al., <a href="https://arxiv.org/abs/2606.19830" target="_blank" rel="noopener noreferrer" class="">JAMER</a>, 2026 preprint.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="human-control-and-progressive-formalization">Human Control And Progressive Formalization<a href="#human-control-and-progressive-formalization" class="hash-link" aria-label="Direct link to Human Control And Progressive Formalization" title="Direct link to Human Control And Progressive Formalization" translate="no">​</a></h2>
+<p>Several established lines of work constrain how STAGE should package agentic
+game engineering:</p>
+<ul>
+<li class="">Horvitz, <a href="https://www.microsoft.com/en-us/research/publication/principles-mixed-initiative-user-interfaces/" target="_blank" rel="noopener noreferrer" class="">Principles of Mixed-Initiative User Interfaces</a>,
+1999, argues for coupling automated services with direct manipulation rather
+than treating automation and user control as competing endpoints.</li>
+<li class="">Amershi et al., <a href="https://www.microsoft.com/en-us/research/publication/guidelines-for-human-ai-interaction/" target="_blank" rel="noopener noreferrer" class="">Guidelines for Human-AI Interaction</a>,
+2019, validated 18 guidelines with 49 design practitioners across 20
+AI-infused products. The guidance includes making capabilities clear and
+supporting efficient invocation, correction, dismissal, and adaptation.</li>
+<li class="">Shipman and McCall,
+<a href="https://people.engr.tamu.edu/shipman/chi94-hos/chi94hos_abstract.html" target="_blank" rel="noopener noreferrer" class="">Supporting Knowledge-Base Evolution with Incremental Formalization</a>,
+1994, demonstrates that useful informal work can precede and progressively
+acquire formal structure instead of requiring full representation up front.</li>
+<li class="">Johnson et al., <a href="https://intimate-computing.net/my-papers/2014/johnson14jhri.pdf" target="_blank" rel="noopener noreferrer" class="">Coactive Design</a>,
+2014, centers interdependence and the practical requirements of
+observability, predictability, and directability in human-machine joint
+activity.</li>
+<li class="">Bainbridge, <a href="https://doi.org/10.1016/0005-1098(83)90046-8" target="_blank" rel="noopener noreferrer" class="">Ironies of Automation</a>,
+1983, shows that automation can expand the operator&#x27;s supervisory and
+abnormal-recovery problems instead of eliminating them.</li>
+</ul>
+<p>STAGE applies this lineage by making one project-native accepted change the
+primary operation. Maps, formal manifests, stable agent interfaces, custom
+diagnostics, and durable evidence are added only when observed coordination or
+correction cost or a named consumer gives them a job. Player- or editor-facing
+features such as galleries remain ordinary project work rather than STAGE
+infrastructure. This is a design rationale, not empirical proof that STAGE&#x27;s
+exact loop is optimal.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="instruction-economy-and-normative-restraint">Instruction Economy And Normative Restraint<a href="#instruction-economy-and-normative-restraint" class="hash-link" aria-label="Direct link to Instruction Economy And Normative Restraint" title="Direct link to Instruction Economy And Normative Restraint" translate="no">​</a></h2>
+<p>STAGE&#x27;s early revisions treated many good practices and hard-won corrections
+as universal requirements. That made the method more explicit, but also made
+its default agent context long, repetitive, and expensive to change. Several
+primary sources argue for a stricter complexity budget:</p>
+<ul>
+<li class=""><a href="https://www.rfc-editor.org/rfc/rfc2119.html" target="_blank" rel="noopener noreferrer" class="">RFC 2119</a> states that normative
+imperatives should be used sparingly and only where interoperability or
+potential harm requires them. Architecture heuristics and preferred work
+sequences do not automatically meet that bar.</li>
+<li class="">Anthropic&#x27;s <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer" class="">Building effective agents</a>
+reports that successful agent implementations tend to use simple,
+composable patterns. It recommends beginning with the simplest sufficient
+solution, making agent-computer interfaces clear, and adding complexity only
+when measured outcomes justify it.</li>
+<li class="">Anthropic&#x27;s <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener noreferrer" class="">context-engineering guidance</a>
+frames context as a finite resource whose utility must be curated. STAGE
+applies that idea through short routing metadata and conditional references
+rather than loading every edge case into every task.</li>
+<li class="">OpenAI&#x27;s <a href="https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/" target="_blank" rel="noopener noreferrer" class="">practical guide to building agents</a>
+recommends incremental orchestration, beginning with a single agent and
+introducing guardrails in response to observed risks. That supports a small
+safety kernel plus earned optional contracts rather than a preloaded
+workflow framework.</li>
+<li class="">Gloaguen et al.&#x27;s <a href="https://arxiv.org/abs/2602.11988" target="_blank" rel="noopener noreferrer" class="">evaluation of repository-level context files</a>
+found no significant success improvement in the evaluated coding tasks and
+observed more cost and tool activity when context files were present. The
+study does not cover Unity or long-running human-agent game development, but
+it is direct evidence that instructions can be followed while still making
+work less efficient.</li>
+<li class="">Lulla et al.&#x27;s <a href="https://arxiv.org/abs/2601.20404" target="_blank" rel="noopener noreferrer" class="">study of AGENTS.md efficiency</a>
+reports a conflicting result across 10 repositories and 124 reconstructed
+pull-request tasks: the context-file condition had 28.64% lower median
+runtime and 16.58% lower median output-token use with comparable completion
+behavior. Its completion check was a coarse sanity check rather than a
+task-specific correctness evaluator, so it is evidence about operational
+association, not proof that repository instructions improve patches.</li>
+<li class="">Shepard and Albrecht&#x27;s <a href="https://arxiv.org/abs/2606.20512" target="_blank" rel="noopener noreferrer" class="">probe-and-refine study</a>
+reports that guidance tuned through synthetic bug-fix probes outperformed
+both its static starting guidance and an unguided baseline for one model and
+benchmark setup, mainly by increasing the number of evaluable patches rather
+than per-patch precision. The tuning loop degraded with a less capable model.
+This supports task-local probing and model-aware guidance maintenance while
+remaining a recent preprint on software repair, not game-development proof.</li>
+<li class="">Xia et al.&#x27;s <a href="https://arxiv.org/abs/2407.01489" target="_blank" rel="noopener noreferrer" class="">Agentless</a> shows that a simple
+localization, repair, and validation design can be a strong software-repair
+baseline. Yang et al.&#x27;s <a href="https://arxiv.org/abs/2405.15793" target="_blank" rel="noopener noreferrer" class="">SWE-agent</a> shows
+that a deliberately designed agent-computer interface can materially affect
+performance. Together they support improving concrete project interfaces
+while resisting a large universal process layer.</li>
+</ul>
+<p>The evidence does not establish one optimal prompt length or prove that all
+repository guidance is harmful. It does justify a falsifiable default: keep
+universal requirements to human authority and harm prevention; keep
+interoperability rules with the optional artifact that needs them; expose
+specialized guidance only when the current claim needs it; and measure before
+adding another permanent instruction. Conflicting results are a reason to
+measure guidance against complete task outcomes, not a reason to select the
+study that best matches a preferred method.</p>
+<p>Two recent evaluation papers sharpen that restraint without directly proving a
+STAGE rule. Mustahsan et al.&#x27;s
+<a href="https://arxiv.org/abs/2512.06710" target="_blank" rel="noopener noreferrer" class="">Stochasticity in Agentic Evaluations</a>
+shows substantial within-query variation and reports that stable estimates can
+require repeated trials whose count depends on task structure. Orlanski et
+al.&#x27;s <a href="https://arxiv.org/abs/2603.24755" target="_blank" rel="noopener noreferrer" class="">SlopCodeBench</a> finds that iterative
+test success can coexist with growing verbosity and structural erosion, and
+that a prompt intervention improved initial quality without stopping later
+degradation. Together they support repeated measurements plus artifact-level
+structural review. They do not establish a universal replication count, prove
+that STAGE prevents erosion, or make prompt length a quality metric.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="bounded-search-information-scent-and-oversight-cost">Bounded Search, Information Scent, And Oversight Cost<a href="#bounded-search-information-scent-and-oversight-cost" class="hash-link" aria-label="Direct link to Bounded Search, Information Scent, And Oversight Cost" title="Direct link to Bounded Search, Information Scent, And Oversight Cost" translate="no">​</a></h2>
+<p>STAGE&#x27;s inspection stopping rule combines several relevant but non-equivalent
+lines of evidence:</p>
+<ul>
+<li class="">Lawrance, Bellamy, and Burnett&#x27;s
+<a href="https://research.ibm.com/publications/scents-in-programs-does-information-foraging-theory-apply-to-program-maintenance" target="_blank" rel="noopener noreferrer" class="">Scents in Programs</a>
+and Lawrance et al.&#x27;s
+<a href="https://research.ibm.com/publications/how-programmers-debug-revisited-an-information-foraging-theory-perspective" target="_blank" rel="noopener noreferrer" class="">How Programmers Debug, Revisited</a>
+apply information-foraging theory to program maintenance and debugging.
+STAGE uses this as support for beginning from strong source cues and updating
+the search as evidence changes rather than reading a repository uniformly.</li>
+<li class="">Simon&#x27;s
+<a href="https://iiif.library.cmu.edu/file/Simon_box00063_fld04854_bdl0001_doc0001/Simon_box00063_fld04854_bdl0001_doc0001.pdf" target="_blank" rel="noopener noreferrer" class="">Rational Choice and the Structure of the Environment</a>
+and later
+<a href="https://www.nobelprize.org/prizes/economic-sciences/1978/simon/lecture/" target="_blank" rel="noopener noreferrer" class="">Nobel lecture</a>
+frame decision-making under bounded knowledge and computation. STAGE borrows
+the practical idea of stopping at decision sufficiency; it does not claim
+that software inspection has one mathematically optimal stopping point.</li>
+<li class="">Liu et al.&#x27;s
+<a href="https://arxiv.org/abs/2307.03172" target="_blank" rel="noopener noreferrer" class="">Lost in the Middle</a> found that then-current
+language models did not use long context uniformly and could perform worse
+when relevant information was poorly positioned. This is evidence against
+assuming that more context is automatically more usable context, not a
+current-model performance bound or a reason to withhold needed evidence.</li>
+<li class="">Dhanorkar, Passi, and Vorvoreanu&#x27;s
+<a href="https://arxiv.org/abs/2606.05391" target="_blank" rel="noopener noreferrer" class="">exploratory interviews</a> with 17 experienced
+developers found a priori control, co-planning, real-time monitoring, and
+post hoc review, while noting that practitioners use efficient rather than
+perfect oversight. The study provides an early empirical anchor, not a
+general oversight optimum.</li>
+<li class="">METR&#x27;s
+<a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/" target="_blank" rel="noopener noreferrer" class="">early-2025 developer experiment</a>
+reported a slowdown for experienced open-source developers using the tools
+available then. Its
+<a href="https://metr.org/blog/2026-02-24-uplift-update/" target="_blank" rel="noopener noreferrer" class="">February 2026 update</a>
+reports raw later estimates that point toward speedup but explicitly judges
+them unreliable because participation, task selection, pay, and concurrent
+agent use distort the signal. STAGE therefore does not treat either result
+as a timeless productivity claim.</li>
+<li class="">METR&#x27;s
+<a href="https://metr.org/blog/2025-08-12-research-update-towards-reconciling-slowdown-with-time-horizons/" target="_blank" rel="noopener noreferrer" class="">algorithmic-versus-holistic evaluation</a>
+found that automatic tests could overstate merge readiness in a small sample
+of real tasks. OpenAI&#x27;s later
+<a href="https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/" target="_blank" rel="noopener noreferrer" class="">SWE-bench Verified audit</a>
+likewise found substantial task and test defects in the audited subset.
+These findings support validity-aware, human-reviewed evaluation rather than
+making one static action count or benchmark score the stopping authority.</li>
+</ul>
+<p>STAGE&#x27;s resulting inference is deliberately narrow: inspect while unresolved
+evidence can still change ownership, implementation, verification, authority,
+diagnosis, or material risk; otherwise move to the next discriminating action.
+Conflicting evidence, failed verification, unclear blast radius, unresolved
+authority, a missing production consumer, or an explicitly broad audit can
+reopen the search. This rule is a practitioner hypothesis that still needs
+cross-task and independent evaluation.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="provenance-and-operation-authority">Provenance And Operation Authority<a href="#provenance-and-operation-authority" class="hash-link" aria-label="Direct link to Provenance And Operation Authority" title="Direct link to Provenance And Operation Authority" translate="no">​</a></h2>
+<p><a href="https://csrc.nist.gov/pubs/sp/800/162/upd2/final" target="_blank" rel="noopener noreferrer" class="">NIST SP 800-162</a>
+frames authorization around a subject requesting an operation on an object
+under policy and environmental conditions. NIST&#x27;s
+<a href="https://csrc.nist.gov/glossary/term/least_privilege" target="_blank" rel="noopener noreferrer" class="">least-privilege definition</a>
+limits authorization to what is necessary for an assigned task. Separately,
+<a href="https://www.w3.org/TR/prov-o/" target="_blank" rel="noopener noreferrer" class="">W3C PROV-O</a> models entities, activities,
+agents, derivation, and attribution. It describes how state came to exist; it
+does not grant mutation authority.</p>
+<p>STAGE infers an operation-granular rule from those distinct models: uncertain
+provenance in one part of an artifact should constrain nearby work without
+erasing explicit authority for another exact operation, and authority for that
+operation must not widen into whole-artifact replacement or regeneration. The
+standards do not prescribe this game-engineering rule.</p>
+<p>The initial safety-boundary study exposed the need for the distinction when a
+blanket artifact-level evaluator penalized every narrow source-backed repair.
+The corrected
+<a href="https://github.com/chifunt/stage-game-engineering/blob/main/trials/stage-ownership-granularity-replication/results.md" target="_blank" rel="noopener noreferrer" class="">ownership-granularity replication</a>
+then repeated safe narrow repair and safe broad stopping across character, UI,
+and audio fixtures. Every condition behaved correctly, so the evidence
+supports specification precision rather than a STAGE treatment-effect claim.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="verification-validation-and-complete-claims">Verification, Validation, And Complete Claims<a href="#verification-validation-and-complete-claims" class="hash-link" aria-label="Direct link to Verification, Validation, And Complete Claims" title="Direct link to Verification, Validation, And Complete Claims" translate="no">​</a></h2>
+<p>STAGE&#x27;s consumer-complete verification rule connects several established ideas
+without treating any one of them as a universal testing prescription:</p>
+<ul>
+<li class="">Saltzer, Reed, and Clark&#x27;s
+<a href="https://web.mit.edu/saltzer/www/publications/endtoend/endtoendA4.pdf" target="_blank" rel="noopener noreferrer" class="">End-to-End Arguments in System Design</a>,
+1984, argues that some functions can be implemented completely and correctly
+only with application-end knowledge. Lower-level mechanisms may still be
+useful. STAGE applies this as an analogy for evidence scope: a lower layer
+cannot establish a claim whose decisive context exists at a consumer it
+bypasses.</li>
+<li class="">NASA distinguishes
+<a href="https://www.nasa.gov/reference/2-0-fundamentals-of-systems-engineering/" target="_blank" rel="noopener noreferrer" class="">verification from validation</a>:
+verification establishes compliance, while validation asks whether the
+product achieves its intended purpose in its intended environment. NASA&#x27;s
+<a href="https://www.nasa.gov/reference/5-0-product-realization/" target="_blank" rel="noopener noreferrer" class="">Product Realization guidance</a>
+also recommends anticipated operators or users whenever possible.</li>
+<li class="">Google&#x27;s
+<a href="https://sre.google/sre-book/testing-reliability/" target="_blank" rel="noopener noreferrer" class="">Testing for Reliability</a>
+retains unit, integration, system, and production-probe evidence with
+different cost and scope. Its
+<a href="https://google.github.io/eng-practices/review/reviewer/looking-for.html" target="_blank" rel="noopener noreferrer" class="">code-review guidance</a>
+asks for unit, integration, or end-to-end tests as appropriate and reminds
+reviewers that tests themselves require human judgment.</li>
+<li class="">Unity&#x27;s
+<a href="https://docs.unity3d.com/Manual/testing-editortestsrunner.html" target="_blank" rel="noopener noreferrer" class="">Test Framework</a>
+distinguishes Edit Mode, Play Mode, and target-player execution. Their
+availability in one framework does not make their evidence scopes
+interchangeable.</li>
+</ul>
+<p>STAGE synthesizes these into a claim-routing rule: identify the production
+consumer and intended environment, then choose the smallest route that includes
+all material boundaries. Focused tests remain essential for speed and fault
+localization. Broader composed evidence is added only where the claim crosses
+those boundaries, and human product validation remains separate from
+mechanical verification. This formulation is practitioner guidance, not an
+empirically proven optimum or a replacement for a project&#x27;s test strategy.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="feedback-portfolio">Feedback Portfolio<a href="#feedback-portfolio" class="hash-link" aria-label="Direct link to Feedback Portfolio" title="Direct link to Feedback Portfolio" translate="no">​</a></h2>
+<p>Consumer completeness does not mean running every available test after every
+edit. A useful portfolio must balance scope with correction speed:</p>
+<ul>
+<li class="">Google&#x27;s <a href="https://testing.googleblog.com/2024/10/smurf-beyond-test-pyramid.html" target="_blank" rel="noopener noreferrer" class="">SMURF: Beyond the Test Pyramid</a>
+evaluates tests by speed, maintainability, utilization, reliability, and
+fidelity rather than by one preferred layer.</li>
+<li class="">Google&#x27;s <a href="https://testing.googleblog.com/2020/11/fixing-test-hourglass.html" target="_blank" rel="noopener noreferrer" class="">Fixing a Test Hourglass</a>
+describes how a suite dominated by broad tests creates slow, difficult
+feedback and recommends reliable intermediate boundaries.</li>
+<li class="">Google&#x27;s <a href="https://testing.googleblog.com/2011/06/testing-at-speed-and-scale-of-google.html" target="_blank" rel="noopener noreferrer" class="">Testing at the Speed and Scale of Google</a>
+describes dependency-based selection as a way to keep feedback timely as a
+repository grows.</li>
+</ul>
+<p>STAGE applies this by separating a fast Safety Kernel gate from named
+Maintainer Laboratory suites while retaining a complete release gate. The
+change gate supports only the claims it executes; touched laboratory systems
+still require their focused suite, and releases require all supported
+contracts. This is a measured correction to STAGE&#x27;s own workflow, not a
+universal test taxonomy.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="case-study-claim-discipline">Case-Study Claim Discipline<a href="#case-study-claim-discipline" class="hash-link" aria-label="Direct link to Case-Study Claim Discipline" title="Direct link to Case-Study Claim Discipline" translate="no">​</a></h2>
+<p>STAGE&#x27;s external maps and operational trials are exploratory case-study
+evidence, not independent product endorsements or controlled productivity
+experiments:</p>
+<ul>
+<li class="">Runeson and Hoest,
+<a href="https://doi.org/10.1007/s10664-008-9102-8" target="_blank" rel="noopener noreferrer" class="">Guidelines for conducting and reporting case study research in software engineering</a>,
+2009, distinguishes construct validity, internal validity, external validity,
+and reliability. It recommends an explicit protocol, a traceable chain of
+evidence, subject review where possible, triangulation, and attention to
+negative cases.</li>
+<li class="">The ACM SIGSOFT
+<a href="https://www2.sigsoft.org/EmpiricalStandards/" target="_blank" rel="noopener noreferrer" class="">Empirical Standards for Software Engineering</a>
+applies method-specific expectations rather than treating every empirical
+artifact as equivalent evidence.</li>
+</ul>
+<p>STAGE therefore records immutable source coordinates, operation outcomes,
+limitations, independence, and target-maintainer review separately. A
+researcher can accept an external map as useful evaluation evidence while the
+target maintainer has neither reviewed nor adopted it. Mapping a materially
+different project supports analytical transfer of the mapping vocabulary to
+that case; it does not prove faster orientation, safer changes, or lower
+maintenance cost. Those stronger claims require their own study designs and
+human evidence.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="visual-inspection-lineage">Visual Inspection Lineage<a href="#visual-inspection-lineage" class="hash-link" aria-label="Direct link to Visual Inspection Lineage" title="Direct link to Visual Inspection Lineage" translate="no">​</a></h2>
+<p>STAGE&#x27;s direct visual-review workflow and its guidance for project-native
+inspection features draw on established native inspection, operation, and
+regression practices:</p>
+<ul>
+<li class="">Ben Shneiderman&#x27;s <a href="https://www.cs.umd.edu/~ben/publications.html" target="_blank" rel="noopener noreferrer" class="">direct-manipulation lineage</a>
+emphasizes continuous representation, physical actions or labelled controls,
+rapid incremental operations, reversibility, and immediately visible impact.
+A live native viewport with nearby camera, lighting, time, and reset controls
+seeks these properties more directly than an exported evidence package.</li>
+<li class="">The GDC session
+<a href="https://www.gdcvault.com/play/1015714/In-Game-Debugging-and-Visualization" target="_blank" rel="noopener noreferrer" class="">In-Game Debugging and Visualization Tools</a>
+treats live data visibility, state mutation, history, modularity, and
+integration with the running game as central debugging-tool concerns. This
+supports keeping recurring review beside the production state it operates.</li>
+<li class="">Unity&#x27;s <a href="https://docs.unity3d.com/Packages/com.unity.testframework.graphics@9.0/manual/index.html" target="_blank" rel="noopener noreferrer" class="">Graphics Test Framework</a>
+renders project scenes in the editor or a player and compares them with
+reference images. Its <a href="https://docs.unity3d.com/Packages/com.unity.testframework.graphics@9.0/manual/test-authoring/graphics-tests-introduction.html" target="_blank" rel="noopener noreferrer" class="">authoring workflow</a>
+treats the first result as a candidate that a human inspects before it becomes
+the reference.</li>
+<li class="">Unreal Engine separates its native <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/automation-test-framework-in-unreal-engine" target="_blank" rel="noopener noreferrer" class="">Automation Test Framework</a>,
+<a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/automation-driver-in-unreal-engine" target="_blank" rel="noopener noreferrer" class="">Automation Driver</a>,
+and <a href="https://dev.epicgames.com/documentation/unreal-engine/screenshot-comparison-tool-in-unreal-engine?lang=en-US" target="_blank" rel="noopener noreferrer" class="">Screenshot Comparison Tool</a>.
+Engine execution, input operation, and human-reviewed screenshot comparison
+are related capabilities rather than one undifferentiated gallery.</li>
+<li class="">Unreal&#x27;s <a href="https://dev.epicgames.com/documentation/unreal-engine/animation-editors-in-unreal-engine?lang=en-US" target="_blank" rel="noopener noreferrer" class="">Animation Editors</a>
+combine asset browsing, a live viewport, playback, and Preview Scene Settings;
+its saved <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/previewing-animations?application_version=4.27" target="_blank" rel="noopener noreferrer" class="">Preview Scene Profiles</a>
+expose lighting, environment, floor, post-processing, and rotation without
+requiring a separate reporting surface. This supports STAGE&#x27;s use of native,
+human-owned presentation profiles and its rule to avoid custom tooling for a
+one-off question already served by the engine.</li>
+<li class="">Unity&#x27;s <a href="https://docs.unity3d.com/2018.3/Documentation/Manual/animeditor-UsingAnimationEditor.html" target="_blank" rel="noopener noreferrer" class="">Animation window</a>
+previews authored clips beside the selected project object, while Visual
+Effect Graph can preview an effect in the Inspector or as a scene instance.
+These asset-local surfaces are first-class review hosts. A custom runtime
+gallery is justified only when it independently serves a recurring product,
+authoring, or development job that existing surfaces cannot serve cheaply.</li>
+<li class="">Godot&#x27;s <a href="https://docs.godotengine.org/en/stable/tutorials/plugins/editor/making_plugins.html" target="_blank" rel="noopener noreferrer" class="">editor plugin</a>
+and <a href="https://docs.godotengine.org/en/latest/tutorials/plugins/editor/making_main_screen_plugins.html" target="_blank" rel="noopener noreferrer" class="">main-screen plugin</a>
+guidance shows how project-owned scenes and UI can extend the native editor
+while retaining explicit entry, exit, and cleanup lifecycle.</li>
+<li class="">Storybook&#x27;s <a href="https://storybook.js.org/docs/get-started/browse-stories" target="_blank" rel="noopener noreferrer" class="">story browser</a>
+and <a href="https://storybook.js.org/docs/writing-tests" target="_blank" rel="noopener noreferrer" class="">testing guidance</a>
+demonstrate the value of named component states that serve interactive
+development and testing without turning the browser itself into a shipping
+product surface.</li>
+<li class="">Playwright&#x27;s <a href="https://playwright.dev/docs/test-snapshots" target="_blank" rel="noopener noreferrer" class="">snapshot guidance</a>
+documents that image baselines depend on operating system, settings, and
+hardware and therefore need controlled environments and review.</li>
+<li class="">Procedural-content evaluation research distinguishes quality, diversity, and
+controllability rather than reducing generated output to one score; relevant
+examples include <a href="https://arxiv.org/abs/2503.21474" target="_blank" rel="noopener noreferrer" class="">PCG Benchmark</a>,
+<a href="https://arxiv.org/abs/2404.18657" target="_blank" rel="noopener noreferrer" class="">Procedural Content Generation via Generative Artificial Intelligence</a>,
+and <a href="https://ojs.aaai.org/index.php/AIIDE/article/view/12680" target="_blank" rel="noopener noreferrer" class="">Procedural Content Generation: Goals, Challenges and Actionable Steps</a>.</li>
+</ul>
+<p>STAGE&#x27;s synthesis is to connect these practices to explicit human/agent entry
+points, engine-owned content discovery, plain claims about which production
+consumer and context a native view includes, lifecycle ownership, and exports
+only for named consumers. Google&#x27;s large-scale study of
+<a href="https://research.google/pubs/understanding-architectural-complexity-maintenance-burden-and-developer-sentiment-a-large-scale-study/" target="_blank" rel="noopener noreferrer" class="">architectural complexity and maintenance burden</a>
+reports correlation between architectural complexity, bug-fix work, and
+negative developer sentiment across more than 1,200 projects and 7,200 survey
+responses. It does not establish causality, but it strengthens the reason to
+remove an unconsumed parallel metadata architecture rather than preserving it
+for hypothetical future users.</p>
+<p>Developer inspection, operation,
+regression, player presentation, and export remain separate responsibility
+contracts. When a project independently builds a codex, gallery, bestiary,
+model viewer, world previewer, or inspect mode for a real user, it can share
+production resolution, staging, rendering, and playback where useful without
+becoming a STAGE requirement. That synthesis remains a
+practitioner proposal, not proof that one visual workflow fits every engine or
+game. STAGE infers that in-context direct manipulation is the better default
+for this problem; it does not claim that every project needs persistent
+inspection UI or that native UI alone guarantees truthful review.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="game-design-automated-play-and-human-experience">Game Design, Automated Play, And Human Experience<a href="#game-design-automated-play-and-human-experience" class="hash-link" aria-label="Direct link to Game Design, Automated Play, And Human Experience" title="Direct link to Game Design, Automated Play, And Human Experience" translate="no">​</a></h2>
+<p>STAGE&#x27;s engineering evidence boundary also needs a gameplay-design boundary.
+Established game-design frameworks can improve the questions an agent asks
+without making the agent an authority on the desired experience:</p>
+<ul>
+<li class="">Hunicke, LeBlanc, and Zubek&#x27;s
+<a href="https://www.cs.northwestern.edu/~hunicke/MDA.pdf" target="_blank" rel="noopener noreferrer" class="">MDA framework</a> connects
+mechanics, runtime dynamics, and desired player aesthetics. It explicitly
+distinguishes designer and player perspectives, encourages
+experience-driven rather than feature-driven design, and rejects the idea of
+a universal formula for fun.</li>
+<li class="">Sweetser and Wyeth&#x27;s
+<a href="https://www.valuesatplay.org/wp-content/uploads/2007/09/sweetser.pdf" target="_blank" rel="noopener noreferrer" class="">GameFlow</a>
+integrates heuristics around concentration, challenge, skill, control, clear
+goals, feedback, immersion, and social interaction. Its initial validation
+used expert review of two games; STAGE therefore treats it as a critique lens,
+not a product acceptance score.</li>
+<li class="">Ryan, Rigby, and Przybylski&#x27;s
+<a href="https://selfdeterminationtheory.org/SDT/documents/2006_RyanRigbyPrzybylski_MandE.pdf" target="_blank" rel="noopener noreferrer" class="">self-determination theory studies</a>
+use human studies to connect autonomy, competence, and relatedness with
+enjoyment and future play. Those constructs concern experienced need
+satisfaction, not properties that source inspection can establish.</li>
+<li class="">Abeele et al.&#x27;s
+<a href="https://doi.org/10.1016/j.ijhcs.2019.102370" target="_blank" rel="noopener noreferrer" class="">Player Experience Inventory</a>
+was developed with expert and player studies and measures functional and
+psychosocial consequences through player report. An agent can help administer
+or analyze it but cannot answer it on a player&#x27;s behalf.</li>
+<li class="">Medlock et al.&#x27;s
+<a href="https://jpattonassociates.com/wp-content/uploads/2015/04/rite_method.pdf" target="_blank" rel="noopener noreferrer" class="">RITE method</a>
+supports rapid changes after observed human usability problems and empirical
+rechecking of those changes. Its loop depends on actual participants.</li>
+<li class="">Holmgard et al.&#x27;s
+<a href="https://arxiv.org/abs/1802.06881" target="_blank" rel="noopener noreferrer" class="">procedural-persona playtesting</a> demonstrates
+useful automated exploration through encoded archetypal policies. The
+surprising behavior of those agents also illustrates that the result follows
+the utility function, observations, and action space supplied.</li>
+<li class="">Microsoft&#x27;s
+<a href="https://www.microsoft.com/en-us/research/publication/applied-user-research-in-games/" target="_blank" rel="noopener noreferrer" class="">Applied User Research in Games</a>
+frames games user research as the adaptation of social-science methods to
+evaluate and improve usability and enjoyability.</li>
+</ul>
+<p>The resulting STAGE boundary is conservative. Agents directly verify rules,
+state, distributions, encoded policies, and bounded presentation mechanics.
+They may generate hypotheses about likely clarity, pacing, balance, fairness,
+or accessibility. Human designers choose intended experience and acceptable
+tradeoffs. Direct human play establishes lived interaction claims, and broader
+audience claims require representative target players. Telemetry shows what
+happened; observation and self-report help establish how and why it was
+experienced. No theory checklist, synthetic agent, or automated playthrough
+computes fun.</p>
+<p>The operational guidance is in
+<a class="" href="/handbook/docs/gameplay-design-dialogue">Human-Led Gameplay Design</a>. The more detailed
+<a class="" href="/handbook/docs/systems-heavy-gameplay">Systems-Heavy Gameplay Evidence</a> guide adds
+decision, feedback, UI, learning, pacing, progression, balance, accessibility,
+ethics, and playtest lenses.</p>
+<p>That guide uses a proposed <code>perceive -&gt; decide -&gt; act -&gt; read consequence -&gt; learn -&gt; adapt</code> trace. The trace synthesizes established concerns; it is not a
+validated psychometric instrument or universal design sequence. In particular:</p>
+<ul>
+<li class="">meaningful-choice research supports examining perceived alternatives and
+consequences, but does not imply that every moment needs a choice or that
+more options are better;</li>
+<li class="">direct-manipulation and ecological-interface work support visible state,
+direct action, constraints, and causality, but do not prescribe one UI style;</li>
+<li class="">game-feel and juiciness research support timely, layered feedback while also
+showing that maximal feedback is not automatically better;</li>
+<li class="">onboarding studies support testing the actual first-time experience and
+integrating instruction with play, not one universal tutorial form;</li>
+<li class="">strategy search, telemetry, and balancing tools expose mechanical risks
+under encoded assumptions; they do not establish perceived fairness,
+meaningfulness, or enjoyment;</li>
+<li class="">accessibility guidelines identify recurring barriers and useful design
+practices, while lived usability remains population- and context-dependent;
+and</li>
+<li class="">engagement metrics can describe behavior without proving player welfare or
+justifying coercive design.</li>
+</ul>
+<p>This synthesis is informed by established work but remains a STAGE practitioner
+decision rather than a scientifically validated universal method.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="distinct-proposed-contribution">Distinct Proposed Contribution<a href="#distinct-proposed-contribution" class="hash-link" aria-label="Direct link to Distinct Proposed Contribution" title="Direct link to Distinct Proposed Contribution" translate="no">​</a></h2>
+<p>No individual STAGE primitive is new. The proposed contribution is a game-engineering method that treats the following as one production system:</p>
+<ul>
+<li class="">domain and runtime architecture;</li>
+<li class="">human and agent decision rights;</li>
+<li class="">authoring and operation tools;</li>
+<li class="">manual and generated ownership;</li>
+<li class="">multimodal evidence and rehearsal;</li>
+<li class="">reversible source-control practice.</li>
+</ul>
+<p>External studies now support the narrower claims that this combination can map
+materially different architectures, surface unsafe ownership assumptions, and
+make evidence-scope mismatches explicit. The stronger hypothesis—that STAGE
+reduces the human attention required to obtain and maintain trustworthy
+changes—still requires independent controlled changes and longitudinal
+adoption.</p>
+<p>See <a class="" href="/handbook/docs/case-study-synthesis">Cross-Project Case-Study Synthesis</a> for the
+observed evidence and its limits.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2026-07-25T11:05:42.000Z" itemprop="dateModified">Jul 25, 2026</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/handbook/docs/evaluation"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Evaluation, Readiness, And Transferability</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/handbook/docs/failure-atlas"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Failure Atlas</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#established-lineage" class="table-of-contents__link toc-highlight">Established Lineage</a></li><li><a href="#relevant-work" class="table-of-contents__link toc-highlight">Relevant Work</a></li><li><a href="#human-control-and-progressive-formalization" class="table-of-contents__link toc-highlight">Human Control And Progressive Formalization</a></li><li><a href="#instruction-economy-and-normative-restraint" class="table-of-contents__link toc-highlight">Instruction Economy And Normative Restraint</a></li><li><a href="#bounded-search-information-scent-and-oversight-cost" class="table-of-contents__link toc-highlight">Bounded Search, Information Scent, And Oversight Cost</a></li><li><a href="#provenance-and-operation-authority" class="table-of-contents__link toc-highlight">Provenance And Operation Authority</a></li><li><a href="#verification-validation-and-complete-claims" class="table-of-contents__link toc-highlight">Verification, Validation, And Complete Claims</a></li><li><a href="#feedback-portfolio" class="table-of-contents__link toc-highlight">Feedback Portfolio</a></li><li><a href="#case-study-claim-discipline" class="table-of-contents__link toc-highlight">Case-Study Claim Discipline</a></li><li><a href="#visual-inspection-lineage" class="table-of-contents__link toc-highlight">Visual Inspection Lineage</a></li><li><a href="#game-design-automated-play-and-human-experience" class="table-of-contents__link toc-highlight">Game Design, Automated Play, And Human Experience</a></li><li><a href="#distinct-proposed-contribution" class="table-of-contents__link toc-highlight">Distinct Proposed Contribution</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Start</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/using-stage-with-codex">Choose a Codex workflow</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/STAGE">Read the project map</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Method</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/method">Delivery method</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/SPEC">Safety Kernel</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">History</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/releases">Release records</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/adr">Architecture decisions</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">STAGE Game Engineering. Human product authority remains non-delegable.</div></div></div></footer></div>
+</body>
+</html>

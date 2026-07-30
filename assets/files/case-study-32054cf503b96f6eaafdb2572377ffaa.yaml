@@ -1,0 +1,75 @@
+study_version: "0.4"
+
+study:
+  id: "example-game-external-map"
+  title: "Example Game External Map"
+  status: "planned"
+  type: "external_map"
+  independence: "independent_project"
+  generated_at: "1970-01-01T00:00:00Z"
+  maintainer_review: "not_requested"
+
+source:
+  repository: "https://example.com/owner/game.git"
+  branch: "main"
+  revision: "0000000000000000000000000000000000000000"
+  working_tree_dirty: false
+  working_tree_path_count: 0
+  formal_source: null
+  rehearsal_copy: null
+  pre_snapshot: null
+  post_snapshot: null
+
+project_profile:
+  engine: "Unknown"
+  languages: []
+  architecture_styles: []
+  tracked_path_count: 0
+  commit_count: null
+  map_profile: "standard"
+
+research_questions:
+  - "Can an unfamiliar contributor locate the project's real composition, ownership, operation, and evidence surfaces?"
+
+product_experience:
+  material: false
+  gate: "not_applicable"
+  hypothesis: null
+  human_playtest:
+    status: "not_applicable"
+    reviewer: null
+    reviewed_at: null
+    source_revision: null
+    basis: null
+    dimensions:
+      comprehension: "not_applicable"
+      usability: "not_applicable"
+      engagement: "not_applicable"
+      desire_to_continue: "not_applicable"
+    findings: []
+    decision: null
+
+operations: []
+# - name: "run tests"
+#   status: "not_attempted"
+#   provenance: "local"
+#   scope: ["native"]
+#   source_revision: "0000000000000000000000000000000000000000"
+#   declared_toolchain: null
+#   effective_toolchain: null
+#   evidence: []
+#   notes: ""
+
+measures:
+  map_sections_covered: []
+  unresolved_reference_count: 0
+  target_unchanged: null
+  stable_refresh: null
+  semantic_artifact_sha256: null
+
+findings:
+  supports: []
+  challenges: []
+  proposals: []
+
+limitations: []

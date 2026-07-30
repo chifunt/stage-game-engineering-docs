@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-docs/adr/prefer-product-native-visual-almanacs" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">0024: Prefer Product-Native Visual Almanacs | STAGE Game Engineering</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" name="twitter:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" property="og:url" content="https://stage.zoshachi.com/handbook/docs/adr/prefer-product-native-visual-almanacs"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="0024: Prefer Product-Native Visual Almanacs | STAGE Game Engineering"><meta data-rh="true" name="description" content="Status: Superseded by ADR 0027"><meta data-rh="true" property="og:description" content="Status: Superseded by ADR 0027"><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://stage.zoshachi.com/handbook/docs/adr/prefer-product-native-visual-almanacs"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/adr/prefer-product-native-visual-almanacs" hreflang="en"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/adr/prefer-product-native-visual-almanacs" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.5be3741e.css">
+<script src="/assets/js/runtime~main.c0cf7df1.js" defer="defer"></script>
+<script src="/assets/js/main.740a8be3.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">STAGE</b></a><a class="navbar__item navbar__link" href="/handbook/docs/using-stage-with-codex">Use With Codex</a><a class="navbar__item navbar__link" href="/handbook/docs/using-stage-with-codex">Handbook</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><main class="docMainContainer_TBSr docMainContainerEnhanced_lQrH"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>0024: Prefer Product-Native Visual Almanacs</h1></header>
+<p>Status: Superseded by ADR 0027</p>
+<p>The decision to keep detached visual-export compatibility is superseded by
+<a class="" href="/handbook/docs/adr/retire-detached-visual-evidence-pipeline">ADR 0025</a>. Product-native
+gallery implementation is now only an optional project recipe under
+<a class="" href="/handbook/docs/adr/demote-visual-almanac-to-optional-product-recipe">ADR 0027</a>. The
+separate capability-manifest decision is
+superseded by <a class="" href="/handbook/docs/adr/retire-redundant-visual-capability-manifest">ADR 0026</a>.</p>
+<p>Date: 2026-07-21</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="context">Context<a href="#context" class="hash-link" aria-label="Direct link to Context" title="Direct link to Context" translate="no">​</a></h2>
+<p>STAGE&#x27;s first visual system produced engine captures, motion files, an HTML
+contact sheet, analysis records, and review receipts outside the game. The
+pipeline was technically reproducible, but The Circussy One&#x27;s project director
+rejected it as a development workflow. Most entries did not answer useful
+questions, detached presentation hid production context, and every adjustment
+required another export cycle. The one useful result, Enemy Arrival, worked
+because its actual setup, anticipation, reveal, and continuous motion formed a
+coherent in-engine event.</p>
+<p>Moving the same idea into isolated test scenes corrected renderer ownership but
+did not fully correct product ownership. A parallel visual lab can still
+duplicate content resolution, lifecycle, lighting, camera, animation, and UI
+that the game already owns. It is maintenance work whose output disappears
+from ordinary play and is easy to fill with nominal coverage.</p>
+<p>Games already have a more useful shape for recurring visual discovery: a
+gallery, codex, bestiary, model viewer, replay browser, world previewer, or
+debug inspect mode running inside the product shell. Such a surface can have
+independent player value while a gated developer mode exposes invalid content,
+diagnostic presentation, deterministic coordinates, and reset controls. One
+implementation can therefore improve the game and shorten visual iteration.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="decision">Decision<a href="#decision" class="hash-link" aria-label="Direct link to Decision" title="Direct link to Decision" translate="no">​</a></h2>
+<ul>
+<li class="">For a one-off asset-local question, continue to use the engine&#x27;s existing
+asset, animation, material, VFX, prefab, or scene preview.</li>
+<li class="">For a one-off composed question, continue to use the real game or development
+route that contains the production consumer.</li>
+<li class="">When recurring visual work earns a persistent <strong>Visual Almanac</strong>, prefer a
+<strong>product-native in-game gallery</strong> reached through the normal game shell or a
+gated development route. It should reuse production content resolution,
+rendering, animation, VFX, UI composition, input, and lifecycle wherever
+those systems are material to the review questions.</li>
+<li class="">Prefer one runtime implementation with audience modes:<!-- -->
+<ul>
+<li class="">player mode owns unlocks, save state, localization, accessibility,
+performance, and product presentation;</li>
+<li class="">developer mode owns unresolved-content visibility, diagnostic lighting and
+backgrounds, exact states or seeds, playback controls, reset, teardown,
+and state provenance.</li>
+</ul>
+</li>
+<li class="">Do not build a second renderer, subject catalog, or scene-per-asset review
+world when one generic product-native stage can resolve canonical content.</li>
+<li class="">Use isolated editor or runtime stages only when the question is genuinely
+asset-local, destructive to ordinary product state, impossible to compose in
+the product shell, or cheaper enough to justify the narrower claim.</li>
+<li class="">Store durable camera, distance, background, lighting, quality, playback,
+fixture, and procedural-seed choices in human-owned project authoring data.
+Automation may create a missing default but must not overwrite human edits.</li>
+<li class="">Animation, VFX, lighting change, and other temporal questions must be
+inspectable as genuine engine motion. Stills and named beats remain useful
+navigation; encoded video is optional transport, not the native review
+surface.</li>
+<li class="">Evidence Export may capture the already-active product-native coordinate for
+a named remote, regression, milestone, CI, or audit consumer. It must not
+reconstruct a parallel presentation or become the daily authoring loop.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="consequences">Consequences<a href="#consequences" class="hash-link" aria-label="Direct link to Consequences" title="Direct link to Consequences" translate="no">​</a></h2>
+<ul>
+<li class="">Persistent visual infrastructure must earn both recurring review value and a
+truthful runtime home. It must pass a Product Utility Gate by serving a real
+player, author, or recurring developer job; artifact count is not progress.</li>
+<li class="">Small games may gain a useful player feature from work that would otherwise
+be disposable development tooling.</li>
+<li class="">Developer and player responsibilities remain distinct even when their
+resolver, stage, camera, playback, and presentation implementation is shared.</li>
+<li class="">Shared player and developer modes derive explanation from canonical Subject
+identity rather than maintaining a second catalog for display copy.</li>
+<li class="">The game shell becomes the default place to inspect final animation,
+lighting, background, post-processing, scale, interaction, and composition.</li>
+<li class="">Controls are verified through the visible presentation they promise. A
+changed field or transform does not prove changed framing, lighting, motion,
+or readability.</li>
+<li class="">Editor isolation remains valuable for diagnosis but carries only the claim
+its omitted runtime systems permit.</li>
+<li class="">Detached Evidence Export schemas and scripts were later retired by ADR 0025;
+Git history preserves the failure evidence without an active compatibility
+burden.</li>
+<li class="">The separate <code>visual-almanac</code> declaration was later retired by ADR 0026.
+Runtime entry points, audience, truth modes, presentation authority, and
+limitations belong in the ordinary project map and operating docs.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="rejected-alternative">Rejected Alternative<a href="#rejected-alternative" class="hash-link" aria-label="Direct link to Rejected Alternative" title="Direct link to Rejected Alternative" translate="no">​</a></h2>
+<p>Improving the detached Circussy contact sheet with more assets, angles,
+backgrounds, lights, or videos would make the wrong product more elaborate. It
+would not fix duplicated composition, slow authoring feedback, missing gameplay
+context, or lack of player value. The historical export stays available to
+teach this failure rather than becoming a template to expand.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2026-07-21T22:09:20.000Z" itemprop="dateModified">Jul 21, 2026</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#context" class="table-of-contents__link toc-highlight">Context</a></li><li><a href="#decision" class="table-of-contents__link toc-highlight">Decision</a></li><li><a href="#consequences" class="table-of-contents__link toc-highlight">Consequences</a></li><li><a href="#rejected-alternative" class="table-of-contents__link toc-highlight">Rejected Alternative</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Start</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/using-stage-with-codex">Choose a Codex workflow</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/STAGE">Read the project map</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Method</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/method">Delivery method</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/SPEC">Safety Kernel</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">History</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/releases">Release records</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/adr">Architecture decisions</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">STAGE Game Engineering. Human product authority remains non-delegable.</div></div></div></footer></div>
+</body>
+</html>

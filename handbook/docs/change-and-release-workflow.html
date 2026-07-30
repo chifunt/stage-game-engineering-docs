@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-docs/change-and-release-workflow" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">Change, Concurrency, And Release Workflow | STAGE Game Engineering</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" name="twitter:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" property="og:url" content="https://stage.zoshachi.com/handbook/docs/change-and-release-workflow"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Change, Concurrency, And Release Workflow | STAGE Game Engineering"><meta data-rh="true" name="description" content="This guide owns the mechanics between a Ready work item and a named release:"><meta data-rh="true" property="og:description" content="This guide owns the mechanics between a Ready work item and a named release:"><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://stage.zoshachi.com/handbook/docs/change-and-release-workflow"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/change-and-release-workflow" hreflang="en"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/change-and-release-workflow" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Change, Concurrency, And Release Workflow","item":"https://stage.zoshachi.com/handbook/docs/change-and-release-workflow"}]}</script><link rel="stylesheet" href="/assets/css/styles.5be3741e.css">
+<script src="/assets/js/runtime~main.c0cf7df1.js" defer="defer"></script>
+<script src="/assets/js/main.740a8be3.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">STAGE</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/handbook/docs/using-stage-with-codex">Use With Codex</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/handbook/docs/using-stage-with-codex">Handbook</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/handbook/docs/using-stage-with-codex"><span class="categoryLinkLabel_W154">Start Here</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/using-stage-with-codex"><span class="linkLabel_WmDU">Using STAGE With Codex</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook"><span class="linkLabel_WmDU">STAGE Game Engineering</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/STAGE"><span class="linkLabel_WmDU">STAGE Project Map</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/SPEC"><span class="linkLabel_WmDU">STAGE Core Specification</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs"><span class="linkLabel_WmDU">STAGE Documentation Map</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/handbook/docs/method"><span class="categoryLinkLabel_W154">Deliver Work</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/method"><span class="linkLabel_WmDU">The STAGE Delivery Method</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/task-continuity"><span class="linkLabel_WmDU">Task Continuity And Context Recovery</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/directors-flow"><span class="linkLabel_WmDU">The Stage Director&#x27;s Flow</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/task-evidence-matrix"><span class="linkLabel_WmDU">Task-Evidence Matrix</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/quality-and-ci"><span class="linkLabel_WmDU">Quality Gates And Continuous Integration</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/handbook/docs/change-and-release-workflow"><span class="linkLabel_WmDU">Change, Concurrency, And Release Workflow</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/gameplay-design-dialogue"><span class="categoryLinkLabel_W154">Design And Presentation</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/adoption"><span class="categoryLinkLabel_W154">Adopt And Operate</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/maintaining-stage"><span class="categoryLinkLabel_W154">Maintain STAGE</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/evaluation"><span class="categoryLinkLabel_W154">Evidence And Lessons</span></a></div></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_kv0_"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Deliver Work</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Change, Concurrency, And Release Workflow</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Change, Concurrency, And Release Workflow</h1></header>
+<p>This guide owns the mechanics between a Ready work item and a named release:
+branching, worktree isolation, concurrent agents, Unity asset ownership,
+integration, build identity, and release proposals.</p>
+<p>It is practitioner guidance, not a universal STAGE requirement. A small solo
+project may use a simpler route when the owner accepts the risk. The
+<a class="" href="/handbook/SPEC">Safety Kernel</a>, project-native rules, and human product authority
+remain controlling.</p>
+<p>Use this guide with:</p>
+<ul>
+<li class="">the <a class="" href="/handbook/docs/directors-flow">Stage Director&#x27;s Flow</a>, which decides what is Ready
+and records the human disposition;</li>
+<li class="">the <a class="" href="/handbook/docs/method">Delivery Method</a>, which implements one bounded change; and</li>
+<li class=""><a class="" href="/handbook/docs/quality-and-ci">Quality Gates And CI</a>, which selects evidence appropriate
+to the claim.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="operating-model">Operating Model<a href="#operating-model" class="hash-link" aria-label="Direct link to Operating Model" title="Direct link to Operating Model" translate="no">​</a></h2>
+<p>The recommended model for a solo human director working with agents is:</p>
+<blockquote>
+<p>Human-directed trunk-based development with short-lived work-item branches,
+isolated worktrees, bounded agent concurrency, serial Unity integration,
+and human-gated releases.</p>
+</blockquote>
+<p>The default is deliberately conservative:</p>
+<ol>
+<li class="">one active player-facing work item;</li>
+<li class="">one mutating agent;</li>
+<li class="">one short-lived branch and worktree for that item;</li>
+<li class="">explicit ownership of paths that are unsafe to merge;</li>
+<li class="">integration back to <code>main</code> as soon as the coherent slice is accepted; and</li>
+<li class="">a human decision before release naming or publication.</li>
+</ol>
+<p>Parallel mutation is an exception for genuinely independent lanes. Read-only
+research, review, diagnosis, and test analysis can run concurrently without
+claiming ownership of project files.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="end-to-end-path">End-To-End Path<a href="#end-to-end-path" class="hash-link" aria-label="Direct link to End-To-End Path" title="Direct link to End-To-End Path" translate="no">​</a></h2>
+<div class="language-mermaid codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-mermaid codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">flowchart LR</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    C[&quot;Cue&quot;] --&gt; D[&quot;Gameplay or technical Dialogue&quot;]</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    D --&gt; R[&quot;Ready work item&quot;]</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    R --&gt; W[&quot;Branch, worktree, and path ownership&quot;]</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    W --&gt; B[&quot;Build one bounded change&quot;]</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    B --&gt; Q[&quot;Claim-matched quality gates&quot;]</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    Q --&gt; U[&quot;Unity or production-consumer rehearsal&quot;]</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    U --&gt; H[&quot;Director&#x27;s Call&quot;]</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    H --&gt;|revise| B</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    H --&gt;|reject| X[&quot;Preserve finding and close route&quot;]</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    H --&gt;|accept| M[&quot;Serial integration to main&quot;]</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    M --&gt; S[&quot;Integrated main smoke&quot;]</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    S --&gt; K[&quot;Checkpointed&quot;]</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    K --&gt; P[&quot;Human-reviewed release proposal&quot;]</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    P --&gt; T[&quot;Tag and reproducible build&quot;]</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    T --&gt; O[&quot;Human publication&quot;]</span><br></div></code></pre></div></div>
+<p><code>Checkpointed</code> and <code>released</code> are different states. A useful accepted commit
+does not need an immediate public version, and a tag does not prove that a
+build was distributed or that players accepted it.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="ready-work-item">Ready Work Item<a href="#ready-work-item" class="hash-link" aria-label="Direct link to Ready Work Item" title="Direct link to Ready Work Item" translate="no">​</a></h2>
+<p>Give each durable item a stable project-native identifier, such as <code>MS-014</code>.
+The carrier can remain a sticky note, Markdown entry, or issue. The identifier
+exists to join the branch, commits, evidence, and human decision without
+requiring a ticketing platform.</p>
+<p>Before mutation, record:</p>
+<ul>
+<li class="">intended outcome and reason to do it now;</li>
+<li class="">newest human decision and any unresolved product question;</li>
+<li class="">protected state and non-goals;</li>
+<li class="">smallest complete slice;</li>
+<li class="">base branch and exact base revision;</li>
+<li class="">branch and worktree;</li>
+<li class="">owned paths and exclusive paths;</li>
+<li class="">dependencies and expected integration order;</li>
+<li class="">selected Source, Model, Engine, Consumer, Distribution, and Director gates;</li>
+<li class="">stop conditions; and</li>
+<li class="">likely release impact: none, patch, minor, or undecided.</li>
+</ul>
+<p>If a product decision is still unresolved, return to Dialogue. Do not hide it
+inside a branch name or let multiple agents implement competing assumptions.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="branches-and-worktrees">Branches And Worktrees<a href="#branches-and-worktrees" class="hash-link" aria-label="Direct link to Branches And Worktrees" title="Direct link to Branches And Worktrees" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="default-shape">Default Shape<a href="#default-shape" class="hash-link" aria-label="Direct link to Default Shape" title="Direct link to Default Shape" translate="no">​</a></h3>
+<p>Use one branch and one worktree per mutating work item:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">feat/MS-014-moon-forecast</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">fix/MS-021-paused-announcement</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">perf/MS-024-pool-settlement-markers</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">exp/MS-027-layout-study</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">docs/STAGE-057-change-workflow</span><br></div></code></pre></div></div>
+<p>The recommended lifecycle is hours and normally no more than one working day.
+Merge or close the branch once its bounded decision is complete. Avoid a
+permanent <code>develop</code> branch and ordinary long-lived release branches; they
+delay integration and obscure the exact state the owner played.</p>
+<p>A typical manual start is:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">git fetch origin</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">git worktree add ../moon-shepherd-MS-014 \</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  -b feat/MS-014-moon-forecast origin/main</span><br></div></code></pre></div></div>
+<p>Record the base SHA before work starts. A worktree isolates files; it does not
+make two changes independent. Independence still depends on contracts,
+ownership, and integration order.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="direct-work-on-main">Direct Work On Main<a href="#direct-work-on-main" class="hash-link" aria-label="Direct link to Direct Work On Main" title="Direct link to Direct Work On Main" translate="no">​</a></h3>
+<p>The owner may deliberately use <code>main</code> for a tiny, single-mutator, low-risk
+change. It is not the default for autonomous or concurrent mutation. Never use
+direct-to-main work merely to avoid defining ownership or reviewing a diff.</p>
+<p>Where the hosting service supports it, protect <code>main</code> with required checks,
+linear history, and no force pushes. A personal repository can still allow the
+owner to merge without manufacturing team ceremony.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="branch-completion">Branch Completion<a href="#branch-completion" class="hash-link" aria-label="Direct link to Branch Completion" title="Direct link to Branch Completion" translate="no">​</a></h3>
+<p>Prefer one coherent integrated commit per work item. A branch may contain
+several local checkpoints while developing, but squash merging is usually the
+cleanest mapping from one Ready item to one reversible <code>main</code> change.</p>
+<p>Use Conventional Commit syntax when the project adopts it:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">feat(gameplay): add moon forecast choice</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">fix(ui): prevent paused announcement progress</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">perf(world): pool settlement markers</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">docs(stage): clarify exclusive asset ownership</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">test(simulation): cover night transition invariants</span><br></div></code></pre></div></div>
+<p>The type describes the change, not its release impact. A <code>fix</code> may still alter
+a compatibility contract, and a <code>feat</code> does not automatically authorize a
+minor release. The human release proposal makes that classification.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="bounded-agent-concurrency">Bounded Agent Concurrency<a href="#bounded-agent-concurrency" class="hash-link" aria-label="Direct link to Bounded Agent Concurrency" title="Direct link to Bounded Agent Concurrency" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="default-capacity">Default Capacity<a href="#default-capacity" class="hash-link" aria-label="Direct link to Default Capacity" title="Direct link to Default Capacity" translate="no">​</a></h3>
+<p>Use one mutating agent unless parallelism clearly shortens the path to the
+next human decision. For a solo director, STAGE recommends at most two
+mutating agents at once, plus read-only research or review agents. This is an
+operating recommendation derived from attention and integration cost, not an
+empirically universal limit.</p>
+<p>Parallel mutation is appropriate only when all are true:</p>
+<ul>
+<li class="">the gameplay or product direction is already agreed;</li>
+<li class="">each lane has an independently testable outcome;</li>
+<li class="">write scopes are path-disjoint or governed by an explicit stable contract;</li>
+<li class="">neither lane waits on an unresolved interface from the other;</li>
+<li class="">Unity and generated-asset ownership is unambiguous;</li>
+<li class="">integration order is known; and</li>
+<li class="">the human can review the results promptly.</li>
+</ul>
+<p>Parallel agents support one active player-facing item through independent
+lanes. They do not create several competing product directions.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="handoff-record">Handoff Record<a href="#handoff-record" class="hash-link" aria-label="Direct link to Handoff Record" title="Direct link to Handoff Record" translate="no">​</a></h3>
+<p>Every mutating lane should leave:</p>
+<ul>
+<li class="">work-item ID and branch;</li>
+<li class="">base and final revision;</li>
+<li class="">files intentionally changed;</li>
+<li class="">generated or external outputs affected;</li>
+<li class="">checks attempted and their exact outcomes;</li>
+<li class="">engine or human checks still required;</li>
+<li class="">decisions made and assumptions introduced;</li>
+<li class="">known conflicts or integration order; and</li>
+<li class="">cleanup still needed.</li>
+</ul>
+<p>The receiving integrator verifies this record against the diff. Agent prose is
+orientation, not proof.</p>
+<p>This lane record serves branch integration. When unfinished work also crosses
+a Codex task boundary, follow
+<a class="" href="/handbook/docs/task-continuity">Task Continuity And Context Recovery</a>: keep durable
+project knowledge in canonical sources and use a disposable revision-bound
+Task Handoff only for resume state.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="path-ownership-and-leases">Path Ownership And Leases<a href="#path-ownership-and-leases" class="hash-link" aria-label="Direct link to Path Ownership And Leases" title="Direct link to Path Ownership And Leases" translate="no">​</a></h2>
+<p>A path lease is a temporary declaration that one active mutator owns a path or
+asset family. It is coordination metadata, not permanent architecture.</p>
+<p>Use two classes:</p>
+<ul>
+<li class=""><strong>owned paths:</strong> another lane may read them but must coordinate before
+editing overlapping lines or contracts;</li>
+<li class=""><strong>exclusive paths:</strong> no second mutator edits them until the lease ends.</li>
+</ul>
+<p>Include Unity <code>.meta</code> files with their assets. Include named generated outputs
+with the source or generator lane that owns regeneration. A broad directory
+lease is justified only when the tool or format makes narrower ownership
+unsafe.</p>
+<p>If two Ready items need the same exclusive path, serialize them or split an
+interface change into a prerequisite branch. Do not rely on merge conflict
+resolution as the planning mechanism.</p>
+<p>The proposed local lease registry is <code>.git/stage/active-work.json</code>. It would
+remain untracked because active worktrees and owners are workstation state.
+STAGE does not currently implement or require this registry.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="unity-specific-ownership">Unity-Specific Ownership<a href="#unity-specific-ownership" class="hash-link" aria-label="Direct link to Unity-Specific Ownership" title="Direct link to Unity-Specific Ownership" translate="no">​</a></h2>
+<p>Unity projects add shared serialized state and an editor that imports files,
+writes metadata, and caches a project-wide view.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="editor-rule">Editor Rule<a href="#editor-rule" class="hash-link" aria-label="Direct link to Editor Rule" title="Direct link to Editor Rule" translate="no">​</a></h3>
+<ul>
+<li class="">Never run two Unity Editors against the same worktree.</li>
+<li class="">A code-only agent should not open Unity unless its evidence route needs it.</li>
+<li class="">A Unity-owning branch gets its own worktree and its own <code>Library</code>.</li>
+<li class="">Use one canonical integration Editor on <code>main</code>.</li>
+<li class="">Merge Unity-owning changes serially, let the integration Editor import and
+compile, then run the integrated engine and consumer checks.</li>
+</ul>
+<p>Do not share or copy <code>Library</code> as project authority. Cache reuse is an
+optimization only.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="exclusive-unity-paths">Exclusive Unity Paths<a href="#exclusive-unity-paths" class="hash-link" aria-label="Direct link to Exclusive Unity Paths" title="Direct link to Exclusive Unity Paths" translate="no">​</a></h3>
+<p>Treat these as exclusive by default:</p>
+<ul>
+<li class="">scenes (<code>.unity</code>);</li>
+<li class="">prefabs and prefab variants;</li>
+<li class="">ScriptableObject and other authored <code>.asset</code> files;</li>
+<li class=""><code>ProjectSettings/**</code>;</li>
+<li class=""><code>Packages/manifest.json</code> and package lock state;</li>
+<li class="">Input System action assets;</li>
+<li class="">Addressables settings and groups;</li>
+<li class="">localization tables;</li>
+<li class="">Wwise projects, integration settings, and generated SoundBanks;</li>
+<li class="">animation controllers and timelines when several lanes would rewrite the
+same graph; and</li>
+<li class="">generated materials, textures, meshes, or asset families owned by one named
+generator.</li>
+</ul>
+<p>Project conventions may narrow this list after repeated safe evidence. They
+should not silently widen concurrent mutation.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="smart-merge-boundary">Smart Merge Boundary<a href="#smart-merge-boundary" class="hash-link" aria-label="Direct link to Smart Merge Boundary" title="Direct link to Smart Merge Boundary" translate="no">​</a></h3>
+<p>UnityYAMLMerge can recover some <code>.unity</code> and <code>.prefab</code> conflicts. It is not the
+collaboration strategy. A syntactically merged scene can still have broken
+references, changed transforms, duplicated objects, or a result no human
+intended. Reopen the integrated asset in Unity and verify the real consumer.</p>
+<p>Binary assets and ambiguous serialized conflicts return to the human owner.
+Do not choose one side, regenerate, or discard authored state automatically.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="integration">Integration<a href="#integration" class="hash-link" aria-label="Direct link to Integration" title="Direct link to Integration" translate="no">​</a></h2>
+<p>Use a single integration lane:</p>
+<ol>
+<li class="">confirm the branch still represents one Ready item;</li>
+<li class="">inspect the full diff and handoff;</li>
+<li class="">integrate prerequisite contract changes first;</li>
+<li class="">rebase or update the dependent branch on current <code>main</code>;</li>
+<li class="">rerun the selected branch gates;</li>
+<li class="">squash merge one branch at a time;</li>
+<li class="">open the canonical Unity integration worktree when applicable;</li>
+<li class="">wait for import, compilation, and middleware readiness;</li>
+<li class="">run the integrated consumer smoke on <code>main</code>;</li>
+<li class="">record the Director&#x27;s Call and checkpoint; and</li>
+<li class="">remove the merged worktree and branch.</li>
+</ol>
+<p>If integration fails, stop at the first causally useful failure. Prefer
+reverting one coherent merge or reopening the work item over stacking
+speculative fixes on a state nobody has rehearsed.</p>
+<p>CI may parallelize independent Source and Model jobs. Serialize Unity jobs for
+the same project and cancel stale runs from superseded revisions. Green branch
+CI does not replace the integrated <code>main</code> smoke.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="three-separate-identities">Three Separate Identities<a href="#three-separate-identities" class="hash-link" aria-label="Direct link to Three Separate Identities" title="Direct link to Three Separate Identities" translate="no">​</a></h2>
+<p>Do not overload one number with three jobs.</p>
+<table><thead><tr><th>Identity</th><th>Answers</th><th>Example</th></tr></thead><tbody><tr><td>Product release version</td><td>What player-facing release is this?</td><td><code>0.7.0</code></td></tr><tr><td>Exact build identity</td><td>Which source and environment produced this binary?</td><td><code>0.7.0-dev.23+g8c43a91</code></td></tr><tr><td>Data contract version</td><td>Which save, content, network, or artifact schema applies?</td><td><code>save: 3</code>, <code>content: 5</code></td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="product-release-version">Product Release Version<a href="#product-release-version" class="hash-link" aria-label="Direct link to Product Release Version" title="Direct link to Product Release Version" translate="no">​</a></h3>
+<p>Semantic Versioning is a useful release-language convention when the project
+has declared what compatibility means.</p>
+<p>Before <code>1.0.0</code>, STAGE recommends:</p>
+<ul>
+<li class=""><code>0.MINOR.0</code> for an accepted player-facing milestone or capability;</li>
+<li class=""><code>0.MINOR.PATCH</code> for fixes, balancing, polish, and content corrections that
+preserve that milestone&#x27;s intended contract; and</li>
+<li class="">the next minor plus an explicit note for a breaking pre-1.0 change.</li>
+</ul>
+<p>After <code>1.0.0</code>, a major version identifies an intentionally broken declared
+compatibility contract. It does not mean &quot;large amount of work.&quot;</p>
+<p>A project may ship date-based or milestone names instead, but it still needs a
+stable rule. Version numbers do not measure fun, quality, or architectural
+maturity.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="exact-build-identity">Exact Build Identity<a href="#exact-build-identity" class="hash-link" aria-label="Direct link to Exact Build Identity" title="Direct link to Exact Build Identity" translate="no">​</a></h3>
+<p>Every testable build should expose:</p>
+<ul>
+<li class="">product version;</li>
+<li class="">Git SHA;</li>
+<li class="">dirty or clean state;</li>
+<li class="">build number or timestamp;</li>
+<li class="">engine version;</li>
+<li class="">target platform; and</li>
+<li class="">relevant content or save contract versions.</li>
+</ul>
+<p>One starting point is:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">git describe --tags --long --dirty</span><br></div></code></pre></div></div>
+<p>The build receipt and diagnostics should preserve the exact result. SemVer
+narrows a regression interval; the source revision and <code>git bisect</code> identify
+the actual change.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="data-contract-versions">Data Contract Versions<a href="#data-contract-versions" class="hash-link" aria-label="Direct link to Data Contract Versions" title="Direct link to Data Contract Versions" translate="no">​</a></h3>
+<p>Version saves, content catalogs, network protocols, mod APIs, and STAGE
+artifact schemas independently. A patch release can contain a compatible data
+migration. A new gameplay milestone does not automatically change the save
+format.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-proposal">Release Proposal<a href="#release-proposal" class="hash-link" aria-label="Direct link to Release Proposal" title="Direct link to Release Proposal" translate="no">​</a></h2>
+<p>A release is a human-reviewed proposal, not a side effect of merging any
+feature branch.</p>
+<p>Recommended flow:</p>
+<ol>
+<li class="">accepted checkpoints accumulate on <code>main</code>;</li>
+<li class="">automation proposes the next version and changelog from reviewed commits;</li>
+<li class="">the human edits or rejects that proposal;</li>
+<li class="">merging the proposal creates the tag and release record;</li>
+<li class="">the tag runs clean-checkout Distribution gates and produces identified
+artifacts; and</li>
+<li class="">store or public publication remains an explicit human operation.</li>
+</ol>
+<p><a href="https://github.com/googleapis/release-please" target="_blank" rel="noopener noreferrer" class="">Release Please</a> is one possible
+implementation with Conventional Commits. STAGE does not currently install or
+require it. Do not automate publication merely because version calculation can
+be automated.</p>
+<p>For the STAGE repository&#x27;s actual manual release process, use
+<a class="" href="/handbook/docs/maintaining-stage">Maintaining STAGE</a>. This guide does not claim that the
+repository already uses the proposed game-project release automation.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="human-and-agent-authority">Human And Agent Authority<a href="#human-and-agent-authority" class="hash-link" aria-label="Direct link to Human And Agent Authority" title="Direct link to Human And Agent Authority" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="human-only-decisions">Human-Only Decisions<a href="#human-only-decisions" class="hash-link" aria-label="Direct link to Human-Only Decisions" title="Direct link to Human-Only Decisions" translate="no">​</a></h3>
+<ul>
+<li class="">gameplay hypothesis and intended player experience;</li>
+<li class="">whether ambiguous behavior is a defect or a design change;</li>
+<li class="">ownership decisions for conflicting authored assets;</li>
+<li class="">integration order when alternatives change product meaning;</li>
+<li class="">Director acceptance;</li>
+<li class="">release-version approval;</li>
+<li class="">merging a release proposal; and</li>
+<li class="">public or store publication.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="delegable-operations">Delegable Operations<a href="#delegable-operations" class="hash-link" aria-label="Direct link to Delegable Operations" title="Direct link to Delegable Operations" translate="no">​</a></h3>
+<ul>
+<li class="">create a declared branch and worktree;</li>
+<li class="">inspect overlap and report path conflicts;</li>
+<li class="">implement inside an approved scope;</li>
+<li class="">run deterministic gates;</li>
+<li class="">derive exact build identity;</li>
+<li class="">propose a commit type, changelog, and version;</li>
+<li class="">prepare a clean-checkout build; and</li>
+<li class="">remove merged worktrees after verifying no unique state remains.</li>
+</ul>
+<p>Delegation does not let an agent weaken checks, resolve ambiguous asset
+authority, broaden scope, or publish.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="moon-shepherd-example">Moon Shepherd Example<a href="#moon-shepherd-example" class="hash-link" aria-label="Direct link to Moon Shepherd Example" title="Direct link to Moon Shepherd Example" translate="no">​</a></h2>
+<p>Suppose the Director accepts a thin-loop hypothesis: a visible moon forecast
+should help the player decide whether to spend scarce lantern oil tonight or
+save it for a harsher configuration tomorrow.</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">MS-014  feat/MS-014-moon-forecast</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Outcome: forecast supports one legible oil decision</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Owned: deterministic forecast model and focused tests</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Exclusive: MoonForecastPanel.uxml, MoonForecastPanel.uss</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Human gate: can the owner explain and use the forecast unprompted?</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">MS-015  feat/MS-015-forecast-presentation</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Outcome: accepted forecast state is readable in the production UI</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Dependency: MS-014 model contract</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Owned: presenter and view styling</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Exclusive: forecast prefab or UI document</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Integration order: MS-014, then rebase and rehearse MS-015</span><br></div></code></pre></div></div>
+<p>Do not start both while the forecast meaning is unresolved. Once the model
+contract is accepted, the model lane and a path-disjoint audio research lane
+could proceed concurrently. The Unity UI asset remains exclusive. Both merge
+serially, followed by one integrated main-menu-to-night consumer rehearsal.</p>
+<p>If the owner cannot understand the forecast, the work returns to Dialogue. A
+passing simulation test does not authorize more moon types or a release.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="failure-handling">Failure Handling<a href="#failure-handling" class="hash-link" aria-label="Direct link to Failure Handling" title="Direct link to Failure Handling" translate="no">​</a></h2>
+<table><thead><tr><th>Situation</th><th>Response</th></tr></thead><tbody><tr><td>Main or target worktree is unexpectedly dirty</td><td>stop; identify ownership before staging, resetting, or moving anything</td></tr><tr><td>Two lanes claim the same exclusive path</td><td>serialize or extract a prerequisite contract</td></tr><tr><td>Branch drifts for more than a working day</td><td>reframe, integrate the coherent part, or close it; do not preserve drift as progress</td></tr><tr><td>Unity serialized conflict is ambiguous</td><td>return to the human; do not auto-choose or regenerate</td></tr><tr><td>Branch passes but integrated main fails</td><td>keep the item uncheckpointed; diagnose the production boundary</td></tr><tr><td>Release classification is ambiguous</td><td>leave it undecided in the proposal</td></tr><tr><td>CI is flaky</td><td>preserve the failing seed and environment; do not pass by retry</td></tr><tr><td>Agent handoff conflicts with the diff or current revision</td><td>trust source state, newest human direction, and canonical project sources; inspect and reorient rather than inferring or resetting</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="current-policy-and-proposed-automation">Current Policy And Proposed Automation<a href="#current-policy-and-proposed-automation" class="hash-link" aria-label="Direct link to Current Policy And Proposed Automation" title="Direct link to Current Policy And Proposed Automation" translate="no">​</a></h2>
+<table><thead><tr><th>Capability</th><th>State</th></tr></thead><tbody><tr><td>Director work-item template</td><td>available</td></tr><tr><td>Git branches and worktrees</td><td>available through Git</td></tr><tr><td>Manual path ownership in a work item</td><td>available</td></tr><tr><td>STAGE change and release repository gates</td><td>available for this repository</td></tr><tr><td>Hosted check-only source gate</td><td>available for this repository</td></tr><tr><td>Project-owned Unity integration rehearsal</td><td>project-specific</td></tr><tr><td><code>stage work start/status/handoff/finish</code> helper</td><td>proposed, not implemented</td></tr><tr><td>Local <code>.git/stage/active-work.json</code> lease registry</td><td>proposed, not implemented</td></tr><tr><td>Conventional Commit lint</td><td>optional, not installed by STAGE</td></tr><tr><td>Automated build-identity injection</td><td>project-specific, not implemented by STAGE</td></tr><tr><td>Release Please proposal workflow</td><td>optional, not installed by STAGE</td></tr><tr><td>Hosted Unity build/test pipeline</td><td>earned per project, not a STAGE default</td></tr></tbody></table>
+<p>Potential <code>stage work</code> automation should remain a thin safety helper:</p>
+<ul>
+<li class=""><code>start</code> verifies base state, creates the branch/worktree, and checks declared
+overlap;</li>
+<li class=""><code>status</code> reports active work, stale bases, and leases;</li>
+<li class=""><code>handoff</code> prints source-backed change and evidence coordinates; and</li>
+<li class=""><code>finish</code> verifies integration before offering cleanup.</li>
+</ul>
+<p>It must not choose product scope, steal a lease, auto-resolve Unity assets,
+weaken a gate, merge, version, or publish.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="measures">Measures<a href="#measures" class="hash-link" aria-label="Direct link to Measures" title="Direct link to Measures" translate="no">​</a></h2>
+<p>Use measures to expose coordination cost:</p>
+<ul>
+<li class="">Ready-to-first-rehearsal time;</li>
+<li class="">branch lifetime and diff size;</li>
+<li class="">path and contract conflicts;</li>
+<li class="">failed integrated-main smokes;</li>
+<li class="">rework after integration;</li>
+<li class="">escaped defects by missed gate;</li>
+<li class="">human review and diagnosis time; and</li>
+<li class="">release proposal corrections.</li>
+</ul>
+<p>Do not optimize commit count, branch count, agent concurrency, story points, or
+release frequency as value proxies.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="why-this-shape">Why This Shape<a href="#why-this-shape" class="hash-link" aria-label="Direct link to Why This Shape" title="Direct link to Why This Shape" translate="no">​</a></h2>
+<p>This workflow combines established practices without claiming that their
+combination is scientifically optimal:</p>
+<ul>
+<li class=""><a href="https://dora.dev/capabilities/trunk-based-development/" target="_blank" rel="noopener noreferrer" class="">DORA&#x27;s trunk-based guidance</a>
+favors few active branches, frequent integration, and no separate
+integration phase.</li>
+<li class=""><a href="https://dora.dev/capabilities/working-in-small-batches/" target="_blank" rel="noopener noreferrer" class="">DORA&#x27;s small-batch guidance</a>
+emphasizes fast feedback and notes that large AI-generated changes are
+harder to review.</li>
+<li class=""><a href="https://docs.github.com/en/get-started/using-github/github-flow" target="_blank" rel="noopener noreferrer" class="">GitHub Flow</a>
+provides a lightweight branch model.</li>
+<li class=""><a href="https://git-scm.com/docs/git-worktree" target="_blank" rel="noopener noreferrer" class="">Git worktree</a> provides isolated
+working directories for concurrent branches.</li>
+<li class=""><a href="https://www.conventionalcommits.org/en/v1.0.0/" target="_blank" rel="noopener noreferrer" class="">Conventional Commits</a> and
+<a href="https://semver.org/" target="_blank" rel="noopener noreferrer" class="">Semantic Versioning</a> provide machine-readable change
+and release language.</li>
+<li class=""><a href="https://docs.unity3d.com/6000.3/Documentation/Manual/SmartMerge.html" target="_blank" rel="noopener noreferrer" class="">Unity Smart Merge</a>
+provides conflict assistance for Unity YAML, with the consumer verification
+limits described above.</li>
+</ul>
+<p>The STAGE-specific contribution is the control boundary: small-batch source
+mechanics are placed under the Director&#x27;s Flow, project-native authority,
+claim-matched gates, and human product acceptance.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2026-07-28T20:35:37.000Z" itemprop="dateModified">Jul 28, 2026</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/handbook/docs/quality-and-ci"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Quality Gates And Continuous Integration</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/handbook/docs/gameplay-design-dialogue"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Human-Led Gameplay Design</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#operating-model" class="table-of-contents__link toc-highlight">Operating Model</a></li><li><a href="#end-to-end-path" class="table-of-contents__link toc-highlight">End-To-End Path</a></li><li><a href="#ready-work-item" class="table-of-contents__link toc-highlight">Ready Work Item</a></li><li><a href="#branches-and-worktrees" class="table-of-contents__link toc-highlight">Branches And Worktrees</a><ul><li><a href="#default-shape" class="table-of-contents__link toc-highlight">Default Shape</a></li><li><a href="#direct-work-on-main" class="table-of-contents__link toc-highlight">Direct Work On Main</a></li><li><a href="#branch-completion" class="table-of-contents__link toc-highlight">Branch Completion</a></li></ul></li><li><a href="#bounded-agent-concurrency" class="table-of-contents__link toc-highlight">Bounded Agent Concurrency</a><ul><li><a href="#default-capacity" class="table-of-contents__link toc-highlight">Default Capacity</a></li><li><a href="#handoff-record" class="table-of-contents__link toc-highlight">Handoff Record</a></li></ul></li><li><a href="#path-ownership-and-leases" class="table-of-contents__link toc-highlight">Path Ownership And Leases</a></li><li><a href="#unity-specific-ownership" class="table-of-contents__link toc-highlight">Unity-Specific Ownership</a><ul><li><a href="#editor-rule" class="table-of-contents__link toc-highlight">Editor Rule</a></li><li><a href="#exclusive-unity-paths" class="table-of-contents__link toc-highlight">Exclusive Unity Paths</a></li><li><a href="#smart-merge-boundary" class="table-of-contents__link toc-highlight">Smart Merge Boundary</a></li></ul></li><li><a href="#integration" class="table-of-contents__link toc-highlight">Integration</a></li><li><a href="#three-separate-identities" class="table-of-contents__link toc-highlight">Three Separate Identities</a><ul><li><a href="#product-release-version" class="table-of-contents__link toc-highlight">Product Release Version</a></li><li><a href="#exact-build-identity" class="table-of-contents__link toc-highlight">Exact Build Identity</a></li><li><a href="#data-contract-versions" class="table-of-contents__link toc-highlight">Data Contract Versions</a></li></ul></li><li><a href="#release-proposal" class="table-of-contents__link toc-highlight">Release Proposal</a></li><li><a href="#human-and-agent-authority" class="table-of-contents__link toc-highlight">Human And Agent Authority</a><ul><li><a href="#human-only-decisions" class="table-of-contents__link toc-highlight">Human-Only Decisions</a></li><li><a href="#delegable-operations" class="table-of-contents__link toc-highlight">Delegable Operations</a></li></ul></li><li><a href="#moon-shepherd-example" class="table-of-contents__link toc-highlight">Moon Shepherd Example</a></li><li><a href="#failure-handling" class="table-of-contents__link toc-highlight">Failure Handling</a></li><li><a href="#current-policy-and-proposed-automation" class="table-of-contents__link toc-highlight">Current Policy And Proposed Automation</a></li><li><a href="#measures" class="table-of-contents__link toc-highlight">Measures</a></li><li><a href="#why-this-shape" class="table-of-contents__link toc-highlight">Why This Shape</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Start</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/using-stage-with-codex">Choose a Codex workflow</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/STAGE">Read the project map</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Method</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/method">Delivery method</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/SPEC">Safety Kernel</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">History</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/releases">Release records</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/adr">Architecture decisions</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">STAGE Game Engineering. Human product authority remains non-delegable.</div></div></div></footer></div>
+</body>
+</html>

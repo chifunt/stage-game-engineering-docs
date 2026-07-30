@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-docs/systems-heavy-gameplay" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">Systems-Heavy Gameplay Evidence | STAGE Game Engineering</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" name="twitter:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" property="og:url" content="https://stage.zoshachi.com/handbook/docs/systems-heavy-gameplay"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Systems-Heavy Gameplay Evidence | STAGE Game Engineering"><meta data-rh="true" name="description" content="Systems-heavy games ask players to understand and steer interacting rules over"><meta data-rh="true" property="og:description" content="Systems-heavy games ask players to understand and steer interacting rules over"><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://stage.zoshachi.com/handbook/docs/systems-heavy-gameplay"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/systems-heavy-gameplay" hreflang="en"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/systems-heavy-gameplay" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Systems-Heavy Gameplay Evidence","item":"https://stage.zoshachi.com/handbook/docs/systems-heavy-gameplay"}]}</script><link rel="stylesheet" href="/assets/css/styles.5be3741e.css">
+<script src="/assets/js/runtime~main.c0cf7df1.js" defer="defer"></script>
+<script src="/assets/js/main.740a8be3.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">STAGE</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/handbook/docs/using-stage-with-codex">Use With Codex</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/handbook/docs/using-stage-with-codex">Handbook</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/handbook/docs/using-stage-with-codex"><span class="categoryLinkLabel_W154">Start Here</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/using-stage-with-codex"><span class="linkLabel_WmDU">Using STAGE With Codex</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook"><span class="linkLabel_WmDU">STAGE Game Engineering</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/STAGE"><span class="linkLabel_WmDU">STAGE Project Map</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/SPEC"><span class="linkLabel_WmDU">STAGE Core Specification</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs"><span class="linkLabel_WmDU">STAGE Documentation Map</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/method"><span class="categoryLinkLabel_W154">Deliver Work</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/handbook/docs/gameplay-design-dialogue"><span class="categoryLinkLabel_W154">Design And Presentation</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/gameplay-design-dialogue"><span class="linkLabel_WmDU">Human-Led Gameplay Design</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/handbook/docs/systems-heavy-gameplay"><span class="linkLabel_WmDU">Systems-Heavy Gameplay Evidence</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/visual-work"><span class="linkLabel_WmDU">Visual Work</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/adoption"><span class="categoryLinkLabel_W154">Adopt And Operate</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/maintaining-stage"><span class="categoryLinkLabel_W154">Maintain STAGE</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/evaluation"><span class="categoryLinkLabel_W154">Evidence And Lessons</span></a></div></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_kv0_"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Design And Presentation</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Systems-Heavy Gameplay Evidence</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Systems-Heavy Gameplay Evidence</h1></header>
+<p>Systems-heavy games ask players to understand and steer interacting rules over
+time. Examples include strategy games, management games, builders, automation
+games, roguelites, deckbuilders, simulations, and economy-heavy survival games.
+Their appeal can come from discovery, planning, adaptation, expression,
+mastery, dramatic recovery, or watching a personally shaped system unfold.</p>
+<p>STAGE does not treat those qualities as automatic consequences of having many
+systems. A coherent simulation can still be opaque, low-agency, repetitive, or
+emotionally flat. This guide turns the
+<a class="" href="/handbook/docs/gameplay-design-dialogue">human-led gameplay design</a> decision into a
+testable player-system hypothesis without pretending to calculate fun.
+It does not provide a universal formula for fun.</p>
+<p>This is practitioner guidance. It synthesizes research and postmortems, but the
+exact sequence has not been established as a universal scientific model.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-product-promise-comes-first">The Product Promise Comes First<a href="#the-product-promise-comes-first" class="hash-link" aria-label="Direct link to The Product Promise Comes First" title="Direct link to The Product Promise Comes First" translate="no">​</a></h2>
+<p>Before specifying an economy, progression tree, event schedule, or information
+panel, state why operating this system should be worth a player&#x27;s attention.
+The human designer chooses:</p>
+<ul>
+<li class="">the player role and fantasy;</li>
+<li class="">the intended forms of agency, tension, expression, and mastery;</li>
+<li class="">the target player, prior knowledge, session context, and complexity budget;</li>
+<li class="">the emotional arc and acceptable kinds of frustration;</li>
+<li class="">what should remain uncertain, surprising, or deliberately unexplained; and</li>
+<li class="">the ethical boundary around time, spending, compulsion, and player control.</li>
+</ul>
+<p>Mechanics are candidates for producing that promise. Their existence is not
+evidence that the promise is present.</p>
+<p>Tynan Sylvester&#x27;s RimWorld postmortem provides a useful example of a strong
+design pillar: the product is framed as a story generator, and mechanics,
+failure, recovery, visual hierarchy, and scope are selected for the stories and
+emotions they generate. That does not prescribe RimWorld&#x27;s solution for other
+games. It demonstrates how a product promise can constrain systems instead of
+being inferred from them afterward.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-player-system-evidence-loop">The Player-System Evidence Loop<a href="#the-player-system-evidence-loop" class="hash-link" aria-label="Direct link to The Player-System Evidence Loop" title="Direct link to The Player-System Evidence Loop" translate="no">​</a></h2>
+<p>Use this inner loop to reason about the experience:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">Promise</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">   |</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Perceive -&gt; Decide -&gt; Act -&gt; Read consequence -&gt; Learn -&gt; Adapt</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">   ^                                                    |</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">   +---------------- changed situation -----------------+</span><br></div></code></pre></div></div>
+<p>The corresponding development loop remains human-led:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">Human intent -&gt; Mechanical model -&gt; Thin real slice -&gt; Human play</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      ^                                                    |</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      +------------- revise, tune, or reject --------------+</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">                              |</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">                Representative study when claims widen</span><br></div></code></pre></div></div>
+<p>The inner loop is healthy when the player can:</p>
+<ol>
+<li class=""><strong>Perceive</strong> the current goal, material state, pressure, opportunities, and
+constraints.</li>
+<li class=""><strong>Decide</strong> among alternatives that appear viable and differ in consequences
+relevant to the player&#x27;s goals.</li>
+<li class=""><strong>Act</strong> through controls that respect the intended command without
+unnecessary friction.</li>
+<li class=""><strong>Read consequence</strong> at the immediate, causal, strategic, and emotional
+levels appropriate to the action.</li>
+<li class=""><strong>Learn</strong> why the result occurred well enough to update a mental model.</li>
+<li class=""><strong>Adapt</strong> by applying that model to a changed problem rather than repeating
+a solved chore.</li>
+</ol>
+<p>The loop is a diagnostic model, not a score. A game can intentionally obscure
+information, delay consequences, constrain agency, or create routine. Those
+choices need to serve the approved experience rather than arise accidentally.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="motivation-and-challenge-are-hypotheses">Motivation And Challenge Are Hypotheses<a href="#motivation-and-challenge-are-hypotheses" class="hash-link" aria-label="Direct link to Motivation And Challenge Are Hypotheses" title="Direct link to Motivation And Challenge Are Hypotheses" translate="no">​</a></h2>
+<p>A systems-heavy loop needs a reason to operate it beyond the existence of
+rewards or content. Name the expected motive rather than assuming every player
+wants the same thing. Useful lenses include:</p>
+<ul>
+<li class=""><strong>Autonomy:</strong> volition, ownership, and expression through meaningful control,
+not merely a large option count.</li>
+<li class=""><strong>Competence:</strong> becoming more effective through learnable challenge,
+intelligible feedback, and skill or knowledge that transfers.</li>
+<li class=""><strong>Relatedness:</strong> connection, care, cooperation, rivalry, or responsibility
+toward other people or represented beings when the game supports it.</li>
+<li class=""><strong>Curiosity and mastery:</strong> uncertainty the player can reduce by observing,
+experimenting, predicting, and revising a mental model.</li>
+<li class=""><strong>Identity and authorship:</strong> a build, deck, city, factory, story, or strategy
+that visibly becomes the player&#x27;s own.</li>
+<li class=""><strong>Rhythm and restoration:</strong> satisfying routine, flow, collection, or
+contemplation when those are part of the approved promise.</li>
+</ul>
+<p>The
+<a href="https://selfdeterminationtheory.org/SDT/documents/2006_RyanRigbyPrzybylski_MandE.pdf" target="_blank" rel="noopener noreferrer" class="">self-determination theory game studies</a>
+associate experienced autonomy, competence, and relatedness with enjoyment and
+future play. The
+<a href="https://doi.org/10.3389/fpsyg.2022.924953" target="_blank" rel="noopener noreferrer" class="">reducible-uncertainty account of challenge</a>
+offers another useful lens for why learning and prediction can be rewarding.
+Neither establishes a universal recipe, target value, or requirement that one
+loop satisfy every motive.</p>
+<p>Declare the relevant kind of challenge: execution, planning, inference,
+resource pressure, risk, timing, coordination, or another approved demand.
+Increasing health, speed, prices, timers, or system count does not by itself
+produce competence. The player needs enough causality, control, and recovery to
+interpret failure and attempt a better or more expressive response.</p>
+<p>Agents can inspect available control, challenge curves, error recovery,
+progress signals, and opportunities for different strategies. Only human
+evidence establishes felt volition, competence, connection, curiosity,
+ownership, pressure, or desire to continue. Extrinsic rewards and retention can
+change behavior without demonstrating any of those experiences.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="meaningful-decisions">Meaningful Decisions<a href="#meaningful-decisions" class="hash-link" aria-label="Direct link to Meaningful Decisions" title="Direct link to Meaningful Decisions" translate="no">​</a></h2>
+<p>For a repeated decision, inspect these properties:</p>
+<table><thead><tr><th>Property</th><th>Question</th></tr></thead><tbody><tr><td>Available</td><td>Are at least two alternatives actually possible in the current state?</td></tr><tr><td>Perceived</td><td>Can the intended player discover and distinguish them in time?</td></tr><tr><td>Viable</td><td>Is more than one alternative credible under some relevant state, goal, or strategy?</td></tr><tr><td>Consequential</td><td>Do the alternatives change something the player currently values?</td></tr><tr><td>Contextual</td><td>Can the preferred option change with resources, timing, risk, build, location, or intent?</td></tr><tr><td>Costly</td><td>Is there an opportunity cost, commitment, risk, delay, or foregone alternative?</td></tr><tr><td>Legible</td><td>Can the player connect the choice to its important outcomes?</td></tr><tr><td>Learnable</td><td>Does feedback help the player make a better or more expressive future decision?</td></tr></tbody></table>
+<p>Not every choice needs every property. A repeated core decision should not
+collapse accidentally into one obvious answer, an unreadable guess, or an
+action whose consequences do not matter.</p>
+<p>Agents can enumerate options, calculate expected values, search encoded
+policies, find unreachable or dominated candidates, and compare sensitivity
+under declared assumptions. They cannot establish which alternatives a person
+perceives, whether a tradeoff feels meaningful, or whether committing to it is
+satisfying.</p>
+<p>For narrative choices, consequence, sociality, and moral relevance can affect
+perceived meaningfulness. For non-narrative systems, use that finding only as a
+prompt to examine what the decision changes for the player; do not generalize a
+single narrative study into a universal choice formula.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="feedback-and-game-feel">Feedback And Game Feel<a href="#feedback-and-game-feel" class="hash-link" aria-label="Direct link to Feedback And Game Feel" title="Direct link to Feedback And Game Feel" translate="no">​</a></h2>
+<p>Feedback in a systems-heavy game has several jobs:</p>
+<table><thead><tr><th>Layer</th><th>Job</th><th>Examples</th></tr></thead><tbody><tr><td>Input</td><td>Confirm that the command was received</td><td>press, click, cursor response, command marker</td></tr><tr><td>Outcome</td><td>Show the immediate result</td><td>movement, hit, purchase, placement, production pulse</td></tr><tr><td>Causality</td><td>Explain what changed and why</td><td>modifiers, blockers, source attribution, failure reason</td></tr><tr><td>Strategy</td><td>Show how future possibilities changed</td><td>forecast, range, queue, capacity, threat, route</td></tr><tr><td>Emotion</td><td>Communicate importance and tone</td><td>motion, sound, haptics, hit stop, celebration, alarm</td></tr><tr><td>Persistence</td><td>Let the player recover or compare later</td><td>history, log, tooltip, ledger, graph, replayable help</td></tr></tbody></table>
+<p>Calibrate intensity to consequence. Feedback that is too weak makes the system
+feel unresponsive or inexplicable. Feedback that is always maximal destroys
+hierarchy, raises fatigue, hides important events, and can reduce experience
+quality. A large action should usually receive more emphasis than a routine
+tick, and repeated low-value events should aggregate or yield to higher-priority
+signals.</p>
+<p>Research on &quot;juiciness&quot; supports visual and tactile embellishment as a useful
+tool, not an unlimited good. A study with 3,018 action-RPG players found that
+both no juice and extreme juice underperformed medium or high conditions on
+several experience and behavior measures. Treat feedback dosage, timing, and
+semantic priority as design variables.</p>
+<p>For each important event, verify:</p>
+<ul>
+<li class="">a production event actually reaches every intended feedback channel;</li>
+<li class="">the channels agree about timing, magnitude, source, and state;</li>
+<li class="">feedback pauses, resets, and tears down with the owning lifecycle;</li>
+<li class="">critical information is not encoded through one sensory channel alone;</li>
+<li class="">frequent events have budgets, aggregation, or priority rules; and</li>
+<li class="">the player can inspect a durable explanation when transient feedback is not
+enough.</li>
+</ul>
+<p>Frame time and input latency are part of feedback quality. An asynchronous
+method signature, queued animation, or emitted event does not prove that the
+player saw a timely response.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="ui-as-a-decision-surface">UI As A Decision Surface<a href="#ui-as-a-decision-surface" class="hash-link" aria-label="Direct link to UI As A Decision Surface" title="Direct link to UI As A Decision Surface" translate="no">​</a></h2>
+<p>The purpose of systems-heavy UI is not to display every variable. It is to help
+the player perceive, compare, predict, act, explain, and recover.</p>
+<p>Prefer:</p>
+<ul>
+<li class="">current state beside the decision it affects;</li>
+<li class="">visible constraints and causal relationships, not totals without meaning;</li>
+<li class="">comparison views that expose costs, deltas, opportunity costs, and
+consequences;</li>
+<li class="">stable vocabulary, units, iconography, color semantics, and ordering;</li>
+<li class="">direct manipulation with rapid, incremental, reversible effects where the
+fantasy and platform support it;</li>
+<li class="">progressive disclosure by decision context, with details available on
+demand;</li>
+<li class="">explicit reasons for disabled, blocked, invalid, or inaccessible actions;</li>
+<li class="">histories, forecasts, overlays, and tooltips when they reduce mental
+bookkeeping;</li>
+<li class="">one discoverable help channel with contextual links instead of scattered
+tutorial messages;</li>
+<li class="">mouse, keyboard, controller, touch, and assistive navigation parity for the
+inputs the product supports; and</li>
+<li class="">pause, slowdown, review, or confirmation where time pressure would otherwise
+turn comprehension into an input-speed test.</li>
+</ul>
+<p>Avoid:</p>
+<ul>
+<li class="">exposing internal implementation values or units without player meaning;</li>
+<li class="">hiding the decisive comparison behind several unrelated panels;</li>
+<li class="">treating more labels, charts, or tooltips as automatically more legible;</li>
+<li class="">generic failure messages when a specific causal reason is available;</li>
+<li class="">a visual hierarchy in which routine data competes with urgent state;</li>
+<li class="">hover-only information on controller or touch paths;</li>
+<li class="">UI focus that diverges from the visible selection;</li>
+<li class="">tutorial text that explains a mechanic before the player has a reason to
+care; and</li>
+<li class="">assuming diegetic or integrated UI is inherently more immersive or usable
+than an overlay.</li>
+</ul>
+<p>Ecological interface design is a useful lens: expose relationships and
+constraints that remain valid across situations so players can reason under
+novel conditions. Direct-manipulation research is another useful lens:
+continuous representation, concrete actions, reversibility, and immediate
+visible effects can reduce the gap between intention and system response.
+Neither lens requires one visual style.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="learning-and-onboarding">Learning And Onboarding<a href="#learning-and-onboarding" class="hash-link" aria-label="Direct link to Learning And Onboarding" title="Direct link to Learning And Onboarding" translate="no">​</a></h2>
+<p>Onboarding is successful when the player forms a useful mental model and can
+act on it, not when the tutorial has displayed every instruction.</p>
+<p>For a systems-heavy first session:</p>
+<ol>
+<li class="">Represent the real game immediately rather than delaying its central verb.</li>
+<li class="">Teach one core concept through a meaningful goal with minimal surrounding
+complexity.</li>
+<li class="">Let the player act, observe a consequence, and vary the action.</li>
+<li class="">Teach concepts and constraints rather than a memorized exact solution.</li>
+<li class="">Offer recovery and experimentation so one misunderstanding does not end the
+learning opportunity.</li>
+<li class="">Introduce complexity when the current decision creates a reason to need it.</li>
+<li class="">Keep explanations searchable and replayable after the transient prompt.</li>
+<li class="">Test comprehension without developer coaching before interpreting the
+result.</li>
+</ol>
+<p>Factorio&#x27;s New Player Experience retrospective is a useful negative case: an
+older tutorial delayed automation, constrained players into one solution,
+disconnected levels, created purposeless grind, and scattered too much
+information. Its redesign aimed to represent the game early, teach central
+concepts with meaningful goals, support experimentation, and unify information
+channels.</p>
+<p>Tutorial presence alone is not a usability result. Studies of first-time user
+experience and implicit tutorials show context-dependent effects and different
+responses between novice and experienced players. Test the target players and
+the actual first-session route.</p>
+<p>Useful first-session observations include:</p>
+<ul>
+<li class="">time to infer the immediate goal;</li>
+<li class="">time to the first meaningful decision and first completed core loop;</li>
+<li class="">actions attempted before success;</li>
+<li class="">requests for explanation;</li>
+<li class="">repeated errors or unrecognized state;</li>
+<li class="">whether the player can predict the next consequence;</li>
+<li class="">whether the player can explain the system in their own words; and</li>
+<li class="">whether they choose to repeat or vary the loop.</li>
+</ul>
+<p>These observations do not explain themselves. Preserve what happened, the
+player&#x27;s retrospective account, and the team&#x27;s interpretation as separate
+records.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="pacing-progression-and-rewards">Pacing, Progression, And Rewards<a href="#pacing-progression-and-rewards" class="hash-link" aria-label="Direct link to Pacing, Progression, And Rewards" title="Direct link to Pacing, Progression, And Rewards" translate="no">​</a></h2>
+<p>Systems-heavy games operate on several clocks:</p>
+<table><thead><tr><th>Clock</th><th>Typical concern</th></tr></thead><tbody><tr><td>Response</td><td>Time from input to perceivable acknowledgment</td></tr><tr><td>Decision</td><td>Time and attention between consequential choices</td></tr><tr><td>Encounter or cycle</td><td>Pressure, escalation, payoff, recovery</td></tr><tr><td>Session or run</td><td>Build formation, reversals, climax, closure</td></tr><tr><td>Long-term progression</td><td>New possibilities, mastery, identity, return</td></tr></tbody></table>
+<p>Do not optimize all clocks toward speed. Deliberation, anticipation, routine,
+and recovery can be valuable. Diagnose accidental dead time, forced waiting,
+unbroken pressure, decision floods, and long stretches in which the player&#x27;s
+best action is already solved.</p>
+<p>Good progression usually changes the decision space as well as the numbers. It
+may:</p>
+<ul>
+<li class="">unlock a new verb, constraint, synergy, or counterplay relationship;</li>
+<li class="">make an earlier decision more expressive;</li>
+<li class="">create a new tension instead of merely removing an old one;</li>
+<li class="">let a build, city, deck, factory, or strategy gain recognizable identity;</li>
+<li class="">convert prior learning into new leverage; and</li>
+<li class="">provide short-term payoff while preserving future agency.</li>
+</ul>
+<p>Reward speed affects perceived competence and enjoyment even when objective
+performance looks similar. Points, levels, and progress indicators can improve
+task performance without necessarily improving autonomy, competence, or
+intrinsic motivation. Treat reward cadence and power curves as hypotheses to
+playtest, not motivational laws.</p>
+<p>Randomness is useful when it creates adaptation, surprise, and varied planning.
+It becomes weak when the player cannot understand odds, influence exposure,
+recover from bad outcomes, or connect the result to a meaningful response.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="balance-and-emergence">Balance And Emergence<a href="#balance-and-emergence" class="hash-link" aria-label="Direct link to Balance And Emergence" title="Direct link to Balance And Emergence" translate="no">​</a></h2>
+<p>Define the balance goal before tuning. Possible goals include:</p>
+<ul>
+<li class="">multiple options having a legitimate place;</li>
+<li class="">distinct strategy identities;</li>
+<li class="">no option warping the rest of the system;</li>
+<li class="">fair counterplay or recovery;</li>
+<li class="">readable risk and reward;</li>
+<li class="">interesting adaptation across contexts; and</li>
+<li class="">difficulty appropriate to the target player and intended experience.</li>
+</ul>
+<p>Equal pick rates, win rates, damage, or resource efficiency are not universal
+balance goals. Distinguish:</p>
+<ul>
+<li class="">actual power under declared conditions;</li>
+<li class="">perceived power;</li>
+<li class="">aesthetic and thematic appeal;</li>
+<li class="">ease of learning and execution;</li>
+<li class="">frequency and context of availability;</li>
+<li class="">cost, risk, counterplay, and opportunity cost; and</li>
+<li class="">the fun or expressiveness of using the option.</li>
+</ul>
+<p>Simulation and telemetry can reveal exploits, sensitivity, dead content,
+candidate dominant policies, strategy distributions, bottlenecks, and
+unexpected interactions. Use several encoded objectives or procedural
+personas rather than one optimizer when the game supports different player
+motivations. The result remains evidence about those models.</p>
+<p>Slay the Spire&#x27;s balance postmortem offers a practical discipline: aim for each
+card to have a place, avoid options that warp the environment, ship frequent
+playable builds, collect metrics and feedback, and treat data as evidence
+rather than a conclusion. RimWorld and the
+<a href="https://media.gdcvault.com/GD_Mag_Archives/GDM_JuneJuly_2008.pdf" target="_blank" rel="noopener noreferrer" class="">My Life as a King postmortem</a>
+add a related warning: more autonomous behavior or simulation detail can
+reduce player control and enjoyment when it displaces the player&#x27;s decisions.</p>
+<p>For a tuning decision, combine:</p>
+<ul>
+<li class="">authored formulas and sensitivity analysis;</li>
+<li class="">telemetry conditioned on context and player population;</li>
+<li class="">strategy-search or simulation under explicit objectives;</li>
+<li class="">observed play and player explanation;</li>
+<li class="">designer judgment about identity and intended experience; and</li>
+<li class="">a replay of the affected decision in the production game.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="accessibility-is-part-of-the-system">Accessibility Is Part Of The System<a href="#accessibility-is-part-of-the-system" class="hash-link" aria-label="Direct link to Accessibility Is Part Of The System" title="Direct link to Accessibility Is Part Of The System" translate="no">​</a></h2>
+<p>Accessibility changes who can perceive, decide, act, and learn. Review it while
+designing the system, not after the loop is considered finished.</p>
+<p>At minimum, examine:</p>
+<ul>
+<li class="">redundant visual, audio, text, and haptic cues for critical information;</li>
+<li class="">remapping, hold/toggle alternatives, sensitivity, dead zones, and input
+complexity;</li>
+<li class="">focus order, focus visibility, navigation consistency, and modal recovery;</li>
+<li class="">color contrast and information that does not depend on color alone;</li>
+<li class="">text size, reading time, language, symbol explanation, and cognitive load;</li>
+<li class="">motion, flashes, camera behavior, vibration, and feedback-intensity controls;</li>
+<li class="">time limits, pause, slowdown, turn-based alternatives, and confirmation;</li>
+<li class="">difficulty dimensions that can be adjusted independently when practical; and</li>
+<li class="">whether procedural content can create inaccessible routes, signals, or
+timing demands.</li>
+</ul>
+<p>Automated checks can find missing settings, unsupported input paths, contrast
+violations, focus traps, and timing assumptions. People with relevant access
+needs are required to establish lived accessibility.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="engagement-without-coercion">Engagement Without Coercion<a href="#engagement-without-coercion" class="hash-link" aria-label="Direct link to Engagement Without Coercion" title="Direct link to Engagement Without Coercion" translate="no">​</a></h2>
+<p>Engagement, retention, session length, and return rate are observations. They
+are not interchangeable with enjoyment, well-being, or product success.</p>
+<p>Do not optimize systems toward:</p>
+<ul>
+<li class="">fear of missing out or punitive absence;</li>
+<li class="">obfuscated odds, costs, or consequences;</li>
+<li class="">friction that prevents stopping, refunding, declining, or recovering;</li>
+<li class="">excessive interruption or variable rewards whose purpose is to inflate a
+developer metric;</li>
+<li class="">artificial scarcity unrelated to the accepted fantasy; or</li>
+<li class="">dark patterns that benefit the developer by reducing informed player
+choice.</li>
+</ul>
+<p>Ask who benefits from the behavior, whether the player understands it, whether
+they can decline it without disproportionate loss, and whether the design
+respects the intended player&#x27;s time and volition.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="claim-matched-evidence">Claim-Matched Evidence<a href="#claim-matched-evidence" class="hash-link" aria-label="Direct link to Claim-Matched Evidence" title="Direct link to Claim-Matched Evidence" translate="no">​</a></h2>
+<table><thead><tr><th>Question</th><th>Agent or automation can establish</th><th>Human evidence required</th></tr></thead><tbody><tr><td>Is the state internally valid?</td><td>Invariants, transitions, reachability, softlocks, reset, deterministic traces</td><td>None for the narrow mechanical claim</td></tr><tr><td>Are choices mechanically distinct?</td><td>Options, expected values, sensitivity, candidate dominance, encoded policy outcomes</td><td>Perceived viability, meaning, satisfaction</td></tr><tr><td>Is feedback wired and timely?</td><td>Event coverage, timing, ordering, latency, channel consistency, lifecycle</td><td>Impact, clarity in motion, comfort, emotional tone</td></tr><tr><td>Is the UI mechanically usable?</td><td>Overflow, focus, mappings, contrast thresholds, input parity, disabled reasons</td><td>Discoverability, information sufficiency, cognitive burden</td></tr><tr><td>Is onboarding complete?</td><td>Trigger coverage, route completion, prompt persistence, state checkpoints</td><td>First-time comprehension without coaching</td></tr><tr><td>Is pacing within authored targets?</td><td>Interval distributions, dead time, decision density, reward and power curves</td><td>Tension, fatigue, boredom, anticipation, payoff</td></tr><tr><td>Is the system balanced under a model?</td><td>Simulated outcomes, strategy distributions, exploit candidates</td><td>Perceived fairness, strategy identity, actual human adaptation</td></tr><tr><td>Is the experience accessible?</td><td>Configuration and rule checks, automated presentation tests</td><td>Lived access for the relevant population</td></tr><tr><td>Is the game engaging or fun?</td><td>No direct automated proof; telemetry can describe behavior</td><td>Direct play, observation, self-report, and representative research for wider claims</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="development-and-playtest-procedure">Development And Playtest Procedure<a href="#development-and-playtest-procedure" class="hash-link" aria-label="Direct link to Development And Playtest Procedure" title="Direct link to Development And Playtest Procedure" translate="no">​</a></h2>
+<p>For a materially new or changed system:</p>
+<ol>
+<li class=""><strong>Approve the promise.</strong> The human designer states the role, target player,
+intended experience, repeated decision, and unacceptable outcome.</li>
+<li class=""><strong>Trace the player-system loop.</strong> Name what the player perceives, decides,
+does, sees, learns, and changes.</li>
+<li class=""><strong>Model mechanical uncertainty.</strong> Write rules, curves, simulations, and
+invariants only for questions they can answer.</li>
+<li class=""><strong>Build the smallest complete decision.</strong> Include production input, UI,
+feedback, consequence, explanation, recovery, and continuation.</li>
+<li class=""><strong>Preflight mechanically.</strong> Remove crashes, deadlocks, missing feedback,
+focus defects, impossible states, and known accessibility blockers that
+would invalidate a human test.</li>
+<li class=""><strong>Run owner play without coaching.</strong> Observe first, then ask neutral
+retrospective questions. Record comprehension, usability, engagement,
+desire to continue, and the intended experience dimensions.</li>
+<li class=""><strong>Separate records.</strong> Keep observation, player report, interpretation,
+proposed change, and retest result distinct.</li>
+<li class=""><strong>Tune or reject within the slice.</strong> Use RITE-style rapid iteration for
+clear usability defects, but recheck the result empirically.</li>
+<li class=""><strong>Widen evidence only with the claim.</strong> Recruit representative target
+players for novice, audience, accessibility, or general-usability claims.</li>
+<li class=""><strong>Expand only after acceptance.</strong> Reopen the gate when a material change
+alters the promise, decision, information, feedback, pacing, or player
+population.</li>
+</ol>
+<p>Useful neutral prompts after play include:</p>
+<ul>
+<li class="">What were you trying to do?</li>
+<li class="">What information did you use?</li>
+<li class="">What alternatives did you consider?</li>
+<li class="">What did you expect to happen?</li>
+<li class="">What surprised you?</li>
+<li class="">What caused the result?</li>
+<li class="">When did you feel in control or out of control?</li>
+<li class="">What would you try next, and why?</li>
+</ul>
+<p>Do not teach during a first-session comprehension test, ask whether a feature
+was &quot;fun&quot; as the only question, or treat a player&#x27;s proposed implementation as
+the diagnosis. Players are authoritative about their experience and behavior;
+the team remains responsible for interpreting the system cause.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="research-basis-and-limits">Research Basis And Limits<a href="#research-basis-and-limits" class="hash-link" aria-label="Direct link to Research Basis And Limits" title="Direct link to Research Basis And Limits" translate="no">​</a></h2>
+<p>The guide draws on several evidence families:</p>
+<ul>
+<li class="">experience-oriented frameworks: <a href="https://www.cs.northwestern.edu/~hunicke/MDA.pdf" target="_blank" rel="noopener noreferrer" class="">MDA</a>,
+<a href="https://www.valuesatplay.org/wp-content/uploads/2007/09/sweetser.pdf" target="_blank" rel="noopener noreferrer" class="">GameFlow</a>,
+<a href="https://selfdeterminationtheory.org/SDT/documents/2006_RyanRigbyPrzybylski_MandE.pdf" target="_blank" rel="noopener noreferrer" class="">self-determination theory in games</a>,
+and the <a href="https://doi.org/10.1016/j.ijhcs.2019.102370" target="_blank" rel="noopener noreferrer" class="">Player Experience Inventory</a>;</li>
+<li class="">uncertainty, learning, and choice:
+<a href="https://doi.org/10.3389/fpsyg.2022.924953" target="_blank" rel="noopener noreferrer" class="">challenge as reducible uncertainty</a>,
+<a href="https://doi.org/10.1145/3173574.3173915" target="_blank" rel="noopener noreferrer" class="">meaningful choices in games</a>,
+and <a href="https://doi.org/10.1207/s15516709cog1804_1" target="_blank" rel="noopener noreferrer" class="">epistemic action</a>;</li>
+<li class="">interface and learning:
+<a href="https://doi.org/10.1109/MC.1983.1654471" target="_blank" rel="noopener noreferrer" class="">direct manipulation</a>,
+<a href="https://orbit.dtu.dk/en/publications/ecological-interface-design-theoretical-foundations/" target="_blank" rel="noopener noreferrer" class="">ecological interface design</a>,
+<a href="https://doi.org/10.1016/j.entcom.2018.04.004" target="_blank" rel="noopener noreferrer" class="">first-time user experience</a>,
+and <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9676530/" target="_blank" rel="noopener noreferrer" class="">implicit tutorials</a>;</li>
+<li class="">feedback and feel:
+<a href="https://doi.org/10.26503/dl.v2018i1.936" target="_blank" rel="noopener noreferrer" class="">Good Game Feel</a>,
+<a href="https://arxiv.org/abs/2011.09201" target="_blank" rel="noopener noreferrer" class="">Designing Game Feel</a>,
+and <a href="https://doi.org/10.1016/j.entcom.2020.100359" target="_blank" rel="noopener noreferrer" class="">action-RPG juiciness</a>;</li>
+<li class="">progression and balance:
+<a href="https://hdl.handle.net/10281/250748" target="_blank" rel="noopener noreferrer" class="">reward growth speed</a>,
+<a href="https://doi.org/10.1145/2583008.2583017" target="_blank" rel="noopener noreferrer" class="">points, levels, and leaderboards</a>,
+<a href="https://arxiv.org/abs/1908.01423" target="_blank" rel="noopener noreferrer" class="">strategy-space analysis</a>,
+and <a href="https://arxiv.org/abs/2308.07576" target="_blank" rel="noopener noreferrer" class="">player-plus-telemetry balancing</a>;</li>
+<li class="">practitioner evidence:
+<a href="https://www.gdcvault.com/play/1025731/-Slay-the-Spire-Metrics%EF%BB%BF" target="_blank" rel="noopener noreferrer" class="">Slay the Spire balance</a>,
+<a href="https://www.gdcvault.com/play/1025772/-Into-the-Breach-Design" target="_blank" rel="noopener noreferrer" class="">Into the Breach design</a>,
+<a href="https://media.gdcvault.com/gdc2017/Presentations/Sylvester_Tynan_RimWorld_Contrarian_Ridiculous.pdf" target="_blank" rel="noopener noreferrer" class="">RimWorld&#x27;s postmortem</a>,
+<a href="https://media.gdcvault.com/GD_Mag_Archives/GDM_JuneJuly_2008.pdf" target="_blank" rel="noopener noreferrer" class="">My Life as a King</a>,
+and Factorio&#x27;s
+<a href="https://www.factorio.com/blog/post/fff-241" target="_blank" rel="noopener noreferrer" class="">new-player</a>,
+<a href="https://www.factorio.com/blog/post/fff-280" target="_blank" rel="noopener noreferrer" class="">feedback</a>, and
+<a href="https://www.factorio.com/blog/post/fff-361" target="_blank" rel="noopener noreferrer" class="">help-system</a> retrospectives;</li>
+<li class="">study practice:
+<a href="https://www.microsoft.com/en-us/research/publication/applied-user-research-in-games/" target="_blank" rel="noopener noreferrer" class="">Applied User Research in Games</a>
+and the <a href="https://jpattonassociates.com/wp-content/uploads/2015/04/rite_method.pdf" target="_blank" rel="noopener noreferrer" class="">RITE method</a>;</li>
+<li class="">accessibility and ethics:
+<a href="https://learn.microsoft.com/en-us/xbox/accessibility/guidelines" target="_blank" rel="noopener noreferrer" class="">Xbox Accessibility Guidelines</a>
+and <a href="https://research.chalmers.se/en/publication/177148" target="_blank" rel="noopener noreferrer" class="">dark game design patterns</a>.</li>
+</ul>
+<p>These sources differ in method, population, genre, and strength. Some are
+validated instruments or controlled studies; some are theory, surveys,
+postmortems, or practitioner reports. They improve hypotheses and study design.
+They do not guarantee that a mechanic will be enjoyable, establish one ideal
+UI, or make an agent representative of a player.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2026-07-25T11:05:42.000Z" itemprop="dateModified">Jul 25, 2026</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/handbook/docs/gameplay-design-dialogue"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Human-Led Gameplay Design</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/handbook/docs/visual-work"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Visual Work</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#the-product-promise-comes-first" class="table-of-contents__link toc-highlight">The Product Promise Comes First</a></li><li><a href="#the-player-system-evidence-loop" class="table-of-contents__link toc-highlight">The Player-System Evidence Loop</a></li><li><a href="#motivation-and-challenge-are-hypotheses" class="table-of-contents__link toc-highlight">Motivation And Challenge Are Hypotheses</a></li><li><a href="#meaningful-decisions" class="table-of-contents__link toc-highlight">Meaningful Decisions</a></li><li><a href="#feedback-and-game-feel" class="table-of-contents__link toc-highlight">Feedback And Game Feel</a></li><li><a href="#ui-as-a-decision-surface" class="table-of-contents__link toc-highlight">UI As A Decision Surface</a></li><li><a href="#learning-and-onboarding" class="table-of-contents__link toc-highlight">Learning And Onboarding</a></li><li><a href="#pacing-progression-and-rewards" class="table-of-contents__link toc-highlight">Pacing, Progression, And Rewards</a></li><li><a href="#balance-and-emergence" class="table-of-contents__link toc-highlight">Balance And Emergence</a></li><li><a href="#accessibility-is-part-of-the-system" class="table-of-contents__link toc-highlight">Accessibility Is Part Of The System</a></li><li><a href="#engagement-without-coercion" class="table-of-contents__link toc-highlight">Engagement Without Coercion</a></li><li><a href="#claim-matched-evidence" class="table-of-contents__link toc-highlight">Claim-Matched Evidence</a></li><li><a href="#development-and-playtest-procedure" class="table-of-contents__link toc-highlight">Development And Playtest Procedure</a></li><li><a href="#research-basis-and-limits" class="table-of-contents__link toc-highlight">Research Basis And Limits</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Start</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/using-stage-with-codex">Choose a Codex workflow</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/STAGE">Read the project map</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Method</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/method">Delivery method</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/SPEC">Safety Kernel</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">History</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/releases">Release records</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/adr">Architecture decisions</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">STAGE Game Engineering. Human product authority remains non-delegable.</div></div></div></footer></div>
+</body>
+</html>

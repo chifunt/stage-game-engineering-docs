@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-docs/quality-and-ci" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">Quality Gates And Continuous Integration | STAGE Game Engineering</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" name="twitter:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" property="og:url" content="https://stage.zoshachi.com/handbook/docs/quality-and-ci"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Quality Gates And Continuous Integration | STAGE Game Engineering"><meta data-rh="true" name="description" content="STAGE uses layered, claim-matched quality gates. The purpose is not to make"><meta data-rh="true" property="og:description" content="STAGE uses layered, claim-matched quality gates. The purpose is not to make"><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://stage.zoshachi.com/handbook/docs/quality-and-ci"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/quality-and-ci" hreflang="en"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/quality-and-ci" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Quality Gates And Continuous Integration","item":"https://stage.zoshachi.com/handbook/docs/quality-and-ci"}]}</script><link rel="stylesheet" href="/assets/css/styles.5be3741e.css">
+<script src="/assets/js/runtime~main.c0cf7df1.js" defer="defer"></script>
+<script src="/assets/js/main.740a8be3.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">STAGE</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/handbook/docs/using-stage-with-codex">Use With Codex</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/handbook/docs/using-stage-with-codex">Handbook</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/handbook/docs/using-stage-with-codex"><span class="categoryLinkLabel_W154">Start Here</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/using-stage-with-codex"><span class="linkLabel_WmDU">Using STAGE With Codex</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook"><span class="linkLabel_WmDU">STAGE Game Engineering</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/STAGE"><span class="linkLabel_WmDU">STAGE Project Map</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/SPEC"><span class="linkLabel_WmDU">STAGE Core Specification</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs"><span class="linkLabel_WmDU">STAGE Documentation Map</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/handbook/docs/method"><span class="categoryLinkLabel_W154">Deliver Work</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/method"><span class="linkLabel_WmDU">The STAGE Delivery Method</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/task-continuity"><span class="linkLabel_WmDU">Task Continuity And Context Recovery</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/directors-flow"><span class="linkLabel_WmDU">The Stage Director&#x27;s Flow</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/task-evidence-matrix"><span class="linkLabel_WmDU">Task-Evidence Matrix</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/handbook/docs/quality-and-ci"><span class="linkLabel_WmDU">Quality Gates And Continuous Integration</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/change-and-release-workflow"><span class="linkLabel_WmDU">Change, Concurrency, And Release Workflow</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/gameplay-design-dialogue"><span class="categoryLinkLabel_W154">Design And Presentation</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/adoption"><span class="categoryLinkLabel_W154">Adopt And Operate</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/maintaining-stage"><span class="categoryLinkLabel_W154">Maintain STAGE</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/evaluation"><span class="categoryLinkLabel_W154">Evidence And Lessons</span></a></div></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_kv0_"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Deliver Work</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Quality Gates And Continuous Integration</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Quality Gates And Continuous Integration</h1></header>
+<p>STAGE uses <strong>layered, claim-matched quality gates</strong>. The purpose is not to make
+the repository look mature or to maximize the number of green tools. It is to
+catch inexpensive failures early, preserve human decisions, and make every
+remaining claim explicit.</p>
+<p>This guide answers four questions:</p>
+<ol>
+<li class="">Which failures should an agent catch before handing work to a human?</li>
+<li class="">Which checks belong on a workstation, in the engine, or in hosted CI?</li>
+<li class="">Which configuration may an agent change without hiding a defect?</li>
+<li class="">What still requires a human director even when every automated gate passes?</li>
+</ol>
+<p>The short answer is:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">Source -&gt; Model -&gt; Engine -&gt; Consumer -&gt; Distribution -&gt; Director</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"> cheap                                                    experiential</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"> frequent                                                 human-owned</span><br></div></code></pre></div></div>
+<p>The layers are additive. A later layer does not make an earlier one
+unnecessary, and an earlier pass does not imply a later result.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="why-a-layered-model">Why A Layered Model<a href="#why-a-layered-model" class="hash-link" aria-label="Direct link to Why A Layered Model" title="Direct link to Why A Layered Model" translate="no">​</a></h2>
+<p>Game projects fail across boundaries that a single linter or test runner cannot
+see.</p>
+<table><thead><tr><th>Failure class</th><th>Example</th><th>Earliest useful detector</th></tr></thead><tbody><tr><td>Mechanical drift</td><td>malformed YAML, unused import, formatting churn</td><td>source gate</td></tr><tr><td>Architecture drift</td><td>runtime code instantiates a resource that a factory owns</td><td>model gate</td></tr><tr><td>Engine-data drift</td><td>missing serialized reference, unsupported shader, stale GUID</td><td>engine gate</td></tr><tr><td>Clean-machine drift</td><td>local generated state masks a missing package or bank</td><td>clean-checkout gate</td></tr><tr><td>Consumer failure</td><td>input, audio, loading, reset, or UI wiring fails in composition</td><td>consumer gate</td></tr><tr><td>Product failure</td><td>the loop is confusing, ugly, tedious, unfair, or not worth continuing</td><td>Director&#x27;s Call</td></tr></tbody></table>
+<p>SonarQube, Roslyn, Ruff, Unity Test Framework, a standalone build, and a human
+playtest answer different questions. Treating any one as a universal quality
+score creates false confidence.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-six-gate-families">The Six Gate Families<a href="#the-six-gate-families" class="hash-link" aria-label="Direct link to The Six Gate Families" title="Direct link to The Six Gate Families" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-source-gate">1. Source Gate<a href="#1-source-gate" class="hash-link" aria-label="Direct link to 1. Source Gate" title="Direct link to 1. Source Gate" translate="no">​</a></h3>
+<p><strong>Question:</strong> Is the changed source mechanically coherent and reviewable?</p>
+<p>Typical checks:</p>
+<ul>
+<li class="">formatter check;</li>
+<li class="">linter and compiler diagnostics;</li>
+<li class="">strict JSON and YAML parsing;</li>
+<li class="">duplicate-key and schema validation;</li>
+<li class="">Markdown link validation;</li>
+<li class="">prohibited path or generated-output checks;</li>
+<li class=""><code>git diff --check</code>;</li>
+<li class="">secret scanning where credentials are plausible; and</li>
+<li class="">an intended-diff review.</li>
+</ul>
+<p>Useful evidence:</p>
+<ul>
+<li class="">exact command and exit status;</li>
+<li class="">tool version;</li>
+<li class="">changed path list;</li>
+<li class="">revision or working-tree coordinates; and</li>
+<li class="">diagnostic output.</li>
+</ul>
+<p>Does not prove:</p>
+<ul>
+<li class="">Unity serialization;</li>
+<li class="">runtime composition;</li>
+<li class="">gameplay behavior;</li>
+<li class="">visual quality;</li>
+<li class="">performance; or</li>
+<li class="">fun.</li>
+</ul>
+<p>The source gate should usually run on every bounded change because it is fast
+and deterministic.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-model-gate">2. Model Gate<a href="#2-model-gate" class="hash-link" aria-label="Direct link to 2. Model Gate" title="Direct link to 2. Model Gate" translate="no">​</a></h3>
+<p><strong>Question:</strong> Do deterministic rules and declared architecture contracts still
+hold?</p>
+<p>Typical checks:</p>
+<ul>
+<li class="">unit and property tests;</li>
+<li class="">deterministic scenario tests;</li>
+<li class="">dependency-direction tests;</li>
+<li class="">namespace or assembly-boundary rules;</li>
+<li class="">ownership rules such as &quot;runtime objects are created by this factory&quot;;</li>
+<li class="">state-machine and transition invariants;</li>
+<li class="">forecast-versus-resolution equality;</li>
+<li class="">source generators or analyzers;</li>
+<li class="">package, content, and manifest contracts; and</li>
+<li class="">replay or state-hash checks.</li>
+</ul>
+<p>This is where a focused Roslyn analyzer, architecture test, or custom repository
+validator can be more useful than a large generic platform. Add one when a rule
+is important, mechanically expressible, and has failed or is likely to fail
+repeatedly.</p>
+<p>Does not prove:</p>
+<ul>
+<li class="">the Unity scene contains the right serialized objects;</li>
+<li class="">the real input and presentation route reaches the rule;</li>
+<li class="">the game communicates the rule;</li>
+<li class="">the choice is interesting; or</li>
+<li class="">players value the outcome.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-engine-gate">3. Engine Gate<a href="#3-engine-gate" class="hash-link" aria-label="Direct link to 3. Engine Gate" title="Direct link to 3. Engine Gate" translate="no">​</a></h3>
+<p><strong>Question:</strong> Does the real engine accept and compose the project state?</p>
+<p>For Unity, typical checks are:</p>
+<ul>
+<li class="">wait for import, compilation, and domain reload to settle;</li>
+<li class="">inspect project-owned Console errors;</li>
+<li class="">run EditMode tests through Unity Test Framework;</li>
+<li class="">run relevant PlayMode tests through the composed project;</li>
+<li class="">validate scenes, prefabs, materials, shaders, animation controllers, and
+serialized references;</li>
+<li class="">verify Addressables, localization tables, Wwise SoundBanks, or other
+middleware output when they are material;</li>
+<li class="">run project-specific authoring validators; and</li>
+<li class="">save only intentionally changed authored assets.</li>
+</ul>
+<p>The generated <code>.csproj</code> compiling outside Unity is supporting evidence. It is
+not a replacement for Unity compilation because Unity controls assembly
+definitions, serialization, importers, generated code, platform defines, and
+engine integration.</p>
+<p>Does not prove:</p>
+<ul>
+<li class="">the intended runtime path was exercised;</li>
+<li class="">standalone behavior;</li>
+<li class="">performance on target hardware;</li>
+<li class="">visual or audio acceptance; or</li>
+<li class="">player comprehension.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-consumer-gate">4. Consumer Gate<a href="#4-consumer-gate" class="hash-link" aria-label="Direct link to 4. Consumer Gate" title="Direct link to 4. Consumer Gate" translate="no">​</a></h3>
+<p><strong>Question:</strong> Does the changed behavior work through its production consumer?</p>
+<p>Examples:</p>
+<table><thead><tr><th>Claim</th><th>Consumer-complete route</th></tr></thead><tbody><tr><td>Pause blocks gameplay input</td><td>real input adapter -&gt; modal owner -&gt; game-time consumer</td></tr><tr><td>Main-menu music hands off</td><td>authoring event -&gt; generated media -&gt; runtime backend -&gt; loading -&gt; gameplay state</td></tr><tr><td>Retry resets a run</td><td>death -&gt; Curtain Call -&gt; retry -&gt; reset owners -&gt; first gameplay frames</td></tr><tr><td>Upgrade can be selected</td><td>real mouse/controller navigation -&gt; production UI -&gt; applied runtime state</td></tr><tr><td>Generated terrain is traversable</td><td>production generator -&gt; colliders -&gt; player/enemy movement in representative seeds</td></tr><tr><td>Moon forecast is truthful</td><td>production command -&gt; forecast UI -&gt; commit -&gt; authoritative resolver -&gt; dawn explanation</td></tr></tbody></table>
+<p>Useful routes include:</p>
+<ul>
+<li class="">composed PlayMode smoke;</li>
+<li class="">scripted production input;</li>
+<li class="">deterministic reproduction;</li>
+<li class="">a live engine scene with real assets;</li>
+<li class="">diagnostics or a profiler capture;</li>
+<li class="">production middleware integration; and</li>
+<li class="">targeted manual inspection where automation cannot operate the consumer
+reliably.</li>
+</ul>
+<p>This gate is often where regressions in game projects actually surface. It
+should be scoped to the changed claim rather than replaced with an unrelated
+full-project test.</p>
+<p>Does not prove:</p>
+<ul>
+<li class="">a first-time player understands the affordance;</li>
+<li class="">a visual is attractive;</li>
+<li class="">a sound mix feels right;</li>
+<li class="">a challenge is fair;</li>
+<li class="">a mechanic is engaging; or</li>
+<li class="">the game should ship.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-distribution-gate">5. Distribution Gate<a href="#5-distribution-gate" class="hash-link" aria-label="Direct link to 5. Distribution Gate" title="Direct link to 5. Distribution Gate" translate="no">​</a></h3>
+<p><strong>Question:</strong> Can a clean, declared environment reproduce and run the intended
+artifact?</p>
+<p>Typical checks:</p>
+<ul>
+<li class="">fresh checkout with no local caches treated as source;</li>
+<li class="">pinned engine, package, compiler, middleware, and action versions;</li>
+<li class="">project-owned build command;</li>
+<li class="">declared scene/content list;</li>
+<li class="">complete artifact-tree receipt or hash;</li>
+<li class="">launch smoke of the exact built artifact;</li>
+<li class="">target-platform logs;</li>
+<li class="">bounded performance and memory checks on relevant hardware;</li>
+<li class="">signing or packaging checks when release scope requires them; and</li>
+<li class="">unchanged source state after a check-only operation.</li>
+</ul>
+<p>Hosted CI is strongest here because it exposes assumptions hidden on the
+author&#x27;s workstation. A CI pass means only that the declared workflow passed
+on that runner and revision.</p>
+<p>Does not prove:</p>
+<ul>
+<li class="">every target machine works;</li>
+<li class="">platform certification;</li>
+<li class="">player experience;</li>
+<li class="">commercial readiness; or</li>
+<li class="">release acceptance.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-director-gate">6. Director Gate<a href="#6-director-gate" class="hash-link" aria-label="Direct link to 6. Director Gate" title="Direct link to 6. Director Gate" translate="no">​</a></h3>
+<p><strong>Question:</strong> Is the product result acceptable for the intended experience?</p>
+<p>The accountable human judges:</p>
+<ul>
+<li class="">comprehension;</li>
+<li class="">control feel and usability;</li>
+<li class="">visual hierarchy and polish;</li>
+<li class="">animation, audio, and feedback;</li>
+<li class="">pacing and balance;</li>
+<li class="">accessibility and comfort;</li>
+<li class="">emotional meaning;</li>
+<li class="">engagement and desire to continue;</li>
+<li class="">whether the game still expresses its identity; and</li>
+<li class="">whether the tradeoff is worth the scope and maintenance cost.</li>
+</ul>
+<p>For a new or materially changed gameplay premise, this is the
+<a class="" href="/handbook/docs/method#player-facing-loop-expansion">Player Experience Gate</a>.
+For ordinary visual, balance, or feel work, it can be a short direct inspection
+or play session.</p>
+<p>Automated evidence can block a broken candidate before human time is spent. It
+cannot accept the product on the human&#x27;s behalf.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="gate-selection">Gate Selection<a href="#gate-selection" class="hash-link" aria-label="Direct link to Gate Selection" title="Direct link to Gate Selection" translate="no">​</a></h2>
+<p>Do not run every possible gate for every change. Select the smallest stack that
+contains the claim&#x27;s material boundaries.</p>
+<table><thead><tr><th>Change</th><th>Source</th><th>Model</th><th>Engine</th><th>Consumer</th><th>Distribution</th><th>Director</th></tr></thead><tbody><tr><td>Documentation typo</td><td>required</td><td>link/map rules</td><td>no</td><td>rendered doc if layout claim</td><td>no</td><td>prose judgment</td></tr><tr><td>Pure economy formula</td><td>required</td><td>required</td><td>if Unity assembly owns it</td><td>representative scenario</td><td>if release-bound</td><td>balance</td></tr><tr><td>Serialized prefab reference</td><td>required</td><td>ownership rule if available</td><td>required</td><td>composed spawn</td><td>clean build if release-bound</td><td>appearance/fit</td></tr><tr><td>Input remapping</td><td>required</td><td>adapter tests</td><td>required</td><td>keyboard/controller production path</td><td>target build</td><td>usability</td></tr><tr><td>Loading performance</td><td>required</td><td>stage invariants</td><td>required</td><td>overlay under real workload</td><td>target hardware if claimed</td><td>continuity</td></tr><tr><td>New gameplay kernel</td><td>required</td><td>deterministic rules</td><td>required</td><td>thin complete loop</td><td>prototype build when needed</td><td>mandatory</td></tr><tr><td>Release candidate</td><td>required</td><td>full declared suite</td><td>required</td><td>critical-path smoke</td><td>required</td><td>release decision</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="change-gate-and-release-gate">Change Gate And Release Gate<a href="#change-gate-and-release-gate" class="hash-link" aria-label="Direct link to Change Gate And Release Gate" title="Direct link to Change Gate And Release Gate" translate="no">​</a></h3>
+<p>A practical repository usually exposes two aggregate commands:</p>
+<ul>
+<li class=""><strong>change gate:</strong> fast checks appropriate while iterating;</li>
+<li class=""><strong>release gate:</strong> the full deterministic repository baseline.</li>
+</ul>
+<p>Engine and experiential checks may remain separate because they require a
+specific editor, GPU, middleware connection, target device, or human. The
+aggregate command must say what it omits.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="stage-directors-flow-integration">Stage Director&#x27;s Flow Integration<a href="#stage-directors-flow-integration" class="hash-link" aria-label="Direct link to Stage Director&#x27;s Flow Integration" title="Direct link to Stage Director&#x27;s Flow Integration" translate="no">​</a></h2>
+<p>Quality gates support, but do not replace, the
+<a class="" href="/handbook/docs/directors-flow">Stage Director&#x27;s Flow</a>.</p>
+<table><thead><tr><th>Flow boundary</th><th>Required quality action</th></tr></thead><tbody><tr><td>Dialogue -&gt; Ready</td><td>name material claims, consumers, selected gates, and human questions</td></tr><tr><td>Active -&gt; Rehearsal</td><td>pass the selected source/model gates and prepare the real consumer</td></tr><tr><td>Rehearsal -&gt; Director&#x27;s Call</td><td>record all attempted outcomes and limitations</td></tr><tr><td>Director&#x27;s Call -&gt; Checkpointed</td><td>human disposition is explicit; accepted work passes required checkpoint gates</td></tr><tr><td>Rejected -&gt; revise/revert</td><td>preserve the finding; do not weaken gates or conceal the rejection</td></tr></tbody></table>
+<p>A work item is not &quot;done&quot; merely because CI is green. State the boundary:</p>
+<ul>
+<li class="">implemented;</li>
+<li class="">mechanically checked;</li>
+<li class="">engine-composed;</li>
+<li class="">human accepted;</li>
+<li class="">checkpointed; and</li>
+<li class="">released.</li>
+</ul>
+<p>Branch isolation, concurrent-agent limits, Unity path ownership, serial
+integration, build identity, and release proposal rules are defined in
+<a class="" href="/handbook/docs/change-and-release-workflow">Change, Concurrency, And Release Workflow</a>.
+Quality gates report whether a revision supports its claims; they do not decide
+which branches may overlap or whether an accepted checkpoint should become a
+release.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="agent-safe-quality-policy">Agent-Safe Quality Policy<a href="#agent-safe-quality-policy" class="hash-link" aria-label="Direct link to Agent-Safe Quality Policy" title="Direct link to Agent-Safe Quality Policy" translate="no">​</a></h2>
+<p>AI agents are nondeterministic contributors. The gate configuration is part of
+human project authority.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="agents-may">Agents May<a href="#agents-may" class="hash-link" aria-label="Direct link to Agents May" title="Direct link to Agents May" translate="no">​</a></h3>
+<ul>
+<li class="">run declared checks;</li>
+<li class="">add a focused check for a newly introduced contract;</li>
+<li class="">fix diagnostics caused by their own intended change;</li>
+<li class="">propose a rule or suppression with evidence;</li>
+<li class="">update a pinned tool deliberately and report the effect;</li>
+<li class="">preserve command output and evidence coordinates; and</li>
+<li class="">stop when a gate exposes an unrelated pre-existing failure.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="agents-must-not">Agents Must Not<a href="#agents-must-not" class="hash-link" aria-label="Direct link to Agents Must Not" title="Direct link to Agents Must Not" translate="no">​</a></h3>
+<ul>
+<li class="">disable, delete, or weaken a check merely to get green;</li>
+<li class="">add broad suppressions without explicit human approval;</li>
+<li class="">rewrite a baseline so new findings disappear;</li>
+<li class="">mark warnings as accepted product decisions;</li>
+<li class="">retry a flaky test until one pass is obtained and report only that pass;</li>
+<li class="">run an auto-fixer over human-authored assets without a reviewed scope;</li>
+<li class="">mutate a repository from CI unless that workflow is explicitly authorized;</li>
+<li class="">infer that CI success grants release or product acceptance; or</li>
+<li class="">claim unattempted engine or human checks.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="suppressions">Suppressions<a href="#suppressions" class="hash-link" aria-label="Direct link to Suppressions" title="Direct link to Suppressions" translate="no">​</a></h3>
+<p>A suppression should record:</p>
+<ul>
+<li class="">exact diagnostic;</li>
+<li class="">smallest affected scope;</li>
+<li class="">reason the rule does not apply;</li>
+<li class="">owner;</li>
+<li class="">review trigger or expiry condition; and</li>
+<li class="">evidence that a code fix is less appropriate.</li>
+</ul>
+<p>Repository-wide suppressions are architecture decisions, not cleanup.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="flaky-checks">Flaky Checks<a href="#flaky-checks" class="hash-link" aria-label="Direct link to Flaky Checks" title="Direct link to Flaky Checks" translate="no">​</a></h3>
+<p>When a check is nondeterministic:</p>
+<ol>
+<li class="">preserve the failing seed, trace, environment, and revision;</li>
+<li class="">distinguish a product nondeterminism defect from a test harness defect;</li>
+<li class="">quarantine only when the project owner accepts the reduced protection;</li>
+<li class="">keep the quarantine visible; and</li>
+<li class="">repair or remove the unsupported claim.</li>
+</ol>
+<p>Retries may gather evidence. They must not convert an intermittent failure into
+a reliable pass.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="ci-design">CI Design<a href="#ci-design" class="hash-link" aria-label="Direct link to CI Design" title="Direct link to CI Design" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="minimum-check-only-workflow">Minimum Check-Only Workflow<a href="#minimum-check-only-workflow" class="hash-link" aria-label="Direct link to Minimum Check-Only Workflow" title="Direct link to Minimum Check-Only Workflow" translate="no">​</a></h3>
+<p>For a small personal repository:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">checkout exact revision</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  -&gt; install pinned tools</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  -&gt; run release gate</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  -&gt; upload useful diagnostics on failure</span><br></div></code></pre></div></div>
+<p>Recommended properties:</p>
+<ul>
+<li class="">read-only repository permissions by default;</li>
+<li class="">actions pinned to immutable commit SHAs;</li>
+<li class="">bounded timeout;</li>
+<li class="">concurrency cancellation for superseded branch runs;</li>
+<li class="">no automatic formatting or commits;</li>
+<li class="">no hidden local generated state;</li>
+<li class="">deterministic locale and relevant environment variables;</li>
+<li class="">exact tool versions in logs; and</li>
+<li class="">one clear completion signal.</li>
+</ul>
+<p>Independent Source and Model jobs may run concurrently. Unity jobs for the
+same project should be serialized, and superseded branch runs may be canceled.
+After serial branch integration, rerun the production-consumer smoke on
+<code>main</code>; separate green branch runs do not establish the integrated state.</p>
+<p>The workflow should be boring. Its job is to reproduce declared checks, not to
+become a second build system.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="unity-ci">Unity CI<a href="#unity-ci" class="hash-link" aria-label="Direct link to Unity CI" title="Direct link to Unity CI" translate="no">​</a></h3>
+<p>Unity needs more than a generic C# job. A future project workflow may include:</p>
+<ol>
+<li class="">license/entitlement setup through a trusted provider;</li>
+<li class="">exact Unity editor version;</li>
+<li class="">Library cache only as an optimization, never authority;</li>
+<li class="">batch-mode EditMode tests;</li>
+<li class="">batch-mode PlayMode tests compatible with the project&#x27;s rendering needs;</li>
+<li class="">a project-owned player build;</li>
+<li class="">retained XML, editor logs, player logs, and build receipt; and</li>
+<li class="">target launch/performance jobs only where runners can support the claim.</li>
+</ol>
+<p>Do not add hosted Unity execution until the project has stable local commands,
+secrets handling, and enough recurring value to justify maintenance. A clean
+local rehearsal copy can expose most clean-machine problems earlier.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="security">Security<a href="#security" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security" translate="no">​</a></h3>
+<p>For hosted workflows:</p>
+<ul>
+<li class="">grant the minimum <code>permissions</code>;</li>
+<li class="">do not print secrets;</li>
+<li class="">do not execute untrusted pull-request code with write credentials;</li>
+<li class="">pin third-party actions;</li>
+<li class="">separate release credentials from ordinary checks;</li>
+<li class="">treat artifacts and cache contents as untrusted input;</li>
+<li class="">review dependency-update changes; and</li>
+<li class="">require explicit human authority for publishing.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="recommended-tools">Recommended Tools<a href="#recommended-tools" class="hash-link" aria-label="Direct link to Recommended Tools" title="Direct link to Recommended Tools" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="python-repositories">Python Repositories<a href="#python-repositories" class="hash-link" aria-label="Direct link to Python Repositories" title="Direct link to Python Repositories" translate="no">​</a></h3>
+<p>Use one tool for deterministic lint and format when it covers the need.
+<a href="https://docs.astral.sh/ruff/" target="_blank" rel="noopener noreferrer" class="">Ruff</a> is suitable for STAGE&#x27;s Python support
+code because it is fast, check-only in CI, and locally auto-fixable under an
+intentional command.</p>
+<p>Start with correctness, import, and bugbear-style rules. Earn broader style
+rules from recurring defects rather than enabling a maximal preset.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="unity-c">Unity C#<a href="#unity-c" class="hash-link" aria-label="Direct link to Unity C#" title="Direct link to Unity C#" translate="no">​</a></h3>
+<p>Use:</p>
+<ul>
+<li class="">Unity&#x27;s compiler diagnostics;</li>
+<li class="">Unity Test Framework;</li>
+<li class="">assembly definitions for real ownership boundaries;</li>
+<li class="">focused
+<a href="https://docs.unity3d.com/6000.0/Documentation/Manual/roslyn-analyzers.html" target="_blank" rel="noopener noreferrer" class="">Roslyn analyzers</a>
+for important mechanically expressible rules;</li>
+<li class="">project validators for serialized assets and content; and</li>
+<li class="">production-consumer PlayMode routes.</li>
+</ul>
+<p>IDE inspections are useful local feedback. A rule relied upon for project
+acceptance needs a reproducible command or engine route, not only one person&#x27;s
+IDE state.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="sonarqube-or-qodana">SonarQube Or Qodana<a href="#sonarqube-or-qodana" class="hash-link" aria-label="Direct link to SonarQube Or Qodana" title="Direct link to SonarQube Or Qodana" translate="no">​</a></h3>
+<p>Do not begin with a dashboard platform.</p>
+<p>Adopt one only when all are true:</p>
+<ul>
+<li class="">source/compiler/engine gates already run reliably;</li>
+<li class="">recurring maintainability findings need cross-revision trend analysis;</li>
+<li class="">the owner will review and act on the findings;</li>
+<li class="">supported-language coverage matches the project;</li>
+<li class="">false-positive and baseline policy is explicit; and</li>
+<li class="">the service&#x27;s administration cost is lower than the decision value.</li>
+</ul>
+<p>Sonar quality gates are useful for declared code-health thresholds and new-code
+analysis. They still do not understand Unity scene wiring, serialized assets,
+gameplay feel, or fun.</p>
+<p><a href="https://www.jetbrains.com/help/qodana/unity.html" target="_blank" rel="noopener noreferrer" class="">Qodana&#x27;s Unity support</a> can
+make sense when JetBrains inspections are already the team&#x27;s accepted
+vocabulary. It should remain advisory until its project-specific signal is
+measured.</p>
+<p>For a solo STAGE project, a small Ruff/Roslyn/Unity/custom-validator stack is
+usually more transparent and maintainable.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="evidence-receipt-example">Evidence Receipt Example<a href="#evidence-receipt-example" class="hash-link" aria-label="Direct link to Evidence Receipt Example" title="Direct link to Evidence Receipt Example" translate="no">​</a></h2>
+<p>An optional work-item entry:</p>
+<div class="language-markdown codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-markdown codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token table table-header-row punctuation" style="color:#393A34">|</span><span class="token table table-header-row table-header important"> Claim </span><span class="token table table-header-row punctuation" style="color:#393A34">|</span><span class="token table table-header-row table-header important"> Route </span><span class="token table table-header-row punctuation" style="color:#393A34">|</span><span class="token table table-header-row table-header important"> Evidence </span><span class="token table table-header-row punctuation" style="color:#393A34">|</span><span class="token table table-header-row table-header important"> Outcome </span><span class="token table table-header-row punctuation" style="color:#393A34">|</span><span class="token table table-header-row table-header important"> Limitation </span><span class="token table table-header-row punctuation" style="color:#393A34">|</span><span class="token table table-header-row"></span><br></div><div class="token-line" style="color:#393A34"><span class="token table table-header-row"></span><span class="token table table-line punctuation" style="color:#393A34">|</span><span class="token table table-line"> </span><span class="token table table-line punctuation" style="color:#393A34">---</span><span class="token table table-line"> </span><span class="token table table-line punctuation" style="color:#393A34">|</span><span class="token table table-line"> </span><span class="token table table-line punctuation" style="color:#393A34">---</span><span class="token table table-line"> </span><span class="token table table-line punctuation" style="color:#393A34">|</span><span class="token table table-line"> </span><span class="token table table-line punctuation" style="color:#393A34">---</span><span class="token table table-line"> </span><span class="token table table-line punctuation" style="color:#393A34">|</span><span class="token table table-line"> </span><span class="token table table-line punctuation" style="color:#393A34">---</span><span class="token table table-line"> </span><span class="token table table-line punctuation" style="color:#393A34">|</span><span class="token table table-line"> </span><span class="token table table-line punctuation" style="color:#393A34">---</span><span class="token table table-line"> </span><span class="token table table-line punctuation" style="color:#393A34">|</span><span class="token table table-line"></span><br></div><div class="token-line" style="color:#393A34"><span class="token table table-line"></span><span class="token table table-data-rows punctuation" style="color:#393A34">|</span><span class="token table table-data-rows table-data"> Forecast and night resolve identically </span><span class="token table table-data-rows punctuation" style="color:#393A34">|</span><span class="token table table-data-rows table-data"> </span><span class="token table table-data-rows table-data code-snippet code keyword" style="color:#00009f">`MoonForecastParityTests`</span><span class="token table table-data-rows table-data"> </span><span class="token table table-data-rows punctuation" style="color:#393A34">|</span><span class="token table table-data-rows table-data"> Unity 6.3, commit </span><span class="token table table-data-rows table-data code-snippet code keyword" style="color:#00009f">`abc123`</span><span class="token table table-data-rows table-data">, EditMode XML </span><span class="token table table-data-rows punctuation" style="color:#393A34">|</span><span class="token table table-data-rows table-data"> passed </span><span class="token table table-data-rows punctuation" style="color:#393A34">|</span><span class="token table table-data-rows table-data"> Scenario set MS-01..03 only </span><span class="token table table-data-rows punctuation" style="color:#393A34">|</span><span class="token table table-data-rows"></span><br></div><div class="token-line" style="color:#393A34"><span class="token table table-data-rows"></span><span class="token table table-data-rows punctuation" style="color:#393A34">|</span><span class="token table table-data-rows table-data"> Controller can schedule a Tether </span><span class="token table table-data-rows punctuation" style="color:#393A34">|</span><span class="token table table-data-rows table-data"> Input System gamepad -&gt; production UI -&gt; command queue </span><span class="token table table-data-rows punctuation" style="color:#393A34">|</span><span class="token table table-data-rows table-data"> composed PlayMode </span><span class="token table table-data-rows table-data code-snippet code keyword" style="color:#00009f">`MS-H1`</span><span class="token table table-data-rows table-data"> </span><span class="token table table-data-rows punctuation" style="color:#393A34">|</span><span class="token table table-data-rows table-data"> passed </span><span class="token table table-data-rows punctuation" style="color:#393A34">|</span><span class="token table table-data-rows table-data"> One controller profile </span><span class="token table table-data-rows punctuation" style="color:#393A34">|</span><span class="token table table-data-rows"></span><br></div><div class="token-line" style="color:#393A34"><span class="token table table-data-rows"></span><span class="token table table-data-rows punctuation" style="color:#393A34">|</span><span class="token table table-data-rows table-data"> Daytime pressure improves the game </span><span class="token table table-data-rows punctuation" style="color:#393A34">|</span><span class="token table table-data-rows table-data"> uncoached Director play </span><span class="token table table-data-rows punctuation" style="color:#393A34">|</span><span class="token table table-data-rows table-data"> session note </span><span class="token table table-data-rows table-data code-snippet code keyword" style="color:#00009f">`2026-08-02`</span><span class="token table table-data-rows table-data"> </span><span class="token table table-data-rows punctuation" style="color:#393A34">|</span><span class="token table table-data-rows table-data"> rejected </span><span class="token table table-data-rows punctuation" style="color:#393A34">|</span><span class="token table table-data-rows table-data"> One owner, not target-player study </span><span class="token table table-data-rows punctuation" style="color:#393A34">|</span><br></div></code></pre></div></div>
+<p>The third result may reject a mechanically perfect implementation. That is the
+system working.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="repository-baseline-versus-project-baseline">Repository Baseline Versus Project Baseline<a href="#repository-baseline-versus-project-baseline" class="hash-link" aria-label="Direct link to Repository Baseline Versus Project Baseline" title="Direct link to Repository Baseline Versus Project Baseline" translate="no">​</a></h2>
+<p>STAGE&#x27;s own repository can enforce:</p>
+<ul>
+<li class="">Python lint and format;</li>
+<li class="">schemas and structured data;</li>
+<li class="">tests;</li>
+<li class="">documentation maps and links;</li>
+<li class="">a production build of the derived human documentation site;</li>
+<li class="">plugin package integrity; and</li>
+<li class="">diff hygiene.</li>
+</ul>
+<p>The hosted workflow keeps the repository release gate and Docusaurus build in
+separate read-only jobs. The site job installs the pinned lockfile with Node.js
+20, builds the static site with broken links and anchors treated as failures,
+screens generated output for high-confidence private data, and confirms that
+the shipped static output has no production Node dependency surface.
+Development-tool advisories remain visible maintainer input; they do not become
+green by rewriting unrelated packages or pretending build tools are runtime
+dependencies.</p>
+<p>The separate publication workflow is downstream of that quality workflow. It
+publishes only after a successful <code>main</code> run, checks out the triggering run&#x27;s
+exact revision, and replaces only the public documentation repository&#x27;s
+<code>gh-pages</code> branch through a scoped deploy key. This preserves a simple rule:
+publication cannot race ahead of the quality evidence for the source it
+renders. Pages serving proves artifact publication, not method correctness or
+human acceptance.</p>
+<p>A game adopting STAGE does not inherit those exact tools. It selects equivalent
+gates from its actual engine, languages, middleware, risks, and consumers.
+Copying STAGE&#x27;s CI file without those conditions would be cargo culting.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="adoption-sequence">Adoption Sequence<a href="#adoption-sequence" class="hash-link" aria-label="Direct link to Adoption Sequence" title="Direct link to Adoption Sequence" translate="no">​</a></h2>
+<p>For an existing personal Unity project:</p>
+<ol>
+<li class="">document the current reliable local compile and test routes;</li>
+<li class="">add a source formatter/linter in check-only mode;</li>
+<li class="">add one aggregate change gate;</li>
+<li class="">encode only high-value architecture rules that repeatedly regress;</li>
+<li class="">add engine-side content and serialization validation;</li>
+<li class="">stabilize one composed smoke per critical lifecycle;</li>
+<li class="">prove the same commands from a clean rehearsal copy;</li>
+<li class="">move deterministic check-only work into CI;</li>
+<li class="">add standalone builds when distribution is a recurring need; and</li>
+<li class="">add dashboards only when someone uses their trends to make decisions.</li>
+</ol>
+<p>Each step should reduce a known class of failure. Stop adding infrastructure
+when maintenance exceeds the human attention it saves.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="references">References<a href="#references" class="hash-link" aria-label="Direct link to References" title="Direct link to References" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://docs.astral.sh/ruff/linter/" target="_blank" rel="noopener noreferrer" class="">Ruff linter</a></li>
+<li class=""><a href="https://docs.astral.sh/ruff/formatter/" target="_blank" rel="noopener noreferrer" class="">Ruff formatter</a></li>
+<li class=""><a href="https://docs.unity3d.com/6000.0/Documentation/Manual/roslyn-analyzers.html" target="_blank" rel="noopener noreferrer" class="">Unity Roslyn analyzers</a></li>
+<li class=""><a href="https://docs.unity.com/en-us/build-automation" target="_blank" rel="noopener noreferrer" class="">Unity Build Automation</a></li>
+<li class=""><a href="https://docs.unity.com/en-us/build-automation/reference/unit-tests" target="_blank" rel="noopener noreferrer" class="">Unity Build Automation unit tests</a></li>
+<li class=""><a href="https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax" target="_blank" rel="noopener noreferrer" class="">GitHub Actions workflow syntax</a></li>
+<li class=""><a href="https://docs.github.com/en/actions/reference/security/secure-use" target="_blank" rel="noopener noreferrer" class="">GitHub Actions security</a></li>
+<li class=""><a href="https://docs.sonarsource.com/sonarqube-cloud/standards/quality-gates" target="_blank" rel="noopener noreferrer" class="">Sonar quality gates</a></li>
+<li class=""><a href="https://www.jetbrains.com/help/qodana/unity.html" target="_blank" rel="noopener noreferrer" class="">Qodana for Unity</a></li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2026-07-30T06:08:38.000Z" itemprop="dateModified">Jul 30, 2026</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/handbook/docs/task-evidence-matrix"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Task-Evidence Matrix</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/handbook/docs/change-and-release-workflow"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Change, Concurrency, And Release Workflow</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#why-a-layered-model" class="table-of-contents__link toc-highlight">Why A Layered Model</a></li><li><a href="#the-six-gate-families" class="table-of-contents__link toc-highlight">The Six Gate Families</a><ul><li><a href="#1-source-gate" class="table-of-contents__link toc-highlight">1. Source Gate</a></li><li><a href="#2-model-gate" class="table-of-contents__link toc-highlight">2. Model Gate</a></li><li><a href="#3-engine-gate" class="table-of-contents__link toc-highlight">3. Engine Gate</a></li><li><a href="#4-consumer-gate" class="table-of-contents__link toc-highlight">4. Consumer Gate</a></li><li><a href="#5-distribution-gate" class="table-of-contents__link toc-highlight">5. Distribution Gate</a></li><li><a href="#6-director-gate" class="table-of-contents__link toc-highlight">6. Director Gate</a></li></ul></li><li><a href="#gate-selection" class="table-of-contents__link toc-highlight">Gate Selection</a><ul><li><a href="#change-gate-and-release-gate" class="table-of-contents__link toc-highlight">Change Gate And Release Gate</a></li></ul></li><li><a href="#stage-directors-flow-integration" class="table-of-contents__link toc-highlight">Stage Director&#39;s Flow Integration</a></li><li><a href="#agent-safe-quality-policy" class="table-of-contents__link toc-highlight">Agent-Safe Quality Policy</a><ul><li><a href="#agents-may" class="table-of-contents__link toc-highlight">Agents May</a></li><li><a href="#agents-must-not" class="table-of-contents__link toc-highlight">Agents Must Not</a></li><li><a href="#suppressions" class="table-of-contents__link toc-highlight">Suppressions</a></li><li><a href="#flaky-checks" class="table-of-contents__link toc-highlight">Flaky Checks</a></li></ul></li><li><a href="#ci-design" class="table-of-contents__link toc-highlight">CI Design</a><ul><li><a href="#minimum-check-only-workflow" class="table-of-contents__link toc-highlight">Minimum Check-Only Workflow</a></li><li><a href="#unity-ci" class="table-of-contents__link toc-highlight">Unity CI</a></li><li><a href="#security" class="table-of-contents__link toc-highlight">Security</a></li></ul></li><li><a href="#recommended-tools" class="table-of-contents__link toc-highlight">Recommended Tools</a><ul><li><a href="#python-repositories" class="table-of-contents__link toc-highlight">Python Repositories</a></li><li><a href="#unity-c" class="table-of-contents__link toc-highlight">Unity C#</a></li><li><a href="#sonarqube-or-qodana" class="table-of-contents__link toc-highlight">SonarQube Or Qodana</a></li></ul></li><li><a href="#evidence-receipt-example" class="table-of-contents__link toc-highlight">Evidence Receipt Example</a></li><li><a href="#repository-baseline-versus-project-baseline" class="table-of-contents__link toc-highlight">Repository Baseline Versus Project Baseline</a></li><li><a href="#adoption-sequence" class="table-of-contents__link toc-highlight">Adoption Sequence</a></li><li><a href="#references" class="table-of-contents__link toc-highlight">References</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Start</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/using-stage-with-codex">Choose a Codex workflow</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/STAGE">Read the project map</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Method</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/method">Delivery method</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/SPEC">Safety Kernel</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">History</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/releases">Release records</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/adr">Architecture decisions</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">STAGE Game Engineering. Human product authority remains non-delegable.</div></div></div></footer></div>
+</body>
+</html>

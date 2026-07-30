@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#191724"/>
+  <rect x="70" y="70" width="1060" height="490" rx="16" fill="#26233a" stroke="#403d52" stroke-width="4"/>
+  <path d="M70 152h1060M70 478h1060" stroke="#eb6f92" stroke-width="8"/>
+  <text x="110" y="280" fill="#f6c177" font-family="system-ui,sans-serif" font-size="108" font-weight="800">STAGE</text>
+  <text x="110" y="375" fill="#faf4ed" font-family="system-ui,sans-serif" font-size="54" font-weight="650">Game Engineering</text>
+  <text x="110" y="438" fill="#c4a7e7" font-family="system-ui,sans-serif" font-size="30">Human-directed. Evidence-backed.</text>
+</svg>

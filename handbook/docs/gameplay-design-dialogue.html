@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-docs/gameplay-design-dialogue" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">Human-Led Gameplay Design | STAGE Game Engineering</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" name="twitter:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" property="og:url" content="https://stage.zoshachi.com/handbook/docs/gameplay-design-dialogue"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Human-Led Gameplay Design | STAGE Game Engineering"><meta data-rh="true" name="description" content="STAGE treats gameplay design as mixed-initiative work with explicit human"><meta data-rh="true" property="og:description" content="STAGE treats gameplay design as mixed-initiative work with explicit human"><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://stage.zoshachi.com/handbook/docs/gameplay-design-dialogue"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/gameplay-design-dialogue" hreflang="en"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/gameplay-design-dialogue" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Human-Led Gameplay Design","item":"https://stage.zoshachi.com/handbook/docs/gameplay-design-dialogue"}]}</script><link rel="stylesheet" href="/assets/css/styles.5be3741e.css">
+<script src="/assets/js/runtime~main.c0cf7df1.js" defer="defer"></script>
+<script src="/assets/js/main.740a8be3.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">STAGE</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/handbook/docs/using-stage-with-codex">Use With Codex</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/handbook/docs/using-stage-with-codex">Handbook</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/handbook/docs/using-stage-with-codex"><span class="categoryLinkLabel_W154">Start Here</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/using-stage-with-codex"><span class="linkLabel_WmDU">Using STAGE With Codex</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook"><span class="linkLabel_WmDU">STAGE Game Engineering</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/STAGE"><span class="linkLabel_WmDU">STAGE Project Map</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/SPEC"><span class="linkLabel_WmDU">STAGE Core Specification</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs"><span class="linkLabel_WmDU">STAGE Documentation Map</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/method"><span class="categoryLinkLabel_W154">Deliver Work</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/handbook/docs/gameplay-design-dialogue"><span class="categoryLinkLabel_W154">Design And Presentation</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/handbook/docs/gameplay-design-dialogue"><span class="linkLabel_WmDU">Human-Led Gameplay Design</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/systems-heavy-gameplay"><span class="linkLabel_WmDU">Systems-Heavy Gameplay Evidence</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/visual-work"><span class="linkLabel_WmDU">Visual Work</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/adoption"><span class="categoryLinkLabel_W154">Adopt And Operate</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/maintaining-stage"><span class="categoryLinkLabel_W154">Maintain STAGE</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/evaluation"><span class="categoryLinkLabel_W154">Evidence And Lessons</span></a></div></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_kv0_"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Design And Presentation</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Human-Led Gameplay Design</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Human-Led Gameplay Design</h1></header>
+<p>STAGE treats gameplay design as mixed-initiative work with explicit human
+direction. An agent can research, model, critique, prototype, instrument, and
+compare. It must not silently choose what the game should feel like and defer
+the first meaningful design conversation until after implementation.</p>
+<p>This guidance applies when work originates a game or materially redefines its
+core loop, control model, progression, challenge structure, repeated decisions,
+or intended player experience. It does not add ceremony to bounded fixes,
+refactors, faithful implementation of an accepted design, or tuning whose
+intent is already settled.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-design-sequence">The Design Sequence<a href="#the-design-sequence" class="hash-link" aria-label="Direct link to The Design Sequence" title="Direct link to The Design Sequence" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-recover-intent">1. Recover Intent<a href="#1-recover-intent" class="hash-link" aria-label="Direct link to 1. Recover Intent" title="Direct link to 1. Recover Intent" translate="no">​</a></h3>
+<p>Inspect the project&#x27;s existing design sources and recent human decisions.
+Separate:</p>
+<ul>
+<li class="">accepted intent that must be preserved;</li>
+<li class="">current behavior that may only be an implementation accident;</li>
+<li class="">assumptions made by previous agents or prototypes; and</li>
+<li class="">genuine decisions that remain open.</li>
+</ul>
+<p>Do not treat working code, a populated backlog, or permission to keep working
+as evidence that the gameplay premise was approved.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-discuss-the-highest-leverage-unknown">2. Discuss The Highest-Leverage Unknown<a href="#2-discuss-the-highest-leverage-unknown" class="hash-link" aria-label="Direct link to 2. Discuss The Highest-Leverage Unknown" title="Direct link to 2. Discuss The Highest-Leverage Unknown" translate="no">​</a></h3>
+<p>Discuss one coherent decision cluster at a time. Useful questions concern:</p>
+<ul>
+<li class=""><strong>target player and context:</strong> who is playing, for how long, with what prior
+knowledge, input, attention, and social setting;</li>
+<li class=""><strong>fantasy and feeling:</strong> who the player imagines themselves to be and what
+emotional qualities the experience should emphasize;</li>
+<li class=""><strong>verbs and decisions:</strong> what the player repeatedly does, notices, chooses,
+risks, and learns;</li>
+<li class=""><strong>challenge and mastery:</strong> what changes from confusion to competence and what
+makes improved play possible;</li>
+<li class=""><strong>pacing and feedback:</strong> how pressure, release, consequence, progress, and
+recovery are communicated;</li>
+<li class=""><strong>first minute:</strong> what must become legible without developer explanation;</li>
+<li class=""><strong>short loop:</strong> the smallest repeatable sequence worth judging; and</li>
+<li class=""><strong>stop conditions:</strong> observations that should reject, simplify, or redirect
+the premise before it spreads.</li>
+</ul>
+<p>This should be a design conversation, not a questionnaire dump. Ask the next
+question because its answer changes the implementation or evidence plan.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-compare-alternatives-honestly">3. Compare Alternatives Honestly<a href="#3-compare-alternatives-honestly" class="hash-link" aria-label="Direct link to 3. Compare Alternatives Honestly" title="Direct link to 3. Compare Alternatives Honestly" translate="no">​</a></h3>
+<p>When the answer is not already implied by the project&#x27;s direction, offer two
+or three materially different alternatives. For each, state:</p>
+<ul>
+<li class="">the expected player consequence;</li>
+<li class="">the relevant game-design or player-research lens;</li>
+<li class="">implementation and content cost;</li>
+<li class="">likely failure modes and tradeoffs;</li>
+<li class="">assumptions being made; and</li>
+<li class="">what remains unknowable until a human plays it.</li>
+</ul>
+<p>Frameworks help name relationships. They do not select the game&#x27;s identity or
+compute fun. MDA can connect desired aesthetics to dynamics and mechanics;
+GameFlow can prompt questions about challenge, skill, control, goals, feedback,
+concentration, immersion, and social interaction; self-determination theory can
+prompt questions about autonomy, competence, and relatedness. None is a recipe
+or universal score.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-obtain-a-human-approved-gameplay-hypothesis">4. Obtain A Human-Approved Gameplay Hypothesis<a href="#4-obtain-a-human-approved-gameplay-hypothesis" class="hash-link" aria-label="Direct link to 4. Obtain A Human-Approved Gameplay Hypothesis" title="Direct link to 4. Obtain A Human-Approved Gameplay Hypothesis" translate="no">​</a></h3>
+<p>Before substantial implementation, the accountable human designer approves a
+small hypothesis covering:</p>
+<ul>
+<li class="">player fantasy and target context;</li>
+<li class="">core verbs and repeated decisions;</li>
+<li class="">intended experience;</li>
+<li class="">first-minute understanding;</li>
+<li class="">the short loop;</li>
+<li class="">recognizable success, failure, and recovery; and</li>
+<li class="">explicit stop conditions.</li>
+</ul>
+<p>Keep this in the working conversation unless a recurring coordination need
+earns a durable brief. The optional
+<a href="https://github.com/chifunt/stage-game-engineering/blob/main/templates/gameplay-design-brief.md" target="_blank" rel="noopener noreferrer" class="">Gameplay Design Brief</a> is available when
+persistence helps.</p>
+<p>If the human explicitly delegates invention, the agent may draft the
+hypothesis, label its assumptions, and recommend a direction. Approval is still
+required before multiplying that premise through broad systems, modes, content,
+or polish. Delegating implementation is not the same as delegating product
+intent.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-build-and-play-the-smallest-complete-loop">5. Build And Play The Smallest Complete Loop<a href="#5-build-and-play-the-smallest-complete-loop" class="hash-link" aria-label="Direct link to 5. Build And Play The Smallest Complete Loop" title="Direct link to 5. Build And Play The Smallest Complete Loop" translate="no">​</a></h3>
+<p>Use the approved hypothesis to build the thin complete loop described by the
+<a class="" href="/handbook/docs/method#player-facing-loop-expansion">Player Experience Gate</a>. Automate
+mechanical checks so the human spends attention on experience rather than
+avoidable defects. Then have the human play the real player surface and accept,
+block, or revise the premise before expansion.</p>
+<p>For systems-heavy work, continue with
+<a class="" href="/handbook/docs/systems-heavy-gameplay">Systems-Heavy Gameplay Evidence</a>. It turns the
+approved premise into a player-system trace, decision-quality questions, and
+claim-matched checks for UI, feedback, onboarding, pacing, progression,
+balance, accessibility, and ethical engagement. It is a diagnostic workflow,
+not a formula or score for fun.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-agents-can-and-cannot-establish">What Agents Can And Cannot Establish<a href="#what-agents-can-and-cannot-establish" class="hash-link" aria-label="Direct link to What Agents Can And Cannot Establish" title="Direct link to What Agents Can And Cannot Establish" translate="no">​</a></h2>
+<p>The boundary is based on the claim, not on whether an agent can produce a
+number.</p>
+<p>Keep five evidence classes distinct: <strong>direct mechanical</strong>, <strong>advisory proxy</strong>,
+<strong>human designer judgment</strong>, <strong>direct human play</strong>, and <strong>representative player
+research</strong>. Telemetry says what happened; it does not establish how the event
+felt or why the player acted.</p>
+<table><thead><tr><th>Claim class</th><th>Agent or automation contribution</th><th>Required human evidence</th></tr></thead><tbody><tr><td>Rules and state</td><td>Directly test transitions, invariants, completion, failure, reset, reachability, and softlocks</td><td>Balance or meaning may still require play</td></tr><tr><td>Curves and distributions</td><td>Compute progression curves, expected values, spawn/map distributions, and sensitivity under declared assumptions</td><td>Decide whether the resulting experience is desirable</td></tr><tr><td>Strategy space</td><td>Search encoded policies for exploits, dominant strategies, bottlenecks, and unreachable states</td><td>Judge whether actual players perceive, learn, or enjoy those strategies</td></tr><tr><td>Presentation mechanics</td><td>Check prompts, focus, mappings, overflow, contrast thresholds, frame time, and latency</td><td>Judge discoverability, readability in motion, comfort, and accessibility</td></tr><tr><td>Telemetry</td><td>Summarize actions, failures, time, retention within a session, and observed paths</td><td>Observation and self-report are needed to interpret how and why it felt that way</td></tr><tr><td>Theory-based critique</td><td>Identify likely clarity, pacing, fairness, balance, novelty, repetition, or accessibility risks</td><td>Treat these as hypotheses until direct play supports them</td></tr><tr><td>Product intent</td><td>Offer vocabulary, examples, alternatives, and tradeoffs</td><td>Human designer chooses audience, fantasy, desired feeling, priorities, identity, and acceptable compromises</td></tr><tr><td>Lived experience</td><td>Prepare a stable build and questions</td><td>Human play is required for comprehension, control feel, perceived fairness, boredom, frustration, engagement, emotional tone, delight, motion comfort, and desire to continue</td></tr><tr><td>Audience claim</td><td>Help recruit, structure, and analyze a study</td><td>Representative target players are required; owner acceptance alone cannot establish novice, audience, market, or general-usability claims</td></tr></tbody></table>
+<p>A synthetic player establishes behavior for the utility function, policy,
+observations, and action space it encodes. It can explore the game efficiently
+and still miss human misunderstanding, embodied control feel, emotional
+response, cultural meaning, novelty, fatigue, and unexpected play. Treat
+simulation as mechanical evidence and hypothesis generation.</p>
+<p><strong>Fun is not an agent-computable acceptance metric.</strong> Neither a theory
+checklist, telemetry dashboard, code-quality score, nor successful automated
+playthrough can replace direct human judgment.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="human-roles-and-claim-scope">Human Roles And Claim Scope<a href="#human-roles-and-claim-scope" class="hash-link" aria-label="Direct link to Human Roles And Claim Scope" title="Direct link to Human Roles And Claim Scope" translate="no">​</a></h2>
+<p>For a personal game, the owner can validly decide, “this is the game I want to
+make” or “I enjoy this enough to continue.” That is sufficient to direct the
+project. It is not proof that first-time players understand it or that a target
+audience will enjoy it.</p>
+<p>Keep these roles distinct:</p>
+<ul>
+<li class=""><strong>Human designer/owner:</strong> chooses intent and accepts personal product
+direction.</li>
+<li class=""><strong>Human playtester:</strong> reports and demonstrates an experienced interaction
+with a specific build and context.</li>
+<li class=""><strong>Representative target player:</strong> supports claims about a named population.</li>
+<li class=""><strong>Agent/research assistant:</strong> prepares alternatives, mechanics evidence,
+instruments, observations, and bounded analysis without widening the claim.</li>
+</ul>
+<p>One person may hold several roles, but the evidence does not become broader
+because the roles share a person.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="research-basis-and-limits">Research Basis And Limits<a href="#research-basis-and-limits" class="hash-link" aria-label="Direct link to Research Basis And Limits" title="Direct link to Research Basis And Limits" translate="no">​</a></h2>
+<p>This guidance synthesizes established lenses rather than claiming a new science
+of fun:</p>
+<ul>
+<li class="">Hunicke, LeBlanc, and Zubek&#x27;s
+<a href="https://www.cs.northwestern.edu/~hunicke/MDA.pdf" target="_blank" rel="noopener noreferrer" class="">MDA framework</a> connects
+mechanics, runtime dynamics, and desired player aesthetics, and encourages
+experience-driven rather than feature-driven design.</li>
+<li class="">Sweetser and Wyeth&#x27;s
+<a href="https://www.valuesatplay.org/wp-content/uploads/2007/09/sweetser.pdf" target="_blank" rel="noopener noreferrer" class="">GameFlow model</a>
+integrates enjoyment heuristics around concentration, challenge, skill,
+control, goals, feedback, immersion, and social interaction. It is a useful
+review lens, not an objective acceptance score.</li>
+<li class="">Ryan, Rigby, and Przybylski&#x27;s
+<a href="https://selfdeterminationtheory.org/SDT/documents/2006_RyanRigbyPrzybylski_MandE.pdf" target="_blank" rel="noopener noreferrer" class="">self-determination theory studies of games</a>
+connect autonomy, competence, and relatedness with human-reported enjoyment
+and future play.</li>
+<li class="">Abeele et al.&#x27;s
+<a href="https://doi.org/10.1016/j.ijhcs.2019.102370" target="_blank" rel="noopener noreferrer" class="">Player Experience Inventory</a>
+is a validated human-report instrument covering functional and psychosocial
+consequences of play. Its constructs require player responses.</li>
+<li class="">Medlock et al.&#x27;s
+<a href="https://jpattonassociates.com/wp-content/uploads/2015/04/rite_method.pdf" target="_blank" rel="noopener noreferrer" class="">RITE method</a>
+supports rapid iteration from observed human usability problems and
+empirical rechecking of fixes.</li>
+<li class="">Holmgard et al.&#x27;s
+<a href="https://arxiv.org/abs/1802.06881" target="_blank" rel="noopener noreferrer" class="">procedural-persona playtesting</a> shows how
+synthetic agents can explore encoded archetypal strategies. Its value and
+limitations both follow from the utility functions supplied.</li>
+<li class="">Microsoft&#x27;s
+<a href="https://www.microsoft.com/en-us/research/publication/applied-user-research-in-games/" target="_blank" rel="noopener noreferrer" class="">Applied User Research in Games</a>
+describes games user research as adapting social-science methods to improve
+usability and enjoyability.</li>
+</ul>
+<p>These sources support structured reasoning, iteration, and evidence
+triangulation. They do not prove STAGE&#x27;s exact dialogue sequence, nor do they
+make an agent a representative player. The strongest local evidence for this
+correction remains the owner rejection of two technically healthy dogfoods and
+the more productive human-agent correction loop in The Circussy One.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2026-07-25T11:05:42.000Z" itemprop="dateModified">Jul 25, 2026</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/handbook/docs/change-and-release-workflow"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Change, Concurrency, And Release Workflow</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/handbook/docs/systems-heavy-gameplay"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Systems-Heavy Gameplay Evidence</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#the-design-sequence" class="table-of-contents__link toc-highlight">The Design Sequence</a><ul><li><a href="#1-recover-intent" class="table-of-contents__link toc-highlight">1. Recover Intent</a></li><li><a href="#2-discuss-the-highest-leverage-unknown" class="table-of-contents__link toc-highlight">2. Discuss The Highest-Leverage Unknown</a></li><li><a href="#3-compare-alternatives-honestly" class="table-of-contents__link toc-highlight">3. Compare Alternatives Honestly</a></li><li><a href="#4-obtain-a-human-approved-gameplay-hypothesis" class="table-of-contents__link toc-highlight">4. Obtain A Human-Approved Gameplay Hypothesis</a></li><li><a href="#5-build-and-play-the-smallest-complete-loop" class="table-of-contents__link toc-highlight">5. Build And Play The Smallest Complete Loop</a></li></ul></li><li><a href="#what-agents-can-and-cannot-establish" class="table-of-contents__link toc-highlight">What Agents Can And Cannot Establish</a></li><li><a href="#human-roles-and-claim-scope" class="table-of-contents__link toc-highlight">Human Roles And Claim Scope</a></li><li><a href="#research-basis-and-limits" class="table-of-contents__link toc-highlight">Research Basis And Limits</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Start</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/using-stage-with-codex">Choose a Codex workflow</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/STAGE">Read the project map</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Method</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/method">Delivery method</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/SPEC">Safety Kernel</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">History</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/releases">Release records</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/adr">Architecture decisions</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">STAGE Game Engineering. Human product authority remains non-delegable.</div></div></div></footer></div>
+</body>
+</html>

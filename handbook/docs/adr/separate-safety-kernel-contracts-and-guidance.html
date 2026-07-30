@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-docs/adr/separate-safety-kernel-contracts-and-guidance" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">ADR 0050: Separate The Safety Kernel, Optional Contracts, And Guidance | STAGE Game Engineering</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" name="twitter:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" property="og:url" content="https://stage.zoshachi.com/handbook/docs/adr/separate-safety-kernel-contracts-and-guidance"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="ADR 0050: Separate The Safety Kernel, Optional Contracts, And Guidance | STAGE Game Engineering"><meta data-rh="true" name="description" content="Status"><meta data-rh="true" property="og:description" content="Status"><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://stage.zoshachi.com/handbook/docs/adr/separate-safety-kernel-contracts-and-guidance"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/adr/separate-safety-kernel-contracts-and-guidance" hreflang="en"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/adr/separate-safety-kernel-contracts-and-guidance" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.5be3741e.css">
+<script src="/assets/js/runtime~main.c0cf7df1.js" defer="defer"></script>
+<script src="/assets/js/main.740a8be3.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">STAGE</b></a><a class="navbar__item navbar__link" href="/handbook/docs/using-stage-with-codex">Use With Codex</a><a class="navbar__item navbar__link" href="/handbook/docs/using-stage-with-codex">Handbook</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><main class="docMainContainer_TBSr docMainContainerEnhanced_lQrH"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>ADR 0050: Separate The Safety Kernel, Optional Contracts, And Guidance</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="status">Status<a href="#status" class="hash-link" aria-label="Direct link to Status" title="Direct link to Status" translate="no">​</a></h2>
+<p>Accepted.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="context">Context<a href="#context" class="hash-link" aria-label="Direct link to Context" title="Direct link to Context" translate="no">​</a></h2>
+<p>STAGE 0.5 grew by turning lessons from one primary project and a sequence of
+model-bound behavior probes into a broad conformance specification. The
+resulting method was honest about its evidence limits, but its form implied
+more certainty than that evidence supported:</p>
+<ul>
+<li class=""><code>SPEC.md</code> contained 134 RFC-style requirement keywords, including more than
+100 <code>MUST</code> or <code>MUST NOT</code> occurrences;</li>
+<li class="">the universal delivery section alone contained 28 normative requirements;</li>
+<li class="">the repository retained 49 earlier decision records and 244 tests;</li>
+<li class=""><code>tests/test_core_workflow_routing.py</code> used hundreds of exact phrase and
+regular-expression assertions to preserve prompt wording; and</li>
+<li class="">the installed delivery skill had expanded to more than 300 lines.</li>
+</ul>
+<p>Several recent rules were valid corrections to a failed detached visual
+rehearsal. They were nevertheless transcript-shaped: each correction added a
+new universal clause and another prose-lock test. The resulting prompt burden
+did not have corresponding independent-adoption or productivity evidence.
+The recorded behavior probes also remained expensive after the route improved.</p>
+<p>This conflicts with four relevant evidence lines:</p>
+<ul>
+<li class=""><a href="https://www.rfc-editor.org/rfc/rfc2119.html" target="_blank" rel="noopener noreferrer" class="">RFC 2119</a> says imperatives
+should be used carefully and sparingly, for interoperability or harm
+prevention rather than to impose an unnecessary method.</li>
+<li class="">Anthropic&#x27;s <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer" class="">Building effective agents</a>
+recommends the simplest sufficient system, clear agent-computer interfaces,
+and added complexity only when it demonstrably improves outcomes.</li>
+<li class="">Anthropic&#x27;s <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener noreferrer" class="">context-engineering guidance</a>
+treats context as finite and advocates curating useful tokens rather than
+front-loading every possible instruction.</li>
+<li class="">Gloaguen et al.&#x27;s <a href="https://arxiv.org/abs/2602.11988" target="_blank" rel="noopener noreferrer" class="">repository-context study</a>
+found no significant success improvement from repository instruction files
+in its evaluated software tasks while observing greater agent cost and
+activity. Its task population is not Unity game development, so it is
+directional evidence against unmeasured instruction growth, not a universal
+result.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="decision">Decision<a href="#decision" class="hash-link" aria-label="Direct link to Decision" title="Direct link to Decision" translate="no">​</a></h2>
+<p>STAGE 0.6 separates three kinds of material.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-universal-safety-kernel">1. Universal Safety Kernel<a href="#1-universal-safety-kernel" class="hash-link" aria-label="Direct link to 1. Universal Safety Kernel" title="Direct link to 1. Universal Safety Kernel" translate="no">​</a></h3>
+<p>Only behavior needed to prevent plausible harm or preserve human authority is
+universally normative:</p>
+<ul>
+<li class="">follow the newest authorized outcome and stop a rejected or diagnosis-only
+branch before unauthorized implementation;</li>
+<li class="">protect pre-existing, unrelated, and human-authored state;</li>
+<li class="">fail closed when ownership, destructive scope, credentials, publishing
+authority, or actual execution outcome is unresolved;</li>
+<li class="">use canonical project sources and the real production consumer for material
+claims;</li>
+<li class="">do not substitute compilation or automated tests for runtime, visual,
+experiential, or human product acceptance;</li>
+<li class="">disclose unavailable or inconclusive verification;</li>
+<li class="">keep high-risk experiments reversible; and</li>
+<li class="">leave final product, taste, destructive, and release decisions with the
+accountable human.</li>
+</ul>
+<p>These requirements are deliberately few. They constrain unsafe conduct rather
+than prescribe one architecture or ceremony.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-optional-interoperability-contracts">2. Optional Interoperability Contracts<a href="#2-optional-interoperability-contracts" class="hash-link" aria-label="Direct link to 2. Optional Interoperability Contracts" title="Direct link to 2. Optional Interoperability Contracts" translate="no">​</a></h3>
+<p>Project maps, manifests, named operations, ownership records, evidence
+coordinates, schemas, and migrations remain normative only after a project or
+tool deliberately adopts that interface. Their requirements exist so separate
+humans and tools can interpret the artifact consistently. They do not become
+requirements for ordinary game work.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-practitioner-guidance">3. Practitioner Guidance<a href="#3-practitioner-guidance" class="hash-link" aria-label="Direct link to 3. Practitioner Guidance" title="Direct link to 3. Practitioner Guidance" translate="no">​</a></h3>
+<p>The STAGE qualities, domain questions, delivery loop, consumer-complete
+verification heuristic, earned-infrastructure rule, inspection stopping
+heuristics, architecture patterns, and visual guidance become recommendations
+and question sets. They remain important, but a project does not fail
+conformance because it uses a different safe route.</p>
+<p>STAGE will report bounded <strong>application</strong> and adopted <strong>contract</strong> status
+instead of implying that a project architecture is conformant to a universal
+ideal. There is no aggregate maturity or product-quality score.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="section-disposition-from-05">Section Disposition From 0.5<a href="#section-disposition-from-05" class="hash-link" aria-label="Direct link to Section Disposition From 0.5" title="Direct link to Section Disposition From 0.5" translate="no">​</a></h2>
+<table><thead><tr><th>0.5 section</th><th>0.6 disposition</th></tr></thead><tbody><tr><td>Purpose and non-goals</td><td>Retain as scope and evidence boundary.</td></tr><tr><td>Normative language</td><td>Restrict to harm prevention and adopted interoperability contracts.</td></tr><tr><td>Five pillars</td><td>Retain as descriptive qualities and design questions.</td></tr><tr><td>Practitioner Kernel</td><td>Reduce to the universal Safety Kernel plus a short delivery loop.</td></tr><tr><td>Project mapping</td><td>Keep as an optional adopted contract.</td></tr><tr><td>Domain contract</td><td>Convert to a non-normative inspection lens.</td></tr><tr><td>Project-native mapping</td><td>Keep as guidance inside the optional map contract.</td></tr><tr><td>Operation contract</td><td>Keep normative only for a declared named operation.</td></tr><tr><td>Ownership authority</td><td>Protect authored state universally; keep the detailed taxonomy optional.</td></tr><tr><td>Evidence coordinates</td><td>Keep claim honesty universal; keep record fields optional.</td></tr><tr><td>Earned infrastructure</td><td>Retain as guidance, not a conformance gate.</td></tr><tr><td>External inspection</td><td>Retain source-preservation requirements when read-only status is claimed.</td></tr><tr><td>Human-agent authority</td><td>Keep product and destructive authority in the Safety Kernel.</td></tr><tr><td>Delivery loop</td><td>Keep as the recommended default; compress transcript-specific branches into authority principles.</td></tr><tr><td>Conformance</td><td>Replace with application and contract reporting.</td></tr><tr><td>Compatibility</td><td>Keep normative for versioned public artifacts.</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="testing-consequence">Testing Consequence<a href="#testing-consequence" class="hash-link" aria-label="Direct link to Testing Consequence" title="Direct link to Testing Consequence" translate="no">​</a></h2>
+<p>Repository tests will validate executable behavior, schemas, package shape,
+link integrity, version consistency, absence of retired duplicate routes, and
+small context budgets. They will not freeze paragraph wording as a proxy for
+agent behavior. Semantic prompt review and model-bound probes remain explicit
+human-evaluated activities.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="consequences">Consequences<a href="#consequences" class="hash-link" aria-label="Direct link to Consequences" title="Direct link to Consequences" translate="no">​</a></h2>
+<ul>
+<li class="">Ordinary use becomes shorter and easier to understand.</li>
+<li class="">A safe project can use STAGE without adopting STAGE&#x27;s architectural
+vocabulary or artifacts.</li>
+<li class="">Existing map and study schemas remain supported.</li>
+<li class="">Some 0.5 claims called &quot;conformance&quot; become non-normative guidance or
+narrower adopted-contract claims.</li>
+<li class="">The method becomes easier to revise without adding a new prompt clause and
+phrase assertion for every correction.</li>
+<li class="">STAGE still needs independent and longitudinal evaluation; simplification
+improves claim discipline but does not establish effectiveness.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="evidence-boundary">Evidence Boundary<a href="#evidence-boundary" class="hash-link" aria-label="Direct link to Evidence Boundary" title="Direct link to Evidence Boundary" translate="no">​</a></h2>
+<p>This decision combines STAGE&#x27;s own specification and test audit, the failed
+visual-rehearsal path, model-bound behavior probes, primary agent-engineering
+guidance, and RFC requirement-language discipline. It has not yet been tested
+through independent long-term adoption. The 0.6 release must therefore be
+described as a simplification and evidence-alignment change, not proof that the
+new kernel is optimal.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2026-07-23T00:59:13.000Z" itemprop="dateModified">Jul 23, 2026</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#status" class="table-of-contents__link toc-highlight">Status</a></li><li><a href="#context" class="table-of-contents__link toc-highlight">Context</a></li><li><a href="#decision" class="table-of-contents__link toc-highlight">Decision</a><ul><li><a href="#1-universal-safety-kernel" class="table-of-contents__link toc-highlight">1. Universal Safety Kernel</a></li><li><a href="#2-optional-interoperability-contracts" class="table-of-contents__link toc-highlight">2. Optional Interoperability Contracts</a></li><li><a href="#3-practitioner-guidance" class="table-of-contents__link toc-highlight">3. Practitioner Guidance</a></li></ul></li><li><a href="#section-disposition-from-05" class="table-of-contents__link toc-highlight">Section Disposition From 0.5</a></li><li><a href="#testing-consequence" class="table-of-contents__link toc-highlight">Testing Consequence</a></li><li><a href="#consequences" class="table-of-contents__link toc-highlight">Consequences</a></li><li><a href="#evidence-boundary" class="table-of-contents__link toc-highlight">Evidence Boundary</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Start</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/using-stage-with-codex">Choose a Codex workflow</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/STAGE">Read the project map</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Method</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/method">Delivery method</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/SPEC">Safety Kernel</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">History</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/releases">Release records</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/adr">Architecture decisions</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">STAGE Game Engineering. Human product authority remains non-delegable.</div></div></div></footer></div>
+</body>
+</html>

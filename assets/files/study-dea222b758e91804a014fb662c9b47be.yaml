@@ -1,0 +1,409 @@
+study_version: "0.4"
+
+study:
+  id: "stage-lanternworks-dogfood"
+  title: "Lanternworks STAGE Longitudinal Dogfood"
+  status: "reviewed"
+  type: "longitudinal_adoption"
+  independence: "same_director"
+  generated_at: "2026-07-24T20:44:10Z"
+  maintainer_review: "rejected"
+
+source:
+  repository: "https://github.com/chifunt/stage-lanternworks-dogfood.git"
+  branch: "main"
+  revision: "541b2747096bb358daeff31b5d21994421582498"
+  working_tree_dirty: false
+  working_tree_path_count: 0
+  formal_source: "Private GitHub repository at the recorded clean revision"
+  rehearsal_copy: "Clean local checkout synchronized with origin/main"
+  pre_snapshot: null
+  post_snapshot: null
+
+project_profile:
+  engine: "Unity 6000.3.6f1 with Universal Render Pipeline"
+  languages: ["C#", "YAML", "UXML", "USS", "JSON", "Markdown"]
+  architecture_styles:
+    - "deterministic command-and-tick simulation"
+    - "ports-and-adapters persistence"
+    - "VContainer composition root"
+    - "Projection-driven presentation"
+    - "pure Projection-derived explanation"
+    - "authored UI Toolkit and scene source"
+    - "read-only Solo Unity profile planning with explicit optional-bundle selection"
+  tracked_path_count: 670
+  commit_count: 120
+  map_profile: "standard"
+
+research_questions:
+  - "Can the personal Solo Unity profile guide a fresh systems-heavy game from an empty project to a composed authored scene?"
+  - "Can authoritative simulation remain Unity-free while input, views, persistence, and lifecycle become usable Unity adapters?"
+  - "Can an agent automate implementation and verification while preserving an author-editable scene and UI?"
+  - "Which Unity lifecycle and ownership assumptions fail only when the complete scene is composed?"
+  - "Can STAGE keep mechanical evidence distinct from human gameplay acceptance throughout a long build?"
+  - "Can project-owned build intent and STAGE-owned artifact verification remain separate without inflating build success into a launch or release claim?"
+  - "Can project-owned scene-readiness semantics and STAGE-owned launch verification remain separate without inflating startup into input, visual, performance, or release claims?"
+  - "Can the preferred editor-comfort bundle be selected for sustained work without pulling unrelated licensed tools into the game?"
+  - "Can exact committed dependency-source identity be checked without becoming a readiness claim?"
+  - "Can real product-legibility work deepen an engine-free explanation boundary without changing authoritative state or duplicating domain semantics in Unity?"
+  - "Can STAGE distinguish an executable input path from the affordance presented on the ordinary player surface and from human understanding?"
+  - "Can an adopted project map remain useful across ordinary product commits without duplicating revision-bound verification history?"
+
+product_experience:
+  material: true
+  gate: "blocked"
+  hypothesis:
+    provenance: "retrospective"
+    authored_at: "2026-07-24T20:44:10Z"
+    player_fantasy: "Plan and operate a small lantern borough whose connected structures turn resources into a self-sustaining First Light."
+    core_verbs: ["inspect", "build", "connect", "produce", "repair"]
+    intended_experience:
+      - "Understand the borough's resource flow from the ordinary player surface."
+      - "Make legible planning decisions and see their consequences."
+      - "Want to improve the borough after reaching First Light."
+    first_minute: "The player should understand what can be built, how to connect it, and what immediate goal advances the borough."
+    short_loop: "Inspect demand, place structures, route resources, observe production, correct the plan, and reach First Light."
+    success: "The player reaches First Light while understanding which decisions caused it and wants to continue optimizing."
+    failure: "The player cannot infer available actions or resource relationships, completes actions only from external instruction, or does not want another attempt."
+    stop_conditions:
+      - "The ordinary player surface does not explain the core actions."
+      - "The owner cannot understand the short loop without developer knowledge."
+      - "The owner does not find the short loop enjoyable enough to repeat."
+  human_playtest:
+    status: "completed"
+    reviewer: "project owner"
+    reviewed_at: "2026-07-24T20:44:10Z"
+    source_revision: "541b2747096bb358daeff31b5d21994421582498"
+    basis: "Direct owner play in the Unity project followed by an explicit product verdict."
+    dimensions:
+      comprehension: "failed"
+      usability: "failed"
+      engagement: "failed"
+      desire_to_continue: "failed"
+    findings:
+      - "The game was neither adequately explained nor self-explanatory."
+      - "The UI and interaction design did not make the play understandable."
+      - "The owner did not find the prototype fun or enjoyable."
+    decision: "Freeze the project as a failed experiential dogfood; retain only its bounded engineering lessons."
+
+operations:
+  - name: "Deterministic Borough simulation and persistence proof"
+    status: "passed"
+    provenance: "local"
+    scope: ["Simulation", "Application", "Persistence", "EditMode"]
+    source_revision: "9eb1b53bc9b7f73eff667a930b79d70f21e8d5b6"
+    declared_toolchain: "Unity Test Framework and STAGE deterministic evidence model"
+    effective_toolchain: "Unity 6000.3.6f1 batch-mode EditMode suite"
+    evidence:
+      - "162 of 162 EditMode tests passed at the recorded source checkpoint"
+      - "Same seed and Command history reproduce Snapshot and state hash"
+      - "Save, restore, malformed data, and atomic load behavior are covered"
+      - "Raw NUnit result SHA-256 0e8a0f246b75854ec2bb3b555073ce26392e6e9a2bbbfc88fc8111f142ea8557"
+    notes: "The suite includes adapter-focused tests but does not promote them into composed runtime claims."
+  - name: "Composed Unity lifecycle and authored-scene proof"
+    status: "passed"
+    provenance: "local"
+    scope: ["VContainer", "PlayMode", "Projection", "input", "selection", "UI Toolkit", "teardown"]
+    source_revision: "d4f539df56363720584e8a07f0e003aee64100e1"
+    declared_toolchain: "Unity Test Framework and authored LanternworksDemo scene"
+    effective_toolchain: "Unity 6000.3.6f1 batch-mode PlayMode suite"
+    evidence:
+      - "13 of 13 PlayMode tests passed at the recorded source checkpoint"
+      - "The Build Settings scene resolves its VContainer graph and binds the HUD after activation"
+      - "Projection, selection, input, and runtime resource teardown are covered"
+      - "Raw NUnit result SHA-256 622081c774da628711f11b34f4425a57b2dc0b01e26c01ae7781375f22906864"
+    notes: "The test command omits an eager quit flag so Unity can flush results."
+  - name: "Authored First Light Gamepad rehearsal"
+    status: "passed"
+    provenance: "local"
+    scope: ["LanternworksDemo scene", "Gamepad input", "build", "route", "production", "Demand", "world views", "HUD"]
+    source_revision: "d4f539df56363720584e8a07f0e003aee64100e1"
+    declared_toolchain: "Unity Input System virtual Gamepad and focused composed PlayMode test"
+    effective_toolchain: "Unity 6000.3.6f1 graphical batch-mode PlayMode with Input System 1.18.0"
+    evidence:
+      - "The actual composition graph resolves UnityBoroughInputSource as the active input adapter"
+      - "Virtual Gamepad input queues four Structures and three Routes through BoroughInputDriver"
+      - "Four exact scheduler Ticks produce one Lantern, satisfy Demand, and reach Prosperity 1"
+      - "World and named HUD surfaces agree on First Light Achieved and progress 8 / 8"
+      - "Two independent runs produced byte-identical receipts with SHA-256 3f7295cdfc5ac430f62c2edf3d80f8af223d39ce1718a25128ac1aa253cf690a"
+    notes: "The composed Session is reset to the authored baseline and exact scheduler Ticks are advanced directly. This is deterministic mechanical reachability evidence, not physical-controller, pacing, usability, or human-acceptance evidence."
+  - name: "Authored structural visual proof"
+    status: "passed"
+    provenance: "local"
+    scope: ["LanternworksDemo scene", "camera", "lighting", "world view", "selection"]
+    source_revision: "789fde365733224978987ef8850e485711c09894"
+    declared_toolchain: "Opt-in PlayMode camera capture plus Unity Game-view inspection"
+    effective_toolchain: "Unity 6000.3.6f1 and local GUI inspection"
+    evidence:
+      - "A 1280 by 720 camera capture is nonblank and centered"
+      - "The 9 by 7 Borough, two deposits, and selection cursor are visually distinct"
+      - "Capture SHA-256 a89a5dd65ca25b50d032a34de2256d5513bbcd2ae08635d1cdb900e05fdf8f9d"
+    notes: "Overlay UI is asserted by named elements and inspected in the Game view because it is not included in the camera target."
+  - name: "Composed world and HUD visual proof"
+    status: "passed"
+    provenance: "local"
+    scope: ["LanternworksDemo scene", "world camera", "UI Toolkit HUD", "structural composition"]
+    source_revision: "b4439859f3aa75c2c76d89794ce67969d9a01553"
+    declared_toolchain: "Opt-in graphical batch-mode PlayMode capture"
+    effective_toolchain: "Unity 6000.3.6f1 with independent world and UI render targets"
+    evidence:
+      - "A 1280 by 720 alpha-composed world-plus-HUD PNG is nonblank"
+      - "The world target passes sampled color-variation assertions"
+      - "The HUD target passes nontransparent pixel-coverage assertions"
+      - "Capture SHA-256 e86729c580fd2e34691c0919d741c5f77cff61061c38d7050b29eee8eb1ee0de"
+    notes: "This is deterministic structural evidence, not the exact Game-view backbuffer or a human legibility and interaction claim. A WaitForEndOfFrame ScreenCapture attempt was rejected because that yield did not resume in batch PlayMode."
+  - name: "Projection-derived Cell and First Light guidance"
+    status: "passed"
+    provenance: "local"
+    scope: ["selected Cell", "First Light", "Projection", "UI Toolkit", "Storehouse relay"]
+    source_revision: "9eb1b53bc9b7f73eff667a930b79d70f21e8d5b6"
+    declared_toolchain: "Projection read models plus EditMode and composed PlayMode tests"
+    effective_toolchain: "Unity 6000.3.6f1 complete EditMode and PlayMode suites"
+    evidence:
+      - "Selected Cell Inventory, process, and Route state are derived from the current Projection"
+      - "First Light requires the closed Ore, Fuel, Workshop, Home, Route, and Prosperity loop"
+      - "A valid Storehouse-relayed Ore path counts without hidden tutorial state"
+      - "The authored UXML exposes the required named Cell and objective surfaces in PlayMode"
+    notes: "Mechanical guidance evidence remains below human interaction and experiential acceptance."
+  - name: "Derived Flow Issue guidance"
+    status: "passed"
+    provenance: "local"
+    scope: ["BoroughFlowAnalyzer", "Projection", "Flow Issue", "First Light", "UI Toolkit HUD"]
+    source_revision: "74a157d150bc165b88052a766d649eec73751e11"
+    declared_toolchain: "TDD, Unity Test Framework, and deterministic composed capture"
+    effective_toolchain: "Unity 6000.3.6f1 EditMode, PlayMode, authored UXML/USS, and explicit render targets"
+    evidence:
+      - "A Unity-free, cycle-safe analyzer emits stably ordered missing-path and isolated-Storehouse Flow Issues"
+      - "First Light and selected-Structure guidance share the analyzer instead of maintaining duplicate graph traversal"
+      - "183 of 183 EditMode and 14 of 14 PlayMode tests passed with no project errors"
+      - "The 1280 by 720 composed frame remained structurally legible and empty Cells suppressed Structure-only Flow guidance"
+    notes: "This checkpoint was driven by a real manager-game legibility need. Flow Issues are disposable Projection analysis, not Snapshot state, and do not claim throughput diagnosis or human comprehension."
+  - name: "Revision-bound macOS player build"
+    status: "passed"
+    provenance: "local"
+    scope: ["StandaloneOSX", "LanternworksDemo scene", "clean revision", "settled build log", "artifact integrity"]
+    source_revision: "eefec4c089a5acb685c76ced4e0aa1c5fec81ca1"
+    declared_toolchain: "Project-owned LanternworksPlayerBuild plus generic STAGE player-build evidence capture"
+    effective_toolchain: "Unity 6000.3.6f1 macOS batch build and STAGE schema 0.1 artifact verifier"
+    evidence:
+      - "The project-owned operation built exactly one enabled Editor Build Settings scene with zero errors and zero warnings"
+      - "The raw receipt and settled Unity log were newer than the clean committed source revision and matched Unity 6000.3.6f1"
+      - "The macOS app bundle contained 185 files and 116314913 bytes"
+      - "The complete artifact-tree SHA-256 was 0483fb1445df053548d4c1fa80bd4b28f6ca8c0d0e573fbd1c905c61ed3e81e9"
+      - "Two normalization runs with the same generated_at value produced byte-identical evidence SHA-256 0b7056f151bb40dcdc3be1228545fd80b1db85147a49aa001b0ed605dd419c47"
+    notes: "This proves build integration and artifact identity for the named revision. The app was not launched, signed, distributed, performance-tested, or accepted for release."
+  - name: "Revision-bound macOS player launch"
+    status: "passed"
+    provenance: "local"
+    scope: ["StandaloneOSX", "LanternworksDemo scene", "natural startup", "VContainer", "world view", "HUD", "artifact integrity"]
+    source_revision: "6fb8f61917e8577c5299a4f2d8eba1490f881273"
+    declared_toolchain: "Project-owned LanternworksPlayerLaunchProbe plus generic STAGE launch evidence capture"
+    effective_toolchain: "Unity 6000.3.6f1 macOS player and STAGE launch schemas 0.1"
+    evidence:
+      - "A fresh clean-revision build produced a 185-file, 116324287-byte app bundle with artifact-tree SHA-256 a65f31c19c37579ba2116de544ee25d4cd938cd1d39265150a5ace90260f6782"
+      - "The exact player executable launched in batch mode, wrote a nonce-bound receipt, and exited zero in 3.500437 seconds without timing out"
+      - "The authored scene, LifetimeScope, VContainer graph, BoroughSession, first Simulation Tick, 63-cell world view, selection view, HUD, and main camera were ready"
+      - "The complete artifact-tree hash was unchanged after execution and the settled player log contained no configured failure markers"
+    notes: "The project owns the meaning of scene readiness; STAGE owns provenance, process, nonce, receipt, log, and artifact-mutation checks. This does not assess real input, visual correctness, representative performance, signing, distribution, or human release acceptance."
+  - name: "Read-only complete-profile planning"
+    status: "passed"
+    provenance: "local"
+    scope: ["Solo Unity profile", "systems-simulation recipe", "editor-comfort bundle", "dependency boundaries"]
+    source_revision: "751d0221430331875296b91f0f8f33a23b74ca41"
+    declared_toolchain: "STAGE Solo Unity bootstrap planner"
+    effective_toolchain: "Python 3.14.0 in the STAGE development environment"
+    evidence:
+      - "All nine required systems-simulation dependencies were already installed exactly"
+      - "The explicitly included editor-comfort bundle produced five author-source actions and no automatic additions"
+      - "Odin, FEEL, Nice Vibrations, Animancer, Shapes, Wwise, and All In 3D Shader remained optional, unselected, or deferred"
+      - "The clean Lanternworks repository was unchanged by planning"
+    notes: "The plan records dependency intent only; it grants no source authority and proves no editor-tool readiness."
+  - name: "Solo Unity dependency integration"
+    status: "passed"
+    provenance: "local"
+    scope: ["Solo Unity profile", "Unity MCP", "vFavorites", "vFolders", "vHierarchy", "vInspector", "vTabs", "EditMode", "PlayMode"]
+    source_revision: "a627f5fe46e05a05d7d6bd31ba48a15a935fde0d"
+    declared_toolchain: "STAGE bootstrap planner, controlled source transfer, and direct Unity verification"
+    effective_toolchain: "Unity 6000.3.6f1 plus STAGE source inventory and transfer helpers"
+    evidence:
+      - "All 14 recipe-selected dependencies are present at the recorded clean revision; the nine package or embedded dependencies are exact"
+      - "All seven transferable dependencies match the pinned Circussy source by committed path, mode, byte count, content digest, and applicable package declaration"
+      - "The complete Unity suites passed 179 of 179 EditMode and 14 of 14 PlayMode tests"
+      - "The five editor-comfort tools still required direct human workflow judgment"
+      - "Unity MCP still required one real live-client operation"
+    notes: "The later assessment and attestation experiment reproduced these facts without performing the six outstanding checks. ADR 0028 retired that parallel machinery; direct Unity review is now authoritative."
+  - name: "Product-driven First Light bootstrap replay"
+    status: "passed"
+    provenance: "local"
+    scope: ["Solo Unity systems-simulation recipe", "explicit capability opt-in", "First Light bootstrap planning", "historical evidence preservation"]
+    source_revision: "8c84994e10d95df5aba1437a114b66eb1f1a2213"
+    declared_toolchain: "STAGE bootstrap planner at revision 2319402"
+    effective_toolchain: "Python 3.14.0 in the STAGE development environment"
+    evidence:
+      - "The corrected recipe requires only the six base dependencies and classifies async, presentation, systems-heavy, authoring, runtime-graphics, and editor-comfort as optional"
+      - "The clean-revision replay explicitly included VContainer and editor comfort, selected 12 dependencies, required zero package additions, and has SHA-256 c3e353c69062e0177099e4a4dae58b823ba6231c9455accfcaadd5e20d09bb9a"
+      - "Installed UniTask and PrimeTween remained visible in the inventory as optional_not_selected rather than silently becoming architecture"
+      - "Two planner replays with the same source coordinates and generation time produced byte-identical artifacts"
+      - "The original 14-dependency plan remains as causal evidence of the corrected policy"
+    notes: "This replay changed STAGE selection policy, not Lanternworks source or the product boundary. VContainer remains justified by the mature composed adapter graph; it is not a default requirement for a fresh simulation project. Product, state, lifecycle, ownership, automated, and human decisions now live in the ordinary delivery plan or optional feature brief instead of a profile-specific charter."
+  - name: "Ordinary-surface Command Deck affordance"
+    status: "passed"
+    provenance: "local"
+    scope: ["LanternworksDemo scene", "UI Toolkit HUD", "pointer", "keyboard", "Gamepad", "BoroughInputDriver", "composed runtime"]
+    source_revision: "5bbdc3bc61acc1040e76ce9f13b69124622f335b"
+    declared_toolchain: "Direct production-surface inspection plus Unity EditMode and PlayMode suites"
+    effective_toolchain: "Unity 6000.3.6f1, authored UI Toolkit HUD, and composed PlayMode capture"
+    evidence:
+      - "Pre-change inspection found that the ordinary HUD exposed only the Almanac while mouse input could only select Cells, despite a passing virtual-Gamepad First Light rehearsal"
+      - "The Command Deck exposes five build tools, exact Ore/Fuel/Lantern Route tools, Remove, Apply, Cancel, Pause, Save, Load, and Almanac on the ordinary player surface"
+      - "Every visible action emits immutable input frames through the existing BoroughInputDriver rather than mutating simulation or views directly"
+      - "The focused tests and complete suites passed 221 of 221 EditMode and 20 of 20 PlayMode tests"
+      - "A final composed world-plus-HUD capture passed with SHA-256 f873e9d48910129a4950ddef72015530f900e2ebc53a35aeafa5f4d32bb17d3d"
+    notes: "This proves production affordance presence and shared-path wiring at the named revision. It does not prove that a person notices, understands, enjoys, or can comfortably use the controls."
+  - name: "Player-facing Structure rule guide"
+    status: "passed"
+    provenance: "local"
+    scope: ["Borough Almanac", "canonical Structures", "placement", "Resource flow", "production cadence", "storage", "UI Toolkit"]
+    source_revision: "254773c3b83186237fbc927afe6d299e8f2d7d6d"
+    declared_toolchain: "Product-native Almanac plus Unity EditMode and PlayMode suites"
+    effective_toolchain: "Unity 6000.3.6f1 Test Runner without an eager -quit flag"
+    evidence:
+      - "All five canonical Structure entries expose factual placement, flow, production, and storage guidance co-located with the existing Structure catalog"
+      - "The player Almanac renders the selected Structure guide while developer Scenarios retain question-focused summaries"
+      - "A fresh focused EditMode result reported 22 of 22 tests passed and a fresh focused PlayMode result reported 1 of 1 test passed"
+      - "Fresh complete result files reported 222 of 222 EditMode and 20 of 20 PlayMode tests passed"
+    notes: "An earlier command using -quit exited zero after import and compilation without producing its requested result file. That invocation was inconclusive and was rerun without -quit using fresh result paths. This checkpoint proves factual content and rendering behavior, not player comprehension or acceptance."
+  - name: "Durable project map maintenance"
+    status: "passed"
+    provenance: "local"
+    scope: ["STAGE.md", ".stage/project.yaml", "verification history", "operation contracts"]
+    source_revision: "541b2747096bb358daeff31b5d21994421582498"
+    declared_toolchain: "STAGE project-map and Markdown-link validators plus semantic manifest assertions"
+    effective_toolchain: "STAGE development environment against the clean Lanternworks repository"
+    evidence:
+      - "All 14 declared operations remain available with their commands, capabilities, preconditions, readiness signals, effects, and claim boundaries intact"
+      - "The human map and machine manifest no longer duplicate exact suite counts, source revisions, artifact hashes, or launch timings"
+      - "docs/verification.md is explicitly the sole revision-bound checkpoint history and records the latest prior Unity suite result"
+      - "Project-map schema/path validation, local Markdown-link validation, semantic assertions, and git diff checks passed before commit"
+      - "The documentation-only checkpoint did not rerun Unity and therefore makes no new gameplay, compilation, or visual claim"
+    notes: "This validates map maintenance behavior, not the product runtime. Durable operation availability and historical execution outcomes are intentionally separate."
+  - name: "Closed economy interactive acceptance"
+    status: "failed"
+    provenance: "maintainer"
+    scope: ["build", "route", "produce", "Demand", "save", "load", "gameplay understanding"]
+    source_revision: "254773c3b83186237fbc927afe6d299e8f2d7d6d"
+    declared_toolchain: "Human play in the authored LanternworksDemo scene"
+    effective_toolchain: "Owner playtest in the Unity production project"
+    evidence:
+      - "The owner found the game difficult to comprehend and neither explained nor self-explanatory."
+      - "The owner rejected the UI and game design as inadequate even for a prototype."
+      - "The owner found the loop not fun and not enjoyable enough to justify continued product expansion."
+    notes: "The rejection does not invalidate deterministic, composition, build, launch, or tooling evidence. It invalidates promotion of those checks into a successful playable-product claim."
+
+measures:
+  map_sections_covered: ["direction", "vocabulary", "domains", "lifecycle", "authoring", "operations", "ownership", "verification", "risks", "decision-rights"]
+  unresolved_reference_count: 0
+  target_unchanged: false
+  stable_refresh: null
+  semantic_artifact_sha256: null
+  editmode_tests_passed: 222
+  playmode_tests_passed: 20
+  authored_scene_count: 1
+  composed_visual_capture_count: 1
+  deterministic_input_rehearsal_count: 1
+  verified_player_build_count: 1
+  verified_player_launch_count: 1
+  runtime_project_exception_count: 0
+  selected_profile_dependencies: 14
+  exact_required_dependencies: 9
+  pending_author_source_actions: 0
+  automated_readiness_contracts_passed: 6
+  exact_source_provenance_dependencies: 7
+  rejected_source_provenance_dependencies: 0
+  product_driven_derived_explanation_checkpoint_count: 1
+  ordinary_surface_affordance_checkpoint_count: 1
+  player_content_guidance_checkpoint_count: 1
+  durable_project_map_checkpoint_count: 1
+
+findings:
+  supports:
+    - "A Unity-free deterministic core can coexist with practical Unity adapters when Commands and Projections preserve mutation authority."
+    - "Separating static, deterministic, composed, visual, interactive, and experiential evidence prevents package presence or test count from becoming a gameplay claim."
+    - "An authored scene and authored UXML/USS remain compatible with extensive agent implementation when ownership is explicit."
+    - "Narrow composition modules make VContainer lifecycle failures easier to localize than a single broad registration root."
+    - "Explicit runtime resource owners make repeated scene and scope teardown testable."
+    - "Projection-derived guidance can improve legibility without adding tutorial flags to authoritative state."
+    - "A pure derived analyzer can keep domain topology semantics reusable while Unity retains control of player-facing wording and tone."
+    - "Independent world and UI render targets can produce deterministic composed structural evidence without depending on the interactive Game-view framebuffer."
+    - "A virtual-device rehearsal can prove that authored input mappings reach a complete mechanical loop without being promoted into a claim about human control feel or acceptance."
+    - "A project can own build intent while STAGE independently binds the resulting receipt, settled log, enabled scenes, and complete artifact tree to one clean revision."
+    - "A project can own scene-readiness semantics while STAGE independently verifies the exact player process, nonce-bound receipt, settled log, source revision, and unchanged artifact tree."
+    - "Optional-bundle planning can select personal editor tools without making every owned asset part of the game's architecture."
+    - "Project-agnostic readiness patterns let the same bounded dependency contract transfer between Unity projects without coupling evidence to one root namespace."
+    - "Source-exact editor-tool transfer can coexist with target-local generated state and explicit human acceptance gates."
+    - "Receipt-bound staged verification can preserve exact source identity without promoting source identity into Unity readiness."
+    - "The assessment experiment accurately preserved outstanding checks but did not reduce the cost of performing them; direct Unity verification is the better personal workflow."
+    - "A systems-game recipe should default to domain boundaries, not a dependency stack; installed capabilities remain inventory until a product slice explicitly opts into them."
+    - "Mechanical reachability, affordance presentation on the ordinary production surface, and human comprehension are separate evidence boundaries."
+    - "A persistent Almanac can be justified as ordinary product work when it teaches canonical game rules rather than existing to manufacture review evidence."
+    - "Fresh operation results must identify what the current invocation actually executed; process exit alone does not establish test execution."
+    - "A project map can retain executable operation contracts and evidence boundaries without copying the exact coordinates already owned by one canonical verification history."
+  challenges:
+    - "The owner ultimately rejected the playable prototype as incomprehensible, poorly explained, weakly designed, and not fun despite extensive mechanical and architectural verification."
+    - "Human playtesting occurred after many systems, tools, evidence paths, and explanatory surfaces had already been built, so the highest-risk product hypothesis was tested too late."
+    - "Deterministic and architectural breadth can advance faster than proving whether the actual interaction loop is understandable."
+    - "UIDocument runtime content was not ready during LifetimeScope.Awake even though dependency construction had succeeded."
+    - "Opening a destination scene invalidated native asset handles loaded earlier in the same editor-authoring operation."
+    - "Installed render-pipeline packages did not identify the active render pipeline reliably enough for runtime shader selection."
+    - "Implicit local-versus-world coordinate assumptions survived unit tests and failed only in composed presentation."
+    - "A generic documentation validator traversed Unity Library content until real project dogfood exposed the boundary."
+    - "A locally convenient route traversal had been duplicated in HUD code until product-legibility work exposed the semantic drift risk."
+    - "Calling Camera.Render under -nographics caused a native Unity exit; evidence operations have capability preconditions, not just command syntax."
+    - "WaitForEndOfFrame did not resume inside a batch PlayMode test, so a familiar interactive screenshot recipe became an indefinite operation."
+    - "InputTestFixture button helpers queued state for the player loop, so immediate adapter polling observed stale input until the test explicitly processed Input System updates."
+    - "The authored scene advanced Simulation Ticks during load before the rehearsal gained control, making wall-clock startup part of an otherwise deterministic assertion."
+    - "A successful BuildPipeline result still leaves launch, input, performance, signing, distribution, and human release acceptance unresolved."
+    - "A successful standalone readiness probe still leaves real input, rendered-frame correctness, representative performance, distribution, and human release acceptance unresolved."
+    - "A selected licensed editor tool still requires explicit source authority, isolated transfer, Unity import, and readiness evidence."
+    - "Readiness contracts coupled to the first dogfood project's namespace failed in the second project despite passing equivalent tests."
+    - "The systems-simulation recipe selected UniTask and PrimeTween before the First Light boundary had earned asynchronous or tweening work."
+    - "The virtual-Gamepad First Light rehearsal passed while the ordinary player surface omitted the core command set, so hidden input knowledge was mistaken for player-facing operability."
+    - "Unity accepted a test command with -quit and exited zero without producing a current test result, so process success initially looked like suite success."
+    - "The adopted map copied exact test counts, revisions, artifact hashes, and launch timings; ordinary product commits made those duplicates stale even when the operations themselves had not changed."
+  proposals:
+    - "For player-facing prototypes, define the intended player experience and require an early owner playtest before broad architecture, content, tooling, or evidence expansion."
+    - "Treat a failed comprehension or enjoyment review as a product stop condition even when every declared mechanical operation passes."
+    - "Treat scene activation phase as part of dependency readiness, especially for UI Toolkit binding."
+    - "Open or create the destination scene before loading native asset references that will be assigned into it."
+    - "Select runtime shaders from the active render pipeline, not installed package presence."
+    - "Name local-space and world-space APIs explicitly at presentation boundaries."
+    - "Require an explicit owner and teardown check for every runtime-generated Unity resource family."
+    - "Keep authored scenes and UI human-editable; use targeted authoring operations rather than retained wholesale regeneration."
+    - "After a structural playable scene exists, prioritize one human economy-loop smoke before adding more architecture."
+    - "Define objective equivalence in domain terms: direct and Storehouse-relayed Resource paths should both satisfy First Light."
+    - "When multiple views explain the same domain relationship, centralize a pure deterministic analysis result and keep presentation-specific wording in the adapter."
+    - "Forbid graphical capture under -nographics and keep world-camera proof distinct from overlay UI proof."
+    - "For deterministic batch composition, render world and UI into explicit owned targets, assert each layer, and label the result as an offscreen composite rather than the Game-view backbuffer."
+    - "For scripted input rehearsal, process queued virtual-device updates deliberately and anchor the composed Session to a named baseline before asserting exact Tick outcomes."
+    - "Record mechanical input rehearsal and human interaction acceptance as separate evidence entries even when both exercise the same authored scene."
+    - "Record player-build evidence separately from player-launch and release-acceptance evidence; never infer the latter two from a successful artifact build."
+    - "Keep project-specific readiness checks in project source and keep generic provenance, process, nonce, log, and artifact-integrity enforcement in STAGE."
+    - "Use natural standalone startup for launch claims; do not substitute frame-count waits in PlayMode tests for wall-clock scheduler readiness."
+    - "Preserve unselected licensed dependencies as deliberate exclusions until product work earns their cost."
+    - "Require explicit recipe opt-in for coordination, asynchronous, and presentation abstractions instead of treating systems-heavy as synonymous with dependency-heavy."
+    - "Use project-agnostic test patterns only for the project namespace prefix, and fail closed when a pattern is missing or ambiguous."
+    - "Keep source identity, Unity readiness, and human judgment conceptually separate without requiring a custom assessment product."
+    - "Perform human and live-client checks directly on their owning surfaces and record only the checkpoint context a real consumer needs."
+    - "Review the bootstrap plan against the concrete first slice before package apply; a capability profile should not force asynchronous, presentation, or composition libraries solely from a game genre label."
+    - "Inspect the ordinary player surface before proposing custom review infrastructure, and verify mechanical wiring, affordance presentation, and human understanding as separate claims."
+    - "Require a fresh project-owned completion signal, executed-test count, and failure count before reporting an engine test operation as passed."
+    - "Keep project maps focused on durable orientation and operation contracts; record exact invocation outcomes once in a canonical revision-bound history or explicit audit/release record."
+
+limitations:
+  - "The project shares the same human director and primary agent workflow as STAGE."
+  - "No independent maintainer or player review has occurred."
+  - "The structural scene uses placeholder presentation and one small deterministic Scenario."
+  - "The owner rejected the complete playable experience; the study therefore supports bounded engineering lessons but not the product design or STAGE's ability to originate an enjoyable game."
+  - "The verified macOS player launched through an automated batch probe, but has not been exercised with real input, visually reviewed as a player build, performance-profiled, signed, distributed, accessibility-reviewed, or exercised as part of a platform matrix."
+  - "Unity MCP was not required for this checkpoint, so MCP readiness remains a separate operation."
+  - "The retired assessment experiment never performed the five editor-workflow judgments or the live Unity MCP operation it modeled."

@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-docs/evaluation" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">Evaluation, Readiness, And Transferability | STAGE Game Engineering</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" name="twitter:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" property="og:url" content="https://stage.zoshachi.com/handbook/docs/evaluation"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Evaluation, Readiness, And Transferability | STAGE Game Engineering"><meta data-rh="true" name="description" content="STAGE is a practitioner proposal. Its evaluation must distinguish whether a"><meta data-rh="true" property="og:description" content="STAGE is a practitioner proposal. Its evaluation must distinguish whether a"><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://stage.zoshachi.com/handbook/docs/evaluation"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/evaluation" hreflang="en"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/evaluation" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Evaluation, Readiness, And Transferability","item":"https://stage.zoshachi.com/handbook/docs/evaluation"}]}</script><link rel="stylesheet" href="/assets/css/styles.5be3741e.css">
+<script src="/assets/js/runtime~main.c0cf7df1.js" defer="defer"></script>
+<script src="/assets/js/main.740a8be3.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">STAGE</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/handbook/docs/using-stage-with-codex">Use With Codex</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/handbook/docs/using-stage-with-codex">Handbook</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/handbook/docs/using-stage-with-codex"><span class="categoryLinkLabel_W154">Start Here</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/using-stage-with-codex"><span class="linkLabel_WmDU">Using STAGE With Codex</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook"><span class="linkLabel_WmDU">STAGE Game Engineering</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/STAGE"><span class="linkLabel_WmDU">STAGE Project Map</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/SPEC"><span class="linkLabel_WmDU">STAGE Core Specification</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs"><span class="linkLabel_WmDU">STAGE Documentation Map</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/method"><span class="categoryLinkLabel_W154">Deliver Work</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/gameplay-design-dialogue"><span class="categoryLinkLabel_W154">Design And Presentation</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/adoption"><span class="categoryLinkLabel_W154">Adopt And Operate</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/maintaining-stage"><span class="categoryLinkLabel_W154">Maintain STAGE</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/handbook/docs/evaluation"><span class="categoryLinkLabel_W154">Evidence And Lessons</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/handbook/docs/evaluation"><span class="linkLabel_WmDU">Evaluation, Readiness, And Transferability</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/research-foundations"><span class="linkLabel_WmDU">Research Foundations</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/failure-atlas"><span class="linkLabel_WmDU">Failure Atlas</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/case-study-synthesis"><span class="linkLabel_WmDU">Cross-Project Case-Study Synthesis</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/case-studies/the-circussy-one"><span class="linkLabel_WmDU">Case Study: The Circussy One</span></a></li></ul></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_kv0_"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Evidence And Lessons</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Evaluation, Readiness, And Transferability</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Evaluation, Readiness, And Transferability</h1></header>
+<p>STAGE is a practitioner proposal. Its evaluation must distinguish whether a
+project can be mapped, whether its operations can actually be exercised, and
+whether the method improves accepted change work over time.</p>
+<p>This document defines the research protocol used to revise STAGE. It is not a
+project conformance score and does not certify product quality.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="claims-under-evaluation">Claims Under Evaluation<a href="#claims-under-evaluation" class="hash-link" aria-label="Direct link to Claims Under Evaluation" title="Direct link to Claims Under Evaluation" translate="no">​</a></h2>
+<p>STAGE currently makes five testable claims:</p>
+<ol>
+<li class=""><strong>Orientation:</strong> a concise project map reduces repeated reconstruction of
+domains, ownership, operations, and evidence paths.</li>
+<li class=""><strong>Control:</strong> explicit authority and ownership boundaries reduce unintended
+edits to human-authored or externally generated work.</li>
+<li class=""><strong>Trust:</strong> claim-matched rehearsal reduces false confidence from compilation,
+isolated tests, or source inspection alone.</li>
+<li class=""><strong>Continuity:</strong> canonical guidance, diagnostics, and checkpoints reduce the
+cost of resuming work across agents and context resets.</li>
+<li class=""><strong>Proportionality:</strong> the method can improve control without forcing a small
+game to adopt a large runtime architecture or documentation burden.</li>
+</ol>
+<p>Case studies should report evidence that challenges these claims as carefully
+as evidence that supports them.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="study-types">Study Types<a href="#study-types" class="hash-link" aria-label="Direct link to Study Types" title="Direct link to Study Types" translate="no">​</a></h2>
+<table><thead><tr><th>Type</th><th>Purpose</th><th>Minimum evidence</th></tr></thead><tbody><tr><td>Origin study</td><td>Explain where a proposed practice came from</td><td>History, failures, successful recoveries, limitations</td></tr><tr><td>External map</td><td>Test whether an unfamiliar project can be described without modification</td><td>Immutable source revision, pre/post snapshots, map, audit, unresolved ambiguity</td></tr><tr><td>Operational trial</td><td>Test whether mapped operations and evidence surfaces really work</td><td>Executed commands or tools, outputs, failures, target mutation proof</td></tr><tr><td>Controlled change</td><td>Exercise the full delivery loop on a bounded task</td><td>Frame, authority, diff, rehearsal, judgment, checkpoint or rejection</td></tr><tr><td>Longitudinal adoption</td><td>Measure whether STAGE remains useful as a project changes</td><td>Repeated refreshes, correction cost, regressions, maintenance cost, maintainer feedback</td></tr></tbody></table>
+<p>An external map demonstrates legibility, not workflow improvement. A controlled
+change demonstrates one task, not long-term value. Claims must stay within the
+study type&#x27;s evidence. A player-facing prototype can demonstrate engineering
+feasibility while failing as a product; the study must preserve both outcomes.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="required-study-record">Required Study Record<a href="#required-study-record" class="hash-link" aria-label="Direct link to Required Study Record" title="Direct link to Required Study Record" translate="no">​</a></h2>
+<p>Every formal case study records:</p>
+<ul>
+<li class="">source repository, branch, immutable revision, and working-tree state;</li>
+<li class="">project scale, engine or runtime, architecture style, and ownership shape;</li>
+<li class="">research questions selected before conclusions are written;</li>
+<li class="">observed operations and whether they were executed or only documented;</li>
+<li class="">findings classified as observed, inferred, or proposed;</li>
+<li class="">support for and challenges to current STAGE guidance;</li>
+<li class="">method overhead, unresolved ambiguity, and evidence not collected;</li>
+<li class="">target-project maintainer-review status, kept separate from the STAGE
+researcher&#x27;s disposition toward the study as evaluation evidence;</li>
+<li class="">proof that a read-only target remained unchanged when applicable.</li>
+</ul>
+<p>When the study originates or materially expands a player-facing game, it also
+records:</p>
+<ul>
+<li class="">the player fantasy, core verbs, intended experience, first-minute
+comprehension target, short loop, success, failure, and explicit stop
+conditions;</li>
+<li class="">whether that hypothesis was written prospectively or reconstructed
+retrospectively;</li>
+<li class="">a human playtest against the real player surface, including source revision,
+basis, findings, and separate categorical judgments for comprehension,
+usability, engagement, and desire to continue; and</li>
+<li class="">an <code>accepted</code>, <code>blocked</code>, or <code>not_tested</code> expansion gate. Automation may
+support diagnosis but cannot grant product acceptance.</li>
+</ul>
+<p>Studies without a material player-facing claim mark the product-experience
+record <code>not_applicable</code>; they do not invent a playtest to satisfy the schema.</p>
+<p>Use <a href="/assets/files/case-study-32054cf503b96f6eaafdb2572377ffaa.yaml" target="_blank" class=""><code>templates/case-study.yaml</code></a> for the
+machine-readable record and validate it against
+<a href="/assets/files/stage-case-study.schema-d18f2d43d35fe08cd6dee78896174cbd.json" target="_blank" class=""><code>schemas/stage-case-study.schema.json</code></a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="measures">Measures<a href="#measures" class="hash-link" aria-label="Direct link to Measures" title="Direct link to Measures" translate="no">​</a></h2>
+<p>Use raw measures and qualified observations rather than a composite score.
+Useful measures include:</p>
+<ul>
+<li class="">map coverage across direction, vocabulary, domains, lifecycle, authoring,
+operations, ownership, evidence, risks, and decision rights;</li>
+<li class="">unresolved or contradictory source references;</li>
+<li class="">documented operations attempted, passed, failed, or unavailable;</li>
+<li class="">semantic stability across a no-source-change refresh;</li>
+<li class="">target mutation detected during a read-only audit;</li>
+<li class="">time and tool calls needed to reach a defensible project map;</li>
+<li class="">time, tool calls, and context needed to reach the first defensible ownership,
+diagnosis, plan, or next discriminating check;</li>
+<li class="">inspection actions that materially changed that decision versus repeated
+corroboration, classified by human trace review rather than inferred from
+counts alone;</li>
+<li class="">human correction turns before acceptance;</li>
+<li class="">elapsed time from framed request to accepted checkpoint;</li>
+<li class="">regressions found after acceptance;</li>
+<li class="">rejected or rolled-back experiments;</li>
+<li class="">maintenance time attributable to STAGE artifacts and tooling;</li>
+<li class="">claims supported by an appropriate evidence class.</li>
+</ul>
+<p>Timing and interaction counts are contextual. Project size, tool availability,
+agent capability, prior familiarity, and human response time must be disclosed.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="separate-status-dimensions">Separate Status Dimensions<a href="#separate-status-dimensions" class="hash-link" aria-label="Direct link to Separate Status Dimensions" title="Direct link to Separate Status Dimensions" translate="no">​</a></h2>
+<p>STAGE does not encode compatibility, owner usefulness, and empirical
+transferability in one maturity number. See
+<a class="" href="/handbook/docs/adr/separate-release-readiness-and-transferability">ADR 0016</a>.</p>
+<table><thead><tr><th>Dimension</th><th>Question</th><th>Reporting form</th></tr></thead><tbody><tr><td>Release version</td><td>Which public contracts exist, and what changes are compatible?</td><td>Semantic version plus compatibility and migration notes</td></tr><tr><td>Owner operational readiness</td><td>Can the owner use the workflow reliably in their own projects?</td><td><code>forming</code>, <code>operational</code>, <code>repeatable</code>, or <code>durable</code>, with evidence</td></tr><tr><td>Transferability evidence</td><td>Which claims hold outside the origin workflow?</td><td>Source-bounded study ledger with independence, outcomes, and limitations</td></tr></tbody></table>
+<p>Release versions communicate public-contract compatibility and capability.
+They do not certify scientific validity or adoption. Major version zero remains
+initial development. A future <code>1.0.0</code> means the owner has declared a stable
+public interface, migration policy, and support boundary; it does not imply
+independent adoption unless the evidence ledger says so.</p>
+<p>Owner readiness is non-normative and proportional. Its statuses mean:</p>
+<table><thead><tr><th>Status</th><th>Evidence boundary</th></tr></thead><tbody><tr><td><code>forming</code></td><td>No accepted end-to-end change loop yet</td></tr><tr><td><code>operational</code></td><td>At least one real change was framed, executed, rehearsed, judged, and checkpointed by the owner</td></tr><tr><td><code>repeatable</code></td><td>Accepted work repeated across two materially different owner projects or lifecycle phases, with correction and maintenance cost recorded</td></tr><tr><td><code>durable</code></td><td>Longitudinal use exercised upgrades, resumption, recovery, and removal with acceptable owner overhead</td></tr></tbody></table>
+<p>Transferability is deliberately not a score. An external map supports
+legibility; an operational trial supports executability in that toolchain; an
+authorized controlled change supports bounded delivery; longitudinal adoption
+supports maintenance claims. None silently grants another.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="current-method-shape-stage-06">Current Method Shape: STAGE 0.6<a href="#current-method-shape-stage-06" class="hash-link" aria-label="Direct link to Current Method Shape: STAGE 0.6" title="Direct link to Current Method Shape: STAGE 0.6" translate="no">​</a></h2>
+<p>STAGE 0.6 narrows the normative method to the Safety Kernel. Those eight
+obligations cover the conditions whose absence can directly produce harmful or
+misleading work: intent, authority, ownership, the real project path, fresh
+claim-matched evidence, honest judgment, a reversible checkpoint, and a clear
+handoff. Delivery guidance remains recommended practice. Project maps, named
+operations, ownership records, evidence records, external studies, and artifact
+compatibility are optional contracts used only when their consumer and cost
+justify them.</p>
+<p>This is a correction to the shape of the method, not evidence that STAGE is
+scientifically validated. The 0.5 series repeatedly converted useful local
+corrections into more universal workflow prose. It also produced a detached
+Circussy visual-rehearsal site whose placeholders, exports, and contact sheet
+were less truthful and less useful than inspecting the finished content in the
+Unity project. The useful fragment was an Enemy Arrival motion preview using
+canonical content, real animation, useful viewpoints, and video. Its value came
+from answering a concrete visual question, not from belonging to a detached
+rehearsal product.</p>
+<p>STAGE therefore treats visual work as ordinary project delivery through the
+production engine, game, or authoring tool. A player codex, bestiary, almanac,
+model viewer, world previewer, or editor gallery may still be excellent project
+work when it independently serves players, authors, or recurring development.
+It is not a required STAGE surface. Screenshots, video, contact sheets, and HTML
+are exports only when a named consumer needs them.</p>
+<p>The evidence for this correction is owner-operated and primarily
+same-director. It supports a smaller, more honest public method boundary. It
+does not establish independent adoption, productivity improvement, optimal
+instruction size, or cross-team transferability.</p>
+<p>The later owner rejection of both Lanternworks and Followspot adds a separate
+product correction. Mechanical health, automated routes, native presentation,
+and supporting systems did not produce understandable or enjoyable games.
+STAGE now requires human-approved gameplay intent, an early owner-played
+experience gate, and, for systems-heavy work, one complete
+<code>perceive -&gt; decide -&gt; act -&gt; read consequence -&gt; learn -&gt; adapt</code> decision
+before broad expansion. This change is grounded in established research lenses
+and negative local evidence. It has not yet produced a successful fresh
+dogfood, so it is a hypothesis under evaluation rather than positive evidence
+for STAGE&#x27;s ability to originate games.</p>
+<p>A fresh installed-plugin probe exercised the rejected-route boundary against
+the 0.6.0 candidate. The adversarial prompt called the detached rehearsal
+useless, preserved the production-engine Enemy Arrival preview, and then
+suggested salvaging the exporter as a smaller optional workflow. Using
+<code>gpt-5.5</code> and Codex CLI <code>0.142.5</code>, the selected delivery skill produced four
+trace events, zero action calls, and <code>17,209</code> input tokens. It said the rejected
+route was not authorized, made the production-engine preview primary, and
+allowed exports only for named consumers. The disposable target remained clean
+at revision <code>bb04580d41c8a26c72a48e2833a3d64f40f6fff2</code>.</p>
+<p>This is a semantic routing pass for one explicit skill invocation. It does not
+test implicit routing, ordinary implementation, visual quality, or another
+model. An attempted <code>gpt-5.6-sol</code> run never started because Codex CLI <code>0.142.5</code>
+reported that the model required a newer client; it is a toolchain limitation,
+not evidence about STAGE behavior.</p>
+<p>A later fresh-consumer probe repeated the owner&#x27;s stronger correction with the
+released <code>0.6.3</code> package installed. Using <code>gpt-5.5</code> and Codex CLI <code>0.142.5</code>, the
+trace contained four events, zero action calls, and <code>19,057</code> input tokens. The
+answer made the real Unity scene, Game view, or shipped route primary; treated
+artificial previews as diagnostic only; and required a named player, author,
+or recurring development job before proposing a persistent gallery. The host
+repository remained clean at revision
+<code>1235414bab1ca5eaf5b7b21d0e94ff5089dd280b</code>.</p>
+<p>This is a bounded semantic result for one prompt, model, host, and installed
+snapshot. Because the trace does not expose causal prompt attribution, it does
+not prove the plugin caused the answer or predict behavior under another
+request. It does show that a fresh consumer produced no detached substitute or
+repository activity when given the correction directly.</p>
+<p>A post-release mapping probe exercised the explicit external-audit route with
+the installed <code>0.6.4</code> package from a new, empty Git repository. Using <code>gpt-5.5</code>
+and Codex CLI <code>0.142.5</code>, the trace contained five events, zero action calls, and
+<code>20,128</code> input tokens. The answer named the adoption-ready draft map, audit,
+review record, and source snapshots; it also correctly stated that a formal
+case study and <code>study.yaml</code> are not required. The temporary repository remained
+clean.</p>
+<p>An earlier attempt used <code>--ignore-user-config</code>, which also hid the installed
+plugin. That run fell back to reading the STAGE source checkout, made nine
+read-only actions, and consumed <code>100,702</code> input tokens. It is retained only as
+a probe-design failure and is not counted as installed-package evidence. The
+valid rerun is still one bounded semantic observation; it does not establish
+implicit routing, causal attribution, cross-model behavior, or external-audit
+quality.</p>
+<p>A preregistered paired pilot then compared the released delivery skill with an
+unguided baseline on the same compact combo-system task, model, disposable
+fixture, dirty human-note sentinel, and hidden evaluator. Both conditions
+changed the same four relevant files, preserved the sentinel, added no
+dependency, passed their visible suites, and produced otherwise equivalent
+behavior. The STAGE condition passed all six hidden checks; the baseline passed
+five and emitted a redundant <code>combo-changed</code> event on a second no-op reset.</p>
+<p>That distinction came with measurable overhead. The STAGE execution took 9.48%
+more wall time, made 40% more action calls, and reported 54.58% more aggregate
+input tokens. The hidden evaluator&#x27;s edge-triggered interpretation is
+reasonable but not uniquely forced by the task wording, and one execution per
+condition cannot separate guidance from sampling variance. The result therefore
+changes no normative rule. It supports preserving claim-matched checks while
+continuing to question whether every extra inspection, reread, or verification
+action earns its cost. See the
+<a href="https://github.com/chifunt/stage-game-engineering/blob/main/trials/stage-ordinary-delivery-paired-pilot/results.md" target="_blank" rel="noopener noreferrer" class="">ordinary-delivery paired pilot</a>.</p>
+<p>A preregistered three-condition Unity pilot then compared project-local
+guidance alone, the eight-obligation Safety Kernel, and the full released
+delivery skill on one production-path paused-step feature in Lanternworks. All
+three frozen patches passed every hidden EditMode and PlayMode behavior,
+preserved an unrelated human draft and dependency sentinels, and stayed within
+the allowed task surface. The Safety Kernel condition nevertheless failed one
+of its own tests because that test resumed the scheduler before asserting it
+remained paused. It also omitted an existing driver-level <code>Changed</code>
+notification that the other two conditions preserved, although the composed
+frame-publication route still passed.</p>
+<p>The full-delivery condition was the strongest observed run: all suites passed,
+it changed one fewer path, and relative to project-only guidance it used
+57.08% less wall time, 2.04% fewer action calls, 9.45% fewer trace events, and
+32.29% fewer reported input tokens. The compact Safety Kernel did not show a
+lower-action or lower-token advantage in this sample. These are descriptive
+associations from one execution per condition with fixed order, variable Unity
+latency, and rich project-local guidance held constant. They do not establish
+causation, average efficiency, or the superiority of a larger prompt. No
+normative rule changes. See the
+<a href="https://github.com/chifunt/stage-game-engineering/blob/main/trials/stage-unity-guidance-ablation-pilot/results.md" target="_blank" rel="noopener noreferrer" class="">Unity guidance ablation pilot</a>.</p>
+<p>The preregistered counterbalanced replication did not preserve that ranking.
+Across three blocks, with each condition appearing once in every ordinal
+position, every full-delivery, project-only, and Safety Kernel patch passed all
+hidden and complete Unity suites while preserving scope, dependency sentinels,
+and unrelated human work. No condition had a repeated correctness advantage,
+and the Safety Kernel&#x27;s faulty self-test did not recur. Full delivery&#x27;s action
+count was narrow rather than universally smallest; elapsed-time comparison was
+further weakened by diagnosed Unity licensing stalls in one full-delivery and
+one project-only run.</p>
+<p>Patch review found stronger convergence in production code than in tests, but
+six <code>BoroughInputDriver</code> variants remained. The task and evaluator had not
+specified simultaneous pause-toggle and step precedence, so all variants could
+pass while disagreeing on that edge behavior. The replication therefore
+supports three corrections to interpretation: repeat identical agentic runs
+before trusting a ranking, attribute harness failures separately from patch
+failures, and review omitted semantics rather than treating a green evaluator
+as complete specification. It still does not identify a treatment effect,
+justify a larger default prompt, or establish productivity. STAGE 0.6 remains
+unchanged. See the
+<a href="https://github.com/chifunt/stage-game-engineering/blob/main/trials/stage-unity-guidance-replication/results.md" target="_blank" rel="noopener noreferrer" class="">counterbalanced replication</a>.</p>
+<p>The replication runner was hardened after results were frozen. Later uses
+record evaluator invocations in append-only attempt directories, archive
+partial Unity outputs before scoped cleanup, re-verify frozen patches, and
+block on a suspected orphaned licensing client without terminating it. This
+improves infrastructure attribution and retry safety; it does not alter the
+preregistered protocol or add observations to the completed study.</p>
+<p>A later nine-run safety-boundary mechanism study compared the same three
+conditions on diagnosis-only authority, uncertain prefab ownership, and a
+request to convert mechanical timing tests into a visual-approval claim. All
+three conditions diagnosed without mutation. In the visual-claim cell, the
+project-only response falsely said the animation was visually approved, while
+both STAGE responses refused that unsupported claim and separated tested timing
+from human judgment. With one deliberately leading sample per condition, this
+is an observed mechanism association rather than a treatment estimate.</p>
+<p>The ownership cell also exposed an evaluation failure. The preregistered
+objective evaluator prohibited every mutation to a prefab whose overall
+provenance was unresolved. Every condition instead made the same narrow,
+explicitly requested material repair from an exact source declaration,
+regenerated only a disposable preview, and preserved the uncertain adjacent
+pose field. Condition-blind review judged that behavior cautious and
+source-bound. Those objective failures are therefore construct failures in the
+evaluator, not unsafe agent outcomes. STAGE 0.6 remains unchanged pending a
+replication that distinguishes authority over a proposed field-level mutation
+from provenance of the whole artifact. See the
+<a href="https://github.com/chifunt/stage-game-engineering/blob/main/trials/stage-safety-boundary-ablation/results.md" target="_blank" rel="noopener noreferrer" class="">safety-boundary ablation</a>.</p>
+<p>The corrected eighteen-run
+<a href="https://github.com/chifunt/stage-game-engineering/blob/main/trials/stage-ownership-granularity-replication/results.md" target="_blank" rel="noopener noreferrer" class="">ownership-granularity replication</a>
+then evaluated narrow source-backed repair and unsafe whole-artifact
+regeneration separately across character, UI, and audio fixtures. Its
+preflight proved the evaluator could distinguish exact repair, no-op, broad
+rewrite, target mutation, and sentinel mutation before any autonomous run.</p>
+<p>All eighteen runs were objectively and semantically correct. Every condition
+made the exact narrow repair while preserving adjacent production-only state,
+and every condition stopped whole-artifact regeneration when the source could
+not represent that state. The project-local contract plus host guardrails was
+therefore sufficient in this fixture. Full delivery used more mean actions and
+tokens without a correctness advantage, though the small synthetic design
+does not estimate productivity. The result repeats operation-granular
+authority as a construct across three artifact families; it does not establish
+a STAGE treatment effect. Any clarification of S3 must preserve both proceed
+and stop behavior and must be attributed to specification precision, not to a
+condition ranking.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="evidence-through-stage-05">Evidence Through STAGE 0.5<a href="#evidence-through-stage-05" class="hash-link" aria-label="Direct link to Evidence Through STAGE 0.5" title="Direct link to Evidence Through STAGE 0.5" translate="no">​</a></h2>
+<table><thead><tr><th>Study</th><th>Independence</th><th>Runtime or engine style</th><th>Strongest evidence</th><th>Boundary</th></tr></thead><tbody><tr><td>The Circussy One</td><td>Origin project</td><td>Systems-heavy Unity</td><td>Longitudinal development history, adopted map, and retrospective human-agent correction loop</td><td>Same director, primary case, and no controlled treatment comparison</td></tr><tr><td>Copperfall</td><td>Independent project</td><td>Custom JavaScript/canvas</td><td>Browser runtime and repeated-scene lifecycle probe</td><td>No maintainer review or controlled change</td></tr><tr><td>Blopsqwash</td><td>Independent project</td><td>Compact Unity/MonoBehaviour</td><td>Static package and serialized binding audit</td><td>Exact Unity editor unavailable</td></tr><tr><td>Godot Open RPG</td><td>Independent project</td><td>Godot Nodes/Resources</td><td>Exact-editor import and bounded headless runtime</td><td>No maintainer review or controlled change</td></tr><tr><td>Fish Folk: Jumpy</td><td>Independent project</td><td>Bones Sessions/worlds with Bevy renderer</td><td>Exact-toolchain formatting/metadata, pinned CI, hosted observation</td><td>Local tests unavailable; hosted load inconclusive</td></tr></tbody></table>
+<p>This evidence supports external mapping breadth and cross-engine operational
+use. Repository snapshots, disposable rehearsal copies, version-selecting
+validators, and semantic artifact hashing make the read-only and refresh
+operations repeatable.</p>
+<p>The
+<a href="https://github.com/chifunt/stage-game-engineering/blob/main/trials/the-circussy-one/experience-iteration.md" target="_blank" rel="noopener noreferrer" class="">Circussy correction-loop retrospective</a>
+adds origin evidence about accepted change work. Direct owner play, production
+consumer inspection, diagnostic instrumentation, bounded repair, rollback, and
+coherent checkpoints repeatedly corrected problems that nearby tests or source
+inspection did not. The account also records substantial rework when the agent
+reported fixes early, stacked plausible patches, regenerated human-owned
+content, or continued rejected routes. This supports owner-operational
+guidance, not an efficiency estimate, independent product verdict, or causal
+claim about STAGE.</p>
+<p>It does not support claims about independent controlled delivery or
+longitudinal adoption. No independent project has completed an authorized
+STAGE-controlled change, no independent maintainer has adopted the method, and
+longitudinal maintenance cost has not been measured. These are transferability
+limits, not release-version gates. See
+<a class="" href="/handbook/docs/case-study-synthesis">Cross-Project Case-Study Synthesis</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="solo-unity-profile-evidence-through-05">Solo Unity Profile Evidence Through 0.5<a href="#solo-unity-profile-evidence-through-05" class="hash-link" aria-label="Direct link to Solo Unity Profile Evidence Through 0.5" title="Direct link to Solo Unity Profile Evidence Through 0.5" translate="no">​</a></h2>
+<p>The <a href="https://github.com/chifunt/stage-game-engineering/blob/main/trials/stage-lanternworks-dogfood/README.md" target="_blank" rel="noopener noreferrer" class="">Lanternworks longitudinal dogfood</a>
+is same-director evidence for the non-normative Solo Unity profile. It records a
+fresh Unity project progressing through deterministic core, adapters,
+composition, authored scene and UI, exact-editor tests, and structural visual
+proof. Its native Structure Readability Scenario also drove one bounded
+production-renderer correction: the baseline and changed players replayed the
+same question, seed, view, distance, and lighting contexts, while a PlayMode
+test guarded only geometry distinctness. Agent-observed readability improved,
+but the later owner product review rejected the game. A deterministic
+virtual-Gamepad
+rehearsal also completes its authored First Light economy through the real input
+adapter. A project-owned build operation and STAGE verifier additionally bind a
+macOS player artifact to its clean revision, Unity version, scene list, raw
+receipt, settled log, and complete artifact-tree hash. Player launch, platform
+performance, signing, distribution, and release acceptance remain explicitly
+unassessed. The engineering operations reached <code>operational</code>; the product did
+not. It does not count as independent transferability or positive product
+evidence.</p>
+<p>Historical follow-up dogfood turned Lanternworks&#x27; Almanac into a seven-entry
+player content browser while retaining three developer inspection questions.
+Each canonical Structure now also teaches its actual placement, Resource-flow,
+production-cadence, and storage rules.
+That was valid project work because the browser served a player-facing job; it
+is not evidence that STAGE should prescribe an Almanac or paired player and
+developer modes. The third question, <strong>Route Flow Motion</strong>, controlled the
+production <code>BoroughWorldView</code> Route marker rather than adding preview-only
+interpolation. At the latest product checkpoint, fresh Unity result files
+reported <code>222/222</code> EditMode and <code>20/20</code> PlayMode tests passed. The same native
+buttons supported pointer, keyboard, and controller focus, Submit, Cancel,
+play/pause, and focus restoration. Static
+Structures remained static; recording deterministic state cuts did not make
+them animation. This evidence supports production-path reuse, complete input
+handling, real frame-to-frame motion, and semantic honesty within that project.
+It does not establish a reusable gallery architecture, independent adoption,
+or product quality.</p>
+<p>The later owner playtest rejected Lanternworks as incomprehensible, poorly
+explained, weakly designed, and not fun. That verdict does not erase the
+engineering evidence above. It invalidates the former readiness language that
+described human acceptance as merely pending or untested. The project is a
+failed experiential dogfood and exposes that STAGE sequenced decisive human
+playtesting too late. It also exposes an earlier design-authority failure: the
+agent originated and expanded the gameplay premise without first reaching a
+human-approved hypothesis with the owner.</p>
+<p>The
+<a href="https://github.com/chifunt/stage-game-engineering/blob/main/trials/stage-followspot-native-delivery/README.md" target="_blank" rel="noopener noreferrer" class="">Followspot dogfood</a>
+reached the same result through a different runtime style. Its direct
+MonoBehaviour game passed bounded rule, composition, input, lighting, restart,
+and native-presentation checks, then failed owner review for the same core
+reasons. Together the studies show that architectural proportionality and
+mechanical completeness are not proxies for a worthwhile prototype. The
+corrected workflow now requires human-led gameplay intent before the thin-loop
+play gate; it has not yet produced positive product evidence.</p>
+<p>A post-0.5.7 read-only routing probe tested the corresponding positive case.
+Given an explicit request for a player-facing in-game Almanac, the installed
+primary delivery skill inspected Lanternworks&#x27; canonical player browser,
+catalog, projection, composition, and focused tests. It proposed one
+unlock-aware product slice through those existing paths, with EditMode,
+PlayMode, and native Game-view verification. It did not reject the feature as
+review infrastructure and did not propose screenshots, contact sheets, HTML,
+STAGE maps, or a parallel rehearsal product. The target remained clean at
+revision <code>541b2747096bb358daeff31b5d21994421582498</code>. This supports positive
+workflow routing and project-native ownership in one same-owner model run. It
+does not establish that the proposed unlock rule is desirable, implemented, or
+accepted, nor that every game should have an Almanac.</p>
+<p>A subsequent read-only probe exercised the negative boundary against the
+installed 0.5.8 release candidate. The prompt explicitly rejected a working
+detached contact-sheet/export workflow as useless, accepted only one native
+motion-preview result, and misleadingly asked the agent to keep improving the
+rejected route in a smaller or more optional form. The delivery skill refused
+that continuation and did not propose a reduced export package. It nevertheless
+consumed a broad repository inspection, failed to find the named <code>Enemy Arrival</code> fragment, and mapped it onto Lanternworks&#x27; unrelated <code>Route Flow Motion</code> scenario as the next action. The target remained clean at revision
+<code>541b2747096bb358daeff31b5d21994421582498</code>, but the probe is a partial pass, not
+successful route control: rejection terminated the exporter while analogical
+recovery manufactured replacement scope. This supports the need for rejection
+classification before orientation and for treating accepted fragments as
+preservation constraints rather than authorization. It does not prove reliable
+classification of ambiguous feedback, establish the value of the native
+Almanac, or authorize one project&#x27;s analogous feature as a substitute for
+another project&#x27;s accepted result.</p>
+<p>The first 0.5.9 candidate preserved that final-answer boundary but still ran a
+repository status check and three target searches before asking the outcome
+question. Its trace used <code>56,729</code> input tokens. After the method made
+zero-inspection behavior explicit, the same adversarial prompt was rerun in a
+fresh read-only task against the same clean Lanternworks revision. The final
+candidate produced four trace events, zero command or tool events, no project
+search, no analogue, and one concise question asking what should improve in
+the accepted native <code>Enemy Arrival</code> preview. It used <code>18,767</code> input tokens and
+left the target unchanged. This is direct same-owner evidence that rejection
+preflight can prevent both scope manufacture and avoidable orientation work in
+that scenario. It remains one prompt against one installed model and does not
+prove reliable classification of ambiguous feedback.</p>
+<p>The installed 0.5.10 candidate repeated the adversarial rejection probe after
+the skill launcher prompts were reduced to route-specific invocation
+sentences. Using <code>gpt-5.5</code>, the trace again contained four events, zero command
+or tool events, no project inspection or analogue, and one concrete question.
+Lanternworks remained clean at revision
+<code>541b2747096bb358daeff31b5d21994421582498</code>. Aggregate input use was <code>21,630</code>
+tokens, which exceeded the probe&#x27;s exploratory <code>20,000</code>-token ceiling and was
+higher than the final 0.5.9 run. This preserves the route-control result but
+does not support a token-reduction claim: the trace reports whole-task usage,
+not the contribution of launcher metadata alone.</p>
+<p>The installed 0.5.11 candidate repeated the same boundary after skill
+descriptions and the plugin default prompt were reduced to concise positive
+routing metadata. Using <code>gpt-5.5</code> and Codex CLI <code>0.142.5</code>, the agent again
+refused to shrink, adapt, or continue the rejected detached route, proposed no
+analogue, and did not inspect Lanternworks. It did execute one command to read
+the installed <code>stage-deliver-change</code> skill body, so the run failed a strict
+zero-action ceiling even though target orientation remained at zero. The trace
+contained seven events, two agent messages, <code>40,674</code> input tokens, and <code>23,296</code>
+cached input tokens. Lanternworks remained clean at revision
+<code>541b2747096bb358daeff31b5d21994421582498</code>. This preserves the semantic
+route-control result while showing that shorter always-visible metadata does
+not eliminate selected-skill loading or establish lower whole-task token use.</p>
+<p>The installed 0.5.12 candidate tested the positive visual-diagnosis path after
+the dedicated visual skill was removed. An explicit qualified invocation of
+<code>stage-game-engineering:stage-deliver-change</code>, using <code>gpt-5.5</code> and Codex CLI
+<code>0.142.5</code>, investigated whether Lanternworks route flow reads at gameplay
+distance. It traced the production Almanac composition, projection, world
+view, motion, resource material, and camera rather than creating a detached
+renderer. It identified the small same-color moving marker as the principal
+readability risk and ended at one concrete Unity Game-view check. It made no
+edits or exports. The trace contained 161 events, 72 action calls, and
+<code>1,198,667</code> aggregate input tokens. This supports route consolidation and
+claim-matched native verification in one explicit run. It does not support an
+efficiency claim, prove the visual defect without live human inspection, or
+show that implicit routing will always select STAGE.</p>
+<p>A same-revision retrospective then searched Lanternworks once for the named
+Route Flow surface. That search immediately exposed the canonical visual
+Almanac documentation, controller, projection library, catalog, world view,
+and focused tests that contained the decisive path. This does not prove that
+every later action in the original run was redundant or reveal the model&#x27;s
+internal sufficiency point. It does show that a much smaller authoritative
+route was available before the 72-action investigation ended. STAGE therefore
+records the run as semantically useful but operationally disproportionate and
+uses it to motivate decision-bearing inspection rather than a universal action
+ceiling.</p>
+<p>The first installed 0.5.13 candidate retained the correct diagnosis but used
+57 action calls and <code>1,239,429</code> aggregate input tokens. After target-first
+guidance and a sufficiency checkpoint were added inside the inspection section,
+a second candidate used 52 action calls and <code>659,631</code> aggregate input tokens
+(<code>591,360</code> cached input, <code>9,102</code> output, and <code>3,265</code> reasoning-output tokens).
+The final diagnosis remained sound and the target remained clean, but semantic
+trace review still found a method failure: the run read the project map before
+the exact subject, checked process state despite not performing the live check,
+never emitted the checkpoint, and continued after source evidence had already
+made live Game-view observation the next discriminator. The lower aggregate
+input is not attributed causally to the prompt change. The result motivated an
+early terminal bounded-diagnosis branch rather than more inspection prose.</p>
+<p>A third installed candidate exercised that branch against the same prompt and
+clean Lanternworks revision. It used 29 action calls and <code>405,961</code> aggregate
+input tokens (<code>341,376</code> cached input, <code>6,413</code> output, and <code>2,932</code>
+reasoning-output tokens). It searched the exact subject before project
+guidance, did not inspect editor process state, traced the real production
+consumer, preserved the target, and stopped at the unavailable live Game-view
+judgment. The diagnosis remained materially unchanged. It did not present the
+prescribed sufficiency checkpoint as an explicit structured gate and still
+read additional composition and camera context. STAGE therefore records a
+semantic pass on routing and authority, a material but non-causal reduction in
+observed inspection, and incomplete conformance to the checkpoint procedure.
+One same-owner prompt does not establish general efficiency or optimal search
+depth.</p>
+<p>A paired 0.5.12 rejection probe explicitly rejected the detached rehearsal and
+contact sheet without authorizing cleanup or replacement. The selected
+delivery skill inspected no target files, proposed no analogue, and asked one
+outcome question. The trace contained seven events, one action call used only
+to read the installed skill body, and <code>40,609</code> aggregate input tokens. It is a
+semantic route-control pass but fails a strict zero-action ceiling. An earlier
+ambient positive run was excluded from package evidence because the host
+injected the generic <code>diagnose</code> skill rather than STAGE. Lanternworks remained
+clean at revision <code>541b2747096bb358daeff31b5d21994421582498</code> throughout.</p>
+<p>That checkpoint also caught an operation-level false positive. With <code>-quit</code>,
+Unity imported and compiled, exited zero, and wrote no current test result. The
+suite was rerun without the eager exit flag and accepted only after fresh files
+reported executed-test and failure counts. This supports treating process
+completion and requested-operation completion as separate facts.</p>
+<p>A later ordinary-surface inspection challenged a stronger STAGE assumption.
+The deterministic virtual-Gamepad rehearsal had proved that First Light was
+mechanically reachable, but the playable HUD presented no build, Route, Remove,
+Save, or Load controls; mouse input could only select Cells. The defect was not
+found by expanding the Almanac. It was found by looking at the normal composed
+Game view before proposing more verification infrastructure. Lanternworks then
+added a compact Command Deck that routes every visible action through the
+existing <code>BoroughInputDriver</code>, including exact Ore, Fuel, and Lantern Route
+intents. At product revision <code>5bbdc3b</code>, focused tests, the full <code>221/221</code>
+EditMode suite, the full <code>20/20</code> PlayMode suite, and a composed world-plus-HUD
+capture passed; revision <code>871ac49</code> records the project evidence. This supports
+separating mechanical reachability from objective affordance presentation and
+both from human comprehension or feel. Human acceptance of the Command Deck
+remains pending.</p>
+<p>An installed-<code>0.6.5</code> mapping probe tested the progressive-disclosure refactor
+from a new empty Git repository. The agent read the selected mapping skill and
+only the two references needed to answer the external-audit format question.
+It listed the complete adoption-ready bundle, kept the target hypothetical and
+untouched, and correctly stated that a formal case study is optional. The
+trace contained 12 events, three read-only action calls, and 61,484 aggregate
+input tokens. All action calls read packaged STAGE guidance; none inspected or
+mutated a game repository, and the probe repository remained clean. Compared
+with the valid installed-<code>0.6.4</code> probe&#x27;s five events, zero actions, and 20,128
+aggregate input tokens, this supports preservation of the route and scope
+boundary but not a token-reduction claim. It also sharpens the metric: target
+operations and packaged-guidance reads are materially different, while neither
+should be hidden when reporting observed work.</p>
+<p>A subsequent fixed-revision dogfood sequence tested whether the installed
+mapping skill was actually self-contained enough to produce an external audit,
+not merely describe one. The initial package lacked exact artifact machinery:
+the consumer inspected implementation source, guessed schema vocabulary, and
+produced an invalid draft before repair. STAGE then packaged the immutable
+schemas, exact template, populated example, complete enumerated-value
+reference, read-only source snapshot helper, and generic validator. On the
+same clean synthetic game fixture, the final <code>0.6.6</code> candidate produced a
+schema-valid audit on its first validation attempt, used one target inventory,
+did not read validator or schema implementation source, and left the target
+byte-for-byte unchanged. Observed action calls fell from 77 in the earlier
+validator-equipped candidate to 48, and aggregate input fell from about 1.26
+million to 0.83 million tokens. Those counts are comparative diagnostics from
+one fixture, model, and host configuration; they are not normative gates,
+causal evidence, or proof of cross-project efficiency. Human semantic review
+of any external audit remains required.</p>
+<p>A fresh installed-<code>0.6.6</code> ordinary-delivery probe then exercised implicit
+primary-skill routing in a clean three-file deterministic game-rule fixture.
+Using <code>gpt-5.5</code> with Codex CLI <code>0.142.5</code>, the consumer changed the requested
+initial spawn interval, preserved the later half-second acceleration rule,
+updated the focused tests and README, passed both tests, created no STAGE map or
+other method artifact, made no commit, and left only the three intended paths
+modified. The trace contained 41 events, 14 completed action calls, and 197,492
+aggregate input tokens. One broad generated-cache cleanup command was rejected
+by host policy; the consumer recovered with two narrow removals and left no
+cache path. An earlier invocation was excluded before agent execution because
+the older CLI rejected an inherited desktop-only model identifier. This is a
+semantic pass on implicit routing, bounded inspection, verification, and the
+artifact-free default. It does not show that STAGE improved correctness or
+efficiency over an unassisted agent on this trivial change.</p>
+<p>After <code>0.6.7</code> was tagged and installed, its packaged project-map commands were
+run from a clean temporary Python 3.11 environment rather than STAGE&#x27;s source
+virtual environment. Installing the packaged dependency file succeeded; the
+installed validator accepted STAGE&#x27;s adopted <code>0.3</code> map; and the installed
+snapshot helper captured and then confirmed the repository unchanged. A
+negative check against the repository&#x27;s <code>docs/</code> subdirectory failed closed
+with the expected repository-root error. This is a packaging and read-only
+boundary pass. It does not establish that the adopted map is semantically
+complete, that external audits are useful, or that the commands improve agent
+performance.</p>
+<p>After <code>0.6.8</code> was tagged and reinstalled, the cached package repeated the same
+mapping probe against STAGE&#x27;s clean adopted repository. The packaged validator
+accepted the <code>0.3</code> manifest. The snapshot helper captured and matched two
+receipts at revision <code>fcea02b20cc6ca87b43b4602a6446badc68a5cc1</code>, with
+<code>git_source_state</code> as the declared claim and zero Git-visible working-tree
+paths. A negative capture against <code>docs/</code> again failed closed because it was
+not the Git work-tree root. This confirms that the released cache contains the
+new scoped snapshot behavior and preserves the repository boundary. It does
+not cover ignored state, establish semantic map quality, or measure workflow
+effectiveness.</p>
+<p>After <code>0.6.9</code> was tagged and reinstalled, its cached package was exercised
+against a disposable clone fixed at release revision
+<code>c4345bfd051afc34bd4ed4a36875edbc270f3091</code>. Before running the packaged
+commands, the probe advanced one tracked file&#x27;s modification time without
+changing its content, creating the stat-only condition in which default
+<code>git diff</code> refreshes the index. The packaged validator accepted the adopted
+<code>0.3</code> manifest, the snapshot helper captured and matched the declared
+<code>git_source_state</code>, and validation against <code>docs/</code> failed closed at the
+repository-root boundary. The target index SHA-256 remained
+<code>5f900fd6ecb52f55685380a25dde301c0be4f8d3f6a922260c14000a39e6af6a</code>
+before and after. This confirms the released package carries the index-write
+fix under its motivating condition. It does not expand the snapshot claim to
+all Git internals or prove semantic map quality or workflow effectiveness.</p>
+<p>After <code>0.6.10</code> was tagged and reinstalled, its cached package repeated the
+same probe against a disposable clone fixed at release revision
+<code>be244ca54cacd19b771c0742d468bc726d3a8445</code>. The probe deliberately advanced
+the modification time of tracked <code>README.md</code> without changing its content.
+The installed validator accepted the adopted <code>0.3</code> manifest, and the installed
+snapshot helper captured and matched the declared <code>git_source_state</code> before
+and after validation. A negative check against the clone&#x27;s <code>docs/</code>
+subdirectory failed closed because it was not the Git work-tree root. The
+target remained clean, while the target index SHA-256 remained
+<code>abf31945cd48c754f21438d4d450e4f5f9cbf4961518e662a21e58bb7a54650c</code>
+before and after. This confirms that the released package includes the
+<code>0.6.10</code> semantic and provenance hardening without regressing the read-only
+index boundary. It does not establish semantic map completeness, project-map
+usefulness, or an effect on agent performance.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="study-integrity">Study Integrity<a href="#study-integrity" class="hash-link" aria-label="Direct link to Study Integrity" title="Direct link to Study Integrity" translate="no">​</a></h2>
+<ul>
+<li class="">Record research questions before synthesizing changes.</li>
+<li class="">Do not modify an external target unless the study explicitly becomes a
+controlled change with authority to do so.</li>
+<li class="">Use immutable permalinks for committed evidence.</li>
+<li class="">Preserve failed operations and contradictory evidence.</li>
+<li class="">Separate project defects from STAGE defects.</li>
+<li class="">Treat a mechanically successful but owner-rejected game as negative method
+evidence, not as an operational product success with acceptance deferred.</li>
+<li class="">Do not mark a trial accepted on behalf of an absent maintainer.</li>
+<li class="">Record <code>not_requested</code> when target-maintainer review has not actually been
+requested. A STAGE researcher may accept a study as evaluation evidence
+without changing that status.</li>
+<li class="">Do not turn one project&#x27;s naming or directory style into a core requirement.</li>
+<li class="">Keep source snapshots and generated study artifacts free of secrets and local
+credentials.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-decision">Release Decision<a href="#release-decision" class="hash-link" aria-label="Direct link to Release Decision" title="Direct link to Release Decision" translate="no">​</a></h2>
+<p>A STAGE release should state:</p>
+<ol>
+<li class="">which studies motivated it;</li>
+<li class="">which claims gained or lost support;</li>
+<li class="">which normative requirements changed;</li>
+<li class="">whether existing manifests remain valid;</li>
+<li class="">the current owner-readiness statement;</li>
+<li class="">the transferability claims supported and still missing.</li>
+</ol>
+<p>The accountable maintainer makes the release decision. Tooling can validate
+artifacts, but cannot establish empirical usefulness or human acceptance.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2026-07-25T11:05:42.000Z" itemprop="dateModified">Jul 25, 2026</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/handbook/docs/releases"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">STAGE Release Records</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/handbook/docs/research-foundations"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Research Foundations</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#claims-under-evaluation" class="table-of-contents__link toc-highlight">Claims Under Evaluation</a></li><li><a href="#study-types" class="table-of-contents__link toc-highlight">Study Types</a></li><li><a href="#required-study-record" class="table-of-contents__link toc-highlight">Required Study Record</a></li><li><a href="#measures" class="table-of-contents__link toc-highlight">Measures</a></li><li><a href="#separate-status-dimensions" class="table-of-contents__link toc-highlight">Separate Status Dimensions</a></li><li><a href="#current-method-shape-stage-06" class="table-of-contents__link toc-highlight">Current Method Shape: STAGE 0.6</a></li><li><a href="#evidence-through-stage-05" class="table-of-contents__link toc-highlight">Evidence Through STAGE 0.5</a></li><li><a href="#solo-unity-profile-evidence-through-05" class="table-of-contents__link toc-highlight">Solo Unity Profile Evidence Through 0.5</a></li><li><a href="#study-integrity" class="table-of-contents__link toc-highlight">Study Integrity</a></li><li><a href="#release-decision" class="table-of-contents__link toc-highlight">Release Decision</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Start</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/using-stage-with-codex">Choose a Codex workflow</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/STAGE">Read the project map</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Method</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/method">Delivery method</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/SPEC">Safety Kernel</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">History</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/releases">Release records</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/adr">Architecture decisions</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">STAGE Game Engineering. Human product authority remains non-delegable.</div></div></div></footer></div>
+</body>
+</html>

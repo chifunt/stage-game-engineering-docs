@@ -1,0 +1,947 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-docs/failure-atlas" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">Failure Atlas | STAGE Game Engineering</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" name="twitter:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" property="og:url" content="https://stage.zoshachi.com/handbook/docs/failure-atlas"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Failure Atlas | STAGE Game Engineering"><meta data-rh="true" name="description" content="This atlas records recurring failure classes observed in agent-assisted game development. It is not limited to one engine."><meta data-rh="true" property="og:description" content="This atlas records recurring failure classes observed in agent-assisted game development. It is not limited to one engine."><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://stage.zoshachi.com/handbook/docs/failure-atlas"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/failure-atlas" hreflang="en"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/failure-atlas" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Failure Atlas","item":"https://stage.zoshachi.com/handbook/docs/failure-atlas"}]}</script><link rel="stylesheet" href="/assets/css/styles.5be3741e.css">
+<script src="/assets/js/runtime~main.c0cf7df1.js" defer="defer"></script>
+<script src="/assets/js/main.740a8be3.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">STAGE</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/handbook/docs/using-stage-with-codex">Use With Codex</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/handbook/docs/using-stage-with-codex">Handbook</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/handbook/docs/using-stage-with-codex"><span class="categoryLinkLabel_W154">Start Here</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/using-stage-with-codex"><span class="linkLabel_WmDU">Using STAGE With Codex</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook"><span class="linkLabel_WmDU">STAGE Game Engineering</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/STAGE"><span class="linkLabel_WmDU">STAGE Project Map</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/SPEC"><span class="linkLabel_WmDU">STAGE Core Specification</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs"><span class="linkLabel_WmDU">STAGE Documentation Map</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/method"><span class="categoryLinkLabel_W154">Deliver Work</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/gameplay-design-dialogue"><span class="categoryLinkLabel_W154">Design And Presentation</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/adoption"><span class="categoryLinkLabel_W154">Adopt And Operate</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/maintaining-stage"><span class="categoryLinkLabel_W154">Maintain STAGE</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/handbook/docs/evaluation"><span class="categoryLinkLabel_W154">Evidence And Lessons</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/evaluation"><span class="linkLabel_WmDU">Evaluation, Readiness, And Transferability</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/research-foundations"><span class="linkLabel_WmDU">Research Foundations</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/handbook/docs/failure-atlas"><span class="linkLabel_WmDU">Failure Atlas</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/case-study-synthesis"><span class="linkLabel_WmDU">Cross-Project Case-Study Synthesis</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/case-studies/the-circussy-one"><span class="linkLabel_WmDU">Case Study: The Circussy One</span></a></li></ul></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_kv0_"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Evidence And Lessons</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Failure Atlas</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Failure Atlas</h1></header>
+<p>This atlas records recurring failure classes observed in agent-assisted game development. It is not limited to one engine.</p>
+<p>Use the thematic index to enter from the observed symptom. Entries remain in
+their historical accumulation order below so existing links and decision
+provenance stay stable.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="thematic-index">Thematic Index<a href="#thematic-index" class="hash-link" aria-label="Direct link to Thematic Index" title="Direct link to Thematic Index" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="diagnosis-scope-and-authority">Diagnosis, Scope, And Authority<a href="#diagnosis-scope-and-authority" class="hash-link" aria-label="Direct link to Diagnosis, Scope, And Authority" title="Direct link to Diagnosis, Scope, And Authority" translate="no">​</a></h3>
+<ul>
+<li class=""><a href="#plausibility-patching" class="">Plausibility Patching</a></li>
+<li class=""><a href="#diagnosis-scope-creep" class="">Diagnosis Scope Creep</a></li>
+<li class=""><a href="#sunk-cost-polishing-after-route-utility-rejection" class="">Sunk-Cost Polishing After Route Utility Rejection</a></li>
+<li class=""><a href="#analogical-recovery-after-route-rejection" class="">Analogical Recovery After Route Rejection</a></li>
+<li class=""><a href="#unbounded-visual-inventory" class="">Unbounded Visual Inventory</a></li>
+<li class=""><a href="#broad-recovery-damage" class="">Broad Recovery Damage</a></li>
+<li class=""><a href="#reference-shape-projection" class="">Reference-Shape Projection</a></li>
+<li class=""><a href="#authority-guessing" class="">Authority Guessing</a></li>
+<li class=""><a href="#artifact-level-authority-collapse" class="">Artifact-Level Authority Collapse</a></li>
+<li class=""><a href="#declared-stop-without-termination" class="">Declared Stop Without Termination</a></li>
+<li class=""><a href="#corroboration-after-the-decision" class="">Corroboration After The Decision</a></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="evidence-and-claim-quality">Evidence And Claim Quality<a href="#evidence-and-claim-quality" class="hash-link" aria-label="Direct link to Evidence And Claim Quality" title="Direct link to Evidence And Claim Quality" translate="no">​</a></h3>
+<ul>
+<li class=""><a href="#compilation-as-confidence" class="">Compilation As Confidence</a></li>
+<li class=""><a href="#tests-as-taste" class="">Tests As Taste</a></li>
+<li class=""><a href="#baseline-laundering" class="">Baseline Laundering</a></li>
+<li class=""><a href="#evidence-first-inversion" class="">Evidence-First Inversion</a></li>
+<li class=""><a href="#judgment-package-conflation" class="">Judgment-Package Conflation</a></li>
+<li class=""><a href="#artifact-consumer-laundering" class="">Artifact-Consumer Laundering</a></li>
+<li class=""><a href="#consumer-omission" class="">Consumer Omission</a></li>
+<li class=""><a href="#receipt-only-inspection" class="">Receipt-Only Inspection</a></li>
+<li class=""><a href="#preview-truth-inflation" class="">Preview Truth Inflation</a></li>
+<li class=""><a href="#documented-operation-as-evidence" class="">Documented Operation As Evidence</a></li>
+<li class=""><a href="#evidence-scope-collapse" class="">Evidence Scope Collapse</a></li>
+<li class=""><a href="#automated-input-as-player-acceptance" class="">Automated Input As Player Acceptance</a></li>
+<li class=""><a href="#player-build-as-runtime-proof" class="">Player Build As Runtime Proof</a></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="visual-work-and-review-surfaces">Visual Work And Review Surfaces<a href="#visual-work-and-review-surfaces" class="hash-link" aria-label="Direct link to Visual Work And Review Surfaces" title="Direct link to Visual Work And Review Surfaces" translate="no">​</a></h3>
+<ul>
+<li class=""><a href="#flattering-angle-verification" class="">Flattering-Angle Verification</a></li>
+<li class=""><a href="#random-screenshot-amnesia" class="">Random Screenshot Amnesia</a></li>
+<li class=""><a href="#capture-adapter-authority-leak" class="">Capture Adapter Authority Leak</a></li>
+<li class=""><a href="#visual-state-leakage" class="">Visual State Leakage</a></li>
+<li class=""><a href="#contact-sheet-confidence" class="">Contact-Sheet Confidence</a></li>
+<li class=""><a href="#parallel-visual-product" class="">Parallel Visual Product</a></li>
+<li class=""><a href="#visual-surface-collapse" class="">Visual Surface Collapse</a></li>
+<li class=""><a href="#native-shell-substitution" class="">Native Shell Substitution</a></li>
+<li class=""><a href="#launch-path-drift" class="">Launch-Path Drift</a></li>
+<li class=""><a href="#catalog-shadowing" class="">Catalog Shadowing</a></li>
+<li class=""><a href="#scenario-inflation" class="">Scenario Inflation</a></li>
+<li class=""><a href="#gallery-without-correction" class="">Gallery Without Correction</a></li>
+<li class=""><a href="#timed-stills-masquerading-as-motion" class="">Timed Stills Masquerading As Motion</a></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="infrastructure-and-capability-inflation">Infrastructure And Capability Inflation<a href="#infrastructure-and-capability-inflation" class="hash-link" aria-label="Direct link to Infrastructure And Capability Inflation" title="Direct link to Infrastructure And Capability Inflation" translate="no">​</a></h3>
+<ul>
+<li class=""><a href="#infrastructure-first-inversion" class="">Infrastructure-First Inversion</a></li>
+<li class=""><a href="#setup-skill-capture" class="">Setup-Skill Capture</a></li>
+<li class=""><a href="#maturity-ladder-completionism" class="">Maturity-Ladder Completionism</a></li>
+<li class=""><a href="#capability-theatre" class="">Capability Theatre</a></li>
+<li class=""><a href="#parallel-capability-manifest" class="">Parallel Capability Manifest</a></li>
+<li class=""><a href="#abstraction-inflation" class="">Abstraction Inflation</a></li>
+<li class=""><a href="#documentation-multiplication" class="">Documentation Multiplication</a></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="runtime-tooling-and-operation-semantics">Runtime, Tooling, And Operation Semantics<a href="#runtime-tooling-and-operation-semantics" class="hash-link" aria-label="Direct link to Runtime, Tooling, And Operation Semantics" title="Direct link to Runtime, Tooling, And Operation Semantics" translate="no">​</a></h3>
+<ul>
+<li class=""><a href="#async-by-declaration" class="">Async By Declaration</a></li>
+<li class=""><a href="#generated-ownership-violation" class="">Generated Ownership Violation</a></li>
+<li class=""><a href="#runtime-di-surprise" class="">Runtime DI Surprise</a></li>
+<li class=""><a href="#external-tool-drift" class="">External Tool Drift</a></li>
+<li class=""><a href="#tool-impatience" class="">Tool Impatience</a></li>
+<li class=""><a href="#hidden-scaling" class="">Hidden Scaling</a></li>
+<li class=""><a href="#toolchain-shadowing" class="">Toolchain Shadowing</a></li>
+<li class=""><a href="#read-only-cache-mutation" class="">Read-Only Cache Mutation</a></li>
+<li class=""><a href="#exit-status-masking" class="">Exit-Status Masking</a></li>
+<li class=""><a href="#successful-exit-without-completion" class="">Successful Exit Without Completion</a></li>
+<li class=""><a href="#capability-blind-operation" class="">Capability-Blind Operation</a></li>
+<li class=""><a href="#batch-end-of-frame-assumption" class="">Batch End-Of-Frame Assumption</a></li>
+<li class=""><a href="#queued-virtual-input-assumption" class="">Queued Virtual Input Assumption</a></li>
+<li class=""><a href="#scene-load-clock-contamination" class="">Scene-Load Clock Contamination</a></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="player-experience-and-game-design">Player Experience And Game Design<a href="#player-experience-and-game-design" class="hash-link" aria-label="Direct link to Player Experience And Game Design" title="Direct link to Player Experience And Game Design" translate="no">​</a></h3>
+<ul>
+<li class=""><a href="#mechanically-successful-game-failure" class="">Mechanically Successful Game Failure</a></li>
+<li class=""><a href="#system-completeness-without-a-player-decision" class="">System Completeness Without A Player Decision</a></li>
+<li class=""><a href="#information-inventory-instead-of-decision-ui" class="">Information Inventory Instead Of Decision UI</a></li>
+<li class=""><a href="#feedback-volume-without-priority" class="">Feedback Volume Without Priority</a></li>
+<li class=""><a href="#progression-as-numbers-only" class="">Progression As Numbers Only</a></li>
+<li class=""><a href="#one-policy-balance-proof" class="">One-Policy Balance Proof</a></li>
+<li class=""><a href="#telemetry-as-enjoyment" class="">Telemetry As Enjoyment</a></li>
+<li class=""><a href="#silent-agent-gameplay-authorship" class="">Silent Agent Gameplay Authorship</a></li>
+<li class=""><a href="#reachable-but-unpresented" class="">Reachable But Unpresented</a></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="plausibility-patching">Plausibility Patching<a href="#plausibility-patching" class="hash-link" aria-label="Direct link to Plausibility Patching" title="Direct link to Plausibility Patching" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> Several reasonable fixes change the behavior without explaining it.</p>
+<p><strong>Cause:</strong> The agent patches from a mental model instead of observed state.</p>
+<p><strong>Response:</strong> Preserve a reproduction, instrument the hidden state, rank hypotheses, and change one discriminating variable at a time.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="diagnosis-scope-creep">Diagnosis Scope Creep<a href="#diagnosis-scope-creep" class="hash-link" aria-label="Direct link to Diagnosis Scope Creep" title="Direct link to Diagnosis Scope Creep" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> The owner asks for investigation without a fix, but the agent
+changes production behavior before establishing the cause.</p>
+<p><strong>Cause:</strong> Autonomy and momentum are mistaken for authority. A plausible patch
+is treated as diagnostic evidence even though it changes the condition being
+investigated and removes the owner&#x27;s decision point.</p>
+<p><strong>Response:</strong> Treat diagnosis-only language as a hard scope boundary. Preserve
+the reproduction and inspect existing state. Add bounded reversible
+instrumentation only when the requested scope explicitly permits diagnostic
+edits. Report observations, ranked hypotheses, and the next discriminating
+step separately from proposed repairs. Do not tune, refactor, retain
+instrumentation, or checkpoint a behavior change until the owner authorizes
+implementation.</p>
+<p><strong>Observed correction:</strong> Circussy traversal work accumulated several plausible
+enemy-movement fixes before diagnostics isolated the real ramp-side behavior.
+Later requests explicitly separated diagnosis from repair so the reproduction
+and human decision survived long enough to identify the useful correction.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="compilation-as-confidence">Compilation As Confidence<a href="#compilation-as-confidence" class="hash-link" aria-label="Direct link to Compilation As Confidence" title="Direct link to Compilation As Confidence" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A change is declared fixed before the engine or composed runtime has been exercised.</p>
+<p><strong>Cause:</strong> Static success is mistaken for runtime, visual, or experiential success.</p>
+<p><strong>Response:</strong> Select evidence by claim and disclose missing verification.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="tests-as-taste">Tests As Taste<a href="#tests-as-taste" class="hash-link" aria-label="Direct link to Tests As Taste" title="Direct link to Tests As Taste" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> Procedural terrain, UI, animation, or effects pass tests but look or feel wrong.</p>
+<p><strong>Cause:</strong> Invariants are used as substitutes for aesthetic judgment.</p>
+<p><strong>Response:</strong> Inspect the real production surface under representative
+conditions and require an identified human to judge the experiential claim.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flattering-angle-verification">Flattering-Angle Verification<a href="#flattering-angle-verification" class="hash-link" aria-label="Direct link to Flattering-Angle Verification" title="Direct link to Flattering-Angle Verification" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> An object, effect, or environment is declared visually correct from
+one hand-picked screenshot while defects remain behind, below, far away, or in
+another gameplay state.</p>
+<p><strong>Cause:</strong> Capture convenience substitutes for a declared coverage model.</p>
+<p><strong>Response:</strong> State the visual question, inspect purposeful fixed views and
+gameplay-relevant distances in the smallest truthful engine-native surface, and
+add bounded seeded exploration when procedural variation matters. Record a
+reproducible setup only when the review will recur. When exporting evidence,
+preserve every requested coordinate and failure instead of selecting only
+favorable output.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="random-screenshot-amnesia">Random Screenshot Amnesia<a href="#random-screenshot-amnesia" class="hash-link" aria-label="Direct link to Random Screenshot Amnesia" title="Direct link to Random Screenshot Amnesia" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A visual defect is found once but cannot be reproduced or compared
+after the next change.</p>
+<p><strong>Cause:</strong> Camera pose, state, time, quality, resolution, or procedural seed was
+not recorded as evidence coordinates.</p>
+<p><strong>Response:</strong> Record deterministic camera, state, time, quality, resolution,
+and seed coordinates in project-owned presentation data. Keep fixed regression
+coordinates and make exploratory randomness seeded and bounded. Persist the
+setup only when it recurs, and generate an export plan only when durable
+evidence is required.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="baseline-laundering">Baseline Laundering<a href="#baseline-laundering" class="hash-link" aria-label="Direct link to Baseline Laundering" title="Direct link to Baseline Laundering" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> CI or an agent updates golden images until comparison passes,
+silently converting a regression into the new expected result.</p>
+<p><strong>Cause:</strong> Pixel storage is mistaken for product authority.</p>
+<p><strong>Response:</strong> Do not let automation replace approved reference images. Require
+an identified human owner to approve any reference update, and treat image
+comparison as diagnostic evidence rather than an acceptance decision.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="capture-adapter-authority-leak">Capture Adapter Authority Leak<a href="#capture-adapter-authority-leak" class="hash-link" aria-label="Direct link to Capture Adapter Authority Leak" title="Direct link to Capture Adapter Authority Leak" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> The same engine tool stages a subject, renders it, declares it
+correct, and updates its baseline.</p>
+<p><strong>Cause:</strong> Evidence production, verification, analysis, and acceptance share
+one trust boundary.</p>
+<p><strong>Response:</strong> When a decision-bearing artifact consumer actually requires
+capture, let the capture tool emit media and provenance only. Keep integrity
+checks and analysis separate, keep agent review advisory, and grant acceptance
+only through the identified human owner.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="visual-state-leakage">Visual State Leakage<a href="#visual-state-leakage" class="hash-link" aria-label="Direct link to Visual State Leakage" title="Direct link to Visual State Leakage" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> Later animation, VFX, UI, scene, or procedural captures depend on
+which shot ran before them.</p>
+<p><strong>Cause:</strong> The adapter batches work without restoring time, random state,
+pooled objects, scene state, animation graphs, particles, or UI selection.</p>
+<p><strong>Response:</strong> Define reset and teardown for the reviewed condition, replay the
+same state or motion twice, and treat unexplained presentation drift as a
+failed reproduction. Add byte comparison only when a named regression consumer
+actually needs stable captures.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="contact-sheet-confidence">Contact-Sheet Confidence<a href="#contact-sheet-confidence" class="hash-link" aria-label="Direct link to Contact-Sheet Confidence" title="Direct link to Contact-Sheet Confidence" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> Tiny thumbnails look acceptable, but native captures contain
+clipping, seams, fallback particles, or unreadable text.</p>
+<p><strong>Cause:</strong> A navigation aid is used as the inspection surface.</p>
+<p><strong>Response:</strong> Return to native-resolution project or engine inspection for the
+decision. If a named external consumer already uses a contact sheet, treat it
+only as navigation and retain exact capture identities in findings.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="evidence-first-inversion">Evidence-First Inversion<a href="#evidence-first-inversion" class="hash-link" aria-label="Direct link to Evidence-First Inversion" title="Direct link to Evidence-First Inversion" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A visual workflow produces valid screenshots, videos, hashes, and
+contact sheets, but the reviewer cannot conveniently inspect, play, tune, or
+understand the real visual content. Placeholder subjects and low-value capture
+matrices survive because the export pipeline is easier to exercise than the
+game itself.</p>
+<p><strong>Cause:</strong> Portable evidence packaging was treated as the product before an
+engine-native review loop existed. The workflow rebuilt a weaker gallery
+outside the engine even though the engine already owned content resolution,
+animation, lighting, cameras, scenes, and runtime state.</p>
+<p><strong>Response:</strong> Return to the smallest truthful project-native surface first.
+Resolve real content, expose the presentation and motion needed by the
+question, and iterate in the engine or game. Add persistent custom UI only when
+it independently serves a recurring player, authoring, or development job.
+Export screenshots, videos, contact sheets, baselines, and receipts only for a
+concrete persistence, comparison, CI, or remote-review need.</p>
+<p><strong>Observed correction:</strong> The first Circussy rehearsal rendered a detached HTML
+contact sheet and substitute subjects even though Unity already owned the real
+models, materials, animation, lighting, and runtime composition. Moving the
+sequence into Unity made Enemy Arrival directly inspectable, but an isolated
+Test Lab was still a parallel product with little player value. The stronger
+correction is not another prescribed surface: bounded diagnosis stays on the
+smallest truthful native route. If a codex, gallery, world previewer, or inspect
+mode has independent player, author, or developer value, it is delivered as an
+ordinary project feature for that user. The isolated stage remains useful only
+for narrow diagnosis.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="parallel-visual-product">Parallel Visual Product<a href="#parallel-visual-product" class="hash-link" aria-label="Direct link to Parallel Visual Product" title="Direct link to Parallel Visual Product" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> The project has a polished developer Test Lab or rehearsal scene,
+but ordinary players and developers rarely enter it, production presentation
+drifts, and every real asset or system needs parallel wiring before it can be
+inspected.</p>
+<p><strong>Cause:</strong> Moving review into the engine was mistaken for moving it into the
+product. The tool still duplicates the game&#x27;s content resolution, stage,
+camera, lighting, animation, VFX, input, or lifecycle without earning an
+independent consumer.</p>
+<p><strong>Response:</strong> Return to the ordinary game or editor route that owns the work.
+If a codex, gallery, bestiary, model viewer, replay browser, world previewer, or
+inspect mode independently earns persistence, deliver it through the project&#x27;s
+normal backlog for its actual user and reuse canonical production paths. It may
+be player-facing, author-facing, or developer-only; do not require combined
+player and developer modes. Keep isolated stages only for narrower questions
+whose omitted runtime context is explicit.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="infrastructure-first-inversion">Infrastructure-First Inversion<a href="#infrastructure-first-inversion" class="hash-link" aria-label="Direct link to Infrastructure-First Inversion" title="Direct link to Infrastructure-First Inversion" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A project gains a reusable tool, abstraction, dashboard, operation
+API, fixture catalog, or integration that is mechanically polished but has no
+recurring workflow using it. Maintaining and explaining the helper costs more
+attention than performing the original task directly.</p>
+<p><strong>Cause:</strong> Cheap agent implementation and measurable tool output were mistaken
+for demonstrated project need. The proposed reusable surface was allowed to
+define the workflow before the direct project-native path exposed what should
+actually be preserved.</p>
+<p><strong>Response:</strong> Return to the direct path and one bounded question. Use temporary
+instrumentation when state is invisible. Persist only the smallest helper that
+addresses an observed recurring cost, then dogfood one complete change through
+it. Add stable operation, durable evidence, or a shipping surface only for its
+own named consumer. Simplify or retire the helper when it does not reduce
+correction or oversight cost. See
+<a class="" href="/handbook/docs/adr/require-earned-infrastructure">Earned Infrastructure</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="setup-skill-capture">Setup-Skill Capture<a href="#setup-skill-capture" class="hash-link" aria-label="Direct link to Setup-Skill Capture" title="Direct link to Setup-Skill Capture" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A fresh agent correctly identifies the primary change-delivery
+skill, then immediately invokes project mapping, creates <code>STAGE.md</code> and a
+manifest, proposes a custom review surface, and assembles an evidence package
+before touching the requested game fix.</p>
+<p><strong>Cause:</strong> Optional companion capabilities were presented as a maturity path or
+setup sequence. Written statements that artifacts were optional were too weak
+to overcome the agent&#x27;s preference for visible framework outputs.</p>
+<p><strong>Response:</strong> Start ordinary work through <code>stage-deliver-change</code> in the current
+project. Mapping is a separate adoption, onboarding, or audit job. A custom
+review surface or durable evidence package must be earned by an observed
+recurring cost or named consumer. Existing project tests, editor views, game
+routes, logs, and human playtests are the default evidence surfaces.</p>
+<p><strong>Observed correction:</strong> A blank-directory Codex dogfood probe discovered the
+installed STAGE delivery skill but still treated <code>stage-map-project</code> as a
+companion setup skill and said a custom review surface and evidence package
+would be required before acceptance. The plugin prompt and skill routing were
+tightened, and this behavior became a packaging regression contract.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="judgment-package-conflation">Judgment-Package Conflation<a href="#judgment-package-conflation" class="hash-link" aria-label="Direct link to Judgment-Package Conflation" title="Direct link to Judgment-Package Conflation" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> The owner asks to see or judge one visual fix in the running game,
+and the agent proposes an &quot;engine-native review package,&quot; contact sheet, A/B
+capture set, or retained report before handing back the live result.</p>
+<p><strong>Cause:</strong> Human acceptance was mistaken for a remote-review or artifact
+consumer. The agent treated evidence-shaped output as more complete than the
+co-located engine view even though packaging added no truth and delayed the
+decision.</p>
+<p><strong>Response:</strong> Leave the smallest consumer-complete native surface ready for the
+owner and ask for the visual decision there. A direct screenshot or short clip
+may carry one conversational observation, but it is not a package. Add retained
+captures only for an explicitly named portability, revision-comparison, CI,
+milestone, audit, or remote-review need.</p>
+<p><strong>Observed correction:</strong> A fresh Unity animation task correctly rejected an
+external renderer and permanent gallery, but still promised a contact sheet and
+&quot;review package&quot; after the owner said &quot;let me judge it.&quot; The visual-review
+contract was tightened so live human handoff and artifact retention are
+separate decisions. A follow-up probe rejected those packages but still called
+video the main judgment artifact, so live continuous motion was made the
+explicit default when the owner can watch Unity.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="artifact-consumer-laundering">Artifact-Consumer Laundering<a href="#artifact-consumer-laundering" class="hash-link" aria-label="Direct link to Artifact-Consumer Laundering" title="Direct link to Artifact-Consumer Laundering" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> An agent correctly rejects a detached visual-review system, then
+proposes the same system as a &quot;thin export adapter,&quot; fixed approval matrix, or
+standing capability because it will serve &quot;human and AI review.&quot;</p>
+<p><strong>Cause:</strong> An audience or recurring activity is treated as a decision-bearing
+artifact consumer. The wording sounds specific while still omitting the
+decision, portability requirement, retention need, owner, and retirement
+condition that would justify persistent output.</p>
+<p><strong>Response:</strong> Require a concrete operation that cannot use the live native
+surface: remote review without engine access, stable revision comparison,
+objective CI, audit, release evidence, or retention of an accepted decision.
+Without one, decompose the broad request into bounded visual questions and hand
+back the native project route. Do not offer a contact sheet or export harness as
+an optional consolation prize.</p>
+<p><strong>Observed correction:</strong> A qualified dogfood probe loaded the installed STAGE
+0.5.6 visual-review skill, rejected a universal capture matrix, and used an
+existing project Almanac. It then proposed an external contact-sheet generator
+and thin export harness for generic &quot;human and AI review.&quot; This exposed that a
+named audience was still able to masquerade as a named artifact consumer.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="sunk-cost-polishing-after-route-utility-rejection">Sunk-Cost Polishing After Route Utility Rejection<a href="#sunk-cost-polishing-after-route-utility-rejection" class="hash-link" aria-label="Direct link to Sunk-Cost Polishing After Route Utility Rejection" title="Direct link to Sunk-Cost Polishing After Route Utility Rejection" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A human says that a workflow, evidence surface, or supporting
+system is not useful, but the agent treats the feedback as another quality
+pass. It keeps improving layouts, adding controls, narrowing scope, or
+repackaging the same route because substantial work already exists.</p>
+<p><strong>Cause:</strong> Rejection of the route&#x27;s utility was collapsed into rejection of the
+current implementation. Mechanical success and sunk cost were allowed to
+outweigh human authority over what is worth building.</p>
+<p><strong>Response:</strong> Terminate optimization of the rejected route. Preserve state,
+salvage only the parts the human explicitly accepts, and retire, revert, or
+materially reframe the remainder through a different project-native route. Do
+not offer a smaller or optional version of the same route unless the human
+explicitly reauthorizes it. If the feedback could genuinely be a tuning
+request, ask one concise discriminating question first.</p>
+<p><strong>Observed correction:</strong> The Circussy visual-rehearsal experiment produced a
+technically functional detached contact sheet, yet the useful experience was
+the native enemy-arrival motion preview and the real need was better served by
+the game or editor itself. Continued refinement of the detached surface added
+cost without adding product truth. The route was rejected; its native-first
+lesson was retained.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="analogical-recovery-after-route-rejection">Analogical Recovery After Route Rejection<a href="#analogical-recovery-after-route-rejection" class="hash-link" aria-label="Direct link to Analogical Recovery After Route Rejection" title="Direct link to Analogical Recovery After Route Rejection" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> An agent stops the explicitly rejected route, then performs a
+broad repository inspection to find something &quot;close enough&quot; to an accepted
+fragment. It maps a missing named behavior onto an unrelated feature and
+presents that substitution as the next authorized action.</p>
+<p><strong>Cause:</strong> &quot;Carry forward the accepted part&quot; was interpreted as an
+implementation mandate instead of a preservation constraint. A generic
+instruction to keep working supplied momentum but no replacement outcome, so
+the agent used semantic similarity to manufacture scope.</p>
+<p><strong>Response:</strong> Run rejection preflight before project orientation. Preservation
+is not authorization: retain the accepted fragment where it actually exists,
+but do not extend, port, recreate, or analogize it. Do not inspect broadly for
+a replacement. Continue only from a concrete materially different human
+outcome; otherwise ask one concise outcome question and end the branch.</p>
+<p>If no cleanup or state-protection action was authorized, do not even run a
+status check or targeted search. Those operations cannot answer the missing
+product question and can restart the rejected route through newly discovered
+similarities. Respond directly from the correction instead.</p>
+<p><strong>Observed correction:</strong> A read-only 0.5.8 probe correctly refused further
+work on a detached contact-sheet exporter, but consumed a broad Lanternworks
+inspection and mapped the prompt&#x27;s accepted <code>Enemy Arrival</code> fragment onto the
+unrelated <code>Route Flow Motion</code> scenario because the named fragment did not exist
+there. The target remained unchanged, but the reasoning still exceeded the
+authorized scope. This motivated rejection-before-orientation and explicit
+preservation-without-inference semantics.</p>
+<p>An initial 0.5.9 candidate added those semantics but still ran <code>git status</code> and
+three target searches before asking the correct outcome question. This exposed
+the remaining gap between bounded inspection and the required zero-inspection
+response when no cleanup action exists.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="unbounded-visual-inventory">Unbounded Visual Inventory<a href="#unbounded-visual-inventory" class="hash-link" aria-label="Direct link to Unbounded Visual Inventory" title="Direct link to Unbounded Visual Inventory" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A request to inspect every visual object causes the agent to map
+the whole presentation layer, enumerate missing coverage, and propose scenario
+families, coverage profiles, or Almanac expansion before identifying one
+visual decision.</p>
+<p><strong>Cause:</strong> Orientation and inventory happened before scope. Once a coverage
+catalog exists, its empty cells look like required work even when no player,
+author, developer, or release decision needs them.</p>
+<p><strong>Response:</strong> Stop before repository-wide inspection. Require one bounded
+question with a subject, state or beat, context, and failure condition. Inspect
+only the production paths needed to answer it. An existing gallery or Almanac
+is a possible route, not a completion checklist.</p>
+<p><strong>Observed correction:</strong> A 0.5.7 candidate probe correctly refused detached
+exports but spent a broad source audit turning &quot;every visual object&quot; into an
+Almanac expansion plan. The skill had placed project protection and inventory
+before question framing. The gate now runs first.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="maturity-ladder-completionism">Maturity-Ladder Completionism<a href="#maturity-ladder-completionism" class="hash-link" aria-label="Direct link to Maturity-Ladder Completionism" title="Direct link to Maturity-Ladder Completionism" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> Optional maps, diagnostics, operations, galleries, receipts, or
+automation become a numbered backlog. The agent keeps implementing the next
+slice after the original value hypothesis has failed because an unfinished
+level looks like incomplete adoption.</p>
+<p><strong>Cause:</strong> A maturity ladder or preplanned sequence encodes progress as artifact
+accumulation. Agents are especially likely to optimize for checklist completion
+instead of re-evaluating whether the next capability still has a consumer.</p>
+<p><strong>Response:</strong> Keep project-native delivery as the baseline and present every
+persistent capability as an independent, need-triggered option. Name its
+observed trigger, owner, consumer, stop condition, and retirement condition.
+There is no terminal STAGE level and no reward for retaining unused machinery.</p>
+<p><strong>Observed correction:</strong> STAGE&#x27;s adoption guide still labeled optional
+capabilities Level 0 through Level 5 after Earned Infrastructure became
+normative. The detached visual-rehearsal work showed why that framing was
+dangerous: planned slices continued to produce artifacts even after direct
+engine review was clearly more useful. The guide was converted to a non-linear
+capability menu.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="visual-surface-collapse">Visual Surface Collapse<a href="#visual-surface-collapse" class="hash-link" aria-label="Direct link to Visual Surface Collapse" title="Direct link to Visual Surface Collapse" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> One feature is expected to be an artist-facing inspector, an agent
+API, a screenshot-regression suite, a shipping bestiary, and a portable review
+report. Improving one audience&#x27;s workflow makes another audience&#x27;s lifecycle,
+performance, failure visibility, or interface worse.</p>
+<p><strong>Cause:</strong> Shared content resolution and staging code were mistaken for a
+shared product contract. Interactive inspection, agent operation, visual
+regression, player content browsing, and capture/export were treated as
+interchangeable.</p>
+<p><strong>Response:</strong> Share canonical identity and production presentation where
+useful. Keep the consumer contracts separate. Build only those with a real
+consumer and do not infer visual acceptance, agent operability, regression
+stability, or shipping readiness from another surface&#x27;s existence.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="native-shell-substitution">Native Shell Substitution<a href="#native-shell-substitution" class="hash-link" aria-label="Direct link to Native Shell Substitution" title="Direct link to Native Shell Substitution" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A project has an engine editor window that loads real assets, yet
+the review still misses defects in gameplay camera framing, animation, VFX,
+post-processing, UI composition, generated environments, input, pause, or
+runtime lifecycle.</p>
+<p><strong>Cause:</strong> <code>engine-native</code> was treated as a sufficient truth claim. The host
+lived inside the engine but bypassed the production paths needed by the visual
+claim.</p>
+<p><strong>Response:</strong> Choose the least artificial engine or game route that contains
+the production consumer needed by the question. Prefer a development runtime
+screen, runtime scene, or composed player route for player-visible behavior.
+Keep editor previews for genuinely asset-local questions, and state what the
+selected route does not contain.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="consumer-omission">Consumer Omission<a href="#consumer-omission" class="hash-link" aria-label="Direct link to Consumer Omission" title="Direct link to Consumer Omission" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> Nearby evidence passes, but normal project use still fails. A world
+gallery hides the production HUD; mouse clicks work while controller focus or
+modal submit fails; a Wwise event previews while runtime media or music handoff
+does not; loading stages complete while the visible frame loop freezes; or an
+asset imports while the production factory still composes a placeholder.</p>
+<p><strong>Cause:</strong> Local success or engine ownership was treated as sufficient evidence.
+The selected route does not include the production consumer or another
+integration or environmental dependency material to the claim.</p>
+<p><strong>Response:</strong> Name the production consumer and intended environment before
+selecting evidence. Use the smallest consumer-complete verification route, or
+narrow the claim to what the current route actually contains. Keep focused
+tests and previews for diagnosis; do not promote them across omitted input,
+composition, middleware, frame-loop, runtime-resolution, or platform
+boundaries. Do not build a new harness when the ordinary project route already
+supplies the missing context.</p>
+<p><strong>Observed correction:</strong> Lanternworks&#x27; First Light Almanac truthfully staged
+the generated borough progression but intentionally hid the ordinary HUD. It
+could inspect the world-state sequence, not a new HUD completion banner. That
+feedback had to be reviewed through the playable game route.</p>
+<p>The Circussy One exposed the same pattern across modalities: modal submit had
+to be checked through controller input rather than mouse behavior; Wwise music
+required the complete menu/loading/gameplay handoff rather than authoring
+preview; loading responsiveness required frame-gap diagnostics under real work
+rather than an async signature; and runtime content required composed factory
+resolution rather than successful asset import.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="launch-path-drift">Launch-Path Drift<a href="#launch-path-drift" class="hash-link" aria-label="Direct link to Launch-Path Drift" title="Direct link to Launch-Path Drift" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A native review setup shows authored content when opened through
+one editor tool, but direct scene Play, a development player, or an agent launch
+shows capsules, stale presentation, the wrong subject, or an unready state.</p>
+<p><strong>Cause:</strong> Required identity or setup is injected by one orchestrator and is not
+owned by the runtime host or carried in an explicit launch request. Correctness
+depends on hidden prior-session state even though several entry points are
+described as equivalent.</p>
+<p><strong>Response:</strong> Verify every available entry point from a fresh session. Resolve
+canonical subject and presentation identity during native host initialization
+or from explicit launch parameters. Compare subject, state, truth mode,
+temporal mode, presentation, and readiness across routes. Fail visibly on
+fallback content, and mark non-equivalent routes partial or deferred.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="capability-theatre">Capability Theatre<a href="#capability-theatre" class="hash-link" aria-label="Direct link to Capability Theatre" title="Direct link to Capability Theatre" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A project is described as agent-operable because it has an editor
+menu, window, or MCP-visible button, but an agent cannot reliably select a
+subject, wait for readiness, reset it, or release the resulting state.</p>
+<p><strong>Cause:</strong> Human discoverability is confused with a stable operation surface.
+Interactive UI automation is treated as a contract even though control names,
+focus, selection, and timing remain implicit.</p>
+<p><strong>Response:</strong> Declare human and agent native-review entry points separately.
+Keep agent status deferred until a project operation supports subject
+selection, staging, readiness, reset, and teardown with explicit failures.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="receipt-only-inspection">Receipt-Only Inspection<a href="#receipt-only-inspection" class="hash-link" aria-label="Direct link to Receipt-Only Inspection" title="Direct link to Receipt-Only Inspection" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> An agent launches a native review route and receives a ready log or
+machine-readable state receipt, then reports the visual as correct without ever
+seeing the engine frame. Alternatively, it sees a frame but cannot identify the
+subject, truth mode, beat, seed, camera, or lighting that produced it.</p>
+<p><strong>Cause:</strong> Native control, state provenance, and visual observation are treated
+as one implied capability. A successful command or receipt is inflated into a
+pixel claim, or an unlabelled image is inflated into reproducible evidence.</p>
+<p><strong>Response:</strong> Validate the three channels independently. Use a stable native
+control operation, read back the actual project state, and observe the engine&#x27;s
+real frame or motion through a named surface. Preserve human authority for
+visual acceptance. Export evidence only when persistence or portability has a
+real consumer.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="catalog-shadowing">Catalog Shadowing<a href="#catalog-shadowing" class="hash-link" aria-label="Direct link to Catalog Shadowing" title="Direct link to Catalog Shadowing" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> The engine and a STAGE artifact each maintain lists of performers,
+enemies, weapons, scenes, animations, or props, and visual review silently uses
+stale, placeholder, or differently ordered entries.</p>
+<p><strong>Cause:</strong> A capability map expanded into a parallel content database because
+external tooling wanted convenient subject enumeration.</p>
+<p><strong>Response:</strong> Keep content identity in canonical engine-owned catalogs,
+registries, scenes, or assets. The normal project map and operating docs may
+point to discovery sources and placeholder policy, but they must not copy the
+entries themselves. A project does not need an additional visual capability
+artifact merely because it performs visual review.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="parallel-capability-manifest">Parallel Capability Manifest<a href="#parallel-capability-manifest" class="hash-link" aria-label="Direct link to Parallel Capability Manifest" title="Direct link to Parallel Capability Manifest" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A project already documents a native tool in its ordinary project
+map, operating guide, and source, yet a second versioned manifest repeats the
+same entry points, modes, settings, lifecycle, evidence, and limitations. Most
+maintenance work changes the descriptions rather than the tool.</p>
+<p><strong>Cause:</strong> Machine-readable completeness was treated as an independent product
+without naming a consumer. Compatibility machinery was added before two tools
+or repositories actually needed to exchange the data.</p>
+<p><strong>Response:</strong> Keep one project map and the native feature&#x27;s operating docs.
+Introduce a separate interchange format only after naming multiple real
+consumers, the fields they cannot obtain from the project map, and the
+compatibility promise they require.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="scenario-inflation">Scenario Inflation<a href="#scenario-inflation" class="hash-link" aria-label="Direct link to Scenario Inflation" title="Direct link to Scenario Inflation" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A native gallery treats every player content entry as a nominal
+developer review case, each with a generic camera or authored-default state,
+but reviewers still have to invent the useful question and staging every time.</p>
+<p><strong>Cause:</strong> Catalog completeness is mistaken for review usefulness. Generated
+scenario records mirror content inventory without expressing a distinct visual
+judgment.</p>
+<p><strong>Response:</strong> Keep subject discovery in the canonical project catalog. Preserve
+a small set of reproducible setups around recurring questions and human-owned
+presentation choices. Add another setup only when it shortens a real review
+loop. A player-facing browser may still derive one entry per canonical subject;
+reuse its resolver and renderer without making catalog cardinality the review
+plan.</p>
+<p><strong>Observed correction:</strong> Lanternworks initially exposed real canonical content
+through a native browser and still produced weak review value. Separating its
+per-Subject player entries from two explicit developer questions produced one
+useful Structure guide, one five-Structure readability lineup, and one
+five-beat First Light progression without duplicating the renderer. Native
+location alone did not solve Scenario Inflation; distinct catalog purposes did.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="gallery-without-correction">Gallery Without Correction<a href="#gallery-without-correction" class="hash-link" aria-label="Direct link to Gallery Without Correction" title="Direct link to Gallery Without Correction" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A project has a polished native gallery, codex, or Almanac, but it
+is evaluated by feature count and presentation rather than by whether it finds
+and helps correct defects in the real game.</p>
+<p><strong>Cause:</strong> Building the inspection surface became the destination. The project
+never preserved a question and native coordinate across an authorized
+production change, so the gallery&#x27;s engineering value remained hypothetical.</p>
+<p><strong>Response:</strong> Select one recurring question, preserve its known starting state
+and reproducible setup, observe the canonical renderer, change the smallest
+production-owned path, and replay the same setup. Automate only objective
+invariants and keep human visual acceptance explicit.</p>
+<p><strong>Observed correction:</strong> Lanternworks&#x27; Structure Readability Scenario exposed
+two duplicated cylinder profiles and three weak box variants in the real
+<code>BoroughWorldView</code>. A bounded production-renderer change, structural PlayMode
+guardrail, fresh player build, and same-coordinate replay demonstrated the
+correction loop while leaving final visual acceptance pending.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="preview-truth-inflation">Preview Truth Inflation<a href="#preview-truth-inflation" class="hash-link" aria-label="Direct link to Preview Truth Inflation" title="Direct link to Preview Truth Inflation" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A smoothly encoded preview video is reported as proof of gameplay
+animation, physics, particles, or runtime integration even though each frame
+was reconstructed by editor state seeking.</p>
+<p><strong>Cause:</strong> Presentation format is mistaken for execution semantics.</p>
+<p><strong>Response:</strong> Label authored state seek, deterministic simulation, composed
+runtime, and live runtime separately. A video inherits the truth mode that
+produced its frames.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="timed-stills-masquerading-as-motion">Timed Stills Masquerading As Motion<a href="#timed-stills-masquerading-as-motion" class="hash-link" aria-label="Direct link to Timed Stills Masquerading As Motion" title="Direct link to Timed Stills Masquerading As Motion" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A native gallery has Previous, Play, and Next controls, or exports
+an MP4, but each frame merely hard-cuts to another complete static state. The
+workflow is described as animation, continuous playback, or motion evidence.</p>
+<p><strong>Cause:</strong> Temporal controls and transport format are mistaken for temporal
+semantics. Named states are treated as proof that meaningful in-between frames
+exist. Sometimes preview-only interpolation is added to make the evidence look
+stronger even though the production game has no corresponding motion.</p>
+<p><strong>Response:</strong> Distinguish a still, a sequence of discrete states, and continuous
+motion. Reserve motion claims for meaningful frame-to-frame change produced by
+the project&#x27;s real presentation path. Label timed or manual hard cuts as a
+state sequence, state how the frames were produced, and let videos inherit
+rather than upgrade those execution semantics.</p>
+<p><strong>Observed correction:</strong> Lanternworks&#x27; five-beat First Light Progression was a
+useful deterministic State Sequence, but its toolbar said <code>MOTION</code>, its
+declaration claimed still and motion support, and its docs called playback
+continuous. Source inspection and a built-player rehearsal showed that no
+production animation existed. The correction renamed and typed the sequence,
+strengthened its contracts and receipt, and deliberately did not invent
+review-only animation.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="async-by-declaration">Async By Declaration<a href="#async-by-declaration" class="hash-link" aria-label="Direct link to Async By Declaration" title="Direct link to Async By Declaration" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> Loading code uses coroutines, tasks, or async methods but still freezes presentation.</p>
+<p><strong>Cause:</strong> Main-thread integration or synchronous work remains unmeasured.</p>
+<p><strong>Response:</strong> Measure frame gaps and named stages; move only thread-safe work; yield engine integration intentionally.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="generated-ownership-violation">Generated Ownership Violation<a href="#generated-ownership-violation" class="hash-link" aria-label="Direct link to Generated Ownership Violation" title="Direct link to Generated Ownership Violation" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A scene, prefab, UI document, or tuned asset is regenerated over human changes.</p>
+<p><strong>Cause:</strong> Automation lacks ownership boundaries.</p>
+<p><strong>Response:</strong> Mark manual and generated roots, make rebuild operations explicit,
+and prefer additive generation. When generation only seeds an asset that then
+becomes human-authored, record the handoff and delete, disable, or narrow the
+generator before manual work begins.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="abstraction-inflation">Abstraction Inflation<a href="#abstraction-inflation" class="hash-link" aria-label="Direct link to Abstraction Inflation" title="Direct link to Abstraction Inflation" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> Every feature gains interfaces, services, systems, rules, factories, and registries.</p>
+<p><strong>Cause:</strong> The agent imitates repository vocabulary rather than responding to complexity.</p>
+<p><strong>Response:</strong> Require real duplication, substitution, ownership, or test pressure before adding a role.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="runtime-di-surprise">Runtime DI Surprise<a href="#runtime-di-surprise" class="hash-link" aria-label="Direct link to Runtime DI Surprise" title="Direct link to Runtime DI Surprise" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> Compilation succeeds but the container fails during startup.</p>
+<p><strong>Cause:</strong> Constructor selection or collection registration is validated only at runtime.</p>
+<p><strong>Response:</strong> Use explicit injection points and a composed graph smoke test.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="external-tool-drift">External Tool Drift<a href="#external-tool-drift" class="hash-link" aria-label="Direct link to External Tool Drift" title="Direct link to External Tool Drift" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> Unity and an audio, animation, or content tool disagree about generated state.</p>
+<p><strong>Cause:</strong> Only one side of a multi-editor pipeline was verified.</p>
+<p><strong>Response:</strong> Treat authoring source, generated artifact, import state, and runtime event as one pipeline.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="documentation-multiplication">Documentation Multiplication<a href="#documentation-multiplication" class="hash-link" aria-label="Direct link to Documentation Multiplication" title="Direct link to Documentation Multiplication" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> Agents read a plausible but stale plan instead of current implementation truth.</p>
+<p><strong>Cause:</strong> New documents are added without canonical ownership or retirement.</p>
+<p><strong>Response:</strong> Maintain an index, one current project map, versioned decisions, and explicit historical case studies.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="tool-impatience">Tool Impatience<a href="#tool-impatience" class="hash-link" aria-label="Direct link to Tool Impatience" title="Direct link to Tool Impatience" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A temporarily compiling or importing editor is treated as unavailable or broken.</p>
+<p><strong>Cause:</strong> Readiness is inferred from response latency.</p>
+<p><strong>Response:</strong> Expose and wait for a settled-state signal before verification.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="hidden-scaling">Hidden Scaling<a href="#hidden-scaling" class="hash-link" aria-label="Direct link to Hidden Scaling" title="Direct link to Hidden Scaling" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> Displayed values do not explain observed gameplay.</p>
+<p><strong>Cause:</strong> Legacy multipliers, fallback data, or implicit progression modify behavior outside authoring surfaces.</p>
+<p><strong>Response:</strong> Make scaling explicit, traceable, and visible in previews or diagnostics.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="broad-recovery-damage">Broad Recovery Damage<a href="#broad-recovery-damage" class="hash-link" aria-label="Direct link to Broad Recovery Damage" title="Direct link to Broad Recovery Damage" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> Reverting an experiment also removes unrelated human work.</p>
+<p><strong>Cause:</strong> The checkpoint or rollback boundary was not established.</p>
+<p><strong>Response:</strong> Inspect the dirty tree, checkpoint intentionally, and revert only owned changes.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="reference-shape-projection">Reference-Shape Projection<a href="#reference-shape-projection" class="hash-link" aria-label="Direct link to Reference-Shape Projection" title="Direct link to Reference-Shape Projection" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> An agent invents services, systems, or layers because a familiar
+architecture profile contains them.</p>
+<p><strong>Cause:</strong> The reference architecture is treated as the project instead of an
+inspection aid.</p>
+<p><strong>Response:</strong> Map canonical vocabulary and native lifecycle first. Add an
+abstraction only when real ownership, duplication, substitution, or evidence
+pressure justifies it.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="documented-operation-as-evidence">Documented Operation As Evidence<a href="#documented-operation-as-evidence" class="hash-link" aria-label="Direct link to Documented Operation As Evidence" title="Direct link to Documented Operation As Evidence" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A project is called tested or operable because a command appears in
+documentation.</p>
+<p><strong>Cause:</strong> Operation definition, availability, execution, and result collapse
+into one status.</p>
+<p><strong>Response:</strong> Record exact operation state and preserve unavailable or
+inconclusive outcomes.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="evidence-scope-collapse">Evidence Scope Collapse<a href="#evidence-scope-collapse" class="hash-link" aria-label="Direct link to Evidence Scope Collapse" title="Direct link to Evidence Scope Collapse" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> Native CI success is used to claim web, multiplayer, editor, or
+hosted runtime correctness.</p>
+<p><strong>Cause:</strong> Evidence class is recorded without provenance and scope.</p>
+<p><strong>Response:</strong> Record class, provenance, scope, revision, effective toolchain,
+outcome, and limitation for material claims.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="toolchain-shadowing">Toolchain Shadowing<a href="#toolchain-shadowing" class="hash-link" aria-label="Direct link to Toolchain Shadowing" title="Direct link to Toolchain Shadowing" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A repository declares one version but another executable actually
+runs.</p>
+<p><strong>Cause:</strong> PATH order, editor selection, middleware state, or dependency
+resolution is assumed rather than observed.</p>
+<p><strong>Response:</strong> Capture the effective executable and version in the operation
+receipt.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="read-only-cache-mutation">Read-Only Cache Mutation<a href="#read-only-cache-mutation" class="hash-link" aria-label="Direct link to Read-Only Cache Mutation" title="Direct link to Read-Only Cache Mutation" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> An external audit dirties the source through imports, caches, lock
+updates, or generated metadata despite making no intentional edit.</p>
+<p><strong>Cause:</strong> “Read-only” describes intent rather than measured repository state.</p>
+<p><strong>Response:</strong> Snapshot formal source before and after; run mutation-prone tools
+in a disposable rehearsal copy.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="exit-status-masking">Exit-Status Masking<a href="#exit-status-masking" class="hash-link" aria-label="Direct link to Exit-Status Masking" title="Direct link to Exit-Status Masking" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A logged operation appears successful although an upstream command
+failed.</p>
+<p><strong>Cause:</strong> A pipe or wrapper reports the logger, formatter, or final command&#x27;s
+status.</p>
+<p><strong>Response:</strong> Use fail-fast execution and pipe-failure propagation; capture the
+actual command status before reporting evidence.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="successful-exit-without-completion">Successful Exit Without Completion<a href="#successful-exit-without-completion" class="hash-link" aria-label="Direct link to Successful Exit Without Completion" title="Direct link to Successful Exit Without Completion" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A command exits zero, but the requested test report, generated
+artifact, readiness state, or other declared result is absent. An older file at
+the expected path can make the invocation appear successful.</p>
+<p><strong>Cause:</strong> Process termination is treated as proof that the project operation
+completed. The wrapper checks an exit code or reads a stale artifact without
+binding it to the current invocation.</p>
+<p><strong>Response:</strong> Define the operation&#x27;s completion signal before running it. Use a
+fresh result path, remove an owned old result safely, or verify invocation
+identity and freshness. Report zero exit without the declared result as
+inconclusive. Lanternworks exposed this when Unity accepted <code>-quit</code>, imported
+and compiled, exited zero, and produced no current Test Runner XML.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="capability-blind-operation">Capability-Blind Operation<a href="#capability-blind-operation" class="hash-link" aria-label="Direct link to Capability-Blind Operation" title="Direct link to Capability-Blind Operation" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A valid-looking evidence command crashes, hangs, or produces an
+empty artifact only in headless, offline, background, or disconnected mode.</p>
+<p><strong>Cause:</strong> The operation records project preconditions but not the execution
+capabilities it needs. A fallback mode silently removes graphics, editor
+interactivity, credentials, network access, or middleware connectivity.</p>
+<p><strong>Response:</strong> Declare operation capabilities explicitly. Mark the operation
+unavailable when a capability is absent, or define a narrower fallback whose
+claim and evidence scope honestly match what that mode can observe.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="batch-end-of-frame-assumption">Batch End-Of-Frame Assumption<a href="#batch-end-of-frame-assumption" class="hash-link" aria-label="Direct link to Batch End-Of-Frame Assumption" title="Direct link to Batch End-Of-Frame Assumption" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A Unity batch PlayMode test never finishes after requesting a
+screen capture, even though ordinary tests and explicit camera rendering work.</p>
+<p><strong>Cause:</strong> An interactive recipe relies on <code>WaitForEndOfFrame</code> or the Game-view
+backbuffer, but the batch execution mode does not advance that callback surface.
+The operation has a graphics device yet still lacks the interactive frame phase
+the recipe assumes.</p>
+<p><strong>Response:</strong> Do not add arbitrary waits. Render required layers into explicit,
+owned targets, assert each layer independently, compose them deterministically,
+and disclose that the result is not the exact interactive backbuffer. Retain
+human Game-view inspection for legibility, timing, and visual-quality claims.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="queued-virtual-input-assumption">Queued Virtual Input Assumption<a href="#queued-virtual-input-assumption" class="hash-link" aria-label="Direct link to Queued Virtual Input Assumption" title="Direct link to Queued Virtual Input Assumption" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A composed input rehearsal presses a virtual button, but the real
+input adapter observes no press or observes it one frame later.</p>
+<p><strong>Cause:</strong> The test helper queued an Input System state event for the player
+loop, while the rehearsal polled the adapter immediately in the same test step.
+The helper call looked synchronous, but device-state publication was not.</p>
+<p><strong>Response:</strong> Name the event-processing boundary. Process queued virtual-device
+updates deliberately before polling, then release and process again so edge
+state cannot leak into the next action. Verify through the real project input
+adapter, not by calling the gameplay action directly.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="scene-load-clock-contamination">Scene-Load Clock Contamination<a href="#scene-load-clock-contamination" class="hash-link" aria-label="Direct link to Scene-Load Clock Contamination" title="Direct link to Scene-Load Clock Contamination" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A deterministic composed-scene rehearsal reaches the correct game
+state at different Simulation Ticks across otherwise identical runs.</p>
+<p><strong>Cause:</strong> The scene&#x27;s real-time scheduler advanced authoritative state during
+load and startup before the test gained control. Wall-clock startup latency
+became an undeclared input to the assertion.</p>
+<p><strong>Response:</strong> Pause the composed runtime, restore or establish a named authored
+baseline, and assert that baseline before scripted input begins. Advance exact
+Simulation Ticks for deterministic mechanics. Keep a separate real-time or
+human rehearsal when cadence and pacing are the actual claim.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="automated-input-as-player-acceptance">Automated Input As Player Acceptance<a href="#automated-input-as-player-acceptance" class="hash-link" aria-label="Direct link to Automated Input As Player Acceptance" title="Direct link to Automated Input As Player Acceptance" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A virtual controller completes a loop, so the feature is described
+as understandable, comfortable, or fun.</p>
+<p><strong>Cause:</strong> Mechanical reachability and human interaction quality collapse into
+one <code>interactive</code> result.</p>
+<p><strong>Response:</strong> Record two claims. Automated input may prove mapping, focus,
+adapter wiring, and outcome reachability. Physical-device behavior, control
+feel, accessibility, comprehension, pacing, and enjoyment remain human evidence
+unless the claim is narrowed explicitly.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="mechanically-successful-game-failure">Mechanically Successful Game Failure<a href="#mechanically-successful-game-failure" class="hash-link" aria-label="Direct link to Mechanically Successful Game Failure" title="Direct link to Mechanically Successful Game Failure" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A prototype has deterministic rules, passing engine tests,
+supported input routes, native visual inspection, clean lifecycle behavior, and
+multiple implemented feature slices, yet a human player cannot understand it
+and does not enjoy it.</p>
+<p><strong>Cause:</strong> Experiential uncertainty is documented as a disclaimer instead of
+used as a sequencing gate. Mechanical completion keeps authorizing expansion
+while comprehension, usability, engagement, and desire to continue remain
+untested.</p>
+<p><strong>Response:</strong> Before broad player-facing expansion, discuss the player fantasy,
+core verbs, intended first-minute understanding, short loop, success and
+failure, and explicit stop conditions with the accountable human designer.
+Obtain approval of the smallest complete hypothesis, build it, and require
+direct human play. A failed material experience dimension blocks further
+architecture, content, supporting modes, polish, and transferability claims
+until the hypothesis is changed and replayed. Automated evidence can support
+diagnosis but cannot lift the gate.</p>
+<p><strong>Observed correction:</strong> Lanternworks and Followspot both retained valid
+mechanical and Unity-integration evidence, but their owner rejected the games as
+incomprehensible, poorly explained, weakly designed, and not fun. STAGE now
+records those projects as failed experiential dogfoods rather than operational
+game successes.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="system-completeness-without-a-player-decision">System Completeness Without A Player Decision<a href="#system-completeness-without-a-player-decision" class="hash-link" aria-label="Direct link to System Completeness Without A Player Decision" title="Direct link to System Completeness Without A Player Decision" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> Rules, resources, agents, progression, and failure states exist,
+but the player cannot name the recurring decision or explain why one available
+action should be preferred over another now.</p>
+<p><strong>Cause:</strong> The implementation is organized around system nouns and state
+transitions rather than the player&#x27;s repeated <code>perceive -&gt; decide -&gt; act -&gt; read consequence -&gt; learn -&gt; adapt</code> loop. Mechanical breadth is mistaken for a
+playable product.</p>
+<p><strong>Response:</strong> Trace one complete decision through the production surface.
+Require perceivable alternatives, a context-dependent tradeoff, a real input,
+causally legible consequences, recovery, and a changed next situation.
+Enumerate and simulate options as mechanical evidence, then observe a human
+choosing without coaching. Block breadth while the decision remains
+unperceived, inconsequential, solved, or unexplained.</p>
+<p><strong>Observed correction:</strong> Lanternworks and Followspot contained functioning
+systems and completable routes, but owner review found no compelling,
+self-explaining activity. The retained lesson is not to add more mechanics; it
+is to prove the first complete decision before multiplying systems.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="information-inventory-instead-of-decision-ui">Information Inventory Instead Of Decision UI<a href="#information-inventory-instead-of-decision-ui" class="hash-link" aria-label="Direct link to Information Inventory Instead Of Decision UI" title="Direct link to Information Inventory Instead Of Decision UI" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> The screen exposes resources, stats, controls, panels, and help,
+yet the player still cannot decide what matters, compare alternatives, predict
+an outcome, or recover from a blocked action.</p>
+<p><strong>Cause:</strong> UI is evaluated by information presence rather than by the decision
+it must support. Internal state is surfaced without hierarchy, deltas, causal
+relationships, constraints, or contextual timing.</p>
+<p><strong>Response:</strong> For each decision, name what the player must perceive, compare,
+predict, act on, explain, and recover from. Put relevant state and deltas beside
+the choice, explain blocked actions, preserve stable semantics and input
+parity, and reveal detail when its decision becomes relevant. Check layout and
+focus mechanically; test comprehension and cognitive load through uncoached
+play.</p>
+<p><strong>Observed correction:</strong> Both rejected dogfoods had functioning UI and
+documented controls, but the owner still described the games as
+incomprehensible and poorly explained. UI existence did not establish decision
+support.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="feedback-volume-without-priority">Feedback Volume Without Priority<a href="#feedback-volume-without-priority" class="hash-link" aria-label="Direct link to Feedback Volume Without Priority" title="Direct link to Feedback Volume Without Priority" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> More animation, sound, particles, camera response, numbers, and
+notifications are added, but important consequences remain unclear or the
+presentation becomes exhausting.</p>
+<p><strong>Cause:</strong> Feedback is treated as a quantity or polish pass. Input
+acknowledgment, immediate outcome, causal explanation, strategic consequence,
+emotional emphasis, and persistent history are not assigned different jobs or
+priorities.</p>
+<p><strong>Response:</strong> Map each material consequence to the feedback layer that explains
+it. Verify timing, lifecycle, channel agreement, aggregation, and priority.
+Match intensity to consequence and preserve sensory alternatives. Human play
+judges impact, comfort, emotional fit, and whether the hierarchy remains
+readable in motion. Do not infer quality from effect count.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="progression-as-numbers-only">Progression As Numbers Only<a href="#progression-as-numbers-only" class="hash-link" aria-label="Direct link to Progression As Numbers Only" title="Direct link to Progression As Numbers Only" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> Values, unlock counters, levels, or reward frequency increase, but
+the repeated activity does not create new questions and becomes solved or
+repetitive.</p>
+<p><strong>Cause:</strong> Progression is modeled only as power or accumulation rather than as
+a change to the player&#x27;s decision space.</p>
+<p><strong>Response:</strong> State what each progression step changes: a verb, constraint,
+synergy, tension, role, timing, risk, or application of learned skill. Inspect
+curves and unlock graphs mechanically. Ask in play whether the player notices
+new possibilities, revises a plan, and wants to test another approach.
+Increasing a number is allowed when that is the intended reward, but it is not
+automatic evidence of motivation.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="one-policy-balance-proof">One-Policy Balance Proof<a href="#one-policy-balance-proof" class="hash-link" aria-label="Direct link to One-Policy Balance Proof" title="Direct link to One-Policy Balance Proof" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A bot completes the game, choices have similar aggregate rates, or
+one modeled policy looks healthy, so the system is called balanced and
+strategically rich.</p>
+<p><strong>Cause:</strong> The encoded objective, observations, action space, skill
+assumptions, and contexts are hidden inside one result. Actual power is
+collapsed with perceived power, identity, appeal, execution difficulty,
+availability, cost, risk, and counterplay.</p>
+<p><strong>Response:</strong> Declare the balance goal and policy assumptions. Search multiple
+policies and contexts, test sensitivity, and preserve counterexamples.
+Telemetry and simulation expose mechanical risks; human play judges fairness,
+strategy identity, discoverability, adaptation, and enjoyment. Equal rates are
+not a universal target.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="telemetry-as-enjoyment">Telemetry As Enjoyment<a href="#telemetry-as-enjoyment" class="hash-link" aria-label="Direct link to Telemetry As Enjoyment" title="Direct link to Telemetry As Enjoyment" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> Session duration, retention, return rate, action count, or reward
+collection rises and is reported as increased fun, satisfaction, or player
+welfare.</p>
+<p><strong>Cause:</strong> Observable behavior is treated as its own interpretation. Incentive
+pressure, confusion, obligation, friction, novelty, and genuine enjoyment can
+produce similar metrics.</p>
+<p><strong>Response:</strong> Keep behavioral telemetry, observed play, player report, and team
+interpretation separate. Use metrics to locate events and compare declared
+hypotheses. Require direct human evidence for lived experience and
+representative participants for audience claims. Review fear of missing out,
+obscured odds or costs, exit friction, punitive absence, and coercive reward
+schedules as design risks rather than engagement wins.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="silent-agent-gameplay-authorship">Silent Agent Gameplay Authorship<a href="#silent-agent-gameplay-authorship" class="hash-link" aria-label="Direct link to Silent Agent Gameplay Authorship" title="Direct link to Silent Agent Gameplay Authorship" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> The agent creates a gameplay premise, core loop, controls, and
+supporting systems from a broad request, then asks the human to evaluate the
+result only after substantial implementation.</p>
+<p><strong>Cause:</strong> Implementation delegation is mistaken for authority to choose the
+intended player experience. Game-design frameworks and automated play are
+treated as substitutes for discussing fantasy, audience, verbs, tradeoffs, and
+desired feeling with the accountable human designer.</p>
+<p><strong>Response:</strong> Before substantial implementation of a new or materially changed
+premise, recover existing intent and discuss the highest-leverage open design
+decisions with the human. Present alternatives, theory, cost, assumptions, and
+what remains unknowable without play. Obtain a human-approved gameplay
+hypothesis, then build the thin complete loop and use the Player Experience
+Gate. When invention is explicitly delegated, the agent may draft the
+hypothesis but does not silently approve it. Synthetic play supports mechanical
+claims; direct human play supports lived experience, and representative players
+are required for broader audience claims.</p>
+<p><strong>Observed correction:</strong> The owner identified that Lanternworks and Followspot
+were not merely tested too late; their gameplay was designed too independently
+by the agent. The corrected STAGE sequence moves human design authority before
+implementation breadth.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="reachable-but-unpresented">Reachable But Unpresented<a href="#reachable-but-unpresented" class="hash-link" aria-label="Direct link to Reachable But Unpresented" title="Direct link to Reachable But Unpresented" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> Automated input completes the intended action or gameplay loop, but
+the ordinary player surface does not visibly expose the action, current tool,
+or way to continue. The feature is reachable only through undocumented input,
+external instructions, a developer-only surface, or prior knowledge.</p>
+<p><strong>Cause:</strong> Mechanical reachability was mistaken for affordance presentation.
+The production action path is complete, but its intended player-facing consumer
+is absent or was never included in the evidence route.</p>
+<p><strong>Response:</strong> Record mechanical reachability, affordance presentation, and
+human acceptance as separate claims. Inspect the ordinary production surface
+before adding a custom rehearsal or gallery. Expose the action through the
+project&#x27;s intended controls, prompt, tutorial, convention, or diegetic cue and
+bind that presentation to the same production input path. If the action is
+deliberately hidden, state that policy and narrow the operability claim. Human
+comprehension and feel still require human review.</p>
+<p><strong>Observed correction:</strong> Lanternworks&#x27; deterministic virtual Gamepad rehearsal
+completed First Light through its real input adapter, but the playable HUD
+exposed only the Almanac and mouse input could only select Cells. Direct
+inspection of the ordinary Game view found the omission. The resulting Command
+Deck exposed build, exact-resource Route, Remove, Apply, Cancel, Pause, Save,
+Load, and Almanac actions through the existing <code>BoroughInputDriver</code>; the full
+Unity suites then passed at <code>221/221</code> EditMode and <code>20/20</code> PlayMode. Whether the
+controls are understandable and comfortable remains a human playtest claim.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="player-build-as-runtime-proof">Player Build As Runtime Proof<a href="#player-build-as-runtime-proof" class="hash-link" aria-label="Direct link to Player Build As Runtime Proof" title="Direct link to Player Build As Runtime Proof" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> A successful engine build is described as a working or releasable
+game even though the produced player was never launched.</p>
+<p><strong>Cause:</strong> Build integration, artifact identity, startup, representative runtime
+behavior, platform distribution, and human release acceptance collapse into one
+binary success state.</p>
+<p><strong>Response:</strong> Let the project own target, scene, backend, signing, and output
+policy. Bind the raw receipt, settled log, enabled scenes, exact clean revision,
+and complete artifact hash independently. Record launch and release acceptance
+as later operations with their own capabilities and evidence.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="authority-guessing">Authority Guessing<a href="#authority-guessing" class="hash-link" aria-label="Direct link to Authority Guessing" title="Direct link to Authority Guessing" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> Legacy, imported, or unfamiliar assets are deleted or regenerated
+because their folder name looked disposable.</p>
+<p><strong>Cause:</strong> The ownership model has no explicit unresolved state.</p>
+<p><strong>Response:</strong> Mark authority unresolved, name the decision owner, and prohibit
+destructive or broad mutation until clarified.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="artifact-level-authority-collapse">Artifact-Level Authority Collapse<a href="#artifact-level-authority-collapse" class="hash-link" aria-label="Direct link to Artifact-Level Authority Collapse" title="Direct link to Artifact-Level Authority Collapse" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> An exact source-backed field repair is refused because some other
+part of the file has uncertain provenance, or authority for that repair is
+used to regenerate the whole file.</p>
+<p><strong>Cause:</strong> Provenance of the containing artifact and authority for the proposed
+operation are collapsed into one binary ownership label. Blanket inaction then
+looks safer than least-authority repair, while narrow permission can also be
+misread as whole-artifact permission.</p>
+<p><strong>Response:</strong> Evaluate the actual mutation. Permit an explicitly authorized,
+canonical-source-backed repair only when it preserves unresolved adjacent
+state. Do not widen that authority into replacement, normalization, or
+regeneration. Broad work needs both explicit handling authority and a complete
+canonical source for every state it can overwrite.</p>
+<p><strong>Observed correction:</strong> The first safety-boundary evaluator incorrectly
+rejected every mutation to a mixed-provenance prefab. A preregistered follow-up
+separated narrow repair from broad regeneration across character, UI, and
+audio fixtures. All eighteen runs repaired narrowly and stopped broadly,
+confirming the operation boundary but showing no correctness advantage for a
+STAGE treatment over the explicit project contract.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="declared-stop-without-termination">Declared Stop Without Termination<a href="#declared-stop-without-termination" class="hash-link" aria-label="Direct link to Declared Stop Without Termination" title="Direct link to Declared Stop Without Termination" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> An agent says a request is unbounded, unsafe, ambiguous, or
+unsupported, then continues by inventorying the same surface, proposing a
+smaller version of the same system, or implementing around the missing
+decision.</p>
+<p><strong>Cause:</strong> The stop condition was treated as explanatory prose instead of a
+control-flow branch. Continued activity still feels productive, so the agent
+launders prohibited work through a narrower label.</p>
+<p><strong>Response:</strong> End the blocked branch. Preserve state and allow at most one
+bounded operation that directly distinguishes the blocker. If no such
+operation remains, state the trigger and evidence, ask for one missing decision
+or state change, and end. Do not substitute more inventory, a speculative plan,
+or a parallel harness for the unavailable authority or evidence.</p>
+<p><strong>Observed correction:</strong> A dedicated visual-review probe correctly announced
+that an exhaustive request was unbounded, but then proposed Almanac subjects,
+scenario families, sweeps, agent controls, and exports. The corrected branch
+asks one bounded visual question and terminates before project inventory.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="corroboration-after-the-decision">Corroboration After The Decision<a href="#corroboration-after-the-decision" class="hash-link" aria-label="Direct link to Corroboration After The Decision" title="Direct link to Corroboration After The Decision" translate="no">​</a></h2>
+<p><strong>Symptom:</strong> An investigation reaches a defensible owner, diagnosis, smallest
+plan, and next runtime check, then keeps reading adjacent files and collecting
+equivalent evidence without changing any of them.</p>
+<p><strong>Cause:</strong> Correct orientation has no stopping rule. More context feels safer,
+so corroboration is mistaken for reduced uncertainty even after the remaining
+unknowns cannot change the next engineering decision.</p>
+<p><strong>Response:</strong> Drive inspection from the unresolved decision. After each
+material step, ask whether another read or tool action can plausibly change
+ownership, implementation, verification, authority, diagnosis, or material
+risk. If not, stop orientation and perform the next discriminating check. Do
+not impose a universal action quota. Broaden again when evidence conflicts,
+verification fails, authority or blast radius remains unresolved, a required
+consumer is missing, or broad coverage is the requested outcome.</p>
+<p>For a bounded named question, search the subject before reading general maps
+and architecture guides. Once the owner, diagnosis, and next check are
+supported, write a sufficiency checkpoint and require a named missing material
+fact before another inspection batch. An unavailable live or human check is a
+limitation to report, not permission to keep mining source for equivalent
+evidence.</p>
+<p><strong>Observed correction:</strong> The 0.5.12 Lanternworks probe found the correct Route
+Flow production path and plausible readability risk, but used 72 action calls
+before ending at one live Game-view check. A later same-revision search exposed
+the decisive documentation, controller, projection, catalog, world-view, and
+test paths immediately. The comparison motivates a sufficiency rule; it does
+not establish how many individual actions were unnecessary.</p>
+<p>The first 0.5.13 candidate probe reduced the count only to 57 actions and used
+more aggregate input tokens. It announced that only live judgment remained,
+then continued reading source and checking editor-lock state. The final answer
+was sound, but the run remained operationally disproportionate.</p>
+<p>The second candidate reduced the trace to 52 actions and roughly half the
+aggregate input, but still read the project map first, checked process state,
+omitted its sufficiency checkpoint, and continued after naming live observation
+as the remaining discriminator. The correction was structural: bounded named
+diagnosis became an early terminal branch instead of falling through the full
+delivery loop.</p>
+<p>The third candidate followed the early branch, searched the exact subject
+first, skipped process-state inspection, and stopped at the native Game-view
+check in 29 actions. It still communicated sufficiency informally and gathered
+more composition detail than the final claim clearly required. That partial
+result is retained as a warning against optimizing a prompt until one trace
+matches its wording exactly.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2026-07-26T19:24:56.000Z" itemprop="dateModified">Jul 26, 2026</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/handbook/docs/research-foundations"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Research Foundations</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/handbook/docs/case-study-synthesis"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Cross-Project Case-Study Synthesis</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#thematic-index" class="table-of-contents__link toc-highlight">Thematic Index</a><ul><li><a href="#diagnosis-scope-and-authority" class="table-of-contents__link toc-highlight">Diagnosis, Scope, And Authority</a></li><li><a href="#evidence-and-claim-quality" class="table-of-contents__link toc-highlight">Evidence And Claim Quality</a></li><li><a href="#visual-work-and-review-surfaces" class="table-of-contents__link toc-highlight">Visual Work And Review Surfaces</a></li><li><a href="#infrastructure-and-capability-inflation" class="table-of-contents__link toc-highlight">Infrastructure And Capability Inflation</a></li><li><a href="#runtime-tooling-and-operation-semantics" class="table-of-contents__link toc-highlight">Runtime, Tooling, And Operation Semantics</a></li><li><a href="#player-experience-and-game-design" class="table-of-contents__link toc-highlight">Player Experience And Game Design</a></li></ul></li><li><a href="#plausibility-patching" class="table-of-contents__link toc-highlight">Plausibility Patching</a></li><li><a href="#diagnosis-scope-creep" class="table-of-contents__link toc-highlight">Diagnosis Scope Creep</a></li><li><a href="#compilation-as-confidence" class="table-of-contents__link toc-highlight">Compilation As Confidence</a></li><li><a href="#tests-as-taste" class="table-of-contents__link toc-highlight">Tests As Taste</a></li><li><a href="#flattering-angle-verification" class="table-of-contents__link toc-highlight">Flattering-Angle Verification</a></li><li><a href="#random-screenshot-amnesia" class="table-of-contents__link toc-highlight">Random Screenshot Amnesia</a></li><li><a href="#baseline-laundering" class="table-of-contents__link toc-highlight">Baseline Laundering</a></li><li><a href="#capture-adapter-authority-leak" class="table-of-contents__link toc-highlight">Capture Adapter Authority Leak</a></li><li><a href="#visual-state-leakage" class="table-of-contents__link toc-highlight">Visual State Leakage</a></li><li><a href="#contact-sheet-confidence" class="table-of-contents__link toc-highlight">Contact-Sheet Confidence</a></li><li><a href="#evidence-first-inversion" class="table-of-contents__link toc-highlight">Evidence-First Inversion</a></li><li><a href="#parallel-visual-product" class="table-of-contents__link toc-highlight">Parallel Visual Product</a></li><li><a href="#infrastructure-first-inversion" class="table-of-contents__link toc-highlight">Infrastructure-First Inversion</a></li><li><a href="#setup-skill-capture" class="table-of-contents__link toc-highlight">Setup-Skill Capture</a></li><li><a href="#judgment-package-conflation" class="table-of-contents__link toc-highlight">Judgment-Package Conflation</a></li><li><a href="#artifact-consumer-laundering" class="table-of-contents__link toc-highlight">Artifact-Consumer Laundering</a></li><li><a href="#sunk-cost-polishing-after-route-utility-rejection" class="table-of-contents__link toc-highlight">Sunk-Cost Polishing After Route Utility Rejection</a></li><li><a href="#analogical-recovery-after-route-rejection" class="table-of-contents__link toc-highlight">Analogical Recovery After Route Rejection</a></li><li><a href="#unbounded-visual-inventory" class="table-of-contents__link toc-highlight">Unbounded Visual Inventory</a></li><li><a href="#maturity-ladder-completionism" class="table-of-contents__link toc-highlight">Maturity-Ladder Completionism</a></li><li><a href="#visual-surface-collapse" class="table-of-contents__link toc-highlight">Visual Surface Collapse</a></li><li><a href="#native-shell-substitution" class="table-of-contents__link toc-highlight">Native Shell Substitution</a></li><li><a href="#consumer-omission" class="table-of-contents__link toc-highlight">Consumer Omission</a></li><li><a href="#launch-path-drift" class="table-of-contents__link toc-highlight">Launch-Path Drift</a></li><li><a href="#capability-theatre" class="table-of-contents__link toc-highlight">Capability Theatre</a></li><li><a href="#receipt-only-inspection" class="table-of-contents__link toc-highlight">Receipt-Only Inspection</a></li><li><a href="#catalog-shadowing" class="table-of-contents__link toc-highlight">Catalog Shadowing</a></li><li><a href="#parallel-capability-manifest" class="table-of-contents__link toc-highlight">Parallel Capability Manifest</a></li><li><a href="#scenario-inflation" class="table-of-contents__link toc-highlight">Scenario Inflation</a></li><li><a href="#gallery-without-correction" class="table-of-contents__link toc-highlight">Gallery Without Correction</a></li><li><a href="#preview-truth-inflation" class="table-of-contents__link toc-highlight">Preview Truth Inflation</a></li><li><a href="#timed-stills-masquerading-as-motion" class="table-of-contents__link toc-highlight">Timed Stills Masquerading As Motion</a></li><li><a href="#async-by-declaration" class="table-of-contents__link toc-highlight">Async By Declaration</a></li><li><a href="#generated-ownership-violation" class="table-of-contents__link toc-highlight">Generated Ownership Violation</a></li><li><a href="#abstraction-inflation" class="table-of-contents__link toc-highlight">Abstraction Inflation</a></li><li><a href="#runtime-di-surprise" class="table-of-contents__link toc-highlight">Runtime DI Surprise</a></li><li><a href="#external-tool-drift" class="table-of-contents__link toc-highlight">External Tool Drift</a></li><li><a href="#documentation-multiplication" class="table-of-contents__link toc-highlight">Documentation Multiplication</a></li><li><a href="#tool-impatience" class="table-of-contents__link toc-highlight">Tool Impatience</a></li><li><a href="#hidden-scaling" class="table-of-contents__link toc-highlight">Hidden Scaling</a></li><li><a href="#broad-recovery-damage" class="table-of-contents__link toc-highlight">Broad Recovery Damage</a></li><li><a href="#reference-shape-projection" class="table-of-contents__link toc-highlight">Reference-Shape Projection</a></li><li><a href="#documented-operation-as-evidence" class="table-of-contents__link toc-highlight">Documented Operation As Evidence</a></li><li><a href="#evidence-scope-collapse" class="table-of-contents__link toc-highlight">Evidence Scope Collapse</a></li><li><a href="#toolchain-shadowing" class="table-of-contents__link toc-highlight">Toolchain Shadowing</a></li><li><a href="#read-only-cache-mutation" class="table-of-contents__link toc-highlight">Read-Only Cache Mutation</a></li><li><a href="#exit-status-masking" class="table-of-contents__link toc-highlight">Exit-Status Masking</a></li><li><a href="#successful-exit-without-completion" class="table-of-contents__link toc-highlight">Successful Exit Without Completion</a></li><li><a href="#capability-blind-operation" class="table-of-contents__link toc-highlight">Capability-Blind Operation</a></li><li><a href="#batch-end-of-frame-assumption" class="table-of-contents__link toc-highlight">Batch End-Of-Frame Assumption</a></li><li><a href="#queued-virtual-input-assumption" class="table-of-contents__link toc-highlight">Queued Virtual Input Assumption</a></li><li><a href="#scene-load-clock-contamination" class="table-of-contents__link toc-highlight">Scene-Load Clock Contamination</a></li><li><a href="#automated-input-as-player-acceptance" class="table-of-contents__link toc-highlight">Automated Input As Player Acceptance</a></li><li><a href="#mechanically-successful-game-failure" class="table-of-contents__link toc-highlight">Mechanically Successful Game Failure</a></li><li><a href="#system-completeness-without-a-player-decision" class="table-of-contents__link toc-highlight">System Completeness Without A Player Decision</a></li><li><a href="#information-inventory-instead-of-decision-ui" class="table-of-contents__link toc-highlight">Information Inventory Instead Of Decision UI</a></li><li><a href="#feedback-volume-without-priority" class="table-of-contents__link toc-highlight">Feedback Volume Without Priority</a></li><li><a href="#progression-as-numbers-only" class="table-of-contents__link toc-highlight">Progression As Numbers Only</a></li><li><a href="#one-policy-balance-proof" class="table-of-contents__link toc-highlight">One-Policy Balance Proof</a></li><li><a href="#telemetry-as-enjoyment" class="table-of-contents__link toc-highlight">Telemetry As Enjoyment</a></li><li><a href="#silent-agent-gameplay-authorship" class="table-of-contents__link toc-highlight">Silent Agent Gameplay Authorship</a></li><li><a href="#reachable-but-unpresented" class="table-of-contents__link toc-highlight">Reachable But Unpresented</a></li><li><a href="#player-build-as-runtime-proof" class="table-of-contents__link toc-highlight">Player Build As Runtime Proof</a></li><li><a href="#authority-guessing" class="table-of-contents__link toc-highlight">Authority Guessing</a></li><li><a href="#artifact-level-authority-collapse" class="table-of-contents__link toc-highlight">Artifact-Level Authority Collapse</a></li><li><a href="#declared-stop-without-termination" class="table-of-contents__link toc-highlight">Declared Stop Without Termination</a></li><li><a href="#corroboration-after-the-decision" class="table-of-contents__link toc-highlight">Corroboration After The Decision</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Start</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/using-stage-with-codex">Choose a Codex workflow</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/STAGE">Read the project map</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Method</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/method">Delivery method</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/SPEC">Safety Kernel</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">History</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/releases">Release records</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/adr">Architecture decisions</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">STAGE Game Engineering. Human product authority remains non-delegable.</div></div></div></footer></div>
+</body>
+</html>
