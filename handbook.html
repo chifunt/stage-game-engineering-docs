@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">STAGE Game Engineering</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" name="twitter:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" property="og:url" content="https://stage.zoshachi.com/handbook"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="STAGE Game Engineering"><meta data-rh="true" name="description" content="STAGE is a human-directed method for making game projects legible,"><meta data-rh="true" property="og:description" content="STAGE is a human-directed method for making game projects legible,"><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://stage.zoshachi.com/handbook"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook" hreflang="en"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"STAGE Game Engineering","item":"https://stage.zoshachi.com/handbook/"}]}</script><link rel="stylesheet" href="/assets/css/styles.5be3741e.css">
-<script src="/assets/js/runtime~main.7e195523.js" defer="defer"></script>
-<script src="/assets/js/main.83aed343.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.0eaae629.js" defer="defer"></script>
+<script src="/assets/js/main.76e2d140.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -33,16 +33,18 @@ of autonomous game creation. It aims to increase <strong>trustworthy change
 throughput per unit of human attention</strong> without transferring product authority
 to an agent.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="status">Status<a href="#status" class="hash-link" aria-label="Direct link to Status" title="Direct link to Status" translate="no">​</a></h2>
-<p>This repository contains the <strong>v0.6</strong> initial-development release of an
-operationally evaluated practitioner proposal. It originated in The Circussy
+<p>This repository contains <strong>STAGE v1.0</strong>, an operationally evaluated practitioner
+proposal with an owner-accepted 1.x compatibility commitment. It originated in The Circussy
 One and has been exercised through external maps and operations across Unity,
 Godot, a custom browser engine, and a data-driven Rust/Bones game.</p>
 <p>The owner&#x27;s Solo Unity workflow is <code>operational</code>. Current evidence supports the
-method&#x27;s mapping, proportionality, safety, and evidence semantics. It does not
+method&#x27;s mapping, proportionality, safety, and evidence semantics. The owner-led
+<a class="" href="/handbook/docs/case-studies/salvageist">Salvageist pilot</a> adds sustained delivery,
+human correction, and concrete workflow-cost lessons. This does not
 establish independent adoption, long-term productivity, empirical proof, or
 universal fit. See the <a class="" href="/handbook/docs/evaluation">evaluation boundary</a> and
-<a class="" href="/handbook/docs/releases/0.6.11">0.6.11 release evidence</a>. The
-<a class="" href="/handbook/docs/1.0-readiness">1.0 readiness review</a> separates the proposed stable
+<a class="" href="/handbook/docs/releases/1.0.0">1.0.0 release evidence</a>. The
+<a class="" href="/handbook/docs/1.0-readiness">1.0 readiness review</a> separates the accepted stable
 personal-use contract from evidence that is useful but not a release gate.</p>
 <p>The <a class="" href="/handbook/docs">documentation map</a> identifies the canonical source for
 practitioner guidance, maintainer operations, research evidence, decisions,
@@ -54,52 +56,22 @@ navigation and presentation, not a second copy of STAGE&#x27;s rules or decision
 The same derived interface is published automatically after a successful
 <code>main</code> quality gate at <a href="https://stage.zoshachi.com" target="_blank" rel="noopener noreferrer" class="">stage.zoshachi.com</a>.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="start-with-one-change">Start With One Change<a href="#start-with-one-change" class="hash-link" aria-label="Direct link to Start With One Change" title="Direct link to Start With One Change" translate="no">​</a></h2>
-<p>Use STAGE on the real work already in front of the game:</p>
-<ol>
-<li class=""><strong>Frame</strong> the player, author, or maintainer outcome and identify decisions
-that remain human-owned.</li>
-<li class=""><strong>Inspect</strong> the actual project path, current source-control state, effective
-toolchain, and authored assets before editing.</li>
-<li class=""><strong>Plan and build</strong> the smallest complete change through canonical project
-sources while protecting unrelated work.</li>
-<li class=""><strong>Rehearse</strong> each material claim through the smallest route that includes
-its production consumer.</li>
-<li class=""><strong>Judge</strong> mechanical evidence separately from human decisions about visuals,
-audio, feel, balance, pacing, and fun.</li>
-<li class=""><strong>Checkpoint</strong> the accepted result, or tune, diagnose, defer, or revert.</li>
-</ol>
-<p>When work originates or materially expands a player-facing loop, discuss the
-gameplay intent with the human designer first. The agent can research, model,
-and compare alternatives, but the intended experience and tradeoffs require a
-human-approved hypothesis. Then build one thin complete loop and have the owner
-play it before multiplying the premise through broad architecture, modes,
-content, or polish. Mechanical success does not lift that product gate, and
-owner acceptance does not establish a broader audience claim.</p>
-<p>For systems-heavy work, the
-<a class="" href="/handbook/docs/systems-heavy-gameplay">player-system evidence guide</a> traces how a
-player perceives, decides, acts, reads consequences, learns, and adapts. It
-links decision design to feedback, UI, onboarding, pacing, progression,
-balance, accessibility, ethics, and claim-matched playtesting without
-pretending to compute fun.</p>
-<p>No STAGE map, manifest, custom review surface, or evidence package is required.
-The <a class="" href="/handbook/docs/method">delivery method</a> explains the loop, and the
-<a class="" href="/handbook/docs/task-evidence-matrix">Task-Evidence Matrix</a> helps match evidence to a
-claim.</p>
-<p>For a longer solo effort, the optional
-<a class="" href="/handbook/docs/directors-flow">Stage Director&#x27;s Flow</a> surrounds delivery with a small
-<code>Cue -&gt; Dialogue -&gt; Ready -&gt; Active -&gt; Rehearsal -&gt; Director&#x27;s Call -&gt; Checkpointed</code> attention loop. It preserves the useful simplicity of paper
-notes while preventing an agent from treating every idea as approved
-implementation work. The <a class="" href="/handbook/docs/quality-and-ci">Quality Gates And CI</a> guide
-then separates Source, Model, Engine, Consumer, Distribution, and human
-Director evidence without calling a mechanically green project a good game.
-The
-<a class="" href="/handbook/docs/change-and-release-workflow">Change, Concurrency, And Release Workflow</a>
-defines short-lived work-item branches, worktree and Unity asset ownership,
-serial integration, exact build identity, and human-gated release proposals.
-The <a class="" href="/handbook/docs/task-continuity">Task Continuity guide</a> keeps long-lived project
-knowledge in a short versioned Context Spine, uses revision-bound handoffs only
-for unfinished work, and provides a fresh-task check before an oversized
-conversation is retired.</p>
+<p>Ask for the outcome and name any meaningful boundary. The agent follows
+<strong>Understand → Change → Verify → Deliver</strong>: recover authority and protected
+state, implement the smallest complete result, exercise its production consumer,
+and create a task-only local commit after relevant mechanical checks pass.
+Human acceptance, push, merge, and publication remain separate decisions.</p>
+<p>The <a class="" href="/handbook/docs/method">delivery guide</a> is the complete ordinary path. A project
+map, ticket, worktree, handoff, custom operation, or evidence package is needed
+only when the work earns it. The optional <a class="" href="/handbook/docs/directors-flow">Director&#x27;s Flow</a>
+helps choose among several outcomes without imposing another state machine.</p>
+<p>For new or materially changed gameplay, recover or obtain an approved hypothesis,
+build one complete playable loop, and obtain human play feedback before broad
+expansion. Settled fixes do not reopen design approval. Consult the conditional
+<a class="" href="/handbook/docs/gameplay-design-dialogue">gameplay</a>, <a class="" href="/handbook/docs/visual-work">visual</a>,
+<a class="" href="/handbook/docs/quality-and-ci">quality</a>, and <a class="" href="/handbook/docs/task-continuity">continuity</a> guides
+when their subject becomes material. <a class="" href="/handbook/docs/change-and-release-workflow">Source-control guidance</a>
+covers protected staged work, useful isolation, and release preparation.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="use-in-codex">Use In Codex<a href="#use-in-codex" class="hash-link" aria-label="Direct link to Use In Codex" title="Direct link to Use In Codex" translate="no">​</a></h2>
 <p>The method does not require installation. To make its four workflows available in
 Codex from this private clone, run from the repository root:</p>
@@ -121,10 +93,10 @@ invocation.</p>
 the <code>plugin add</code> command again and begin another new task. An open task retains
 the skill snapshot with which it started.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="core-loop">Core Loop<a href="#core-loop" class="hash-link" aria-label="Direct link to Core Loop" title="Direct link to Core Loop" translate="no">​</a></h2>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">Frame -&gt; Inspect -&gt; Plan -&gt; Build -&gt; Rehearse -&gt; Judge -&gt; Checkpoint</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  ^                                               |</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  +---------------- tune or revert ---------------+</span><br></div></code></pre></div></div>
-<p>The loop is mixed-initiative. Agents may propose, challenge, investigate, and
-implement. Humans decide what the product should become and whether the result
-is acceptable.</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">Understand -&gt; Change -&gt; Verify -&gt; Deliver</span><br></div></code></pre></div></div>
+<p>These are working steps, not forms to complete or headings to narrate. The
+<a class="" href="/handbook/SPEC">specification</a> preserves eight universal Safety Kernel obligations;
+optional contracts apply only after deliberate adoption.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="optional-capabilities">Optional Capabilities<a href="#optional-capabilities" class="hash-link" aria-label="Direct link to Optional Capabilities" title="Direct link to Optional Capabilities" translate="no">​</a></h2>
 <p>STAGE is not a maturity ladder. Add only the capabilities whose recurring cost,
 ownership risk, or named consumer justifies persistence.</p>
@@ -164,6 +136,6 @@ functional-core influences, mixed-initiative co-creativity, observability,
 deterministic rehearsal, and reversible source-control workflows.</p>
 <p>Its proposed contribution is the combination of those practices around one
 optimization target: complex game projects that remain <strong>human-steerable,
-agent-operable, and credibly verifiable</strong>.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2026-08-01T20:39:40.000Z" itemprop="dateModified">Aug 1, 2026</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/handbook/docs/using-stage-with-codex"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Using STAGE With Codex</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/handbook/STAGE"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">STAGE Project Map</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#status" class="table-of-contents__link toc-highlight">Status</a></li><li><a href="#start-with-one-change" class="table-of-contents__link toc-highlight">Start With One Change</a></li><li><a href="#use-in-codex" class="table-of-contents__link toc-highlight">Use In Codex</a></li><li><a href="#core-loop" class="table-of-contents__link toc-highlight">Core Loop</a></li><li><a href="#optional-capabilities" class="table-of-contents__link toc-highlight">Optional Capabilities</a></li><li><a href="#safety-kernel-and-laboratory" class="table-of-contents__link toc-highlight">Safety Kernel And Laboratory</a></li><li><a href="#design-lineage" class="table-of-contents__link toc-highlight">Design Lineage</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Start</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/using-stage-with-codex">Choose a Codex workflow</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/STAGE">Read the project map</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Method</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/method">Delivery method</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/SPEC">Safety Kernel</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">History</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/releases">Release records</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/adr">Architecture decisions</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">STAGE Game Engineering. Human product authority remains non-delegable.</div></div></div></footer></div>
+agent-operable, and credibly verifiable</strong>.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2026-09-27T00:44:02.000Z" itemprop="dateModified">Sep 27, 2026</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/handbook/docs/using-stage-with-codex"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Using STAGE With Codex</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/handbook/STAGE"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">STAGE Project Map</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#status" class="table-of-contents__link toc-highlight">Status</a></li><li><a href="#start-with-one-change" class="table-of-contents__link toc-highlight">Start With One Change</a></li><li><a href="#use-in-codex" class="table-of-contents__link toc-highlight">Use In Codex</a></li><li><a href="#core-loop" class="table-of-contents__link toc-highlight">Core Loop</a></li><li><a href="#optional-capabilities" class="table-of-contents__link toc-highlight">Optional Capabilities</a></li><li><a href="#safety-kernel-and-laboratory" class="table-of-contents__link toc-highlight">Safety Kernel And Laboratory</a></li><li><a href="#design-lineage" class="table-of-contents__link toc-highlight">Design Lineage</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Start</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/using-stage-with-codex">Choose a Codex workflow</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/STAGE">Read the project map</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Method</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/method">Delivery method</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/SPEC">Safety Kernel</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">History</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/releases">Release records</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/adr">Architecture decisions</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">STAGE Game Engineering. Human product authority remains non-delegable.</div></div></div></footer></div>
 </body>
 </html>

@@ -3,274 +3,107 @@
 <head>
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
-<title data-rh="true">Task Continuity And Context Recovery | STAGE Game Engineering</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" name="twitter:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" property="og:url" content="https://stage.zoshachi.com/handbook/docs/task-continuity"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Task Continuity And Context Recovery | STAGE Game Engineering"><meta data-rh="true" name="description" content="Long conversations are useful working memory, but poor project memory. They"><meta data-rh="true" property="og:description" content="Long conversations are useful working memory, but poor project memory. They"><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://stage.zoshachi.com/handbook/docs/task-continuity"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/task-continuity" hreflang="en"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/task-continuity" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Task Continuity And Context Recovery","item":"https://stage.zoshachi.com/handbook/docs/task-continuity"}]}</script><link rel="stylesheet" href="/assets/css/styles.5be3741e.css">
-<script src="/assets/js/runtime~main.7e195523.js" defer="defer"></script>
-<script src="/assets/js/main.83aed343.js" defer="defer"></script>
+<title data-rh="true">Task Continuity And Context Recovery | STAGE Game Engineering</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" name="twitter:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" property="og:url" content="https://stage.zoshachi.com/handbook/docs/task-continuity"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Task Continuity And Context Recovery | STAGE Game Engineering"><meta data-rh="true" name="description" content="Use the repository for durable knowledge and conversation for working context."><meta data-rh="true" property="og:description" content="Use the repository for durable knowledge and conversation for working context."><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://stage.zoshachi.com/handbook/docs/task-continuity"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/task-continuity" hreflang="en"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/task-continuity" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Task Continuity And Context Recovery","item":"https://stage.zoshachi.com/handbook/docs/task-continuity"}]}</script><link rel="stylesheet" href="/assets/css/styles.5be3741e.css">
+<script src="/assets/js/runtime~main.0eaae629.js" defer="defer"></script>
+<script src="/assets/js/main.76e2d140.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
 <symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
 </defs></svg>
 <script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">STAGE</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/handbook/docs/using-stage-with-codex">Use With Codex</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/handbook/docs/using-stage-with-codex">Handbook</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/handbook/docs/using-stage-with-codex"><span class="categoryLinkLabel_W154">Start Here</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/using-stage-with-codex"><span class="linkLabel_WmDU">Using STAGE With Codex</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook"><span class="linkLabel_WmDU">STAGE Game Engineering</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/STAGE"><span class="linkLabel_WmDU">STAGE Project Map</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/SPEC"><span class="linkLabel_WmDU">STAGE Core Specification</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs"><span class="linkLabel_WmDU">STAGE Documentation Map</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/handbook/docs/method"><span class="categoryLinkLabel_W154">Deliver Work</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/method"><span class="linkLabel_WmDU">The STAGE Delivery Method</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/handbook/docs/task-continuity"><span class="linkLabel_WmDU">Task Continuity And Context Recovery</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/directors-flow"><span class="linkLabel_WmDU">The Stage Director&#x27;s Flow</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/task-evidence-matrix"><span class="linkLabel_WmDU">Task-Evidence Matrix</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/quality-and-ci"><span class="linkLabel_WmDU">Quality Gates And Continuous Integration</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/change-and-release-workflow"><span class="linkLabel_WmDU">Change, Concurrency, And Release Workflow</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/gameplay-design-dialogue"><span class="categoryLinkLabel_W154">Design And Presentation</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/adoption"><span class="categoryLinkLabel_W154">Adopt And Operate</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/maintaining-stage"><span class="categoryLinkLabel_W154">Maintain STAGE</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/evaluation"><span class="categoryLinkLabel_W154">Evidence And Lessons</span></a></div></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_kv0_"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Deliver Work</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Task Continuity And Context Recovery</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Task Continuity And Context Recovery</h1></header>
-<p>Long conversations are useful working memory, but poor project memory. They
-accumulate superseded plans, failed experiments, logs, unrelated outcomes, and
-tool state that a fresh agent cannot safely distinguish from current truth.
-STAGE therefore treats a conversation as a disposable execution surface around
-durable project state, not as the project archive.</p>
-<p>This guide defines how a solo director can move among Codex tasks, recover
-unfinished work, and coordinate agents without losing decisions or feeding
-entire transcripts back into context.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="decision">Decision<a href="#decision" class="hash-link" aria-label="Direct link to Decision" title="Direct link to Decision" translate="no">​</a></h2>
-<p>Use three complementary mechanisms:</p>
-<ol>
-<li class="">a <strong>Project Context Spine</strong> for durable project knowledge;</li>
-<li class="">a <strong>Task Handoff</strong> for unfinished work crossing a task boundary; and</li>
-<li class="">an <strong>Orientation Check</strong> to prove that a fresh task recovered the right
-state before it mutates anything.</li>
-</ol>
-<p>The repository and its current revision remain the implementation record. A
-handoff is a revision-bound bridge, not a second source of truth. Conversation
-history and model memory may help recall, but neither is authoritative.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="state-model">State Model<a href="#state-model" class="hash-link" aria-label="Direct link to State Model" title="Direct link to State Model" translate="no">​</a></h2>
-<table><thead><tr><th>Layer</th><th>Owns</th><th>Expected lifetime</th></tr></thead><tbody><tr><td>Working tree and Git revision</td><td>Exact implementation, assets, generated outputs, branch, and dirty state</td><td>Project lifetime</td></tr><tr><td>Project Context Spine</td><td>Durable operating rules, direction, vocabulary, architecture map, ownership, canonical documentation, and current work coordinates</td><td>Project lifetime, maintained in place</td></tr><tr><td>Active work item</td><td>One coherent outcome, protected state, accepted decisions, checks, and disposition</td><td>Until checkpointed, rejected, or deferred</td></tr><tr><td>Task Handoff</td><td>Minimum revision-bound state needed to resume unfinished work in another task</td><td>One task transition</td></tr><tr><td>Conversation and model memory</td><td>Exploration, local reasoning, transient logs, and interaction history</td><td>Disposable</td></tr></tbody></table>
-<p>The layers do not compete. They answer different questions:</p>
-<ul>
-<li class="">source state answers <strong>what exists now</strong>;</li>
-<li class="">the Context Spine answers <strong>how this project is governed and navigated</strong>;</li>
-<li class="">the work item answers <strong>what outcome is active</strong>;</li>
-<li class="">the handoff answers <strong>where unfinished execution stopped</strong>; and</li>
-<li class="">the conversation answers <strong>how the current task got here</strong>.</li>
-</ul>
+<p>Use the repository for durable knowledge and conversation for working context.
+Recover context when a task transitions, the repository changes, a handoff
+arrives, or current context no longer supports safe action. Recovery is part
+of delivery; a separate orientation report is needed only when requested or
+when a material conflict needs to be shown.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="authority-when-sources-conflict">Authority When Sources Conflict<a href="#authority-when-sources-conflict" class="hash-link" aria-label="Direct link to Authority When Sources Conflict" title="Direct link to Authority When Sources Conflict" translate="no">​</a></h2>
-<p>Use this order while preserving the distinction between intent and actual
-state:</p>
-<ol>
-<li class="">the newest explicit human direction governs the intended outcome and
-authority boundary;</li>
-<li class="">the live working tree and Git coordinates describe actual project state;</li>
-<li class="">canonical project documents at that revision govern durable rules,
-terminology, ownership, and architecture;</li>
-<li class="">the active work item records the bounded accepted outcome;</li>
-<li class="">a Task Handoff provides provisional resume coordinates; and</li>
-<li class="">older conversation text and model memory provide historical clues only.</li>
-</ol>
-<p>A new human direction can require changing the repository, but does not make
-that change already true. A dirty working tree can contain important work even
-when a handoff omits it. When a handoff conflicts with source state, stop,
-report the mismatch, inspect the diff, and recover from the repository plus the
-newest human decision.</p>
+<p>The newest authorized human direction governs intended outcome and authority.
+The live repository, index, working tree, and effective tools describe actual
+state. Canonical project documents explain durable rules and decisions. Active
+work items and handoffs provide provisional coordinates; old conversation and
+model memory are historical clues.</p>
+<p>Inspect the current diff before mutation. A handoff describing an older branch,
+revision, or clean state cannot authorize restoring newer work. Reconcile the
+mismatch against source and the latest direction. Stop only an operation whose
+authority remains unresolved; continue safe independently authorized work.
+A new direction can authorize a change without making it already true.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="project-context-spine">Project Context Spine<a href="#project-context-spine" class="hash-link" aria-label="Direct link to Project Context Spine" title="Direct link to Project Context Spine" translate="no">​</a></h2>
-<p>The Context Spine is a short, versioned reading path, not an encyclopedia:</p>
-<ol>
-<li class=""><strong><code>AGENTS.md</code></strong> contains mandatory operating rules and links to authority.</li>
-<li class=""><strong><code>STAGE.md</code> or an equivalent project map</strong> gives concise direction,
-architecture, ownership, operations, verification, and known risks when the
-project has earned such a map.</li>
-<li class=""><strong>A documentation index</strong> points to canonical detail instead of duplicating
-it.</li>
-<li class=""><strong>Canonical documents</strong> own vocabulary, decisions, architecture, content,
-lifecycle, testing, and tool-specific operations.</li>
-<li class=""><strong>The active work item</strong> records the one current coherent outcome when it
-needs to survive beyond conversation.</li>
-</ol>
-<p>Keep <code>AGENTS.md</code> short because agent configuration is loaded into task context.
-Use it as a table of contents and safety boundary. Put explanations in
-versioned documents and link to them. Do not paste changelogs, architecture
-handbooks, or old task summaries into <code>AGENTS.md</code>.</p>
-<p>An active work item is conditional state, not a mandatory project heartbeat.
-When the working tree is clean and the previous outcome is checkpointed,
-<code>no active outcome</code> is a correct orientation result; the next action is to wait
-for a new human direction. When intentional unfinished work exists in a dirty
-tree or active branch and must survive a task boundary, record its outcome,
-ownership, checks, and next action in the project&#x27;s existing work-item carrier
-or a Task Handoff. Do not create a fictional active item after completion only
-to satisfy an orientation check.</p>
-<p>The Context Spine may be small. A bounded game can use only <code>AGENTS.md</code>, a
-short architecture note, and its issue tracker. A systems-heavy game with
-custom tooling may justify a proportional project map. STAGE artifacts remain
-optional; the durable source chain is the requirement, not the filenames.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="codex-project-topology">Codex Project Topology<a href="#codex-project-topology" class="hash-link" aria-label="Direct link to Codex Project Topology" title="Direct link to Codex Project Topology" translate="no">​</a></h2>
-<p>Use one Codex local project per repository. Set its primary folder to that
-repository&#x27;s Git root so root <code>AGENTS.md</code> discovery, source control, and local
-commands all begin in the correct project.</p>
-<p>Examples:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">The Circussy One project -&gt; /path/to/the-circussy-one</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">STAGE project             -&gt; /path/to/stage-game-engineering</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Future game project       -&gt; /path/to/that-game</span><br></div></code></pre></div></div>
-<p>Do not create one permanent mega-project containing every game, STAGE, and
-scratch repository. Attach a secondary repository only for a genuinely
-cross-repository outcome, and name which repository is primary and which may
-be mutated. Installed skills provide reusable method guidance without making
-the skill repository part of every game&#x27;s working context.</p>
+<p>The Context Spine is the smallest versioned reading path that answers current
+questions: agent instructions, a documentation index, relevant design or
+architecture decisions, and an active outcome if one exists. Use a project map
+only when recurring rediscovery cost earns it. Keep one canonical explanation
+and link to it; do not copy the handbook into <code>AGENTS.md</code> or a handoff.</p>
+<p>Keep the default recovery entry about current work. Route to dated history and
+full receipts when a task needs them; do not append every checkpoint to the
+onboarding path. A bounded task needs its outcome, ownership, invariants, relevant
+sources, and checks, not the previous agent&#x27;s entire investigation. Use stronger
+reasoning or another reviewer when unresolved complexity earns it; no model name
+or planner–implementer–reviewer sequence is a prerequisite for ordinary work.</p>
+<p>Keep durable product decisions, ownership rules, prohibited operations, and
+verification commands in the sources that own them. Revision-specific outcomes
+belong with the relevant change or evidence. A completed project can correctly
+have no active outcome. Missing a ticket or handoff is not a defect by itself.</p>
+<p>When a handoff or documentation audit is actually needed, check more than link
+existence: compare current setup, tuning, lifecycle and release claims with their
+owning source. Keep historical reports dated and mark superseded instructions;
+do not rewrite old measurements to match current behavior. Identify ignored or
+machine-local evidence and the command needed to reproduce it. A linked receipt
+missing on the receiving machine is unavailable evidence, not a fresh pass.
+The <a class="" href="/handbook/docs/case-studies/salvageist">Salvageist pilot</a> exposed these specific drift
+risks despite an extensive handbook. This is a transition check, not a new
+document to maintain after every change.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="task-boundaries">Task Boundaries<a href="#task-boundaries" class="hash-link" aria-label="Direct link to Task Boundaries" title="Direct link to Task Boundaries" translate="no">​</a></h2>
-<p>Continue the same task when the outcome is still coherent:</p>
-<ul>
-<li class="">diagnosing and fixing the same defect;</li>
-<li class="">responding to human feedback on the current implementation;</li>
-<li class="">completing missing verification for the same change;</li>
-<li class="">tuning the same accepted hypothesis from a known checkpoint; or</li>
-<li class="">resolving one integration failure caused by that change.</li>
-</ul>
-<p>Start a new task when:</p>
-<ul>
-<li class="">the previous outcome is checkpointed, rejected, or deliberately deferred;</li>
-<li class="">the repository or primary project changes;</li>
-<li class="">the requested outcome changes domain;</li>
-<li class="">the task has accumulated several unrelated decisions or logs;</li>
-<li class="">independent work should proceed in parallel; or</li>
-<li class="">a fresh context would be cheaper and safer than continued compaction.</li>
-</ul>
-<p>“What next?” after a completed checkpoint normally begins a new task. Task
-titles should name the outcome, such as <code>Fix Stage Door fallback</code>, rather than
-the whole project.</p>
-<p>There is no universal message or token threshold. Context pressure is already
-material when the agent repeatedly recovers stale plans, the task opens slowly,
-mobile clients cannot load it, unrelated history crowds out current evidence,
-or compaction is doing most of the continuity work.</p>
+<p>Continue the same task while diagnosing, implementing, verifying, or responding
+to feedback on one coherent outcome. Start another when the outcome or primary
+repository changes, independent work needs isolation, or accumulated stale
+context materially interferes with safe progress. There is no message or token
+quota, and no required task change after each commit or delivery step.</p>
+<p>Root each task in the repository it may change. Include another repository only
+for a real cross-repository outcome and name its mutation boundary. Installed
+skills carry reusable method guidance without adding the STAGE source repository
+to every game&#x27;s context.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="starting-a-fresh-task">Starting A Fresh Task<a href="#starting-a-fresh-task" class="hash-link" aria-label="Direct link to Starting A Fresh Task" title="Direct link to Starting A Fresh Task" translate="no">​</a></h2>
-<p>Before mutation, the fresh task should:</p>
-<ol>
-<li class="">confirm the repository root, branch, revision, remotes, and dirty paths;</li>
-<li class="">read the discovered <code>AGENTS.md</code> chain;</li>
-<li class="">follow the Project Context Spine only as far as the requested outcome needs;</li>
-<li class="">identify the current coherent outcome and protected state;</li>
-<li class="">reconcile any Task Handoff with the live repository;</li>
-<li class="">state the exact next action and relevant verification gates; and</li>
-<li class="">surface unresolved authority or product decisions instead of guessing.</li>
-</ol>
-<p>For a routine bounded request, these steps may be brief and implicit. Make the
-orientation report explicit after a long-task migration, repository switch,
-stale handoff, risky operation, or known dirty state.</p>
-<p>If no active outcome exists, say so. A fresh task may safely conclude that no
-mutation is authorized yet. Dirty unfinished work with no durable outcome,
-ownership, or next action is instead a continuity gap: preserve it, report it,
-and return to the task or human that can checkpoint or describe it.</p>
+<p>Before mutation, identify the live repository, branch, revision, staged and
+unstaged state, current authorization, and relevant canonical instructions.
+Reconcile any recorded decisions or handoff and select the next action and
+necessary checks. Keep this brief for a straightforward request. Explain
+material mismatches rather than printing a routine orientation form.</p>
+<p>An explicit <code>stage-orient</code> request remains read-only and ends with its report.
+Ordinary delivery incorporates the necessary recovery and continues authorized
+work. Unrelated dirty state is protected, not automatic evidence of a blocker.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="task-handoffs">Task Handoffs<a href="#task-handoffs" class="hash-link" aria-label="Direct link to Task Handoffs" title="Direct link to Task Handoffs" translate="no">​</a></h2>
-<p>Create a Task Handoff only when coherent work is unfinished and another task
-must resume it. The <code>/handoff</code> skill is appropriate for this bridge because it
-compacts active execution state while linking back to durable sources.</p>
-<p>A handoff should contain:</p>
+<p>Write a handoff only when unfinished work actually crosses a task boundary.
+Use an existing work item, a short note, or the optional
+<a href="https://github.com/chifunt/stage-game-engineering/blob/main/templates/task-handoff.md" target="_blank" rel="noopener noreferrer" class="">handoff starter</a>. Include only:</p>
 <ul>
-<li class="">intended outcome and explicit non-goals;</li>
-<li class="">target repository and primary folder;</li>
-<li class="">branch, base revision, current revision, and dirty paths;</li>
-<li class="">files intentionally changed and protected state;</li>
-<li class="">current work-item state and completed plan steps;</li>
-<li class="">locked human decisions;</li>
-<li class="">observations, failed routes, and unresolved hypotheses;</li>
-<li class="">exact check outcomes and remaining human or engine checks;</li>
-<li class="">exact next action;</li>
-<li class="">canonical source links; and</li>
-<li class="">a staleness rule.</li>
+<li class="">the authorized outcome and decisions, including rejected routes;</li>
+<li class="">repository and revision coordinates, task-owned changes, and protected state;</li>
+<li class="">completed checks, failures, limitations, and links to useful evidence; and</li>
+<li class="">the precise next action and unresolved decision, if any.</li>
 </ul>
-<p>Do not include:</p>
-<ul>
-<li class="">a transcript dump;</li>
-<li class="">raw logs already saved elsewhere;</li>
-<li class="">copied architecture or glossary prose;</li>
-<li class="">speculative adjacent work;</li>
-<li class="">hidden reasoning; or</li>
-<li class="">claims that are not supported by current source or evidence.</li>
-</ul>
-<p>Prefer an operating-system temporary location for an ephemeral handoff. Keep a
-handoff in the repository only when a named human, audit, tracker, or regulated
-process needs durable retention. Delete or ignore the temporary handoff after
-the receiving task has reconciled it.</p>
-<p>Every handoff is stale when its repository, branch, revision, or dirty-state
-description no longer matches. Staleness triggers reorientation; it does not
-authorize resetting the newer state.</p>
-<p>Use <a href="https://github.com/chifunt/stage-game-engineering/blob/main/templates/task-handoff.md" target="_blank" rel="noopener noreferrer" class=""><code>templates/task-handoff.md</code></a> when a manual
-or durable handoff is needed.</p>
+<p>Do not copy transcripts, canonical architecture, or raw logs already retained.
+An ephemeral handoff can live outside the repository. Retain it durably only
+for a named handoff, audit, or decision consumer. A receiving agent verifies
+summaries against current source before using them.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="multi-agent-work">Multi-Agent Work<a href="#multi-agent-work" class="hash-link" aria-label="Direct link to Multi-Agent Work" title="Direct link to Multi-Agent Work" translate="no">​</a></h2>
-<p>Do not share a giant transcript as common context. Give each agent:</p>
-<ul>
-<li class="">one outcome;</li>
-<li class="">the correct repository root and revision;</li>
-<li class="">the relevant Context Spine entry points;</li>
-<li class="">explicit read/write scope;</li>
-<li class="">protected and exclusive paths;</li>
-<li class="">evidence expectations; and</li>
-<li class="">the integration or reporting boundary.</li>
-</ul>
-<p>Read-only agents may inspect disjoint questions in parallel. Mutating agents
-follow the bounded concurrency and path-ownership rules in
-<a class="" href="/handbook/docs/change-and-release-workflow">Change, Concurrency, And Release Workflow</a>.
-The lead task owns synthesis, conflict resolution, and final mutation unless a
-different integrator is explicit.</p>
-<p>Agent summaries remain orientation. The receiving agent verifies them against
-source, diffs, engine state, and evidence.</p>
+<p>When delegation is authorized and useful, bound each contributor&#x27;s outcome,
+read/write scope, protected state, evidence, and reporting or integration duty.
+Concurrent mutation needs real isolation or disjoint ownership; read-only
+investigation still needs a named question. The integrating agent reviews the
+actual diff and evidence. See <a class="" href="/handbook/docs/change-and-release-workflow">source-control guidance</a>.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fresh-task-orientation-check">Fresh-Task Orientation Check<a href="#fresh-task-orientation-check" class="hash-link" aria-label="Direct link to Fresh-Task Orientation Check" title="Direct link to Fresh-Task Orientation Check" translate="no">​</a></h2>
-<p>Run this check before retiring a long task:</p>
-<ol>
-<li class="">open a new task in the correct repository project;</li>
-<li class="">ask it to inspect only, not mutate;</li>
-<li class="">have it answer the questions in
-<a href="https://github.com/chifunt/stage-game-engineering/blob/main/templates/fresh-task-orientation-check.md" target="_blank" rel="noopener noreferrer" class=""><code>templates/fresh-task-orientation-check.md</code></a>;</li>
-<li class="">compare answers with the repository and the director&#x27;s known decisions;</li>
-<li class="">correct the Context Spine rather than teaching the answer only in chat; and</li>
-<li class="">repeat once from another fresh task when a correction was material.</li>
-</ol>
-<p>Classify the result:</p>
-<table><thead><tr><th>Result</th><th>Meaning</th></tr></thead><tbody><tr><td><code>sufficient</code></td><td>Critical state, authority, next action, and gates are correct; uncertainty is surfaced</td></tr><tr><td><code>needs-correction</code></td><td>A non-dangerous fact is missing or hard to find; update the Context Spine</td></tr><tr><td><code>unsafe</code></td><td>Wrong repository or branch, ignored dirty state, overridden human decision, stale handoff trusted over source, or mutation before orientation</td></tr></tbody></table>
-<p>Do not average answers into a context score. Record the exact missing or
-contradicted fact and repair its canonical owner.</p>
-<p>Absence of an active work item is not itself a <code>needs-correction</code> result.
-Classify it according to source state: clean and idle can be <code>sufficient</code>;
-intentional unfinished work whose outcome cannot be recovered is
-<code>needs-correction</code>; mutation that ignores or overwrites that work is <code>unsafe</code>.</p>
-<p>Test three modes:</p>
-<ol>
-<li class=""><strong>No-handoff recovery:</strong> project sources alone recover durable knowledge.</li>
-<li class=""><strong>Active-task recovery:</strong> a handoff recovers unfinished execution without
-duplicating project lore.</li>
-<li class=""><strong>Stale-handoff recovery:</strong> the agent notices changed source coordinates
-and prefers current state plus the newest human decision.</li>
-</ol>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="migrating-an-oversized-task">Migrating An Oversized Task<a href="#migrating-an-oversized-task" class="hash-link" aria-label="Direct link to Migrating An Oversized Task" title="Direct link to Migrating An Oversized Task" translate="no">​</a></h2>
-<ol>
-<li class="">Stop adding unrelated work to the old task.</li>
-<li class="">Inspect and checkpoint coherent repository state where authorized.</li>
-<li class="">Put durable decisions into their canonical project documents or work item.</li>
-<li class="">Generate a Task Handoff only for the unfinished outcome.</li>
-<li class="">Open a new Codex project or task rooted at the correct Git repository.</li>
-<li class="">Run the Orientation Check without allowing edits.</li>
-<li class="">Continue the unfinished outcome only after the check is sufficient.</li>
-<li class="">Archive the old task after the new task demonstrates safe continuity.</li>
-</ol>
-<p>Preserve the old task as historical evidence if useful, but do not use it as
-the daily operating surface or ask a new agent to reread it.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="why-not-a-separate-memory-database">Why Not A Separate Memory Database<a href="#why-not-a-separate-memory-database" class="hash-link" aria-label="Direct link to Why Not A Separate Memory Database" title="Direct link to Why Not A Separate Memory Database" translate="no">​</a></h2>
-<p>Repository-native Markdown, source control, project assets, and the tracker are
-already inspectable by humans and agents, versioned with the implementation,
-and reviewable through normal diffs. Add search indexes, retrieval systems, or
-special continuity services only when observed recurring retrieval failures
-remain after the Context Spine and handoff protocol are in place.</p>
-<p>Model memory can retain preferences and recurring facts, but it is generated
-state with a separate lifecycle. Mandatory rules and project-specific
-decisions remain in checked-in sources.</p>
+<p>A recovery probe is useful after a serious continuity defect or a change to
+recovery instructions. It is not required every time a task ends. The
+<a href="https://github.com/chifunt/stage-game-engineering/blob/main/templates/fresh-task-orientation-check.md" target="_blank" rel="noopener noreferrer" class="">optional check starter</a> supports
+no-handoff, active-handoff, and stale-handoff cases. Judge whether the agent
+recovered authority and state safely; do not average answers into a context score.
+Preserve failed runs, correct their cause, and explain any later retest.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="research-basis">Research Basis<a href="#research-basis" class="hash-link" aria-label="Direct link to Research Basis" title="Direct link to Research Basis" translate="no">​</a></h2>
-<ul>
-<li class="">OpenAI&#x27;s <a href="https://learn.chatgpt.com/docs/projects" target="_blank" rel="noopener noreferrer" class="">Projects and chats</a>
-recommends projects for continuing work and separate chats for distinct
-outcomes.</li>
-<li class="">OpenAI&#x27;s <a href="https://learn.chatgpt.com/docs/agent-configuration/agents-md" target="_blank" rel="noopener noreferrer" class="">AGENTS.md guide</a>
-describes root-to-working-directory discovery and the bounded instruction
-budget.</li>
-<li class="">OpenAI&#x27;s <a href="https://learn.chatgpt.com/docs/long-running-work" target="_blank" rel="noopener noreferrer" class="">Long-running work guide</a>
-separates continuing one coherent outcome from parallel or independent
-tasks.</li>
-<li class="">OpenAI&#x27;s <a href="https://openai.com/index/harness-engineering/" target="_blank" rel="noopener noreferrer" class="">Harness engineering</a>
-describes a short agent guide as a map into a versioned repository system of
-record.</li>
-<li class="">OpenAI&#x27;s <a href="https://openai.com/index/unrolling-the-codex-agent-loop/" target="_blank" rel="noopener noreferrer" class="">Codex agent loop</a>
-explains automatic context compaction; compaction preserves task operation
-but is not a replacement for canonical project state.</li>
-<li class="">Anthropic&#x27;s <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener noreferrer" class="">context engineering guide</a>
-describes finite attention, context degradation, structured external notes,
-and isolated subagent contexts.</li>
-<li class=""><a href="https://arxiv.org/abs/2307.03172" target="_blank" rel="noopener noreferrer" class="">Lost in the Middle</a> and Chroma&#x27;s
-<a href="https://www.trychroma.com/research/context-rot" target="_blank" rel="noopener noreferrer" class="">Context Rot</a> provide
-evidence that more context does not guarantee reliable retrieval or use.</li>
-</ul>
-<p>These sources support the risks and component practices. The complete STAGE
-continuity protocol is a practitioner design, not a proven universal optimum.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2026-08-01T20:39:40.000Z" itemprop="dateModified">Aug 1, 2026</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/handbook/docs/method"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">The STAGE Delivery Method</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/handbook/docs/directors-flow"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">The Stage Director&#x27;s Flow</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#decision" class="table-of-contents__link toc-highlight">Decision</a></li><li><a href="#state-model" class="table-of-contents__link toc-highlight">State Model</a></li><li><a href="#authority-when-sources-conflict" class="table-of-contents__link toc-highlight">Authority When Sources Conflict</a></li><li><a href="#project-context-spine" class="table-of-contents__link toc-highlight">Project Context Spine</a></li><li><a href="#codex-project-topology" class="table-of-contents__link toc-highlight">Codex Project Topology</a></li><li><a href="#task-boundaries" class="table-of-contents__link toc-highlight">Task Boundaries</a></li><li><a href="#starting-a-fresh-task" class="table-of-contents__link toc-highlight">Starting A Fresh Task</a></li><li><a href="#task-handoffs" class="table-of-contents__link toc-highlight">Task Handoffs</a></li><li><a href="#multi-agent-work" class="table-of-contents__link toc-highlight">Multi-Agent Work</a></li><li><a href="#fresh-task-orientation-check" class="table-of-contents__link toc-highlight">Fresh-Task Orientation Check</a></li><li><a href="#migrating-an-oversized-task" class="table-of-contents__link toc-highlight">Migrating An Oversized Task</a></li><li><a href="#why-not-a-separate-memory-database" class="table-of-contents__link toc-highlight">Why Not A Separate Memory Database</a></li><li><a href="#research-basis" class="table-of-contents__link toc-highlight">Research Basis</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Start</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/using-stage-with-codex">Choose a Codex workflow</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/STAGE">Read the project map</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Method</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/method">Delivery method</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/SPEC">Safety Kernel</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">History</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/releases">Release records</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/adr">Architecture decisions</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">STAGE Game Engineering. Human product authority remains non-delegable.</div></div></div></footer></div>
+<p>The longer rationale and source lineage remain in
+<a class="" href="/handbook/docs/adr/use-context-spines-and-revision-bound-task-handoffs">ADR 0058</a>.
+<a class="" href="/handbook/docs/adr/autonomous-delivery-with-less-ceremony">ADR 0065</a> makes recovery
+conditional and removes routine handoff testing from ordinary delivery.
+The protocol is practitioner guidance, not a proven universal optimum.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2026-09-27T00:44:02.000Z" itemprop="dateModified">Sep 27, 2026</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/handbook/docs/method"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">The STAGE Delivery Method</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/handbook/docs/directors-flow"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">The Stage Director&#x27;s Flow</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#authority-when-sources-conflict" class="table-of-contents__link toc-highlight">Authority When Sources Conflict</a></li><li><a href="#project-context-spine" class="table-of-contents__link toc-highlight">Project Context Spine</a></li><li><a href="#task-boundaries" class="table-of-contents__link toc-highlight">Task Boundaries</a></li><li><a href="#starting-a-fresh-task" class="table-of-contents__link toc-highlight">Starting A Fresh Task</a></li><li><a href="#task-handoffs" class="table-of-contents__link toc-highlight">Task Handoffs</a></li><li><a href="#multi-agent-work" class="table-of-contents__link toc-highlight">Multi-Agent Work</a></li><li><a href="#fresh-task-orientation-check" class="table-of-contents__link toc-highlight">Fresh-Task Orientation Check</a></li><li><a href="#research-basis" class="table-of-contents__link toc-highlight">Research Basis</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Start</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/using-stage-with-codex">Choose a Codex workflow</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/STAGE">Read the project map</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Method</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/method">Delivery method</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/SPEC">Safety Kernel</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">History</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/releases">Release records</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/adr">Architecture decisions</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">STAGE Game Engineering. Human product authority remains non-delegable.</div></div></div></footer></div>
 </body>
 </html>

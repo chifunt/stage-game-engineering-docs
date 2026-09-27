@@ -3,211 +3,84 @@
 <head>
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
-<title data-rh="true">STAGE 1.0 Readiness Review | STAGE Game Engineering</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" name="twitter:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" property="og:url" content="https://stage.zoshachi.com/handbook/docs/1.0-readiness"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="STAGE 1.0 Readiness Review | STAGE Game Engineering"><meta data-rh="true" name="description" content="Status: candidate owner review; 1.0.0 has not been declared"><meta data-rh="true" property="og:description" content="Status: candidate owner review; 1.0.0 has not been declared"><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://stage.zoshachi.com/handbook/docs/1.0-readiness"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/1.0-readiness" hreflang="en"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/1.0-readiness" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"STAGE 1.0 Readiness Review","item":"https://stage.zoshachi.com/handbook/docs/1.0-readiness"}]}</script><link rel="stylesheet" href="/assets/css/styles.5be3741e.css">
-<script src="/assets/js/runtime~main.7e195523.js" defer="defer"></script>
-<script src="/assets/js/main.83aed343.js" defer="defer"></script>
+<title data-rh="true">STAGE 1.0 Readiness Review | STAGE Game Engineering</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" name="twitter:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" property="og:url" content="https://stage.zoshachi.com/handbook/docs/1.0-readiness"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="STAGE 1.0 Readiness Review | STAGE Game Engineering"><meta data-rh="true" name="description" content="Status: owner accepted the 1.x contract and authorized the 1.0.0 release on 2026-09-27"><meta data-rh="true" property="og:description" content="Status: owner accepted the 1.x contract and authorized the 1.0.0 release on 2026-09-27"><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://stage.zoshachi.com/handbook/docs/1.0-readiness"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/1.0-readiness" hreflang="en"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/1.0-readiness" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"STAGE 1.0 Readiness Review","item":"https://stage.zoshachi.com/handbook/docs/1.0-readiness"}]}</script><link rel="stylesheet" href="/assets/css/styles.5be3741e.css">
+<script src="/assets/js/runtime~main.0eaae629.js" defer="defer"></script>
+<script src="/assets/js/main.76e2d140.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
 <symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
 </defs></svg>
 <script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">STAGE</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/handbook/docs/using-stage-with-codex">Use With Codex</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/handbook/docs/using-stage-with-codex">Handbook</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/handbook/docs/using-stage-with-codex"><span class="categoryLinkLabel_W154">Start Here</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/using-stage-with-codex"><span class="linkLabel_WmDU">Using STAGE With Codex</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook"><span class="linkLabel_WmDU">STAGE Game Engineering</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/STAGE"><span class="linkLabel_WmDU">STAGE Project Map</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/SPEC"><span class="linkLabel_WmDU">STAGE Core Specification</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs"><span class="linkLabel_WmDU">STAGE Documentation Map</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/method"><span class="categoryLinkLabel_W154">Deliver Work</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/gameplay-design-dialogue"><span class="categoryLinkLabel_W154">Design And Presentation</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/adoption"><span class="categoryLinkLabel_W154">Adopt And Operate</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/handbook/docs/maintaining-stage"><span class="categoryLinkLabel_W154">Maintain STAGE</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/maintaining-stage"><span class="linkLabel_WmDU">Maintaining STAGE</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/documentation-surfaces"><span class="linkLabel_WmDU">Documentation Surfaces</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/compatibility"><span class="linkLabel_WmDU">Artifact Compatibility</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/handbook/docs/1.0-readiness"><span class="linkLabel_WmDU">STAGE 1.0 Readiness Review</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/adr"><span class="linkLabel_WmDU">STAGE Architecture Decisions</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/handbook/docs/releases"><span class="linkLabel_WmDU">STAGE Release Records</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/handbook/docs/evaluation"><span class="categoryLinkLabel_W154">Evidence And Lessons</span></a></div></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_kv0_"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Maintain STAGE</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">STAGE 1.0 Readiness Review</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>STAGE 1.0 Readiness Review</h1></header>
-<p>Status: candidate owner review; <code>1.0.0</code> has not been declared</p>
-<p>Last reviewed: 2026-07-24</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="decision-boundary">Decision Boundary<a href="#decision-boundary" class="hash-link" aria-label="Direct link to Decision Boundary" title="Direct link to Decision Boundary" translate="no">​</a></h2>
-<p>STAGE <code>1.0.0</code> should mean that the owner accepts a small, stable interface for
-personal game engineering and is willing to maintain its compatibility through
-the <code>1.x</code> line. It should not mean that STAGE is scientifically proven,
-independently adopted, optimal, universally transferable, or complete.</p>
-<p>This review is a release decision aid, not a conformance score. Mechanical
-checks can establish repository consistency. They cannot decide whether the
-method is useful enough to freeze or whether its maintenance cost is acceptable
-to the owner.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="recommended-owner-disposition">Recommended Owner Disposition<a href="#recommended-owner-disposition" class="hash-link" aria-label="Direct link to Recommended Owner Disposition" title="Direct link to Recommended Owner Disposition" translate="no">​</a></h2>
-<p><strong>Recommendation: accept the proposed contract and release <code>1.0.0</code>.</strong> No known
-mechanical defect currently blocks the personal-use contract. In this context,
-<code>1.0.0</code> means “the owner is willing to keep these few interfaces compatible,”
-not “the method is proven, complete, or generally superior.”</p>
-<table><thead><tr><th>Decision</th><th>Recommendation</th><th>Maintenance accepted through <code>1.x</code></th></tr></thead><tbody><tr><td>Stable owner contract</td><td>Accept</td><td>Preserve the eight Safety Kernel obligations, one implicit delivery route, three explicit companion routes, truthful evidence boundary, and explicit artifact migration semantics</td></tr><tr><td>Project-map schemas</td><td>Keep both <code>0.1</code> and <code>0.3</code></td><td>Continue validating four historical <code>0.1</code> trial maps and current <code>0.3</code> maps; author new maps as <code>0.3</code>; never extend <code>0.1</code> in place</td></tr><tr><td>Installed operations</td><td>Accept the narrow split</td><td>Keep validation and read-only snapshots in the plugin; keep explicit migration repository-backed; do not promote the Maintainer Laboratory into a general CLI</td></tr><tr><td>Support boundary</td><td>Accept</td><td>Support the owner&#x27;s exercised macOS, Codex, Git, and Python 3.11 workflow; describe other hosts and platforms as best-effort unless directly evidenced</td></tr><tr><td>Release decision</td><td>Accept only by explicit owner statement</td><td>Rerun the full gate at the final candidate, update metadata, install the release, and record the installed probe</td></tr></tbody></table>
-<p>The compatibility cost is deliberately bounded. Exact prose, examples,
-templates, case-study authoring tools, trials, the Solo Unity profile, and
-experimental operations are not stable APIs. The retained <code>0.1</code> project-map
-schema is a 2.7 KB frozen validator input, not a second active authoring model;
-removing it would invalidate preserved artifacts while saving little ongoing
-design work.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="proposed-1x-contract">Proposed 1.x Contract<a href="#proposed-1x-contract" class="hash-link" aria-label="Direct link to Proposed 1.x Contract" title="Direct link to Proposed 1.x Contract" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="stable-owner-contract">Stable Owner Contract<a href="#stable-owner-contract" class="hash-link" aria-label="Direct link to Stable Owner Contract" title="Direct link to Stable Owner Contract" translate="no">​</a></h3>
-<p>The following surfaces are candidates for the compatibility promise:</p>
-<table><thead><tr><th>Surface</th><th>Proposed stable meaning</th><th>Excluded from compatibility</th></tr></thead><tbody><tr><td>Core specification</td><td>The eight Safety Kernel obligations, optional-contract semantics, truthful reporting rules, and stated non-goals in <code>SPEC.md</code></td><td>Exact explanatory wording and examples</td></tr><tr><td>Codex plugin identity</td><td>Package name <code>stage-game-engineering</code>; implicit primary <code>stage-deliver-change</code>; explicit-only <code>stage-orient</code>, <code>stage-verify</code>, and <code>stage-map-project</code> companions</td><td>Exact prompt prose, launcher copy, and model-specific behavior</td></tr><tr><td>Project maps</td><td>Project-map schema versions <code>0.1</code> and <code>0.3</code>, declared-version validation, and explicit migration</td><td>Formatting, comments, project extensions, and generated prose</td></tr><tr><td>Artifact compatibility</td><td>No silent rewrites; supported older artifacts remain valid; breaking field or vocabulary changes use a new artifact version and migration guidance</td><td>Experimental artifact families already retired before 1.0</td></tr><tr><td>Installed project-map operations</td><td>The explicit mapping skill packages immutable supported schemas, <code>validate_project_map.py</code>, and <code>repository_snapshot.py</code>; their documented purposes, required inputs, <code>0</code>-only success semantics, target-read-only defaults, and source-state comparison behavior remain available</td><td>Exact templates and examples, incidental output wording, snapshot JSON shape, specific nonzero exit values, and internal implementation</td></tr><tr><td>Repository project-map migration</td><td><code>migrate_project_map.py</code> retains its documented purpose, explicit replacement flags, atomic candidate publication, and <code>0</code>-only success semantics from a STAGE repository checkout</td><td>Distribution with the installed plugin, incidental output wording, specific nonzero exit values, and internal implementation</td></tr></tbody></table>
-<p>The installed mapping skill packages the two read-only operations, exact
-schemas, and declared Python dependency ranges it needs to perform an adoption
-or external audit without a STAGE repository checkout. The host still supplies
-Python 3.11 and the declared PyYAML/jsonschema environment; plugin installation
-does not provision a Python runtime or virtual environment. It does not expose
-a general STAGE CLI or package schema migration. Explicit <code>0.1</code> to <code>0.3</code>
-migration remains a repository-backed owner operation because it is rare,
-review-bearing, and separately authorized. The operation-preflight command
-remains useful maintainer tooling but is not required by the installed plugin
-or documented as a normal practitioner entry point. The recommended <code>1.0.0</code>
-boundary leaves it outside the stable owner interface until a real project
-consumer requires that compatibility promise.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="maintained-guidance-not-a-stable-api">Maintained Guidance, Not A Stable API<a href="#maintained-guidance-not-a-stable-api" class="hash-link" aria-label="Direct link to Maintained Guidance, Not A Stable API" title="Direct link to Maintained Guidance, Not A Stable API" translate="no">​</a></h3>
-<p>The delivery loop, task-evidence matrix, visual-work guidance, engine profiles,
-reference architecture, adoption menu, failure atlas, and Solo Unity profile
-should remain maintained documentation. They may be corrected, reorganized, or
-simplified compatibly without treating every prose change as an API break.</p>
-<p>The Solo Unity dependency catalog, recipes, and bootstrap/source-transfer tools
-serve the owner&#x27;s current workflow. They are optional personal tooling, not a
-required STAGE stack and not part of the proposed 1.x interoperability promise.
-Their safety properties and destructive boundaries still require tests and
-truthful release notes.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="maintainer-laboratory-and-historical-evidence">Maintainer Laboratory And Historical Evidence<a href="#maintainer-laboratory-and-historical-evidence" class="hash-link" aria-label="Direct link to Maintainer Laboratory And Historical Evidence" title="Direct link to Maintainer Laboratory And Historical Evidence" translate="no">​</a></h3>
-<p>Repository gates, test runners, release helpers, snapshots, semantic hashes,
-external-trial refreshers, behavior probes, trials, fixtures, case-study
-schemas and validators, and study runners are Maintainer Laboratory surfaces.
-They may evolve with the repository as long as they continue to validate the
-owner contract they claim to check. Exact case-study schemas remain frozen for
-the historical records that declare them, but that archival obligation does
-not turn research authoring into a practitioner-facing 1.x API.</p>
-<p>Historical ADRs, release notes, retired schemas, rejected visual-rehearsal
-artifacts, and failed or inconclusive studies remain evidence. Their existence
-does not make their old interfaces supported in 1.x.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="proposed-1x-compatibility-policy">Proposed 1.x Compatibility Policy<a href="#proposed-1x-compatibility-policy" class="hash-link" aria-label="Direct link to Proposed 1.x Compatibility Policy" title="Direct link to Proposed 1.x Compatibility Policy" translate="no">​</a></h2>
-<p>If accepted, the <code>1.x</code> line should use these rules:</p>
-<ol>
-<li class="">A breaking change to the stable owner contract requires <code>2.0.0</code>.</li>
-<li class="">Compatible new capability uses a minor release; compatible corrections use
-a patch release.</li>
-<li class="">Project-map schemas <code>0.1</code> and <code>0.3</code> remain valid throughout <code>1.x</code>. New
-project-map capability uses a new declared schema version rather than
-changing an existing exact schema in place. Historical case-study records
-remain readable in the STAGE repository, but their authoring schema is not
-a stable practitioner interface.</li>
-<li class="">A stable owner interface may be deprecated in a minor release but is not removed
-before the next major release. A safety or security defect may force earlier
-removal, with explicit migration guidance and release notes.</li>
-<li class="">Validators never silently rewrite project artifacts. Migration remains an
-explicit, separately reviewable operation that preserves human decisions;
-replacing the source or an existing candidate requires a distinct flag.</li>
-<li class="">Exact skill prose is not an API. Skill behavior may be clarified while the
-named route, authority boundary, preservation rules, and truthful evidence
-contract remain compatible.</li>
-<li class="">Maintainer Laboratory and personal-profile internals may change without a
-major release, but releases must not represent those changes as stable
-practitioner compatibility.</li>
-</ol>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="proposed-support-boundary">Proposed Support Boundary<a href="#proposed-support-boundary" class="hash-link" aria-label="Direct link to Proposed Support Boundary" title="Direct link to Proposed Support Boundary" translate="no">​</a></h2>
-<p>The first stable release should support the environment actually exercised by
-the owner rather than claiming an untested platform matrix:</p>
-<ul>
-<li class="">the installed Codex plugin on the owner&#x27;s current Codex desktop/CLI workflow;</li>
-<li class="">packaged and repository Python operations on Python 3.11 with the declared
-dependency ranges; plugin installation itself does not create that runtime;</li>
-<li class="">Git repositories on the owner&#x27;s current macOS workflow; and</li>
-<li class="">Unity guidance and optional personal tooling as source-visible reference
-material, with exact Unity, package, platform, and visual acceptance owned by
-each game project.</li>
-</ul>
-<p>Other operating systems, agent hosts, models, engines, and team workflows are
-best-effort unless a release record names direct evidence for them. External
-maps and operational studies may support bounded transferability claims, but do
-not silently expand this support boundary.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-gates">Release Gates<a href="#release-gates" class="hash-link" aria-label="Direct link to Release Gates" title="Direct link to Release Gates" translate="no">​</a></h2>
-<table><thead><tr><th>Gate</th><th>Current status</th><th>What closes it</th></tr></thead><tbody><tr><td>Public-contract inventory</td><td>Candidate defined above</td><td>Owner accepts or corrects the proposed stable surfaces</td></tr><tr><td>Compatibility and migration policy</td><td>Candidate defined above</td><td>Owner accepts the <code>1.x</code> rules and they are promoted into canonical compatibility guidance</td></tr><tr><td>Support boundary</td><td>Candidate defined above</td><td>Owner accepts the personal-use platform and toolchain boundary</td></tr><tr><td>Critical defect review</td><td>Mechanical review, installed 0.6.11 routing evidence, and the complete 443-test release gate passed in a disposable committed candidate clone on 2026-07-29; a 1.0 candidate rerun remains required</td><td>Full release gate and direct package validation pass at the eventual 1.0 candidate revision; open failures are fixed or explicitly deferred</td></tr><tr><td>Release metadata</td><td>Available</td><td>Version, specification, README, changelog, release note, tag, and installed-plugin refresh are updated together</td></tr><tr><td>Owner acceptance</td><td>Pending and non-delegable</td><td>Owner explicitly chooses to freeze the contract as <code>1.0.0</code></td></tr></tbody></table>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="explicit-non-gates">Explicit Non-Gates<a href="#explicit-non-gates" class="hash-link" aria-label="Direct link to Explicit Non-Gates" title="Direct link to Explicit Non-Gates" translate="no">​</a></h2>
-<p>The following evidence would improve understanding but does not block a stable
-personal-use release:</p>
-<ul>
-<li class="">another maintainer;</li>
-<li class="">independent adoption;</li>
-<li class="">a productivity improvement claim;</li>
-<li class="">a cross-team workflow;</li>
-<li class="">support for every game engine or operating system;</li>
-<li class="">a maturity score;</li>
-<li class="">a visual-review package, gallery, contact sheet, or capture protocol; and</li>
-<li class=""><code>repeatable</code> or <code>durable</code> owner-readiness status.</li>
-</ul>
-<p>Those remain separate evidence dimensions. They must not be implied by the
-release number.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="owner-decisions">Owner Decisions<a href="#owner-decisions" class="hash-link" aria-label="Direct link to Owner Decisions" title="Direct link to Owner Decisions" translate="no">​</a></h2>
-<p>Before <code>1.0.0</code>, the owner should answer only these compatibility-bearing
-questions. The recommendation above is not acceptance on the owner&#x27;s behalf.</p>
-<ol>
-<li class="">Accept the proposed stable contract, or name a surface to add or remove.</li>
-<li class="">Accept support for project-map schemas <code>0.1</code> and <code>0.3</code> throughout <code>1.x</code>.</li>
-<li class="">Accept the packaged validation and snapshot operations, the separate
-repository-backed migration command, and keeping case-study validation,
-operation preflight, and Solo Unity tooling outside a bundled general CLI.</li>
-<li class="">Accept the owner-macOS, Codex, and Python 3.11 support boundary.</li>
-<li class="">After the critical defect review, explicitly accept or defer <code>1.0.0</code>.</li>
-</ol>
-<p>Until those decisions are recorded, STAGE remains a <code>0.6</code> initial-development
-release even when all mechanical checks pass.</p>
-<p>An unambiguous owner response can be one line:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">Accept the proposed STAGE 1.x contract and release 1.0.0.</span><br></div></code></pre></div></div>
-<p>To change or defer it instead:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">Accept except: &lt;specific contract correction&gt;.</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Defer 1.0 because: &lt;specific owner concern&gt;.</span><br></div></code></pre></div></div>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="current-mechanical-evidence">Current Mechanical Evidence<a href="#current-mechanical-evidence" class="hash-link" aria-label="Direct link to Current Mechanical Evidence" title="Direct link to Current Mechanical Evidence" translate="no">​</a></h2>
-<p>The initial readiness review passed 255 tests across 26 test modules. The
-installed <code>0.6.5</code> candidate passed 264 tests across the same 26 modules. The
-<code>0.6.6</code> source candidate passed 274 tests across 27 modules. The <code>0.6.7</code>
-release candidate passed 292 tests across 27 modules, every supported study and
-map, frozen compatibility fingerprints, the Solo Unity profile, repository
-links, structured files, and diff hygiene. The <code>0.6.8</code> candidate passed 303
-tests across the same 27 modules plus those repository-level checks. The
-<code>0.6.9</code> candidate passed 306 tests after adding direct target-index
-preservation regressions for validation, snapshots, and external refreshes. The
-post-<code>0.6.9</code> source candidate passed 347 tests across the same 27 modules after
-project-map operation, evidence, ownership, provenance, and preflight
-hardening. The post-<code>0.6.10</code> source candidate passed 398 tests across 29 modules
-after shared structured-data model enforcement, atomic-publication portability
-and metadata preservation, and release-gate cleanliness hardening. The current
-<code>0.6.11</code> source candidate passes 443 tests across 37 modules after adding the
-explicit orientation and verification workflows, deterministic helper
-coverage, and the derived human-documentation consumer. The current Codex
-plugin validator and all four skill validators also passed. A disposable local
-clone containing a commit of the complete candidate passed the repository
-release gate, including physical package completeness, schemas, studies, maps,
-the Solo Unity profile, links, and documentation discovery. The source package
-contains only the four declared workflows. Installed-version evidence belongs
-to the release record because an open Codex task retains the skill snapshot
-with which it started.</p>
-<table><thead><tr><th>Proposed stable surface</th><th>Current mechanical guard</th><th>Remaining judgment</th></tr></thead><tbody><tr><td>Safety Kernel and optional contracts</td><td><code>test_core_workflow_routing.py</code> checks the eight named obligations, finite optional contracts, bounded requirement language, and explicit mapping route</td><td>Whether the obligations are useful and small enough to freeze</td></tr><tr><td>Plugin identity and routing</td><td><code>test_plugin_packaging.py</code>, <code>test_core_workflow_routing.py</code>, and the current Codex package validators check the four-workflow package, explicit-only companions, and launcher metadata</td><td>Whether this is the owner’s desired long-term invocation surface</td></tr><tr><td>Project-map schemas <code>0.1</code> and <code>0.3</code></td><td>Frozen SHA-256 fingerprints plus template, adopted-map, external-audit, path, provenance, ownership, and operation-reference validation</td><td>Whether both versions should remain supported for all of <code>1.x</code></td></tr><tr><td>Historical case-study records</td><td>Frozen SHA-256 fingerprints plus template, historical-study, immutable-revision, and maintainer-review validation protect current repository evidence</td><td>How the Maintainer Laboratory may evolve without rewriting historical conclusions</td></tr><tr><td>Installed project-map operations</td><td>Package parity and real subprocess tests cover exact schemas, truthful success/failure, read-only validation, unchanged-target snapshots, and preservation of the target Git index</td><td>Whether their narrow purpose and invocation flags should be frozen for <code>1.x</code></td></tr><tr><td>Repository project-map migration</td><td>Real subprocess tests cover exact source and candidate schema validation, all four preserved <code>0.1</code> trial maps, explicit replacement, atomic publication, and failed-output absence</td><td>Whether this rare owner operation should remain supported throughout <code>1.x</code></td></tr><tr><td>Repository release gate</td><td><code>check_repository.py --scope release</code> composes all 443 tests and repository-level artifact, link, profile, and diff checks</td><td>Product usefulness, human acceptance, and release timing</td></tr></tbody></table>
-<p>No open GitHub issue or source <code>TODO</code>, <code>FIXME</code>, <code>HACK</code>, <code>XXX</code>, or <code>BUG</code> marker
-identified a known critical release defect. This is a bounded mechanical
-review, not a warranty. The same gates must run again against the actual release
-candidate, and the owner still decides whether any known product or workflow
-limitation is critical enough to defer 1.0.</p>
-<p>A fresh installed-<code>0.6.6</code> ordinary-delivery probe also passed the proposed
-artifact-free route: implicit skill selection produced only the requested
-source, test, and documentation diff, ran the focused suite, created no STAGE
-artifact, and did not commit. This supports route availability, not treatment
-effect or general model behavior. The corresponding installed mapping dogfood
-is recorded in the <code>0.6.6</code> release evidence. The installed <code>0.6.7</code> mapping
-commands also passed a clean-environment packaging probe: validation succeeded,
-before-and-after snapshots matched, and a nested repository target failed
-closed. That supports the packaged command boundary, not map completeness or
-workflow efficacy. The installed <code>0.6.8</code> commands repeated that probe after the
-snapshot hardening: the adopted map validated, receipts declared the
-<code>git_source_state</code> scope and matched at the release revision, and a nested
-target again failed closed. This narrows packaging and boundary uncertainty; it
-does not add independent-adoption or productivity evidence. The installed
-<code>0.6.9</code> commands then repeated the package probe against a disposable release
-clone with deliberately stale tracked-file metadata. Validation and scoped
-snapshot comparison passed, the nested target failed closed, and the exact
-target index bytes remained unchanged. This directly exercises the corrected
-read-only boundary without broadening its stated source-state scope.
-The installed <code>0.6.10</code> cache repeated that fixed-revision probe after the
-operation, ownership, and provenance hardening. Its validator accepted the
-adopted map, scoped snapshots matched, a nested target failed closed, and the
-clean clone&#x27;s Git index hash remained byte-identical despite deliberately
-stale tracked-file metadata. This confirms packaging of the current candidate;
-it does not add independent-adoption, usefulness, or productivity evidence.
-The installed <code>0.6.11</code> cache added a bounded explicit-orientation probe. A
-fresh ephemeral Codex process injected the qualified <code>stage-orient</code> skill,
-loaded its bundled helper from the versioned cache, inspected the dirty STAGE
-tree read-only, and stopped with <code>continuity-gap</code>. That confirms this route&#x27;s
-installed availability and stopping behavior in one consumer invocation; it
-does not establish universal routing reliability or replace owner acceptance.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2026-08-01T20:39:40.000Z" itemprop="dateModified">Aug 1, 2026</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/handbook/docs/compatibility"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Artifact Compatibility</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/handbook/docs/adr"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">STAGE Architecture Decisions</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#decision-boundary" class="table-of-contents__link toc-highlight">Decision Boundary</a></li><li><a href="#recommended-owner-disposition" class="table-of-contents__link toc-highlight">Recommended Owner Disposition</a></li><li><a href="#proposed-1x-contract" class="table-of-contents__link toc-highlight">Proposed 1.x Contract</a><ul><li><a href="#stable-owner-contract" class="table-of-contents__link toc-highlight">Stable Owner Contract</a></li><li><a href="#maintained-guidance-not-a-stable-api" class="table-of-contents__link toc-highlight">Maintained Guidance, Not A Stable API</a></li><li><a href="#maintainer-laboratory-and-historical-evidence" class="table-of-contents__link toc-highlight">Maintainer Laboratory And Historical Evidence</a></li></ul></li><li><a href="#proposed-1x-compatibility-policy" class="table-of-contents__link toc-highlight">Proposed 1.x Compatibility Policy</a></li><li><a href="#proposed-support-boundary" class="table-of-contents__link toc-highlight">Proposed Support Boundary</a></li><li><a href="#release-gates" class="table-of-contents__link toc-highlight">Release Gates</a></li><li><a href="#explicit-non-gates" class="table-of-contents__link toc-highlight">Explicit Non-Gates</a></li><li><a href="#owner-decisions" class="table-of-contents__link toc-highlight">Owner Decisions</a></li><li><a href="#current-mechanical-evidence" class="table-of-contents__link toc-highlight">Current Mechanical Evidence</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Start</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/using-stage-with-codex">Choose a Codex workflow</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/STAGE">Read the project map</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Method</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/method">Delivery method</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/SPEC">Safety Kernel</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">History</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/releases">Release records</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/adr">Architecture decisions</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">STAGE Game Engineering. Human product authority remains non-delegable.</div></div></div></footer></div>
+<p>Status: owner accepted the 1.x contract and authorized the 1.0.0 release on 2026-09-27</p>
+<p>Last reviewed: 2026-09-27</p>
+<a id="decision-boundary"></a>
+<a id="recommendation"></a>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="accepted-decision">Accepted Decision<a href="#accepted-decision" class="hash-link" aria-label="Direct link to Accepted Decision" title="Direct link to Accepted Decision" translate="no">​</a></h2>
+<p>Release <strong>plugin 1.0.0 / method 1.0</strong> as a compatibility commitment for the
+owner&#x27;s working method. The <a class="" href="/handbook/docs/releases/1.0.0">release record</a> owns
+the exact changes, verification evidence, and remaining release operations.
+It includes the previously unreleased 0.7 redesign; publishing an intermediate 0.7 is not
+required.</p>
+<p>On September 27 the owner described Salvageist as a successful pilot and asked
+to carry its learnings into 1.0. After reviewing the completed candidate, the
+owner directed: “proceed to create 1.0 and published, everything updated.” This
+accepts the presented 1.x commitment and authorizes integration, release,
+documentation publication, and plugin refresh. The September 25 study remains
+a dated retrospective with its original checkpoint and formal playtest status.</p>
+<p>The 1.0 decision accepts a small stable surface and its maintenance cost. It would not establish independent adoption, causal productivity gains,
+universal engine/model support, or autonomous game design. Those are separate
+claims, not prerequisites for a personal compatibility-stable release.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-salvageist-changes">What Salvageist Changes<a href="#what-salvageist-changes" class="hash-link" aria-label="Direct link to What Salvageist Changes" title="Direct link to What Salvageist Changes" translate="no">​</a></h2>
+<p>The <a class="" href="/handbook/docs/case-studies/salvageist">pilot</a> records nine real-change groups covering
+architecture, iteration, performance, telemetry, UI, defect repair, and release.
+Repeated owner play supplied useful corrections and positive product feedback.
+The <a href="https://github.com/chifunt/stage-game-engineering/blob/main/trials/salvageist/workflow-follow-up.md" target="_blank" rel="noopener noreferrer" class="">workflow-cost follow-up</a> shows where
+the method&#x27;s intended proportionality was defeated by local policy and tooling.</p>
+<table><thead><tr><th>Learning</th><th>Applied response</th></tr></thead><tbody><tr><td>Broad suites missed real input, clearance, and cold-start defects</td><td>Keep production-consumer checks and early human play; distinguish cold events from steady-state performance</td></tr><tr><td>A cleaner shared architecture initially performed worse</td><td>Measure comparable target workloads and actual backend execution; preserve rejected candidates</td></tr><tr><td>Documentation-only edits paid for engine checks</td><td>Select gates over the complete task delta; unknown inputs remain conservative; preserve the full release route</td></tr><tr><td>Failure and waiting consumed unnecessary work</td><td>Stop expensive dependent stages after failed prerequisites; let the runner report compact completion evidence</td></tr><tr><td>Large recovery docs still described stale state</td><td>Reconcile current claims with source and route to dated history and machine-local evidence only when needed</td></tr><tr><td>Shared delivery can duplicate builds, review, and coordination</td><td>Give shared integration/release one owner when delegation is authorized; keep simple work in one task</td></tr></tbody></table>
+<p>These are conditional guidance improvements. They add no Safety Kernel rule,
+schema, dashboard, mandatory task chain, or model requirement. Stronger reasoning
+and independent review are options when complexity earns their cost.</p>
+<p>The pilot does not supply consistent human active time, time to fair inspection,
+or STAGE maintenance minutes. Its informal positive feedback is not a retroactive
+four-dimension playtest pass. Owner readiness remains <code>operational</code>; the separate
+<code>repeatable</code> and <code>durable</code> categories need their own cost and resumption evidence.
+None of those missing measurements blocks this bounded compatibility release.</p>
+<a id="proposed-stable-surfaces"></a>
+<a id="contract-to-accept"></a>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="accepted-contract">Accepted Contract<a href="#accepted-contract" class="hash-link" aria-label="Direct link to Accepted Contract" title="Direct link to Accepted Contract" translate="no">​</a></h2>
+<p>The canonical <a class="" href="/handbook/docs/compatibility#stable-1x-surface">1.x compatibility inventory</a>
+freezes the obligations and interfaces people can depend on: S1–S8, the four
+skill routes, supported project-map versions, named installed read-only helpers,
+orientation/verification inventory, and repository-backed migration. Compatibility
+lasts throughout the 1.x line. Preserve older supported schemas and make migrations
+explicit; breaking stable interfaces requires a major release and migration notes.</p>
+<p>Instructional prose, templates, reference layout, optional board labels, engine
+profiles, and model choices remain maintainable. Historical case-study schemas
+remain valid without turning all laboratory tooling into a public research API.
+Optional mapping, Unity bootstrap, and research capabilities receive correctness,
+compatibility, and maintenance support; expansion needs a present consumer.</p>
+<a id="support-and-maintenance-boundary"></a>
+<p>Support follows the exercised macOS/Codex/Git/Python workflow and declared packaged
+dependencies. No calendar support term is promised. Installing 1.0 does
+not create or rewrite game-project artifacts. See <a class="" href="/handbook/docs/adr/propose-a-bounded-1x-contract-after-salvageist">ADR 0066</a>.</p>
+<a id="candidate-gates-and-decisions"></a>
+<a id="if-the-owner-later-chooses-10"></a>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-path">Release Path<a href="#release-path" class="hash-link" aria-label="Direct link to Release Path" title="Direct link to Release Path" translate="no">​</a></h2>
+<p>The release incorporates the 0.7 correctness repairs, paired Astra evidence,
+and Salvageist-informed guidance. Dated checks and publication receipts belong in the
+<a class="" href="/handbook/docs/releases/1.0.0">release record</a>; earlier passes are not relabeled as current.
+The agent completes deterministic metadata, both lockfiles, compatibility notes,
+release evidence, and a local checkpoint before the owner decision.</p>
+<p>The owner has authorized the complete 1.0 release path. Integrate the finished
+proposal through repository checks, obtain successful hosted quality on current
+main, create the annotated tag and GitHub Release, publish the guarded public
+documentation mirror, and refresh the plugin for fresh tasks. Release Please
+stays draft-only; its tag policy follows STAGE&#x27;s existing <code>v&lt;version&gt;</code> convention.
+The release record distinguishes completed operations from work still in progress.</p>
+<p>Continue using real project work to improve the guidance. Record a short cost,
+rework, or escaped-defect observation when it can inform a decision. A fresh-agent
+takeover and a bounded lighter-model comparison are useful future opportunities,
+not additional release ceremonies or reasons to defer ordinary work.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2026-09-27T00:44:02.000Z" itemprop="dateModified">Sep 27, 2026</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/handbook/docs/compatibility"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Artifact Compatibility</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/handbook/docs/adr"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">STAGE Architecture Decisions</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#accepted-decision" class="table-of-contents__link toc-highlight">Accepted Decision</a></li><li><a href="#what-salvageist-changes" class="table-of-contents__link toc-highlight">What Salvageist Changes</a></li><li><a href="#accepted-contract" class="table-of-contents__link toc-highlight">Accepted Contract</a></li><li><a href="#release-path" class="table-of-contents__link toc-highlight">Release Path</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Start</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/using-stage-with-codex">Choose a Codex workflow</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/STAGE">Read the project map</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Method</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/method">Delivery method</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/SPEC">Safety Kernel</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">History</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/releases">Release records</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/adr">Architecture decisions</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">STAGE Game Engineering. Human product authority remains non-delegable.</div></div></div></footer></div>
 </body>
 </html>

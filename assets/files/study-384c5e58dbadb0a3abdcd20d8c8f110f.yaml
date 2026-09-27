@@ -1,0 +1,166 @@
+study_version: "0.4"
+
+study:
+  id: "salvageist-owner-delivery-pilot"
+  title: "Salvageist Owner-Led Delivery Pilot"
+  status: "operational"
+  type: "operational_trial"
+  independence: "same_director"
+  generated_at: "2026-09-25T15:03:30Z"
+  maintainer_review: "pending"
+  protocol_basis: "Retrospective owner-requested audit; questions selected after development."
+  method_snapshot: "Installed task skill 0.7.0; earlier per-turn versions were not recorded."
+
+source:
+  repository: "https://github.com/chifunt/salvageist.git"
+  branch: "codex/ui-readability-polish"
+  revision: "2dedbbaeef6ee399d8617d43bc1d0a1b950c8956"
+  working_tree_dirty: true
+  working_tree_path_count: 2
+  formal_source: "Start-of-audit committed source and dated reports; two pre-existing unstaged files protected."
+  rehearsal_copy: null
+  pre_snapshot: null
+  post_snapshot: null
+  protected_paths:
+    - "docs/presentation-overview.svg"
+    - "Assets/Settings/UniversalRenderPipelineGlobalSettings.asset"
+  mutation_boundary: "Authorized game/STAGE documentation corrections; no gameplay, tuning or publication change."
+
+project_profile:
+  engine: "Unity 6000.6.3f1 / URP 17.6, release WebGL with native jobs and Burst contacts"
+  languages: ["C#", "UXML", "USS", "JavaScript", "Unity serialized assets"]
+  architecture_styles:
+    - "Concrete Unity run and feature owners"
+    - "Authored configuration and native UI Toolkit"
+    - "Shared engine-independent numeric crowd kernel"
+    - "Run-owned compiled contact adapter"
+  tracked_path_count: 2082
+  commit_count: 46
+  map_profile: "compact"
+  map_adopted: false
+  map_profile_meaning: "Descriptive study granularity only; no STAGE map contract adopted."
+
+research_questions:
+  - "Which production-consumer and ownership practices helped deliver owner-directed changes?"
+  - "Where did broad testing, data orientation and documentation fail to answer the real claim?"
+  - "What knowledge needed to move from the conversation into canonical project guidance?"
+  - "Which conditional method improvements are supported without adding routine ceremony?"
+
+product_experience:
+  material: true
+  gate: "not_tested"
+  hypothesis:
+    provenance: "retrospective"
+    authored_at: "2026-09-25T15:03:30Z"
+    player_fantasy: "Rebuild a machine swarm from defeated enemy patrols."
+    core_verbs: ["Steer the whole army", "Choose fights", "Commit to local reclamation"]
+    intended_experience: ["Low micro", "Meaningful positioning", "Growth through salvage"]
+    first_minute: "Move five Scouts, recognize dangerous patrols and choose a small fight."
+    short_loop: "Approach, fight automatically, defeat a patrol, reclaim at risk, reposition."
+    success: "Sustain and grow the swarm; no victory or extraction ending."
+    failure: "The final allied death ends the run."
+    stop_conditions:
+      - "New progression and ending ideas remain parked unless the owner reopens them."
+      - "Do not infer product acceptance or performance gains from mechanical test passes."
+  human_playtest:
+    status: "not_run"
+    reviewer: null
+    reviewed_at: null
+    source_revision: null
+    basis: null
+    dimensions:
+      comprehension: "not_tested"
+      usability: "not_tested"
+      engagement: "not_tested"
+      desire_to_continue: "not_tested"
+    findings: []
+    decision: null
+
+operations:
+  - name: "Shared core and direct-boot development routes"
+    status: "passed"
+    provenance: "local"
+    scope: ["numeric core", "Unity scenarios", "native headless", "architecture"]
+    source_revision: "18d8d4d702a7806070fa4fe9ad31a32f7696bb88"
+    declared_toolchain: "Unity 6000.3.6f1 and .NET shared-source runner"
+    effective_toolchain: "Production scenario, numeric and native-player receipts in the game report"
+    evidence:
+      - "https://github.com/chifunt/salvageist/blob/2dedbbaeef6ee399d8617d43bc1d0a1b950c8956/docs/data-oriented-workflow.md"
+    notes: "Correctness/operability passed; capacity performance regressed. Not a whole-game pure simulation."
+  - name: "Matched release-Web crowd comparison"
+    status: "passed"
+    provenance: "local"
+    scope: ["release Web", "same-device repeated comparison", "crowd motor"]
+    source_revision: "a8a92a282e35461dfe507f60043d7aefd24563c4"
+    declared_toolchain: "Unity 6000.3.6f1, IL2CPP/WebAssembly, fixed-step benchmark"
+    effective_toolchain: "M3 Pro, Chromium, 1600x900, three final candidate/control rechecks"
+    evidence:
+      - "https://github.com/chifunt/salvageist/blob/2dedbbaeef6ee399d8617d43bc1d0a1b950c8956/docs/web-performance-2026-09-25.md"
+    notes: "Retains failed candidates and workload checks; no universal FPS or mobile claim."
+  - name: "Unity 6.6 and compiled Web contacts"
+    status: "passed"
+    provenance: "local"
+    scope: ["engine migration", "actual Burst execution", "rendered Web comparison"]
+    source_revision: "c0a7453f43cba15b0f238431b8621de86cec67d1"
+    declared_toolchain: "Unity 6000.6.3f1, Release managed-code variant, Burst contact job"
+    effective_toolchain: "M3 Pro, Chromium 153, 2560x1440, three valid runs per engine"
+    evidence:
+      - "https://github.com/chifunt/salvageist/blob/2dedbbaeef6ee399d8617d43bc1d0a1b950c8956/docs/unity-6-6-web-jobs.md"
+    notes: "Combined engine/backend result, not isolated Burst attribution or whole-game parallelism."
+  - name: "Cold first-combat regression and mechanical gate"
+    status: "passed"
+    provenance: "local"
+    scope: ["cold first death", "Unity shader setup", "complete correctness gate"]
+    source_revision: "9cbf1bbc7db19f67649f8b8bbd20a3434b9b951d"
+    declared_toolchain: "Unity 6000.6.3f1 release-optimized threaded Web"
+    effective_toolchain: "Chromium 153, 2560x1440, serial baseline/candidate/control recheck"
+    evidence:
+      - "https://github.com/chifunt/salvageist/blob/2dedbbaeef6ee399d8617d43bc1d0a1b950c8956/docs/first-combat-stutter.md"
+    notes: "Work shifted to startup; final-patrol cost remains. No fresh timing run for this study."
+  - name: "Ordinary custom-domain deployment"
+    status: "passed"
+    provenance: "hosted"
+    scope: ["artifact identity", "live browser smoke", "hosting isolation", "private symbols"]
+    source_revision: "9cbf1bbc7db19f67649f8b8bbd20a3434b9b951d"
+    declared_toolchain: "Ordinary Unity Web release and guarded Cloudflare host"
+    effective_toolchain: "Live custom domain, HTTP hashes, Chromium diagnostics and Sentry release association"
+    evidence:
+      - "https://github.com/chifunt/salvageist/blob/2dedbbaeef6ee399d8617d43bc1d0a1b950c8956/docs/web-release.md"
+    notes: "Pre-audit receipt; no redeployment, synthetic production incident or plan change for this study."
+
+measures:
+  map_sections_covered: []
+  unresolved_reference_count: 0
+  target_unchanged: false
+  stable_refresh: null
+  semantic_artifact_sha256: null
+  retrospective_change_rows: 9
+  human_active_minutes: null
+  time_to_fair_inspection_minutes: null
+  stage_maintenance_minutes: null
+  independent_handoff_probe: false
+
+findings:
+  supports:
+    - "Target-build comparisons prevented the shared-core migration being misreported as a performance win."
+    - "Project-native Scenario Lab and one-call batches serve designer iteration and agent operation."
+    - "Protected tuning and revision-bound releases retain important owner decisions across changes."
+  challenges:
+    - "Passing suites did not prevent repeated player-found clearance and cold-event defects."
+    - "Substantial docs still contained stale current balance, lifecycle and deployment instructions."
+    - "Repeated testing was audibly disruptive until output protection covered the full runner lifetime."
+    - "Human attention, correction cost and method maintenance were not measured consistently."
+  proposals:
+    - "Separate cold and warmed performance claims; record actual optimized-backend execution."
+    - "Use direct scenarios for iteration while preserving input and fresh-scene lifecycle tests."
+    - "Audit current docs against saved source and disclose machine-local evidence during handoff."
+    - "Record future changes prospectively without a parallel measurement service."
+
+limitations:
+  - "Same director and agent context; no independent adoption or controlled treatment effect."
+  - "No formal revision-bound product playtest; informal owner play and positive feedback are qualified observations."
+  - "Questions and hypothesis were reconstructed retrospectively, not preregistered."
+  - "Raw receipts remain in ignored local game folders; source reports retain summaries and coordinates."
+  - "Private source locators require access and the relevant commits to be pushed separately; no source publication is claimed."
+  - "No independent agent recovery, fresh browser benchmark or deployment for this retrospective."
+  - "The authorized game documentation correction is not a read-only target-immutability study."

@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">Unity Profile | STAGE Game Engineering</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" name="twitter:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" property="og:url" content="https://stage.zoshachi.com/handbook/docs/engine-profiles/unity"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Unity Profile | STAGE Game Engineering"><meta data-rh="true" name="description" content="This profile maps STAGE concepts to common Unity practices. None of the listed packages are required."><meta data-rh="true" property="og:description" content="This profile maps STAGE concepts to common Unity practices. None of the listed packages are required."><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://stage.zoshachi.com/handbook/docs/engine-profiles/unity"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/engine-profiles/unity" hreflang="en"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/engine-profiles/unity" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Unity Profile","item":"https://stage.zoshachi.com/handbook/docs/engine-profiles/unity"}]}</script><link rel="stylesheet" href="/assets/css/styles.5be3741e.css">
-<script src="/assets/js/runtime~main.7e195523.js" defer="defer"></script>
-<script src="/assets/js/main.83aed343.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.0eaae629.js" defer="defer"></script>
+<script src="/assets/js/main.76e2d140.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -113,8 +113,10 @@ correctly once can still leak across scene reloads or use a shader unsupported
 by the active pipeline.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="deterministic-input-rehearsal">Deterministic Input Rehearsal<a href="#deterministic-input-rehearsal" class="hash-link" aria-label="Direct link to Deterministic Input Rehearsal" title="Direct link to Deterministic Input Rehearsal" translate="no">​</a></h2>
 <ul>
-<li class="">Exercise the real Input System adapter and composed scene rather than
-invoking gameplay Commands directly.</li>
+<li class="">For an input/menu claim, exercise the real Input System adapter and composed
+scene rather than invoking gameplay Commands directly. A typed world-command
+scenario is appropriate for a simulation claim, but proves no omitted input
+projection, camera or UI boundary.</li>
 <li class="">Treat virtual-device helper calls as queued input unless the test proves
 otherwise. Publish the queued state before polling the adapter, then publish
 release state before the next action.</li>
@@ -130,6 +132,34 @@ requires it; byte-identical storage is not a verification goal by itself.</li>
 <li class="">Keep virtual Gamepad, physical-controller, control-feel, and human-acceptance
 claims separate.</li>
 </ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="iteration-integration-and-performance">Iteration, Integration And Performance<a href="#iteration-integration-and-performance" class="hash-link" aria-label="Direct link to Iteration, Integration And Performance" title="Direct link to Iteration, Integration And Performance" translate="no">​</a></h2>
+<p>Use the shortest existing route containing the claim. Pure rules can run outside
+Unity when they share production source. A direct-boot scenario can avoid title
+generation and reuse a session for repeated designer/agent experiments. Neither
+replaces fresh-scene lifetime tests or normal menu, input and audio coverage.
+Batch related scenarios or suites in one invocation when the project supports
+it; preserve per-case diagnostics and wait for a cleanup-complete receipt before
+another submission. Do not delete distinct contracts simply to lower test count.</p>
+<p>Automated repeated playback should not disrupt the owner&#x27;s devices. Where
+appropriate, temporarily mute final test output while real sources still play
+and assertions inspect their behavior. Restore the prior setting after failure,
+reload and teardown. Do not lower the authored game mix or certify physical
+speaker quality from a source-state assertion. The same ownership principle
+applies to synthetic input devices, focus and temporary engine settings.</p>
+<p>For a performance claim, establish a target-build baseline before architectural
+change. Match actual canvas resolution, display preference, population, seed,
+input route and simulation clock. Run measurements serially; keep invalid runs
+and rejected candidates with their reasons, then recheck the control when
+machine load could explain a gain. Separate fixed-work measurements from normal
+elapsed-time catch-up, cold first-use events from warmed steady state, and
+rendered player frames from numeric/headless timing. Verify a compiled or job
+backend really executed rather than merely checking a setting. An engine plus
+backend upgrade measures the combination unless separately isolated.</p>
+<p>These practices follow the <a class="" href="/handbook/docs/case-studies/salvageist">Salvageist pilot</a>, where
+the first data-oriented migration regressed a workload, later target-Web changes
+improved it, and a warmed benchmark still missed the first-death shader hitch.
+They are conditional measurement guidance, not a requirement to adopt its
+Scenario Lab, crowd architecture, Burst, ECS or a new STAGE benchmark framework.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="player-build-evidence">Player-Build Evidence<a href="#player-build-evidence" class="hash-link" aria-label="Direct link to Player-Build Evidence" title="Direct link to Player-Build Evidence" translate="no">​</a></h2>
 <ul>
 <li class="">Let the project own build policy: target, enabled scenes, scripting backend,
@@ -164,6 +194,21 @@ release acceptance separately.</li>
 <li class="">Use <a href="/assets/files/run_unity_player_launch_probe-d93c4d9b4f33e93b1b53e976ac45d935.py" target="_blank" class=""><code>run_unity_player_launch_probe.py</code></a>
 to bind a compatible project-owned receipt to the exact built artifact.</li>
 </ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="concurrent-authoring">Concurrent Authoring<a href="#concurrent-authoring" class="hash-link" aria-label="Direct link to Concurrent Authoring" title="Direct link to Concurrent Authoring" translate="no">​</a></h2>
+<p>Use one Unity Editor per worktree. A code-only change opens Unity when its
+verification needs the engine. Isolated Unity work uses its own worktree and
+<code>Library</code>; caches are not project authority. Serialize integration of changes
+that share authored state, then let the integration editor import, compile,
+and exercise the changed production consumer.</p>
+<p>Treat scenes, prefabs, authored assets, project settings, package manifests and
+locks, input-action assets, Addressables, localization, middleware projects,
+animation graphs, and generator-owned asset families as exclusive while they
+are being mutated. Narrow these boundaries only when project conventions and
+observed safe behavior justify it.</p>
+<p>UnityYAMLMerge may resolve syntax in scenes and prefabs, but the integrated
+asset still needs reference, transform, composition, and consumer checks in
+Unity. Return ambiguous serialized or binary conflicts to the owner; do not
+pick one side or regenerate authored state by convenience.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="unity-mcp">Unity MCP<a href="#unity-mcp" class="hash-link" aria-label="Direct link to Unity MCP" title="Direct link to Unity MCP" translate="no">​</a></h2>
 <p>MCP is an operation surface, not an authority source. Use it to inspect scenes, focus compilation, read console state, run tests, enter Play Mode, and capture screenshots. Do not use it to regenerate broad scene state when a targeted serialized edit or manual authoring workflow is safer.</p>
 <p>A one-time editor bootstrap may be useful for creating an initial scene,
@@ -192,8 +237,9 @@ not prescribe a universal export package.</p>
 uses Unity and the project as the verification surfaces. After one authorized
 dependency change, let Unity resolve or import it, wait for compilation and
 domain reload, inspect the settled Console, run the dependency&#x27;s focused checks,
-exercise one real composed use when relevant, inspect the Git delta, and commit
-the accepted checkpoint.</p>
+exercise one real composed use when relevant, inspect the Git delta, and make a local
+checkpoint after relevant mechanical checks pass. Human product acceptance is
+separate.</p>
 <p>Do not create STAGE-specific assessment versions, human-attestation forms, or
 operational-proof packets for a personal project. Preserve raw test, profiler,
 build, or diagnostic output only when it helps a current diagnosis or serves a
@@ -211,6 +257,35 @@ acceptance separate. A later standalone probe launches that exact class of
 artifact, reaches nine project-owned readiness checks, preserves the artifact
 tree, and exits cleanly. Mechanical startup passed; physical controller
 behavior, visual correctness, performance, control feel, and human acceptance
-remain deliberately unclaimed.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2026-08-01T20:39:40.000Z" itemprop="dateModified">Aug 1, 2026</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/handbook/docs/glossary"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">STAGE Glossary</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/handbook/docs/maintaining-stage"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Maintaining STAGE</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#concept-mapping" class="table-of-contents__link toc-highlight">Concept Mapping</a></li><li><a href="#unity-requirements" class="table-of-contents__link toc-highlight">Unity Requirements</a></li><li><a href="#compilation-workflow" class="table-of-contents__link toc-highlight">Compilation Workflow</a></li><li><a href="#readiness-ladder" class="table-of-contents__link toc-highlight">Readiness Ladder</a></li><li><a href="#architecture-guidance" class="table-of-contents__link toc-highlight">Architecture Guidance</a></li><li><a href="#scene-and-ui-authoring" class="table-of-contents__link toc-highlight">Scene And UI Authoring</a></li><li><a href="#runtime-resource-ownership" class="table-of-contents__link toc-highlight">Runtime Resource Ownership</a></li><li><a href="#deterministic-input-rehearsal" class="table-of-contents__link toc-highlight">Deterministic Input Rehearsal</a></li><li><a href="#player-build-evidence" class="table-of-contents__link toc-highlight">Player-Build Evidence</a></li><li><a href="#player-launch-evidence" class="table-of-contents__link toc-highlight">Player-Launch Evidence</a></li><li><a href="#unity-mcp" class="table-of-contents__link toc-highlight">Unity MCP</a></li><li><a href="#visual-work" class="table-of-contents__link toc-highlight">Visual Work</a></li><li><a href="#personal-profile-verification" class="table-of-contents__link toc-highlight">Personal Profile Verification</a></li><li><a href="#dogfood-evidence" class="table-of-contents__link toc-highlight">Dogfood Evidence</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Start</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/using-stage-with-codex">Choose a Codex workflow</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/STAGE">Read the project map</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Method</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/method">Delivery method</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/SPEC">Safety Kernel</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">History</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/releases">Release records</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/adr">Architecture decisions</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">STAGE Game Engineering. Human product authority remains non-delegable.</div></div></div></footer></div>
+remain deliberately unclaimed.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="ci-and-analysis">CI And Analysis<a href="#ci-and-analysis" class="hash-link" aria-label="Direct link to CI And Analysis" title="Direct link to CI And Analysis" translate="no">​</a></h2>
+<p>Unity needs more than a generic C# job. A future project workflow may include:</p>
+<ol>
+<li class="">license/entitlement setup through a trusted provider;</li>
+<li class="">exact Unity editor version;</li>
+<li class="">Library cache only as an optimization, never authority;</li>
+<li class="">batch-mode EditMode tests;</li>
+<li class="">batch-mode PlayMode tests compatible with the project&#x27;s rendering needs;</li>
+<li class="">a project-owned player build;</li>
+<li class="">retained XML, editor logs, player logs, and build receipt; and</li>
+<li class="">target launch/performance jobs only where runners can support the claim.</li>
+</ol>
+<p>Do not add hosted Unity execution until the project has stable local commands,
+secrets handling, and enough recurring value to justify maintenance. A clean
+local rehearsal copy can expose most clean-machine problems earlier.</p>
+<p>Use:</p>
+<ul>
+<li class="">Unity&#x27;s compiler diagnostics;</li>
+<li class="">Unity Test Framework;</li>
+<li class="">assembly definitions for real ownership boundaries;</li>
+<li class="">focused
+<a href="https://docs.unity3d.com/6000.0/Documentation/Manual/roslyn-analyzers.html" target="_blank" rel="noopener noreferrer" class="">Roslyn analyzers</a>
+for important mechanically expressible rules;</li>
+<li class="">project validators for serialized assets and content; and</li>
+<li class="">production-consumer PlayMode routes.</li>
+</ul>
+<p>IDE inspections are useful local feedback. A rule relied upon for project
+acceptance needs a reproducible command or engine route, not only one person&#x27;s
+IDE state.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2026-09-27T00:44:02.000Z" itemprop="dateModified">Sep 27, 2026</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/handbook/docs/glossary"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">STAGE Glossary</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/handbook/docs/maintaining-stage"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Maintaining STAGE</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#concept-mapping" class="table-of-contents__link toc-highlight">Concept Mapping</a></li><li><a href="#unity-requirements" class="table-of-contents__link toc-highlight">Unity Requirements</a></li><li><a href="#compilation-workflow" class="table-of-contents__link toc-highlight">Compilation Workflow</a></li><li><a href="#readiness-ladder" class="table-of-contents__link toc-highlight">Readiness Ladder</a></li><li><a href="#architecture-guidance" class="table-of-contents__link toc-highlight">Architecture Guidance</a></li><li><a href="#scene-and-ui-authoring" class="table-of-contents__link toc-highlight">Scene And UI Authoring</a></li><li><a href="#runtime-resource-ownership" class="table-of-contents__link toc-highlight">Runtime Resource Ownership</a></li><li><a href="#deterministic-input-rehearsal" class="table-of-contents__link toc-highlight">Deterministic Input Rehearsal</a></li><li><a href="#iteration-integration-and-performance" class="table-of-contents__link toc-highlight">Iteration, Integration And Performance</a></li><li><a href="#player-build-evidence" class="table-of-contents__link toc-highlight">Player-Build Evidence</a></li><li><a href="#player-launch-evidence" class="table-of-contents__link toc-highlight">Player-Launch Evidence</a></li><li><a href="#concurrent-authoring" class="table-of-contents__link toc-highlight">Concurrent Authoring</a></li><li><a href="#unity-mcp" class="table-of-contents__link toc-highlight">Unity MCP</a></li><li><a href="#visual-work" class="table-of-contents__link toc-highlight">Visual Work</a></li><li><a href="#personal-profile-verification" class="table-of-contents__link toc-highlight">Personal Profile Verification</a></li><li><a href="#dogfood-evidence" class="table-of-contents__link toc-highlight">Dogfood Evidence</a></li><li><a href="#ci-and-analysis" class="table-of-contents__link toc-highlight">CI And Analysis</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Start</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/using-stage-with-codex">Choose a Codex workflow</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/STAGE">Read the project map</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Method</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/method">Delivery method</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/SPEC">Safety Kernel</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">History</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/releases">Release records</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/adr">Architecture decisions</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">STAGE Game Engineering. Human product authority remains non-delegable.</div></div></div></footer></div>
 </body>
 </html>

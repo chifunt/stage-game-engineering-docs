@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-docs/adr/autonomous-delivery-with-less-ceremony" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">ADR 0065: Autonomous Delivery With Less Ceremony | STAGE Game Engineering</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" name="twitter:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" property="og:url" content="https://stage.zoshachi.com/handbook/docs/adr/autonomous-delivery-with-less-ceremony"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="ADR 0065: Autonomous Delivery With Less Ceremony | STAGE Game Engineering"><meta data-rh="true" name="description" content="Status: Accepted for the 0.7 redesign; release acceptance remains separate"><meta data-rh="true" property="og:description" content="Status: Accepted for the 0.7 redesign; release acceptance remains separate"><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://stage.zoshachi.com/handbook/docs/adr/autonomous-delivery-with-less-ceremony"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/adr/autonomous-delivery-with-less-ceremony" hreflang="en"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/adr/autonomous-delivery-with-less-ceremony" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.5be3741e.css">
+<script src="/assets/js/runtime~main.0eaae629.js" defer="defer"></script>
+<script src="/assets/js/main.76e2d140.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">STAGE</b></a><a class="navbar__item navbar__link" href="/handbook/docs/using-stage-with-codex">Use With Codex</a><a class="navbar__item navbar__link" href="/handbook/docs/using-stage-with-codex">Handbook</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><main class="docMainContainer_TBSr docMainContainerEnhanced_lQrH"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>ADR 0065: Autonomous Delivery With Less Ceremony</h1></header>
+<p>Status: Accepted for the 0.7 redesign; release acceptance remains separate</p>
+<p>Date: 2026-09-19</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="context">Context<a href="#context" class="hash-link" aria-label="Direct link to Context" title="Direct link to Context" translate="no">​</a></h2>
+<p>STAGE&#x27;s safety obligations remain useful, but the operating instructions grew
+around individual failures. Seven delivery stages, a second Director state
+machine, repeated gameplay references, routine worktree and handoff guidance,
+and wording-sensitive tests increased maintenance without demonstrating better
+outcomes. Local checkpointing also depended ambiguously on human product
+acceptance. Release proposals left deterministic clerical work to the human.</p>
+<p>The 0.7 audit found concrete defects alongside that process debt: Git inspection
+could refresh an index or misreport observation failure, revision inventory
+omitted root or merge semantics, output writers accepted linked paths, and
+manual publication could lack current successful quality evidence. Simplifying
+prose alone would leave those defects intact.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="decision">Decision<a href="#decision" class="hash-link" aria-label="Direct link to Decision" title="Direct link to Decision" translate="no">​</a></h2>
+<p>Recommend <strong>Understand → Change → Verify → Deliver</strong> for a solo director and an
+autonomous engineering agent. These are working steps, not forms or narration.
+Preserve all eight Safety Kernel obligations and optional-contract semantics.</p>
+<p>Complete authorized engineering without repeated approval. After relevant
+mechanical checks pass, review the diff and make a task-only local commit while
+preserving unrelated staged and unstaged state. If safe separation is uncertain,
+leave the diff and explain the pending checkpoint. Human product acceptance,
+push, merge, release, and publication are separate decisions; authorization
+already given carries forward. Stop only an affected branch for material
+unresolved intent, authority, capability, or unauthorized operations.</p>
+<p>Load gameplay, visual, quality, continuity, and Director references only when
+their triggers apply. Consolidate packaged gameplay guidance. Keep the Director&#x27;s
+Flow as an optional attention board and its starter at five fields. Raw ideas
+remain distinct from approved work. New or materially changed gameplay needs an
+approved hypothesis and human play before broad expansion; ordinary fixes do
+not reopen settled approval. Choose isolation and handoffs for actual needs.</p>
+<p>Use one packaged read-only Git adapter and shared path validation where needed.
+Treat observation failure as failure, preserve external outputs when publication
+fails, and never restore someone else&#x27;s concurrent changes. Keep successful
+CLI fields, flags, exact supported schemas, and artifact migration behavior.</p>
+<p>Use a shared current-main quality eligibility guard for both documentation
+publication and draft release proposals, including manual recovery. Check first
+with read-only credentials and recheck freshness before consequential writes.
+Keep the scoped public mirror, fast-forward pushes, and draft-only Release Please.
+The agent completes deterministic release edits and evidence before human review.</p>
+<p>Test executable and structural contracts, not incidental prose or copied tool
+versions. Keep immutable action pins, publisher and permission boundaries,
+package closure, compatibility, and version consistency. Pin the resolved
+maintainer Python environment, retaining consumer validator ranges. Report the
+website&#x27;s complete dependency graph, distinguishing valid advisories from a
+failed query; advisory findings remain maintainer input.</p>
+<p>Mapping, Unity bootstrap, and research tooling receive correctness, compatibility,
+and maintenance support. New capability needs a named present consumer. Keep
+engine-specific mechanics in profiles and dated evidence in release records.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="relationships-to-earlier-decisions">Relationships To Earlier Decisions<a href="#relationships-to-earlier-decisions" class="hash-link" aria-label="Direct link to Relationships To Earlier Decisions" title="Direct link to Relationships To Earlier Decisions" translate="no">​</a></h2>
+<ul>
+<li class="">Clarifies <a class="" href="/handbook/docs/adr/make-change-delivery-primary">0020</a>,
+<a class="" href="/handbook/docs/adr/separate-practitioner-kernel-and-maintainer-laboratory">0023</a>, and
+<a class="" href="/handbook/docs/adr/separate-safety-kernel-contracts-and-guidance">0050</a>: ordinary delivery
+stays primary; optional infrastructure and guidance add no universal obligations.</li>
+<li class="">Preserves <a class="" href="/handbook/docs/adr/require-consumer-complete-verification">0022</a> and
+<a class="" href="/handbook/docs/adr/evaluate-authority-at-the-proposed-operation">0051</a>: claims include
+real consumers and authority is assessed at the actual operation.</li>
+<li class="">Preserves <a class="" href="/handbook/docs/adr/gate-player-facing-expansion-on-human-play">0052</a>,
+<a class="" href="/handbook/docs/adr/keep-gameplay-design-human-led-and-experience-claims-bounded">0053</a>, and
+<a class="" href="/handbook/docs/adr/use-player-system-hypotheses-not-fun-scores">0054</a>, with one conditional
+packaged gameplay reference.</li>
+<li class="">Supersedes the required-looking state transitions in
+<a class="" href="/handbook/docs/adr/use-an-optional-directors-flow-for-solo-attention">0055</a>, routine
+isolation defaults in <a class="" href="/handbook/docs/adr/use-small-batch-agent-branches-and-separate-release-identities">0057</a>,
+and routine handoff/recovery-test ceremony in
+<a class="" href="/handbook/docs/adr/use-context-spines-and-revision-bound-task-handoffs">0058</a>.</li>
+<li class="">Preserves <a class="" href="/handbook/docs/adr/layer-quality-gates-without-automating-product-acceptance">0056</a>
+and <a class="" href="/handbook/docs/adr/add-explicit-orientation-and-verification-workflows">0059</a>: gate
+strength and explicit companion mutation boundaries remain intact.</li>
+<li class="">Clarifies <a class="" href="/handbook/docs/adr/serve-public-documentation-mirror-through-cloudflare-pages">0062</a>
+and supersedes the human-clerical-completion requirement in
+<a class="" href="/handbook/docs/adr/automate-draft-release-proposals-without-releasing">0064</a>. Release
+Please remains proposal-only; a finished proposal precedes human acceptance.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="consequences-and-evaluation">Consequences And Evaluation<a href="#consequences-and-evaluation" class="hash-link" aria-label="Direct link to Consequences And Evaluation" title="Direct link to Consequences And Evaluation" translate="no">​</a></h2>
+<p>Release as plugin 0.7.0 / method 0.7, retaining existing artifact compatibility.
+Instructions remain model-neutral. Paired fresh-context GPT-6 Astra probes
+compare 0.6.11 and the candidate on preservation, progress, stopping, truthful
+evidence, and interruptions. Preserve every run and investigate failures before
+retesting. These support bounded release confidence, not general performance.
+The <a class="" href="/handbook/docs/releases/0.7.0">0.7 release record</a> owns dated results and limitations.</p>
+<p>For the next 8–12 real game changes, use the existing evaluation context to
+record brief observations of human attention, fair inspection, useful decisions,
+rework, escaped defects, and STAGE maintenance. This observation period does not
+block ordinary delivery or 0.7 release. The owner has not decided 1.0.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2026-09-27T00:44:02.000Z" itemprop="dateModified">Sep 27, 2026</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#context" class="table-of-contents__link toc-highlight">Context</a></li><li><a href="#decision" class="table-of-contents__link toc-highlight">Decision</a></li><li><a href="#relationships-to-earlier-decisions" class="table-of-contents__link toc-highlight">Relationships To Earlier Decisions</a></li><li><a href="#consequences-and-evaluation" class="table-of-contents__link toc-highlight">Consequences And Evaluation</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Start</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/using-stage-with-codex">Choose a Codex workflow</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/STAGE">Read the project map</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Method</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/method">Delivery method</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/SPEC">Safety Kernel</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">History</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/releases">Release records</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/adr">Architecture decisions</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">STAGE Game Engineering. Human product authority remains non-delegable.</div></div></div></footer></div>
+</body>
+</html>

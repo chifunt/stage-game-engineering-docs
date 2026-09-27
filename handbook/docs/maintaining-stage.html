@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">Maintaining STAGE | STAGE Game Engineering</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" name="twitter:image" content="https://stage.zoshachi.com/img/stage-social-card.svg"><meta data-rh="true" property="og:url" content="https://stage.zoshachi.com/handbook/docs/maintaining-stage"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Maintaining STAGE | STAGE Game Engineering"><meta data-rh="true" name="description" content="This guide is for changing the STAGE method, plugin, schemas, tools, profiles,"><meta data-rh="true" property="og:description" content="This guide is for changing the STAGE method, plugin, schemas, tools, profiles,"><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://stage.zoshachi.com/handbook/docs/maintaining-stage"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/maintaining-stage" hreflang="en"><link data-rh="true" rel="alternate" href="https://stage.zoshachi.com/handbook/docs/maintaining-stage" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Maintaining STAGE","item":"https://stage.zoshachi.com/handbook/docs/maintaining-stage"}]}</script><link rel="stylesheet" href="/assets/css/styles.5be3741e.css">
-<script src="/assets/js/runtime~main.7e195523.js" defer="defer"></script>
-<script src="/assets/js/main.83aed343.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.0eaae629.js" defer="defer"></script>
+<script src="/assets/js/main.76e2d140.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -47,7 +47,9 @@ requirements, canonical project-map validator requirements, and packaged
 validator requirements so a grouped update changes all three declarations
 together. The repository mirror test remains authoritative and fails closed if
 the generated update is incomplete.</p>
-<p>Use a Python environment containing <code>requirements-dev.txt</code>. A repository-local
+<p>Use the fully pinned maintainer environment in <code>requirements-dev.txt</code>, including
+its transitive dependencies. The distributed map validator retains its supported
+consumer dependency ranges. A repository-local
 environment keeps the release checks independent from the host Python:</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">python3 -m venv .venv</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">.venv/bin/python -m pip install -r requirements-dev.txt</span><br></div></code></pre></div></div>
 <p>Use the selected environment consistently. If <code>yaml</code> is missing, the gate has
@@ -175,14 +177,16 @@ model, and version when reporting a routing failure; repository validation and
 Markdown. It owns navigation and presentation only. Do not copy method facts
 into generated pages or edit <code>website/build/</code> and <code>website/.docusaurus/</code>.</p>
 <p>Use Node.js 24 or newer:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">npm --prefix website ci</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">npm --prefix website run build</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">python3 scripts/check_public_site.py --site website/build</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">npm --prefix website audit --omit=dev</span><br></div></code></pre></div></div>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">npm --prefix website ci</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">npm --prefix website run build</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">python3 scripts/check_public_site.py --site website/build</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">python3 scripts/report_website_advisories.py</span><br></div></code></pre></div></div>
 <p>The production build must fail on broken site routes. Repository link
 validation remains separately authoritative for canonical Markdown, including
 paths that the curated site sends back to GitHub instead of rendering.
-The audit command verifies that the generated static site introduces no
-production Node dependency surface. Docusaurus and its transitive packages are
-development-only build tools; review their advisories separately instead of
-misrepresenting them as shipped runtime dependencies.</p>
+The advisory command reports the complete dependency graph, including build tools
+and JavaScript bundled into the browser output. Advisory counts are maintainer
+input, not proof of exposure or safety in the generated site. Review relevant
+findings in context; do not silently suppress them. An unavailable or malformed
+query fails the check. A valid report containing advisories remains visible in
+the workflow log and summary without being misrepresented as a runtime scan.</p>
 <p>The initial site intentionally has no frozen documentation versions. Git tags
 and release records already preserve history.</p>
 <p>The public site is <code>https://stage.zoshachi.com</code>.
@@ -227,8 +231,8 @@ deterministic release gate.</p>
 unique action items conservatively, aggregates reported token usage, and checks
 case-sensitive literals in the final completed agent message. Literal guards
 are not semantic proof. Passing output establishes only the declared structural
-and literal properties of that invocation; semantic judgment remains
-human-owned.</p>
+and literal properties of that invocation; semantic review still inspects the actual task, diff, trace, and scope. Human
+product acceptance remains separate.</p>
 <p>Record the Codex product and version, model, exact prompt, installed plugin
 version, and target branch/revision/status with any reported result. If the
 probe reads a protected target repository, capture its pre/post repository
@@ -239,7 +243,8 @@ successful sample into a deterministic compatibility claim.</p>
 <p>The plugin package version is semantic <code>major.minor.patch</code>. <code>SPEC.md</code> reports
 the matching method <code>major.minor</code>. Artifact fields such as <code>stage_version</code> are
 separate schema selectors and do not change merely because the method releases.</p>
-<p>For a release:</p>
+<p>For a release, the agent completes preparation within the authorized scope;
+the human reviews the complete proposal and makes the release decisions:</p>
 <ol>
 <li class="">Let <code>.github/workflows/release-proposal.yml</code> open or update the draft after
 successful <code>main</code> quality, or dispatch it manually for recovery.</li>
@@ -254,8 +259,9 @@ method version.</li>
 and evaluation guidance.</li>
 <li class="">Add <code>docs/releases/&lt;version&gt;.md</code> with changes, compatibility, evidence, and
 limitations.</li>
-<li class="">Run the full release gate and direct package validators, then mark the
-proposal ready and merge it after human approval.</li>
+<li class="">Run the full release gate and direct package validators. Prepare a complete
+reviewable proposal; mark it ready and merge only under the applicable human
+authorization. Local preparation and checkpointing need no repeated approval.</li>
 <li class="">From the accepted merge, create and push the annotated <code>v&lt;version&gt;</code> tag and
 create any GitHub Release explicitly. The proposal workflow never does so.</li>
 <li class="">Reinstall the plugin, verify <code>plugin list</code>, and test from a new task.</li>
@@ -263,20 +269,33 @@ create any GitHub Release explicitly. The proposal workflow never does so.</li>
 <p><code>tests/test_plugin_packaging.py</code> derives the method version from the plugin
 package and prevents the specification, README, changelog, or release note from
 silently drifting.</p>
+<p>The manifest explicitly uses <code>v&lt;version&gt;</code> tags without a component prefix,
+matching historical tags and the manually authorized release operation.</p>
 <p>Conventional Commits now feed the draft Release Please proposal. It updates the
 root automation version, plugin version, website package version, manifest, and
 changelog. It deliberately leaves the website lockfile, method-version
 decision, current-version references, compatibility guidance, and required
-release record for human completion. Tag creation, package refresh, and
+release record for agent completion before human review. Tag creation, package refresh, and
 publication remain human-approved.</p>
 <p>The workflow prefers a scoped <code>STAGE_RELEASE_PLEASE_TOKEN</code> secret so opening or
 updating the draft can trigger normal PR checks. Without it, the workflow uses
-<code>GITHUB_TOKEN</code>; GitHub suppresses the initial PR event, so a subsequent human
-completion commit must trigger and pass the quality workflow before merge.
+<code>GITHUB_TOKEN</code>; GitHub suppresses the initial PR event, so a subsequent authorized
+completion commit pushed by a human or permitted agent must trigger and pass
+the quality workflow before merge.
 Repository Actions settings keep the default workflow permission read-only and
 enable GitHub Actions to create pull requests; GitHub exposes that creation
 permission together with approval permission, but this workflow has no review
 approval step or authority.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="optional-tool-support">Optional Tool Support<a href="#optional-tool-support" class="hash-link" aria-label="Direct link to Optional Tool Support" title="Direct link to Optional Tool Support" translate="no">​</a></h2>
+<p>Mapping validators and snapshots serve existing adopted maps and external audits;
+Unity bootstrap and exact source transfer serve the owner&#x27;s declared dependency
+workflow; historical study runners and schemas preserve recorded experiments.
+Keep these on correctness, compatibility, and maintenance support. Add capability
+only for a named present consumer, not speculative reuse. No new registry is
+needed to record that policy. Ordinary game work uses delivery directly.</p>
+<p>The <a class="" href="/handbook/docs/releases/1.0.0">current release record</a> owns dated mechanical and behavioral
+evidence. The <a class="" href="/handbook/docs/evaluation">evaluation guide</a> owns the brief real-change
+observation period; it adds no release or everyday delivery gate.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="maps-schemas-and-studies">Maps, Schemas, And Studies<a href="#maps-schemas-and-studies" class="hash-link" aria-label="Direct link to Maps, Schemas, And Studies" title="Direct link to Maps, Schemas, And Studies" translate="no">​</a></h2>
 <p>Validate a project map and its declared target paths with:</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">.venv/bin/python scripts/validate_project_map.py \</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  --manifest path/to/.stage/project.yaml \</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  --target path/to/game-repository</span><br></div></code></pre></div></div>
@@ -309,6 +328,6 @@ its audit cleaner.</p>
 <p>Supported 0.1 maps remain valid; new maps use 0.3. Read
 <a class="" href="/handbook/docs/compatibility">Artifact Compatibility</a> before changing or migrating a
 schema. Versioned schemas are immutable once frozen; incompatible contracts
-require a new declared artifact version and migration guidance.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2026-08-01T20:39:40.000Z" itemprop="dateModified">Aug 1, 2026</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/handbook/docs/engine-profiles/unity"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Unity Profile</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/handbook/docs/documentation-surfaces"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Documentation Surfaces</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#sources-and-repository-shape" class="table-of-contents__link toc-highlight">Sources And Repository Shape</a></li><li><a href="#development-environment" class="table-of-contents__link toc-highlight">Development Environment</a></li><li><a href="#change-and-release-gates" class="table-of-contents__link toc-highlight">Change And Release Gates</a></li><li><a href="#skill-routing" class="table-of-contents__link toc-highlight">Skill Routing</a></li><li><a href="#local-plugin-install-and-refresh" class="table-of-contents__link toc-highlight">Local Plugin Install And Refresh</a></li><li><a href="#human-documentation-site" class="table-of-contents__link toc-highlight">Human Documentation Site</a></li><li><a href="#behavior-probes" class="table-of-contents__link toc-highlight">Behavior Probes</a></li><li><a href="#release-metadata" class="table-of-contents__link toc-highlight">Release Metadata</a></li><li><a href="#maps-schemas-and-studies" class="table-of-contents__link toc-highlight">Maps, Schemas, And Studies</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Start</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/using-stage-with-codex">Choose a Codex workflow</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/STAGE">Read the project map</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Method</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/method">Delivery method</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/SPEC">Safety Kernel</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">History</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/releases">Release records</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/adr">Architecture decisions</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">STAGE Game Engineering. Human product authority remains non-delegable.</div></div></div></footer></div>
+require a new declared artifact version and migration guidance.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2026-09-27T00:44:02.000Z" itemprop="dateModified">Sep 27, 2026</time></b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/handbook/docs/engine-profiles/unity"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Unity Profile</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/handbook/docs/documentation-surfaces"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Documentation Surfaces</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#sources-and-repository-shape" class="table-of-contents__link toc-highlight">Sources And Repository Shape</a></li><li><a href="#development-environment" class="table-of-contents__link toc-highlight">Development Environment</a></li><li><a href="#change-and-release-gates" class="table-of-contents__link toc-highlight">Change And Release Gates</a></li><li><a href="#skill-routing" class="table-of-contents__link toc-highlight">Skill Routing</a></li><li><a href="#local-plugin-install-and-refresh" class="table-of-contents__link toc-highlight">Local Plugin Install And Refresh</a></li><li><a href="#human-documentation-site" class="table-of-contents__link toc-highlight">Human Documentation Site</a></li><li><a href="#behavior-probes" class="table-of-contents__link toc-highlight">Behavior Probes</a></li><li><a href="#release-metadata" class="table-of-contents__link toc-highlight">Release Metadata</a></li><li><a href="#optional-tool-support" class="table-of-contents__link toc-highlight">Optional Tool Support</a></li><li><a href="#maps-schemas-and-studies" class="table-of-contents__link toc-highlight">Maps, Schemas, And Studies</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Start</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/using-stage-with-codex">Choose a Codex workflow</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/STAGE">Read the project map</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Method</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/method">Delivery method</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/SPEC">Safety Kernel</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">History</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/releases">Release records</a></li><li class="footer__item"><a class="footer__link-item" href="/handbook/docs/adr">Architecture decisions</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">STAGE Game Engineering. Human product authority remains non-delegable.</div></div></div></footer></div>
 </body>
 </html>
